@@ -83,6 +83,8 @@ client.on('message', message => {
        var dice = Math.floor((Math.random() * dice_number) + 1);
        message.reply('You rolled a ' + dice + '!');
        //console.log(message.guild.roles);
+   } else {
+       message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
    }
 });
 
