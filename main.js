@@ -74,6 +74,8 @@ client.on('message', message => {
             message.reply('Welcome, fellow Weeb~ Enjoy the server!');
         } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
             message.reply('You can not give youself the "staff" or "Moderator" roles. \n These roles are manually given by the current staff to those of their choosing.');
+        } else {
+            message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
         }
 
    } else if(command == 'roll'){
@@ -83,8 +85,6 @@ client.on('message', message => {
        var dice = Math.floor((Math.random() * dice_number) + 1);
        message.reply('You rolled a ' + dice + '!');
        //console.log(message.guild.roles);
-   } else {
-       message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
    }
 });
 

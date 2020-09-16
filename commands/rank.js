@@ -7,6 +7,6 @@ module.exports = {
         const Traveler = '708750286038106133';
         const Bot = '727682963415760906';
 
-        message.reply('Welcome, Traveler~ Enjoy the server!');
+        //message.reply('Welcome, Traveler~ Enjoy the server!');
     }
 }
