@@ -72,7 +72,7 @@ client.on('message', message => {
        .setDescription("Want me to join a server? Here's a link to do just that! \n https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot \n Afterwards, select the server you want to add me to. \n Walla, I'm in a new server! How awesome is that?")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('You too can add me to a server!                                             Created by jc smoothie')
+       .setFooter('You too can add me to a server!                                                                                Created by jc smoothie')
        message.author.send(invite);
    }
 });
