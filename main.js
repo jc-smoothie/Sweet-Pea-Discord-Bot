@@ -6,7 +6,7 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 
-const prefix = '!';
+const prefix = '+';
 
 const fs = require('fs');
 
@@ -30,18 +30,12 @@ client.on('message', message => {
    const args = message.content.slice(prefix.length).split(/ +/);
    const command = args.shift().toLowerCase();
 
-   const Projekt_Rossmoor = '637447111725809664';
-   const Eclipsys_Contact = '700620542419664968';
-   const Traveler = '708750286038106133';
-   const Weeb = '694999716047618199';
-   const Member = '691304349711859792';
-
    if(command == 'displaycommands'){
        //console.log(message.guild.roles);
        
        const embed = new MessageEmbed()
        .setTitle('Server Commands')
-       .setDescription('!commands - Access to a list of commands \n !rank [role] - Assign a role to yourself \n !roll [number] - Generate a random number \n !ping - Play ping pong with me!')
+       .setDescription('+commands - Access to a list of commands \n +rank [role] - Assign a role to yourself \n +roll [number] - Generate a random number \n +ping - Play ping pong with me! \n +sortthecourt - Play Sort The Court, a game \n where you rule a kindgom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
@@ -52,7 +46,7 @@ client.on('message', message => {
     
     const embed = new MessageEmbed()
     .setTitle('Server Commands')
-    .setDescription('!commands - Access to a list of commands \n !rank [role] - Assign a role to yourself \n !roll [number] - Generate a random number \n !ping - Play ping pong with me!')
+    .setDescription('+commands - Access to a list of commands \n +rank [role] - Assign a role to yourself \n +roll [number] - Generate a random number \n +ping - Play ping pong with me! \n +sortthecourt - Play Sort The Court, a game \n where you rule a kindgom!')
     .setColor('#66ccff')
     .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
     .setFooter('Your wish is my command!                                             Created by jc smoothie')
@@ -62,29 +56,24 @@ client.on('message', message => {
    } else if (command == 'lore'){
        client.commands.get('lore').execute(message, args);
    } else if (command == 'rank'){
-       const parts = message.content.split(' ');
-       if(parts[1] == 'traveler'){
-           message.member.roles.add(Traveler);
-           message.reply('Welcome, Traveler~ Enjoy the server!');
-        } else if(parts[1] == 'member'){
-            message.member.roles.add(Member);
-            message.reply('Welcome, new Member~ Enjoy the server!');
-        } else if(parts[1] == 'weeb'){
-            message.member.roles.add(Weeb);
-            message.reply('Welcome, fellow Weeb~ Enjoy the server!');
-        } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
-            message.reply('You can not give youself the "staff" or "Moderator" roles. \n These roles are manually given by the current staff to those of their choosing.');
-        } else {
-            message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
-        }
-
+       client.commands.get('rank').execute(message, args);
    } else if(command == 'roll'){
        const parts = message.content.split(' ');
        var dice_result = parts[1];
        var dice_number = parseInt(dice_result, 10);
        var dice = Math.floor((Math.random() * dice_number) + 1);
-       message.reply('You rolled a ' + dice + '!');
+       message.reply("You rolled a " + dice + "!");
        //console.log(message.guild.roles);
+   } else if(command == 'sortthecourt'){
+       client.commands.get('sortthecourt').execute(message, args);
+   } else if(command == 'invite'){
+       const invite = new MessageEmbed()
+       .setTitle('Invite me to a server!')
+       .setDescription("Want me to join a server? Here's a link to do just that! Afterwards, select the server you want to add me to. Walla, I'm in a new server! How awesome is that?")
+       .setColor('#66ccff')
+       .setThumbnail('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
+       .setFooter('You too can add me to a server!                                             Created by jc smoothie')
+       message.author.send(invite);
    }
 });
 
