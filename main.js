@@ -82,20 +82,6 @@ client.on('message', message => {
        //seperate character files/text to print in separate
        //files, which would use a character handler to execute
 
-       client.on('message', message => {
-           const args = message.content
-           const command = args.toLowerCase();
-           if(command == 'king'){
-               var ruler = 'king';
-           } else if(command == "queen"){
-               var ruler = 'queen';
-           } else{
-               return;
-           }
-
-           message.channel.send(ruler);
-       });
-
        //client.commands.get('sortthecourt').execute(message, args);
    }
 });
