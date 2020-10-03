@@ -86,7 +86,7 @@ client.on('message', message => {
                message.channel.send(ruler);
        });
 
-       client.commands.get('sortthecourt').execute(message, args);
+       //client.commands.get('sortthecourt').execute(message, args);
 
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
@@ -100,4 +100,4 @@ client.on('message', message => {
    }
 });
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.Gj0HGxPtbs-0Td04yOo2QSyfH1c');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.fwuG1EXlNNLPLQm-nZVcz5ADSPM');
