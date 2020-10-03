@@ -6,6 +6,8 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.lG5he13ZkECed6o1JzjPiVtMANs');
+
 const prefix = '+';
 
 const fs = require('fs');
@@ -64,6 +66,15 @@ client.on('message', message => {
        var dice = Math.floor((Math.random() * dice_number) + 1);
        message.reply("You rolled a " + dice + "!");
        //console.log(message.guild.roles);
+   } else if(command == 'invite'){
+       const invite = new MessageEmbed()
+       .setTitle('Invite me to a server!')
+       .setDescription("Want me to join a server? Here's a link to do just that! \n https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot \n Afterwards, select the server you want to add me to. \n Walla, I'm in a new server! How awesome is that?")
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('You too can add me to a server!                                                                                Created by jc smoothie')
+       message.author.send(invite);
+       message.channel.send("Invitation sent!");
    } else if(command == 'sortthecourt'){
        client.commands.get('sortthecourt').execute(message, args);
        
@@ -86,17 +97,5 @@ client.on('message', message => {
        });
 
        //client.commands.get('sortthecourt').execute(message, args);
-
-   } else if(command == 'invite'){
-       const invite = new MessageEmbed()
-       .setTitle('Invite me to a server!')
-       .setDescription("Want me to join a server? Here's a link to do just that! \n https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot \n Afterwards, select the server you want to add me to. \n Walla, I'm in a new server! How awesome is that?")
-       .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('You too can add me to a server!                                                                                Created by jc smoothie')
-       message.author.send(invite);
-       message.channel.send("Invitation sent!");
    }
 });
-
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.lG5he13ZkECed6o1JzjPiVtMANs');
