@@ -6,8 +6,6 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.bekIHgPPpC62R8jlQWYjPzNw7T8');
-
 const prefix = '+';
 
 const fs = require('fs');
@@ -108,3 +106,5 @@ client.on('message', message => {
        message.channel.send("testing, 1 2 3, testing")
    }
 });
+
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.n7cOZwrRhBkNrWdkb4-he4mydWA');
