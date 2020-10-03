@@ -34,7 +34,7 @@ client.on('message', message => {
         message.channel.send("My name is Sewwt Pea, and I am a discord bot coded in JavaScript by you, jc smoothie!");
         setTimeout(function(){
             message.channel.send("I can help members in the server self-assign roles, and role a dice.")
-        }, 5000);
+        }, 3000);
         //message.channel.send("I can help members in the server self-assign roles, and role a dice.");
     }
 });
