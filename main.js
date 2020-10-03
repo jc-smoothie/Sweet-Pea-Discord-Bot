@@ -6,7 +6,7 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.nRbeKx7sL3-bLpTi7Q8FRtrdKHQ');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.DM9AgNaBPk22oOGqztnuprEBFZY');
 
 const prefix = '+';
 
@@ -24,6 +24,19 @@ for(const file of commandFiles){
 client.once('ready', () => {
    console.log('Sweet Pea is online!');
    client.user.setActivity('anime!', {type: "WATCHING"}).catch(console.error);
+});
+
+client.on('message', message => {
+    const reply = message.content
+    if(reply == 'cool'){
+        message.channel.send("nice");
+    } else if(reply == 'introduce yourself'){
+        message.channel.send("My name is Sewwt Pea, and I am a discord bot coded in JavaScript by you, jc smoothie!");
+        setTimeout(function(){
+            message.channel.send("I can help members in the server self-assign roles, and role a dice.")
+        }, 5000);
+        //message.channel.send("I can help members in the server self-assign roles, and role a dice.");
+    }
 });
 
 client.on('message', message => {
@@ -63,7 +76,7 @@ client.on('message', message => {
        const parts = message.content.split(' ');
        var dice_result = parts[1];
        var dice_number = parseInt(dice_result, 10);
-       var dice = Math.floor((Math.random() * dice_number) + 1);
+       var dice = Math.floor((Math.random() * dice_number));
        message.reply("You rolled a " + dice + "!");
        //console.log(message.guild.roles);
    } else if(command == 'invite'){
@@ -83,5 +96,7 @@ client.on('message', message => {
        //files, which would use a character handler to execute
 
        //client.commands.get('sortthecourt').execute(message, args);
+   } else if(command == 'hello'){
+       message.channel.send("testing, 1 2 3, testing")
    }
 });
