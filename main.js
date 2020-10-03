@@ -66,6 +66,28 @@ client.on('message', message => {
        //console.log(message.guild.roles);
    } else if(command == 'sortthecourt'){
        client.commands.get('sortthecourt').execute(message, args);
+       
+       //have code to check for user input here, and have
+       //seperate character files/text to print in separate
+       //files, which would use a character handler to execute
+
+       client.on('message', message => {
+               const args = message.content
+               const command = args.toLowerCase();
+               
+               if(command == 'king'){
+                   var ruler = 'king';
+               } else if(command == "queen"){
+                   var ruler = 'queen';
+               } else{
+                   return;
+               }
+
+               message.channel.send(ruler);
+       });
+
+       client.commands.get('sortthecourt').execute(message, args);
+
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
@@ -78,4 +100,4 @@ client.on('message', message => {
    }
 });
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.739RK0VZrxsrjS3MbtzGAV9Fyp4');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.KGxknOZBeSUHOe6LMTcb9gNPsso');
