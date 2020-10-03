@@ -81,7 +81,7 @@ client.on('message', message => {
            } else{
                return;
            }
-           
+
            message.channel.send(ruler);
        });
 
