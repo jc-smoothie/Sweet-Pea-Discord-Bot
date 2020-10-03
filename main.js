@@ -6,7 +6,7 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.TTHO3QTi6lfcQKwUHcFwUz099O8');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ._FauyWS2mjQkFsLWYkTVWsINYjU');
 
 const prefix = '+';
 
