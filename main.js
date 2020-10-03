@@ -31,19 +31,19 @@ client.on('message', message => {
     if(reply == 'cool'){
         setTimeout(function(){
             message.channel.send("nice");
-        }, 1000);
+        }, 500);
     } else if(reply == 'introduce yourself'){
         setTimeout(function(){
             message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by you, jc smoothie!");
-        }, 1000);
+        }, 500);
         setTimeout(function(){
             message.channel.send("I can help members in the server self-assign roles, and role a dice.");
-        }, 1000);
+        }, 500);
         //message.channel.send("I can help members in the server self-assign roles, and role a dice.");
     } else if(reply == "okay, that's all"){
         setTimeout(function(){
             message.channel.send("Sweet, bye!~");
-        }, 1000);
+        }, 500);
     }
 });
 
