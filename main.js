@@ -6,7 +6,7 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const client = new Client();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.TETt7ZPOgUuXrkGBa7lkxInV89k');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.bekIHgPPpC62R8jlQWYjPzNw7T8');
 
 const prefix = '+';
 
@@ -40,9 +40,7 @@ client.on('message', message => {
             message.channel.send("I can help members in the server self-assign roles, and role a dice.");
         }, 500);
         //message.channel.send("I can help members in the server self-assign roles, and role a dice.");
-    }
-    
-    if(reply == "okay, that's all"){
+    } else if(reply == "okay, that's all"){
         setTimeout(function(){
             message.channel.send("Sweet, bye!~");
         }, 500);
