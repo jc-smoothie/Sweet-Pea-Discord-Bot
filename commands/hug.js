@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: 'hug',
     description: "Default command.",
-    usage: "%hug <user>",
+    usage: "+hug <user>",
     execute(message, args){
  
         let urls = [
@@ -29,11 +29,12 @@ module.exports = {
         else {
                 console.log('should work.')
                 const image = urls[Math.floor(Math.random() * urls.length/10)]
-                const personTagged = message.mentions.members.first();
+                const parts = message.content.slice(prefix.length).split(' ');
+                var personTagged = parts[2];
  
                 let embed = new Discord.MessageEmbed()
                 .setTitle("Hugs")
-                .setDescription(message.author.username + ' hugs ' + personTagged.displayname)
+                .setDescription(message.author.username + ' hugs ' + personTagged)
                 .setImage(image)
                 .setColor("RANDOM")
                 message.channel.send(embed)
