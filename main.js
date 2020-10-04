@@ -101,21 +101,17 @@ client.on('message', message => {
 
            const hugging = message.content.split(' ');
            var personTagged = hugging[1];
-
-           if (!args[0]){
-               message.channel.send("Type in who you want to hug!");
-           } else{
-               const image = urls[Math.floor(Math.random() * urls.length/10)]
-               //var dice_number = parseInt(dice_result, 10);
-               //var dice = Math.floor((Math.random() * dice_number));
-               
-               const hugEmbed = new MessageEmbed()
-               .setTitle("Hugs")
-               .setDescription(message.author.username + ' hugs ' + personTagged)
-               .setImage(image)
-               .setColor("RANDOM")
-               message.channel.send(hugEmbed);
-           } return;
+           
+           //const image = urls[Math.floor(Math.random() * urls.length/10)]
+           //var dice_number = parseInt(dice_result, 10);
+           //var dice = Math.floor((Math.random() * dice_number));
+           
+           const hugEmbed = new MessageEmbed()
+           .setTitle("Hugs")
+           .setDescription(message.author.username + ' hugs ' + personTagged)
+           .setImage(image)
+           .setColor("RANDOM")
+           message.channel.send(hugEmbed);
        });
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
