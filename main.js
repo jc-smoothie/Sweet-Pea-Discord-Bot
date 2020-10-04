@@ -102,7 +102,7 @@ client.on('message', message => {
            const hugging = message.content.split(' ');
            var personTagged = hugging[1];
            
-           //const image = urls[Math.floor(Math.random() * urls.length/10)]
+           const image = urls[Math.floor(Math.random() * urls.length/10)]
            //var dice_number = parseInt(dice_result, 10);
            //var dice = Math.floor((Math.random() * dice_number));
            
