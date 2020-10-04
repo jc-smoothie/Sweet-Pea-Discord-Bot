@@ -113,6 +113,8 @@ client.on('message', message => {
            .setColor("RANDOM")
            message.channel.send(hugEmbed);
        });
+   } else if(command == 'hug2'){
+       client.commands.get('rank').execute(message, args);
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
