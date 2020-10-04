@@ -33,7 +33,7 @@ module.exports = {
  
                 let embed = new Discord.MessageEmbed()
                 .setTitle("Hugs")
-                .setDescription(message.author.username + ' hugs ' + personTagged.displayname)
+                .setDescription(message.author.username + ' hugs ' + personTagged)
                 .setImage(image)
                 .setColor("RANDOM")
                 message.channel.send(embed)
