@@ -28,13 +28,13 @@ module.exports = {
         } 
         else {
                 console.log('should work.')
-                const image = urls[Math.floor(Math.random() * urls.length/10)]
+                const chosenImage = Math.floor((Math.random() * 10));
                 const personTagged = message.mentions.members.first();
  
                 let embed = new Discord.MessageEmbed()
                 .setTitle("Hugs")
                 .setDescription(message.author.username + ' hugs ' + personTagged.displayName)
-                .setImage(image)
+                .setImage(chosenImage)
                 .setColor("RANDOM")
                 message.channel.send(embed)
  
