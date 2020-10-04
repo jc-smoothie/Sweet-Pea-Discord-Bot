@@ -34,13 +34,14 @@ module.exports = {
             } else if(image == 10){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif';
             }
-                const personTagged = message.mentions.members.first();
- 
-                let embed = new Discord.MessageEmbed()
-                .setTitle("Hugs")
-                .setDescription(message.author.username + ' hugs ' + personTagged.displayName)
-                .setImage(chosenImage)
-                .setColor("RANDOM")
-                message.channel.send(embed)
+            const personTagged = message.mentions.members.first();
+            
+            let embed = new Discord.MessageEmbed()
+            .setTitle("Hugs")
+            .setDescription(message.author.username + ' hugs ' + personTagged.displayName)
+            .setImage(chosenImage)
+            .setColor("RANDOM")
+            message.channel.send(embed)
+        }
     }
-}}
+}
