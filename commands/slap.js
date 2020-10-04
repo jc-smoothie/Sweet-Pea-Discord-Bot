@@ -12,7 +12,7 @@ module.exports = {
         } 
         else {
             console.log('should work.')
-            const image = Math.floor((Math.random() * 10) + 1);
+            const image = Math.floor((Math.random() * 11) + 1);
             if(image == 1){
                 var chosenImage = 'https://media1.tenor.com/images/d14969a21a96ec46f61770c50fccf24f/tenor.gif?itemid=5509136';
             } else if(image == 2){
@@ -33,6 +33,8 @@ module.exports = {
                 var chosenImage = 'https://i.pinimg.com/originals/1c/8f/0f/1c8f0f43c75c11bf504b25340ddd912d.gif';
             } else if(image == 10){
                 var chosenImage = 'https://thumbs.gfycat.com/BleakCommonFrogmouth-size_restricted.gif';
+            } else if(image == 11){
+                var chosenImage = 'https://steamuserimages-a.akamaihd.net/ugc/442858231150348236/D74979E09E92A3491B34666FB3AFE5D98FE98EE9/';
             }
                 const personTagged = message.mentions.members.first();
  
