@@ -99,27 +99,19 @@ client.on('message', message => {
                'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif'
            ];
            
-           const parts = message.content.split(' ');
-           var reciever = parts[1];
+           const hugging = message.content.split(' ');
+           var personTagged = hugging[1];
            //var dice_number = parseInt(dice_result, 10);
            //var dice = Math.floor((Math.random() * dice_number));
-
-           if (!parts[1]){
-               message.channel.send('Missing Arguments!')
-               console.log('Missing args')
-           } else{
-               console.log('should work.')
-               const image = urls[Math.floor(Math.random() * urls.length/10)]
-               const parts = message.content.slice(prefix.length).split(' ');
-               var personTagged = parts[1];
-               
-               const embed = new MessageEmbed()
-               .setTitle("Hugs")
-               .setDescription(message.author.username + ' hugs ' + personTagged)
-               .setImage(image)
-               .setColor("RANDOM")
-               message.channel.send(embed);
-           }
+           
+           const image = urls[Math.floor(Math.random() * urls.length/10)]
+           
+           const embed = new MessageEmbed()
+           .setTitle("Hugs")
+           .setDescription(message.author.username + ' hugs ' + personTagged)
+           .setImage(image)
+           .setColor("RANDOM")
+           message.channel.send(embed);
        });
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
