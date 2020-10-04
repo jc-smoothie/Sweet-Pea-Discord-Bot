@@ -100,7 +100,12 @@ client.on('message', message => {
                'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif'
            ];
            
-           if (!args[0]){
+           const parts = message.content.split(' ');
+           var reciever = parts[1];
+           //var dice_number = parseInt(dice_result, 10);
+           //var dice = Math.floor((Math.random() * dice_number));
+
+           if (!parts[1]){
                message.channel.send('Missing Arguments!')
                console.log('Missing args')
            } else{
