@@ -109,4 +109,4 @@ client.on('message', message => {
    }
 });
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.SDjFQUWTqN6TZdJWAIQYtzCcYZ4');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.FEB0iSPK8vxHywxOxZJRdLMLaa4');
