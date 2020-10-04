@@ -63,15 +63,14 @@ client.on('message', message => {
        //message.author.send(embed);
        message.channel.send(embed);
    } else if(command == 'commands'){
-    //console.log(message.guild.roles);
-    
-    const embed = new MessageEmbed()
-    .setTitle('Server Commands')
-    .setDescription('+commands - Access to a list of commands \n +rank [role] - Assign a role to yourself \n +roll [number] - Generate a random number \n +ping - Play ping pong with me! \n +sortthecourt - Play Sort The Court, a game \n where you rule a kindgom!')
-    .setColor('#66ccff')
-    .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-    .setFooter('Your wish is my command!                                             Created by jc smoothie')
-    message.author.send(embed);
+       //console.log(message.guild.roles);
+       const embed = new MessageEmbed()
+       .setTitle('Server Commands')
+       .setDescription('+commands - Access to a list of commands \n +rank [role] - Assign a role to yourself \n +roll [number] - Generate a random number \n +ping - Play ping pong with me! \n +sortthecourt - Play Sort The Court, a game \n where you rule a kindgom!')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                             Created by jc smoothie')
+       message.author.send(embed);
    } else if (command == 'ping'){
        client.commands.get('ping').execute(message, args);
    } else if (command == 'lore'){
@@ -114,12 +113,12 @@ client.on('message', message => {
                const parts = message.content.slice(prefix.length).split(' ');
                var personTagged = parts[2];
                
-               let embed = new Discord.MessageEmbed()
+               const embed = new MessageEmbed()
                .setTitle("Hugs")
                .setDescription(message.author.username + ' hugs ' + personTagged)
                .setImage(image)
                .setColor("RANDOM")
-               message.channel.send(embed)
+               message.channel.send(embed);
            }
        });
    } else if(command == 'invite'){
