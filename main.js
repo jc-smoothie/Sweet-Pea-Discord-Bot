@@ -21,7 +21,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
    console.log('Sweet Pea is online!');
-   client.user.setActivity('anime!', {type: "WATCHING"}).catch(console.error);
+   client.user.setActivity('anime! | +displaycommands', {type: "WATCHING"}).catch(console.error);
 });
 
 client.on('message', message => {
