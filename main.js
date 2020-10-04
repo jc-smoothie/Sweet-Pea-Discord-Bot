@@ -106,12 +106,12 @@ client.on('message', message => {
            
            const image = urls[Math.floor(Math.random() * urls.length/10)]
            
-           const embed = new MessageEmbed()
+           const hugEmbed = new MessageEmbed()
            .setTitle("Hugs")
            .setDescription(message.author.username + ' hugs ' + personTagged)
            .setImage(image)
            .setColor("RANDOM")
-           message.channel.send(embed);
+           message.channel.send(hugEmbed);
        });
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
