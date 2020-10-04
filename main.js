@@ -98,20 +98,24 @@ client.on('message', message => {
                'https://cdn.discordapp.com/attachments/730136973372555386/733655994063650906/tenor.gif',
                'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif'
            ];
-           
+
            const hugging = message.content.split(' ');
            var personTagged = hugging[1];
-           //var dice_number = parseInt(dice_result, 10);
-           //var dice = Math.floor((Math.random() * dice_number));
-           
-           const image = urls[Math.floor(Math.random() * urls.length/10)]
-           
-           const hugEmbed = new MessageEmbed()
-           .setTitle("Hugs")
-           .setDescription(message.author.username + ' hugs ' + personTagged)
-           .setImage(image)
-           .setColor("RANDOM")
-           message.channel.send(hugEmbed);
+
+           if (!args[0]){
+               message.channel.send("Type in who you want to hug!");
+           } else{
+               const image = urls[Math.floor(Math.random() * urls.length/10)]
+               //var dice_number = parseInt(dice_result, 10);
+               //var dice = Math.floor((Math.random() * dice_number));
+               
+               const hugEmbed = new MessageEmbed()
+               .setTitle("Hugs")
+               .setDescription(message.author.username + ' hugs ' + personTagged)
+               .setImage(image)
+               .setColor("RANDOM")
+               message.channel.send(hugEmbed);
+           } return;
        });
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
