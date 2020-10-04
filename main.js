@@ -111,7 +111,7 @@ client.on('message', message => {
                console.log('should work.')
                const image = urls[Math.floor(Math.random() * urls.length/10)]
                const parts = message.content.slice(prefix.length).split(' ');
-               var personTagged = parts[2];
+               var personTagged = parts[1];
                
                const embed = new MessageEmbed()
                .setTitle("Hugs")
