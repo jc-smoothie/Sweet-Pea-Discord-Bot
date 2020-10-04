@@ -85,6 +85,8 @@ client.on('message', message => {
        var dice = Math.floor((Math.random() * dice_number));
        message.reply("You rolled a " + dice + "!");
        //console.log(message.guild.roles);
+   } else if(command == 'hug'){
+       client.commands.get('hug').execute(message, args);
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
