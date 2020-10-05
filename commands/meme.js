@@ -10,7 +10,7 @@ module.exports = {
         function image(message){
 
             var options = {
-                url: "https://www.google.com/search?q=memes&client=opera&hs=7RV&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj0lfbh253sAhUZpnIEHZ4xC-MQ_AUoAXoECB4QAw&biw=1400&bih=772" + "meme",
+                url: "https://www.google.com/search?q=memes&client=opera&hs=7RV&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj0lfbh253sAhUZpnIEHZ4xC-MQ_AUoAXoECB4QAw&biw=1400&bih=772",
                 method: "GET",
                 headers: {
                     "Accept": "text/html",
