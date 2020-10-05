@@ -88,6 +88,8 @@ client.on('message', message => {
        client.commands.get('hug').execute(message, args);
    } else if(command == 'slap'){
        client.commands.get('slap').execute(message, args);
+   } else if(command == 'dog'){
+       client.commands.get('dog').execute(message, args);
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
