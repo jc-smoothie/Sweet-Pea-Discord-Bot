@@ -56,7 +56,7 @@ client.on('message', message => {
        
        const embed = new MessageEmbed()
        .setTitle('Server Commands')
-       .setDescription('+commands - Access to a list of commands \n +rank [role] - Assign a role to yourself \n +roll [number] - Generate a random number \n +ping - Play ping pong with me! \n +sortthecourt - Play Sort The Court, a game \n where you rule a kindgom!')
+       .setDescription('+displaycommands - Receive a list of commands in a text channel \n +commands - Receive a list of commands via dm \n +rank [role] - Assign a role to yourself \n +roll [number] - Generate a random number \n +ping - Play ping pong with me! \n +hug [person] - Hug someone in the server! \n +dog - Receive an image of a dog! \n +sortthecourt - (Unavailable) )Play Sort The Court, a game \n where you rule a kindgom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
