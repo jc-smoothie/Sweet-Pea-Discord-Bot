@@ -98,7 +98,7 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('You too can add me to a server!                                                                                Created by jc smoothie')
        message.author.send(invite);
-       message.channel.send("Invitation sent!");
+       message.channel.send("Invitation sentthrough dms!");
    } else if(command == 'sortthecourt'){
        client.commands.get('sortthecourt').execute(message, args);
        
