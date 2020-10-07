@@ -44,7 +44,7 @@ module.exports = {
             message.channel.send(embed)
 
             if(personTagged.displayName == "Sweet Pea"){
-                message.reply("Aww, thanks!");
+                message.reply("❤️ Aww, thanks!");
             }
         }
     }
