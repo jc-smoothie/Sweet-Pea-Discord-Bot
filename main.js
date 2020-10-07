@@ -61,7 +61,7 @@ client.on('message', async message => {
         let messageEmbed = await message.channel.send(reactionsEmbed)
         //messageEmbed.react('✅')
         //messageEmbed.react('763401692129132556')
-        messageEmbed.react('763400844489654293')
+        messageEmbed.react('763400844489654293');
     }
 });
 
