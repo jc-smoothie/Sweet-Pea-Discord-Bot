@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: 'hug',
     description: "Default command.",
-    usage: "%hug <user>",
+    usage: "!hug <user>",
     execute(message, args){
         if (!args[0]) {
 			message.channel.send('Missing Arguments!')
