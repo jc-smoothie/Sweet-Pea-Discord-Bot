@@ -141,8 +141,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name ==='✅'){
-            message.member.roles.add(Test);
-            message.reply('Thanks for testing the react roles! You should now have a new role!');
+            reaction.member.roles.add(Test);
+            reaction.reply('Thanks for testing the react roles! You should now have a new role!');
             //await reaction.message.guild.member.cache.get(user.id).roles.add()
         }
     }
