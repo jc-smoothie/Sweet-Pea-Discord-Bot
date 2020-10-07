@@ -120,7 +120,7 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if(command == 'languageReactions'){
+    if(command == 'languagereactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Reaction Roles!')
         .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
