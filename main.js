@@ -60,7 +60,7 @@ client.on('message', async message => {
         .setFooter('Your wish is my command!                                             Created by jc smoothie')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('✅')
-        messageEmbed.react('763400844489654293')
+        messageEmbed.react('763401692129132556')
     }
 });
 
