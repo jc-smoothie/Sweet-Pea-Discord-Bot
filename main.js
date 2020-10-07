@@ -45,25 +45,6 @@ client.on('message', message => {
     }
 });
 
-client.on('message', async message => {
-    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
-    
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const command = args.shift().toLowerCase();
-    
-    if(command == 'reactions'){
-        let reactionsEmbed = new MessageEmbed()
-        .setTitle('Reactions!')
-        .setDescription('Testing reactions! \n Leave a reaction, and see if I reply with what \n reaction you chose!')
-        .setColor('#66ccff')
-        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-        .setFooter('Your wish is my command!                                             Created by jc smoothie')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('✅')
-    }
-});
-
-
 client.on('message', message => {
    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
 
@@ -130,5 +111,37 @@ client.on('message', message => {
        message.channel.send("testing, 1 2 3, testing")
    }
 });
+
+client.on('message', async message => {
+    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
+    
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if(command == 'reactions'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Reactions!')
+        .setDescription('Testing reactions! \n Leave a reaction, and see if I reply with what \n reaction you chose!')
+        .setColor('#66ccff')
+        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+        .setFooter('Your wish is my command!                                             Created by jc smoothie')
+        let messageEmbed = await message.channel.send(reactionsEmbed)
+        messageEmbed.react('✅')
+    }
+});
+
+bot.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "761203244395003934"){
+        if(reaction.emoji.name ==='✅'){
+
+        }
+    }
+})
 
 client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.ITEdse-RA6e72b1VA5-JHTbx8kQ');
