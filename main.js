@@ -54,23 +54,31 @@ client.on('message', message => {
    if(command == 'displaycommands'){
        //console.log(message.guild.roles);
        
-       const embed = new MessageEmbed()
+       const displayCommandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
        .setDescription('+displaycommands - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +dog - Receive an image of a dog! \n \n +sortthecourt - (Unavailable) Play Sort The Court, \n a game where you rule a kindgom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
        //message.author.send(embed);
-       message.channel.send(embed);
+       message.channel.send(displayCommandsEmbed);
    } else if(command == 'commands'){
        //console.log(message.guild.roles);
-       const embed = new MessageEmbed()
+       const commandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
        .setDescription('+displaycommands - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +dog - Receive an image of a dog! \n \n +sortthecourt - (Unavailable) Play Sort The Court, \n a game where you rule a kindgom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
-       message.author.send(embed);
+       message.author.send(commandsEmbed);
+   } else if(command == 'reactions'){
+       const reactionsEmbed = new MessageEmbed()
+       .setTitle('Reactions!')
+       .setDescription('Testing reactions! \n Leave a reaction, and see if I reply with what reaction you chose!')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                             Created by jc smoothie')
+       message.author.send(reactionsEmbed);
    } else if (command == 'ping'){
        client.commands.get('ping').execute(message, args);
    } else if (command == 'lore'){
