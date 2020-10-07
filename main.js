@@ -59,9 +59,7 @@ client.on('message', async message => {
         .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
         .setFooter('Your wish is my command!                                             Created by jc smoothie')
         let messageEmbed = await message.channel.send(reactionsEmbed)
-        //messageEmbed.react('✅')
-        //messageEmbed.react('763401692129132556')
-        messageEmbed.react('763400844489654293');
+        messageEmbed.react('✅')
     }
 });
 
