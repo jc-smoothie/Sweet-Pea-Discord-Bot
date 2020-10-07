@@ -138,7 +138,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(!reaction.message.guild) return;
 
     if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name ==='✅'){
+        if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
             reaction.message.reply("✅ You now have the role!")
             //763519137821098045
@@ -154,7 +154,40 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(!reaction.message.guild) return;
 
     if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name ==='✅'){
+        if(reaction.emoji.name === '✅'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
+            reaction.message.reply("❌ Your role has been removed.")
+            //763519159753244702
+        }
+    }
+})
+
+//American Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === 763520496460759050){
+            reaction.message.guild.members.cache.get(user.id).roles.add(Test)
+            reaction.message.reply("✅ You now have the role!")
+            //763519137821098045
+        }
+    }
+})
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === 763520496460759050){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
             reaction.message.reply("❌ Your role has been removed.")
             //763519159753244702
