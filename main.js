@@ -130,7 +130,7 @@ client.on('message', async message => {
     }
 });
 
-bot.on("messageReactionAdd", async (reaction, user) => {
+client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
     if(reaction.partial) await reaction.fetch();
 
@@ -139,7 +139,7 @@ bot.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "761203244395003934"){
         if(reaction.emoji.name ==='✅'){
-
+            await reaction.message.guild.member.cache.get(user.id).roles.add("763441410032140318")
         }
     }
 })
