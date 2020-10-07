@@ -127,7 +127,7 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         //messageEmbed.react('✅')
-        messageEmbed.react(763520496460759050)
+        messageEmbed.react('763520496460759050')
     }
 });
 
