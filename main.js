@@ -120,10 +120,10 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if(command == 'reactions'){
+    if(command == 'languageReactions'){
         let reactionsEmbed = new MessageEmbed()
-        .setTitle('Reactions!')
-        .setDescription('Testing reactions! \n Leave a reaction, and see if I reply with what \n reaction you chose!')
+        .setTitle('Reaction Roles!')
+        .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('✅')
@@ -160,5 +160,5 @@ client.on("messageReactionRemove", async (reaction, user) => {
     }
 })
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.ITEdse-RA6e72b1VA5-JHTbx8kQ');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.5JOSXSCeTSTMkixcYmEGNGNnYV0');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
