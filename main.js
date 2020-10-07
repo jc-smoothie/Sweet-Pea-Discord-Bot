@@ -109,8 +109,10 @@ client.on('message', message => {
        //files, which would use a character handler to execute
 
        //client.commands.get('sortthecourt').execute(message, args);
-   } else if(command == 'hello'){
-       message.channel.send("testing, 1 2 3, testing")
+   } else if(command == 'testing'){
+       message.channel.send("testing, 1 2 3, testing").then(sentMessage => {
+           sentMessage.delete(5000);
+       });
    }
 });
 
