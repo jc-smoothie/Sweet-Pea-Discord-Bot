@@ -54,7 +54,7 @@ client.on('message', async message => {
     if(command == 'reactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Reactions!')
-        .setDescription('Testing reactions! \n Leave a reaction, and see if I reply \n with what reaction you chose!')
+        .setDescription('Testing reactions! \n Leave a reaction, and see if I reply with what \n reaction you chose!')
         .setColor('#66ccff')
         .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
         .setFooter('Your wish is my command!                                             Created by jc smoothie')
