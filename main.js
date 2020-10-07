@@ -124,8 +124,9 @@ client.on('message', async message => {
     
     if(command == 'languagereactions'){
         let reactionsEmbed = new MessageEmbed()
-        .setTitle('Reaction Roles!')
-        .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
+        .setTitle('Want to see other people from your region?')
+        //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
+        .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it.")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         //messageEmbed.react('✅')
