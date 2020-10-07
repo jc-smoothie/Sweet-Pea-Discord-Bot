@@ -142,7 +142,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name ==='✅'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            //channel.reply('Thanks for testing the react roles! You should now have a new role!');
+            reaction.message.reply("You now have the role!")
         }
     }
 })
@@ -157,6 +157,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name ==='✅'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
+            reaction.message.reply("Your role has been removed.")
         }
     }
 })
