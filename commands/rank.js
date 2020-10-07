@@ -15,15 +15,15 @@ module.exports = {
         const parts = message.content.split(' ');
         if(parts[1] == 'traveler'){
             message.member.roles.add(Traveler);
-            message.reply('Welcome, Traveler~ Enjoy the server!');
+            message.reply('Welcome, Traveler~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'member'){
             message.member.roles.add(Member);
-            message.reply('Welcome, new Member~ Enjoy the server!');
+            message.reply('Welcome, new Member~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'weeb'){
             message.member.roles.add(Weeb);
-            message.reply('Welcome, fellow Weeb~ Enjoy the server!');
+            message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
-            message.reply('You can not give youself the "staff" or "Moderator" roles. \n These roles are manually given by the current staff to those of their choosing.');
+            message.reply('You can not give youself the "staff" or "Moderator" roles. \n These roles are manually given by the current staff to those who are worthy.');
         } else {
             message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
         }
