@@ -12,6 +12,8 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
+const Test = '763441410032140318';
+
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
    const command = require(`./commands/${file}`);
@@ -139,7 +141,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name ==='✅'){
-            await reaction.message.guild.member.cache.get(user.id).roles.add("763441410032140318")
+            message.member.roles.add(Test);
+            message.reply('Thanks for testing the react roles! You should now have a new role!');
+            //await reaction.message.guild.member.cache.get(user.id).roles.add()
         }
     }
 })
