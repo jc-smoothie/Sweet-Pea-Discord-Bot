@@ -43,7 +43,7 @@ module.exports = {
             .setColor("RANDOM")
             message.channel.send(embed)
 
-            if(personTagged == "Sweet Pea"){
+            if(personTagged.displayName == "Sweet Pea"){
                 message.channel.reply("Aww, thanks!");
             }
         }
