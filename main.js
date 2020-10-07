@@ -45,6 +45,25 @@ client.on('message', message => {
     }
 });
 
+client.on('message', async message => {
+    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
+    
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if(command == 'reactions'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Reactions!')
+        .setDescription('Testing reactions! \n Leave a reaction, and see if I reply \n with what reaction you chose!')
+        .setColor('#66ccff')
+        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+        .setFooter('Your wish is my command!                                             Created by jc smoothie')
+        let messageEmbed = await message.channel.send(reactionsEmbed)
+        messageEmbed.react('✅');
+    }
+});
+
+
 client.on('message', message => {
    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
 
@@ -71,14 +90,6 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
        message.author.send(commandsEmbed);
-   } else if(command == 'reactions'){
-       const reactionsEmbed = new MessageEmbed()
-       .setTitle('Reactions!')
-       .setDescription('Testing reactions! \n Leave a reaction, and see if I reply with what reaction you chose!')
-       .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Your wish is my command!                                             Created by jc smoothie')
-       message.author.send(reactionsEmbed);
    } else if (command == 'ping'){
        client.commands.get('ping').execute(message, args);
    } else if (command == 'lore'){
