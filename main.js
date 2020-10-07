@@ -117,10 +117,10 @@ client.on('message', message => {
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     
-    const args2 = message.content.slice(prefix.length).split(/ +/);
-    const command2 = args2.shift().toLowerCase();
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
     
-    if(command2 == 'languageReactions'){
+    if(command == 'languageReactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Reaction Roles!')
         .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
