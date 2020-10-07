@@ -177,9 +177,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            reaction.message.reply("✅ You now have the role!").then(sentMessage => {
-                sentMessage.delete(5000);
-            });
+            reaction.message.reply("✅ You now have the role!")//.then(sentMessage => {
+                //sentMessage.delete(5000);
+            //});
         }
     }
 })
