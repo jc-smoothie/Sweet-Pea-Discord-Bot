@@ -34,7 +34,7 @@ client.on('message', message => {
         }, 500);
     } else if(reply == 'introduce yourself'){
         setTimeout(function(){
-            message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by you, jc smoothie!");
+            message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by jc smoothie!");
         }, 500);
         setTimeout(function(){
             message.channel.send("I can help members in the server self-assign roles, and role a dice.");
