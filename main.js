@@ -161,5 +161,5 @@ client.on("messageReactionRemove", async (reaction, user) => {
     }
 })
 
-//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.ITEdse-RA6e72b1VA5-JHTbx8kQ');
-client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.ITEdse-RA6e72b1VA5-JHTbx8kQ');
+//client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
