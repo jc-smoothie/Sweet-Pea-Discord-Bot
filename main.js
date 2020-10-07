@@ -110,9 +110,9 @@ client.on('message', message => {
 
        //client.commands.get('sortthecourt').execute(message, args);
    } else if(command == 'testing'){
-       message.channel.send("testing, 1 2 3, testing").then(sentMessage => {
-           sentMessage.delete(5000);
-       });
+       message.channel.send("testing, 1 2 3, testing")//.then(sentMessage => {
+           //sentMessage.delete(5000);
+       //});
    }
 });
 
@@ -144,9 +144,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            reaction.message.reply("✅ You now have the role!")//.then(sentMessage => {
-                //sentMessage.delete(5000);
-            //});
+            reaction.message.reply("✅ You now have the role!")
         }
     }
 })
@@ -161,9 +159,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
-            reaction.message.reply("❌ Your role has been removed.")//.then(sentMessage => {
-                //sentMessage.delete(5000);
-            //});
+            reaction.message.reply("❌ Your role has been removed.")
         }
     }
 })
@@ -179,9 +175,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            reaction.message.reply("✅ You now have the role!")//.then(sentMessage => {
-                //sentMessage.delete(5000);
-            //});
+            reaction.message.reply("✅ You now have the role!")
         }
     }
 })
@@ -196,9 +190,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
-            reaction.message.reply("❌ Your role has been removed.")//.then(sentMessage => {
-                //sentMessage.delete(5000);
-            //});
+            reaction.message.reply("❌ Your role has been removed.")
         }
     }
 })
