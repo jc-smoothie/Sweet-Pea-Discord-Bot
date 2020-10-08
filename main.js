@@ -699,5 +699,5 @@ client.on("messageReactionRemove", async (reaction, user) => {
     }
 });
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.PAqRilpN0956yGxLgxy5xpr-qqY');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.LnkH6DAvglChhLusgg79QJj69SQ');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
