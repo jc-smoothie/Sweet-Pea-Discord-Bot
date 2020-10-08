@@ -14,7 +14,6 @@ const fs = require('fs');
 client.commands = new Discord.Collection();
 
 //Variables
-const Test = '763441410032140318';
 const EN = '763733022150361098';
 const FR = '763733139222560789';
 const ESP = '763733454286094337';
@@ -24,6 +23,7 @@ const PTBR = '763733564361408534';
 const HG = '763733609793716294';
 const NHG = '763733642127736852';
 const ZW = '763733672439971840';
+const AM = '763850145984282654';
 
 //function makeCounter(){
     //let count = 0;
@@ -246,10 +246,10 @@ client.on('message', async message => {
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
         //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
-        .setDescription("(Work in progress) If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🇺🇸 -> US")
+        .setDescription("(Work in progress) If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AM")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('🇺🇸')
+        messageEmbed.react('🌎')
     } else if(command == 'amongus'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
@@ -709,6 +709,41 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇨🇳'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(ZW)
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Americas Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🌎'){
+            reaction.message.guild.members.cache.get(user.id).roles.add(AM)
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🌎'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove(AM)
             reaction.message.reply("❌ Your role has been removed.").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
