@@ -151,8 +151,7 @@ client.on('message', message => {
        .setThumbnail('https://www.accuweather.com/images/weathericons/01.svg')
        .setColor("RANDOM")
        message.channel.send(embed)
-   }
-   else if(command == 'invite'){
+   } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
        .setDescription("Want me to join a server? Here's a link to do just that! \n https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot \n Afterwards, select the server you want to add me to. \n Walla, I'm in a new server! How awesome is that?")
@@ -241,6 +240,14 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🇺🇸')
+    } else if(command == 'amongus'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Among Us!')
+        //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
+        .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
+        .setColor('#66ccff')
+        let messageEmbed = await message.channel.send(reactionsEmbed)
+        messageEmbed.react('❤️')
     }
 });
 
