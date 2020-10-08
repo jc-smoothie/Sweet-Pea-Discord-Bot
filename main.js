@@ -165,6 +165,10 @@ client.on('message', message => {
        message.channel.send("testing, 1 2 3, testing")//.then(sentMessage => {
            //sentMessage.delete(5000);
        //});
+   } else if(command == 'deletemessage'){
+       message.reply('This message will delete itself after 3 seconds').then(msg => {
+           msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+       }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
    } else if(command == 'token'){
        var attempts = 1
        if(attempts == 1){
