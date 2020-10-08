@@ -2,9 +2,10 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
+//const client = new Client();
+
 const {Client, MessageEmbed} = require('discord.js');
 
-//const client = new Client();
 
 const prefix = '+';
 
@@ -12,7 +13,9 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
+//Variables
 const Test = '763441410032140318';
+var attempts = 0
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -27,12 +30,13 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    const reply = message.content
-    if(reply == 'cool'){
+    const reply = message.content;
+    const replyFormatted = replt.toLowerCase();
+    if(replyFormatted == 'cool'){
         setTimeout(function(){
             message.channel.send("nice");
         }, 500);
-    } else if(reply == 'introduce yourself'){
+    } else if(replyFormatted == 'introduce yourself'){
         setTimeout(function(){
             message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by jc smoothie!");
         }, 500);
@@ -40,7 +44,7 @@ client.on('message', message => {
             message.channel.send("I can help members in the server self-assign roles, and role a dice.");
         }, 500);
         //message.channel.send("I can help members in the server self-assign roles, and role a dice.");
-    } else if(reply == "okay, that's all"){
+    } else if(replyFormatted == "okay, that's all"){
         setTimeout(function(){
             message.channel.send("Sweet, bye!~");
         }, 500);
@@ -113,6 +117,30 @@ client.on('message', message => {
        message.channel.send("testing, 1 2 3, testing")//.then(sentMessage => {
            //sentMessage.delete(5000);
        //});
+   } else if(command == 'token'){
+       var attempts = attempts + 1
+       if(attempts == 1){
+           message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
+       } else if(attempts == 2){
+           message.reply("Once again, I simply can't display my token in a text channel, otherwise others will see. \n Others can write code and commands, and control me with my token.")
+       } else if(attempts == 3){
+           message.reply("Now this is just bullying! I'm telling you, I can't reveal my token! ( >~<')")
+       } else if(attempts == 4){
+           message.reply("Mo yada!!")
+       } else if (attempts == 7){
+           message.reply("(;-;)")
+       }
+
+       const reply = message.content
+       const replyFormatted = replt.toLowerCase();
+
+       if(!replyFormatted == "I'm sorry"){
+           return;
+       } else if(replyFormatted == "I'm sorry"){
+           message.channel.send("*sniff* Really?");
+       } else if(replyFormatted == "yes"){
+           message.channel.send("Hmm, give me a hug, then I'll forgive you.");
+       }
    }
 });
 
