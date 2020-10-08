@@ -31,7 +31,7 @@ client.once('ready', () => {
 
 client.on('message', message => {
     const reply = message.content;
-    const replyFormatted = replt.toLowerCase();
+    const replyFormatted = reply.toLowerCase();
     if(replyFormatted == 'cool'){
         setTimeout(function(){
             message.channel.send("nice");
