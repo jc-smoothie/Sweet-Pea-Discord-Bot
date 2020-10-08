@@ -280,5 +280,5 @@ client.on("messageReactionRemove", async (reaction, user) => {
     }
 })
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.E16UAXOHpq25agaCQO_ZIjFjH6s');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.PAqRilpN0956yGxLgxy5xpr-qqY');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
