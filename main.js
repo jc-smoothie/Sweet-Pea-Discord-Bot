@@ -147,8 +147,8 @@ client.on('message', message => {
    } else if(command == 'weather'){
        let embed = new Discord.MessageEmbed()
        .setTitle("Weather Forecast")
-       .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 55°F")
-       .setImage('https://www.accuweather.com/images/weathericons/01.svg')
+       .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 60°F")
+       .setThumbnail('https://www.accuweather.com/images/weathericons/01.svg')
        .setColor("RANDOM")
        message.channel.send(embed)
    }
