@@ -144,7 +144,15 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
-   } else if(command == 'invite'){
+   } else if(command == 'weather'){
+       let embed = new Discord.MessageEmbed()
+       .setTitle("Weather Forecast")
+       .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 55°F")
+       .setImage('https://www.accuweather.com/images/weathericons/01.svg')
+       .setColor("RANDOM")
+       message.channel.send(embed)
+   }
+   else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
        .setDescription("Want me to join a server? Here's a link to do just that! \n https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot \n Afterwards, select the server you want to add me to. \n Walla, I'm in a new server! How awesome is that?")
@@ -209,7 +217,7 @@ client.on('message', async message => {
     if(command == 'languagereactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Welcome!')
-        .setDescription("(Work in progress) If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n \n 🇺🇸 🇬🇧 🇨🇦 🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹 🇧🇷 -> PT/BR \n 🇰🇷 -> HG \n 🇯🇵 -> NH \n 🇨🇳 -> ZW")
+        .setDescription("(Work in progress) If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n \n 🇺🇸 🇬🇧 🇨🇦 🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹 🇧🇷 -> PT/BR \n 🇰🇷 -> HG \n 🇯🇵 -> NHG \n 🇨🇳 -> ZW")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🇺🇸')
@@ -236,41 +244,6 @@ client.on('message', async message => {
     }
 });
 
-//Green Check Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '✅'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
-    }
-})
-
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '✅'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
-    }
-})
-
 //American Flag Reaction
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
@@ -287,7 +260,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
-})
+});
 
 client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
@@ -304,7 +277,427 @@ client.on("messageReactionRemove", async (reaction, user) => {
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
-})
+});
+
+//British Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇬🇧'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇬🇧'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Canadian Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇨🇦'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇨🇦'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Australian Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇦🇺'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇦🇺'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//French Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇫🇷'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇫🇷'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Spain Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇪🇸'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇪🇸'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//German Flag Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇩🇪'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇩🇪'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Vietnamese Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇻🇳'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇻🇳'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Portuguese Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇵🇹'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇵🇹'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Brazilian Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇧🇷'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇧🇷'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Korean Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇰🇷'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇰🇷'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Japanese Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇯🇵'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇯🇵'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Chinese Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇨🇳'){
+            reaction.message.guild.members.cache.get(user.id).roles.add()
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionRemove", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "763441746314133505"){
+        if(reaction.emoji.name === '🇨🇳'){
+            reaction.message.guild.members.cache.get(user.id).roles.remove()
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
 
 client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.PAqRilpN0956yGxLgxy5xpr-qqY');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
