@@ -15,7 +15,15 @@ client.commands = new Discord.Collection();
 
 //Variables
 const Test = '763441410032140318';
-var forgiven = 1
+function makeCounter(){
+    let count = 0;
+    
+    return function(){
+        return count++;
+    }
+}
+
+let counter = makeCounter();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -130,7 +138,15 @@ client.on('message', message => {
            
            if(personTagged.displayName == "Sweet Pea"){
                message.reply("❤️ Aww, thanks! I feel better now.");
-               var forgiven = 1
+               function makeCounter(){
+                   let count = 0;
+                   
+                   return function(){
+                       return count++;
+                   }
+               }
+              
+              let counter = makeCounter();
            }
        }
    } else if(command == 'slap'){
@@ -159,26 +175,28 @@ client.on('message', message => {
            //sentMessage.delete(5000);
        //});
    } else if(command == 'token'){
-       var attempts = 1
+       function makeCounter(){
+           let count = 0;
+           
+           return function(){
+               return count++;
+           };
+       }
        if(attempts == 1){
-           var attempts = 2
            message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
        } else if(attempts == 2){
-           var attempts = 3
            message.reply("Once again, I simply can't display my token in a text channel, otherwise others will see. \n Others can write code and commands, and control me with my token.")
        } else if(attempts == 3){
-           var attempts = 4
            message.reply("Now this is just bullying! I'm telling you, I can't reveal my token! ( >~<')")
        } else if(attempts == 4){
-           var attempts = 5
            message.reply("Mo yada!!")
        } else if(attempts == 5){
-           var attempts = 6
        } else if(attempts == 6){
-           var attempts = 7
        } else if (attempts == 7){   
            message.reply("(;-;)")
-           var forgiven = 0
+           function forgiven(){
+               var forgiven = 0
+           }
        }
 
        const reply = message.content
