@@ -239,7 +239,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            reaction.message.reply("✅ You now have the role!")
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 })
@@ -254,7 +256,9 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
-            reaction.message.reply("❌ Your role has been removed.")
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 })
@@ -270,7 +274,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
-            reaction.message.reply("✅ You now have the role!")
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 })
@@ -285,7 +291,9 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
-            reaction.message.reply("❌ Your role has been removed.")
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 })
