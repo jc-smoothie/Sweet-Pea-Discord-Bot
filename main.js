@@ -209,7 +209,7 @@ client.on('message', async message => {
     if(command == 'languagereactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Welcome!')
-        .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n 🇺🇸🇬🇧🇨🇦🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹🇧🇷 -> PT/BR \n 🇰🇷 -> HG \n 🇯🇵 -> NH \n 🇨🇳 -> CN \n 🇹🇼 -> TW")
+        .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n 🇺🇸🇬🇧🇨🇦🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹🇧🇷 -> PT/BR \n 🇰🇷 -> HG \n 🇯🇵 -> NH \n 🇨🇳 -> CN")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🇺🇸')
@@ -225,7 +225,6 @@ client.on('message', async message => {
         messageEmbed.react('🇰🇷')
         messageEmbed.react('🇯🇵')
         messageEmbed.react('🇨🇳')
-        messageEmbed.react('🇹🇼')
     } else if(command == 'regionreactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
