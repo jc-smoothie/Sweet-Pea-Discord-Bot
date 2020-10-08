@@ -161,13 +161,9 @@ client.on('message', message => {
        //files, which would use a character handler to execute
 
        //client.commands.get('sortthecourt').execute(message, args);
-   } else if(command == 'testing'){
-       message.channel.send("testing, 1 2 3, testing")//.then(sentMessage => {
-           //sentMessage.delete(5000);
-       //});
    } else if(command == 'deletemessage'){
-       message.reply('This message will delete itself after 3 seconds').then(msg => {
-           msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+       message.reply('This message will delete itself after 5 seconds').then(msg => {
+           msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
    } else if(command == 'token'){
        var attempts = 1
@@ -240,7 +236,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
             reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
@@ -257,7 +253,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
         if(reaction.emoji.name === '✅'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
             reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
@@ -275,7 +271,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.add(Test)
             reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
@@ -292,7 +288,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(Test)
             reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 3000 /*time unitl delete in milliseconds*/});
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
