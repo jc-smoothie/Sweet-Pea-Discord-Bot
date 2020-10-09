@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 
+const weather = require('weather.js');
+
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 //const client = new Client();
@@ -111,6 +113,12 @@ client.on('message', message => {
        client.commands.get('lore').execute(message, args);
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
+   } else if(command == 'weather'){
+       weather.find({search: args.join(' '), degreeType: 'F'}, function(err, result) {
+           if(err) message.channel.send(err);
+
+           message.channel.send(JSON.stringify(result[0].current, null, 2));
+       });
    } else if(command == 'roll'){
        const parts = message.content.split(' ');
        var dice_result = parts[1];
