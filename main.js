@@ -279,7 +279,7 @@ client.on('message', async message => {
         messageEmbed.react('764092453430231050')
     }
 
-    if (message.content === '!reactcustom') {
+    if (message.content == 'reactcustom') {
         message.react('764092453430231050');
     }
 });
