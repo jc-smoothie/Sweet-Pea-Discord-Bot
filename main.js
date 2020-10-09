@@ -280,6 +280,7 @@ client.on('message', async message => {
     }
 
     if (message.content == 'reactcustom') {
+        message.channel.send('Should work')
         message.react('764092453430231050');
     }
 });
