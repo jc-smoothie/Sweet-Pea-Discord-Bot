@@ -114,8 +114,7 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Thank you for reading! Now go and have fun!')
        message.channel.send(commandsEmbed);
-   }
-   else if(command == 'lore'){
+   } else if(command == 'lore'){
        client.commands.get('lore').execute(message, args);
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
@@ -210,7 +209,7 @@ client.on('message', message => {
            message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
        } else if(attempts == 2){
            var attempts = 3
-           message.reply("Once again, I simply can't display my token in a text channel, otherwise others will see. \n Others can write code and commands, and control me with my token.")
+           message.reply("Once again, I can't display my token in a text channel, otherwise others will see. \n Others can write code and commands, and control my actions with my token.")
        } else if(attempts == 3){
            var attempts = 4
            message.reply("Now this is just bullying! I'm telling you, I can't reveal my token! ( >~<')")
@@ -274,19 +273,10 @@ client.on('message', async message => {
     } else if(command == 'amongus'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
-        //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('❤️')
-    } else if(command == 'customemojitest'){
-        let reactionsEmbed = new MessageEmbed()
-        .setTitle('Among Us!')
-        //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
-        .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
-        .setColor('#66ccff')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('764092453430231050')
     }
 
     if (command == 'osureact') {
