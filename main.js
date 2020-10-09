@@ -279,7 +279,7 @@ client.on('message', async message => {
         messageEmbed.react('764092453430231050')
     }
 
-    if (command == 'reactcustom') {
+    if (command == 'osureact') {
         message.channel.send('Should work')
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'osu');
         message.react(reactionEmoji);
