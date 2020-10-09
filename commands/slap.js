@@ -39,7 +39,7 @@ module.exports = {
                 const personTagged = message.mentions.members.first();
  
                 let embed = new Discord.MessageEmbed()
-                .setTitle("Hugs")
+                .setTitle("Slaps")
                 .setDescription(message.author.username + ' slaps ' + personTagged.displayName)
                 .setImage(chosenImage)
                 .setColor("RANDOM")
