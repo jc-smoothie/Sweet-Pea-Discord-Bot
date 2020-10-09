@@ -172,13 +172,13 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
-   } else if(command == 'weather'){
+   /*} else if(command == 'weather'){
        let embed = new Discord.MessageEmbed()
        .setTitle("Weather Forecast")
        .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 60°F")
        .setThumbnail('https://www.accuweather.com/images/weathericons/01.svg')
        .setColor("RANDOM")
-       message.channel.send(embed)
+       message.channel.send(embed)*/
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
