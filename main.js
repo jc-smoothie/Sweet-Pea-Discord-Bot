@@ -269,7 +269,7 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('❤️')
-    } else if(commanf == 'customemojitest'){
+    } else if(command == 'customemojitest'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
         //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
@@ -277,6 +277,10 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('764092453430231050')
+    }
+
+    if (message.content === '!reactcustom') {
+        message.react('764092453430231050');
     }
 });
 
