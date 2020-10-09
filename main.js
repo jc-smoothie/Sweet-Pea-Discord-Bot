@@ -1,13 +1,10 @@
 const Discord = require('discord.js');
 
-const weather = require('weather.js');
-
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 //const client = new Client();
 
 const {Client, MessageEmbed} = require('discord.js');
-
 
 const prefix = '+';
 
@@ -114,11 +111,14 @@ client.on('message', message => {
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
    } else if(command == 'weather'){
-       weather.find({search: args.join(' '), degreeType: 'F'}, function(err, result) {
-           if(err) message.channel.send(err);
-
-           message.channel.send(JSON.stringify(result[0].current, null, 2));
-       });
+       client.commands.get('weather').execute(message, args);
+       /*} else if(command == 'weather'){
+       let embed = new Discord.MessageEmbed()
+       .setTitle("Weather Forecast")
+       .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 60°F")
+       .setThumbnail('https://www.accuweather.com/images/weathericons/01.svg')
+       .setColor("RANDOM")
+       message.channel.send(embed)*/
    } else if(command == 'roll'){
        const parts = message.content.split(' ');
        var dice_result = parts[1];
@@ -172,13 +172,6 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
-   /*} else if(command == 'weather'){
-       let embed = new Discord.MessageEmbed()
-       .setTitle("Weather Forecast")
-       .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 60°F")
-       .setThumbnail('https://www.accuweather.com/images/weathericons/01.svg')
-       .setColor("RANDOM")
-       message.channel.send(embed)*/
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
