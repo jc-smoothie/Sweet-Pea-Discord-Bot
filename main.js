@@ -95,11 +95,13 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
        message.author.send(commandsEmbed);
-   } else if (command == 'ping'){
+   } else if(command == 'ping'){
        client.commands.get('ping').execute(message, args);
-   } else if (command == 'lore'){
+   } else if(command == 'rules'){
+       client.commands.get('ping').execute(message, args);
+   } else if(command == 'lore'){
        client.commands.get('lore').execute(message, args);
-   } else if (command == 'rank'){
+   } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
    } else if(command == 'roll'){
        const parts = message.content.split(' ');
@@ -110,7 +112,7 @@ client.on('message', message => {
        //console.log(message.guild.roles);
    } else if(command == 'hug'){
        //client.commands.get('hug').execute(message, args);
-       if (!args[0]){
+       if(!args[0]){
            message.channel.send('Missing Arguments!')
            console.log('Missing args')
        } else{
