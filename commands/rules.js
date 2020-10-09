@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'ping',
-    description: "this is a ping command!",
+    name: 'rules',
+    description: "this displays the rules!",
     execute(message, args){
         const commandsEmbed = new MessageEmbed()
         .setTitle('Rules!')
