@@ -110,7 +110,8 @@ client.on('message', message => {
        client.commands.get('lore').execute(message, args);
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
-   //} else if(command == 'weather'){
+   } else if(command == 'weather'){
+       client.commands.get('weather2').execute(message, args);
        //client.commands.get('weather').execute(message, args);
        /*} else if(command == 'weather'){
        let embed = new Discord.MessageEmbed()
