@@ -135,7 +135,37 @@ client.on('message', message => {
        var dice = Math.floor((Math.random() * dice_number));
        message.reply("You rolled a " + dice + "!");
        //console.log(message.guild.roles);
-   } else if(command == 'hug'){
+   } else if(command == 'timer'){
+       const parts = message.content.split(' ');
+       var dice_result = parts[1];
+       var dice_number = parseInt(dice_result, 10);
+       var dice = Math.floor((Math.random() * dice_number));
+       message.reply("You rolled a " + dice + "!");
+       function sleep(milliseconds){
+           const date = Date.now();
+           let currentDate = null;
+           do{
+               currentDate = Date.now();
+           } while (currentDate - date < milliseconds);
+       }
+       
+       sleep(seconds*1000);
+   } else if(command == 'meme'){
+       const commandsEmbed = new MessageEmbed()
+       //.setTitle('Meme')
+       //.setDescription("")
+       //.setColor('#66ccff')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setFooter('Thank you for reading! Now go and have fun!')
+
+       //var myInfo = new discord.RichEmbed()
+       .setTitle("Meme")
+       .setColor("#020B0C")
+       .setImage('https://lh5.googleusercontent.com/gOBvhu_rcXzVi9tvvoqltTJ9-I_VP5-PsvNi-MkNG_iBP2zxLbyWSQDiB0HZq3Aa2nWab6k70z8fv4RESep1K-WjGELeAIoJd76A9aNh');
+       //message.channel.sendEmbed(myInfo);
+       message.channel.send(commandsEmbed);
+   }
+   else if(command == 'hug'){
        //client.commands.get('hug').execute(message, args);
        if(!args[0]){
            message.channel.send('Missing Arguments!')
