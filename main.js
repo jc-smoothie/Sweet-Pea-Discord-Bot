@@ -119,15 +119,7 @@ client.on('message', message => {
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
    } else if(command == 'weather'){
-       //client.commands.get('weather2').execute(message, args);
        client.commands.get('weather').execute(message, args);
-       /*} else if(command == 'weather'){
-       let embed = new Discord.MessageEmbed()
-       .setTitle("Weather Forecast")
-       .setDescription("Sunny \n Chance of Rain: 0% \n High: 66°F Low: 57°F \n Current: 60°F")
-       .setThumbnail('https://www.accuweather.com/images/weathericons/01.svg')
-       .setColor("RANDOM")
-       message.channel.send(embed)*/
    } else if(command == 'roll'){
        const parts = message.content.split(' ');
        var dice_result = parts[1];
