@@ -118,8 +118,6 @@ client.on('message', message => {
        client.commands.get('lore').execute(message, args);
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
-   } else if(command == 'weather'){
-       client.commands.get('weather').execute(message, args);
    } else if(command == 'roll'){
        const parts = message.content.split(' ');
        var dice_result = parts[1];
