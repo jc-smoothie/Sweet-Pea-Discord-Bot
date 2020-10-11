@@ -145,7 +145,6 @@ client.on('message', message => {
        .setTitle("Meme")
        .setColor("RANDOM")
        .setImage('https://lh5.googleusercontent.com/gOBvhu_rcXzVi9tvvoqltTJ9-I_VP5-PsvNi-MkNG_iBP2zxLbyWSQDiB0HZq3Aa2nWab6k70z8fv4RESep1K-WjGELeAIoJd76A9aNh');
-       //message.channel.sendEmbed(myInfo);
        message.channel.send(commandsEmbed);
    }
    else if(command == 'hug'){
