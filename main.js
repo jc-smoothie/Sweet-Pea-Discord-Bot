@@ -148,8 +148,8 @@ client.on('message', message => {
        message.channel.send(commandsEmbed);
    }
    else if(command == 'hug'){
-       //client.commands.get('hug').execute(message, args);
-       if(!args[0]){
+       client.commands.get('hug').execute(message, args);
+       /*if(!args[0]){
            message.channel.send('Missing Arguments!')
            console.log('Missing args')
        } else{
@@ -189,6 +189,7 @@ client.on('message', message => {
                message.reply("❤️ Aww, thanks! I feel better now.");
            }
        }
+       */
    } else if(command == 'slap'){
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
