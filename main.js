@@ -141,11 +141,7 @@ client.on('message', message => {
        
        sleep(seconds*1000);
    } else if(command == 'meme'){
-       const commandsEmbed = new MessageEmbed()
-       .setTitle("Meme")
-       .setColor("RANDOM")
-       .setImage('https://lh4.googleusercontent.com/o9JqkV2uoXj0Vxwf1wJDkkMVPcS1kYA5fTRNkUmKQ_rkLbtkyY29kZ1ep4SIReV9avTSBwjq7y4nJze0bXfP6D1luZ7Zs1VMj6fHhWVd');
-       message.channel.send(commandsEmbed);
+       client.commands.get('meme').execute(message, args);
    }
    else if(command == 'hug'){
        client.commands.get('hug').execute(message, args);
