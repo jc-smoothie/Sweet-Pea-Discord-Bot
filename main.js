@@ -158,14 +158,6 @@ client.on('message', message => {
        .setFooter('You too can add me to a server!                                                                                Created by jc smoothie')
        message.author.send(invite);
        message.channel.send("Invitation sentthrough dms!");
-   } else if(command == 'sortthecourt'){
-       client.commands.get('sortthecourt').execute(message, args);
-       
-       //have code to check for user input here, and have
-       //seperate character files/text to print in separate
-       //files, which would use a character handler to execute
-
-       //client.commands.get('sortthecourt').execute(message, args);
    } else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
@@ -188,13 +180,13 @@ client.on('message', message => {
            var attempts = 6
        } else if(attempts == 6){
            var attempts = 7
-       } else if (attempts == 7){   
+       } else if (attempts == 7){
            message.reply("(;-;)")
        }
-
+       
        const reply = message.content
        const replyFormatted = reply.toLowerCase();
-
+       
        if(!replyFormatted == "I'm sorry"){
            return;
        } else if(replyFormatted == "I'm sorry"){
@@ -202,6 +194,9 @@ client.on('message', message => {
        } else if(replyFormatted == "yes"){
            message.channel.send("Hmm, give me a hug, then I'll forgive you.");
        }
+   } else if(command == 'sortthecourt'){
+       //message.channel.send("======================================== \n .....................................SORT THE COURT..................................... \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Sdvisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?");
+       message.channel.send("======================================== \n                                      SORT THE COURT                                      \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Sdvisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?");
    }
 });
 
