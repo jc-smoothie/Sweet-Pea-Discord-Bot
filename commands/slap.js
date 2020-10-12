@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: 'slap',
     description: "Default command.",
-    usage: "%slap <user>",
+    usage: "+slap <user>",
     execute(message, args){
         if (!args[0]) {
 			message.channel.send('Missing Arguments!')
