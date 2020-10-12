@@ -6,7 +6,7 @@ module.exports = {
     description: "Default command.",
     usage: "+meme",
     execute(message, args){
-        const image = Math.floor((Math.random() * 5) + 1);
+        const image = Math.floor((Math.random() * 4) + 1);
         if(image == 1){
             var chosenImage = 'https://static1.srcdn.com/wordpress/wp-content/uploads/2019/05/When-You-Lean-Too-Far-Back.jpg?q=50&fit=crop&w=740&h=586';
         } else if(image == 2){
