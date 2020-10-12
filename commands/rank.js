@@ -14,6 +14,9 @@ module.exports = {
         
         const parts = message.content.split(' ');
         if(parts[1] == 'traveler'){
+            if(message.member.roles.some(role => role.name === 'Traveler')) {
+                message.reply("You can not stop being a Traveler!");
+            }
             message.member.roles.add(Traveler);
             message.reply('Welcome, Traveler~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'member'){
