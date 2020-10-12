@@ -144,7 +144,7 @@ client.on('message', message => {
        const commandsEmbed = new MessageEmbed()
        .setTitle("Meme")
        .setColor("RANDOM")
-       .setImage('https://lh3.googleusercontent.com/5Aoe1U4mcJD-_IDXtr6duMwtiXlBFpQcsX7ybtalez03726yMJUN1-LVCUVqAV6H5T8Baqtbrs5n7grp54fnDu7NgyQkANepWeAd18y2');
+       .setImage('https://lh4.googleusercontent.com/o9JqkV2uoXj0Vxwf1wJDkkMVPcS1kYA5fTRNkUmKQ_rkLbtkyY29kZ1ep4SIReV9avTSBwjq7y4nJze0bXfP6D1luZ7Zs1VMj6fHhWVd');
        message.channel.send(commandsEmbed);
    }
    else if(command == 'hug'){
