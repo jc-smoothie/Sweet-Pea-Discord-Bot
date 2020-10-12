@@ -11,6 +11,8 @@ module.exports = {
         const MOD = '727680375266213968';
         const Traveler = '708750286038106133';
         //const Bot = '727682963415760906';
+
+        //if(message.member.roles.some(role => role.name === 'Whatever')) {}
         
         const parts = message.content.split(' ');
         if(parts[1] == 'traveler'){
