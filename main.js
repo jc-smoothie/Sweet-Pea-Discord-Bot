@@ -156,6 +156,7 @@ client.on('message', message => {
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('You too can add me to a server!                                                                                Created by jc smoothie')
+       .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
        message.author.send(invite);
        message.channel.send("Invitation sentthrough dms!");
    } else if(command == 'deletemessage'){
