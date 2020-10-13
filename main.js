@@ -158,7 +158,7 @@ client.on('message', message => {
        .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
        .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
        message.author.send(invite);
-       message.channel.send("Invitation sentthrough dms!");
+       message.channel.send("Invitation with instructions sent through dms!");
    } else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
