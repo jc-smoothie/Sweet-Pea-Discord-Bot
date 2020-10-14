@@ -157,7 +157,6 @@ client.on('message', message => {
            .setTitle('Invite me to a server!')
            .setDescription("Here'syour avatar:")
            .setColor('#66ccff')
-           .setURL('${message.author.displayAvatarURL({ format: "png", dynamic: true })}')
            .setImage('${message.author.displayAvatarURL({ format: "png", dynamic: true })}')
            return message.reply(avatar);
            //return message.reply(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
