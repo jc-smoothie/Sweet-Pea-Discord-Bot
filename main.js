@@ -60,7 +60,6 @@ client.on('message', message => {
         setTimeout(function(){
             message.channel.send("I can help members in the server self-assign roles, and role a dice.");
         }, 500);
-        //message.channel.send("I can help members in the server self-assign roles, and role a dice.");
     } else if(replyFormatted == "okay, that's all"){
         setTimeout(function(){
             message.channel.send("Sweet, bye!~");
@@ -149,6 +148,10 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
+   } else if(command === 'avatar'){
+       if(!message.mentions.users.size){
+           return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+       }
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
@@ -263,7 +266,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '❤️'){
             reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
+            reaction.message.reply("✅ You now have the Test role!").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
@@ -280,7 +283,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '❤️'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+            reaction.message.reply("❌ You no longer have the Test role.").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
