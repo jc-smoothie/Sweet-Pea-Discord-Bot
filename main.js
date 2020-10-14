@@ -138,7 +138,7 @@ client.on('message', message => {
        var timer = parseInt(timer_result, 10);
        setTimeout(function(){
            message.reply("Pogggers")
-       }, timer);
+       }, 3000);
        
        sleep(seconds*1000);
    } else if(command == 'meme'){
