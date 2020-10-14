@@ -24,15 +24,11 @@ const NHG = '763733642127736852';
 const ZW = '763733672439971840';
 const AM = '763850145984282654';
 
-//function makeCounter(){
-    //let count = 0;
-    
-    //return function(){
-        //return count++;
-    //}
-//}
+var attempts = 0;
 
-//let counter = makeCounter();
+function increateAttempts(){
+    attempts = attempts + 1
+}
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -167,23 +163,23 @@ client.on('message', message => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
    } else if(command == 'token'){
-       var attempts = 1
+       increateAttempts();
        if(attempts == 1){
-           var attempts = 2
+           increateAttempts();
            message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
        } else if(attempts == 2){
-           var attempts = 3
+           increateAttempts();
            message.reply("Once again, I can't display my token in a text channel, otherwise others will see. \n Others can write code and commands, and control my actions with my token.")
        } else if(attempts == 3){
-           var attempts = 4
+           increateAttempts();
            message.reply("Now this is just bullying! I'm telling you, I can't reveal my token! ( >~<')")
        } else if(attempts == 4){
-           var attempts = 5   
+           increateAttempts();   
            message.reply("Mo yada!!")
        } else if(attempts == 5){
-           var attempts = 6
+           increateAttempts();
        } else if(attempts == 6){
-           var attempts = 7
+           increateAttempts();
        } else if (attempts == 7){
            message.reply("(;-;)")
        }
