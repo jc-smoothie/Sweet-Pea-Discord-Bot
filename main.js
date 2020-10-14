@@ -24,7 +24,7 @@ const NHG = '763733642127736852';
 const ZW = '763733672439971840';
 const AM = '763850145984282654';
 
-var attempts = 0;
+var attempts = 1;
 
 function increateAttempts(){
     attempts = attempts + 1
@@ -163,7 +163,6 @@ client.on('message', message => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
    } else if(command == 'token'){
-       increateAttempts();
        if(attempts == 1){
            increateAttempts();
            message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
