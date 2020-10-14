@@ -149,9 +149,6 @@ client.on('message', message => {
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
    } else if(command === 'avatar'){
-       //if(!message.mentions.users.size){
-           //return message.reply(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
-       //}
        if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }
