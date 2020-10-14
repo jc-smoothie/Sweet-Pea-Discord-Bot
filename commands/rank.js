@@ -26,7 +26,8 @@ module.exports = {
             message.reply('Welcome, new Member~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'weeb'){
             message.member.roles.add(Weeb);
-            message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+            message.channel.send("✅ <@" + message.author.id + ">, Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.");
+            //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
             message.reply('You can not give youself the "staff" or "Moderator" roles. \n These roles are manually given by the current staff to those who are worthy.');
         } else {
