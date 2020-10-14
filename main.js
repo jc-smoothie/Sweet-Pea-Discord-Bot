@@ -150,7 +150,7 @@ client.on('message', message => {
        client.commands.get('dog').execute(message, args);
    } else if(command === 'avatar'){
        if(!message.mentions.users.size){
-           return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+           return message.reply(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
