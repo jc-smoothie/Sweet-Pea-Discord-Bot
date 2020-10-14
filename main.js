@@ -137,7 +137,7 @@ client.on('message', message => {
        var timer_result = parts[1];
        var timer = parseInt(timer_result, 10);
        setTimeout(function(){
-           message.reply("Pogggers")
+           message.reply("The timer had ended!")
        }, 3000);
        
        sleep(seconds*1000);
@@ -275,6 +275,7 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('❤️')
+        //765927221851586561
     }
 
     if (command == 'osureact') {
