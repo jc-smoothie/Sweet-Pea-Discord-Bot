@@ -138,7 +138,7 @@ client.on('message', message => {
        var timer = parseInt(timer_result, 10);
        setTimeout(function(){
            message.channel.send("Timer has ended!");
-       }, 3000);
+       }, timer*1000);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
    } else if(command == 'hug'){
