@@ -60,7 +60,7 @@ client.on('message', message => {
         setTimeout(function(){
             message.channel.send("Sweet, bye!~");
         }, 500);
-    } else if(replyFormatted == "I'm sorry"){
+    } else if(replyFormatted == "i'm sorry"){
         if(attempts == 7){
             message.channel.send("*sniff* Really?");
         }
