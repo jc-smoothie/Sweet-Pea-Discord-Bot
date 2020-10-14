@@ -30,6 +30,10 @@ function increateAttempts(){
     attempts = attempts + 1
 }
 
+function resetAttempts(){
+    attempts = 1
+}
+
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
    const command = require(`./commands/${file}`);
@@ -186,7 +190,7 @@ client.on('message', message => {
            
            if(personTagged.displayName == "Sweet Pea"){
                message.reply("❤️ Aww, thanks! I feel better now.");
-               var attempts = 1
+               resetAttempts();
            }
        }
    } else if(command == 'slap'){
