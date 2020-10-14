@@ -274,12 +274,12 @@ client.on('message', async message => {
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
-        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'amongus');
-        messageEmbed.react(reactionEmoji)
+        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
+        messageEmbed.react(reactionEmoji);
     }
 
     if (command == 'osureact') {
-        message.channel.send('Ta da!~')
+        message.channel.send('Ta da!~');
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'osu');
         message.react(reactionEmoji);
     }
