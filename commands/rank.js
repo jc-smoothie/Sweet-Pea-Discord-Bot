@@ -30,7 +30,7 @@ module.exports = {
             message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
             } else{
                 message.member.roles.add(Weeb);
-                message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, fellow Weeb~");
+                message.channel.send("<:white_check_mark:766004743763918899> " + "<@" + message.author.id + ">" + ", Welcome, fellow Weeb~");
                 //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
             }
         } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
