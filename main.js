@@ -60,6 +60,14 @@ client.on('message', message => {
         setTimeout(function(){
             message.channel.send("Sweet, bye!~");
         }, 500);
+    } else if(replyFormatted == "I'm sorry"){
+        if(attempts == 7){
+            message.channel.send("*sniff* Really?");
+        }
+    } else if(replyFormatted == "yes"){
+        if(attempts == 7){
+            message.channel.send("Hmm, give me a hug, then I'll forgive you.");
+        }
     }
 });
 
@@ -181,17 +189,6 @@ client.on('message', message => {
            increateAttempts();
        } else if (attempts == 7){
            message.reply("(;-;)")
-       }
-       
-       const reply = message.content
-       const replyFormatted = reply.toLowerCase();
-       
-       if(!replyFormatted == "I'm sorry"){
-           return;
-       } else if(replyFormatted == "I'm sorry"){
-           message.channel.send("*sniff* Really?");
-       } else if(replyFormatted == "yes"){
-           message.channel.send("Hmm, give me a hug, then I'll forgive you.");
        }
    } else if(command == 'sortthecourt'){
        //message.channel.send("======================================== \n .....................................SORT THE COURT..................................... \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?");
