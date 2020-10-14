@@ -135,8 +135,7 @@ client.on('message', message => {
    } else if(command == 'timer'){
        const parts = message.content.split(' ');
        var timer_result = parts[1];
-       var timer_number = parseInt(timer_result, 10);
-       var timer = Math.floor((Math.random() * timer_number));
+       var timer = parseInt(timer_result, 10);
        setTimeout(function(){
            message.reply("Pogggers")
        }, timer);
