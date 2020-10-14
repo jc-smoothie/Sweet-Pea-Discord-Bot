@@ -274,7 +274,7 @@ client.on('message', async message => {
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('765927221851586561')
+        messageEmbed.react('765927221851586561');
     }
 
     if (command == 'osureact') {
