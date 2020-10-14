@@ -139,7 +139,6 @@ client.on('message', message => {
        setTimeout(function(){
            message.reply("The timer had ended!")
        }, 3000);
-       
        sleep(seconds*1000);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
@@ -235,6 +234,7 @@ client.on('message', message => {
    }
 });
 
+//Reaction stuff
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     
