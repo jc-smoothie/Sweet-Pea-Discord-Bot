@@ -339,7 +339,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            var user = message.guild.fetchMember(user.id)
+            var user = reaction.users.fetch(userId);
             message.channel.send("✅ " + "<@" + user + ">" + ", Welcome, fellow Weeb~");
             reaction.message.reply("✅ You now have the role!").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
