@@ -299,13 +299,13 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '❤️'){
             reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            var user = reaction.message.guild.members.cache.get(user.id);
-            message.channel.send("✅ " + "<@" + user + ">" + ", You now have the Test role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            });
-            //reaction.message.reply("✅ You now have the Test role!").then(msg => {
+            //var user = reaction.message.guild.members.cache.get(user.id);
+            //message.channel.send("✅ " + "<@" + user + ">" + ", You now have the Test role!").then(msg => {
                 //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //})//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            //});
+            reaction.message.reply("✅ You now have the Test role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 });
@@ -320,13 +320,13 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '❤️'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            var user = reaction.message.guild.members.cache.get(user.id);
-            message.channel.send("❌ " + "<@" + user + ">" + ", You no longer have the Test role.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            });
-            //reaction.message.reply("❌ You no longer have the Test role.").then(msg => {
+            //var user = reaction.message.guild.members.cache.get(user.id);
+            //message.channel.send("❌ " + "<@" + user + ">" + ", You no longer have the Test role.").then(msg => {
                 //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //})//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            //});
+            reaction.message.reply("❌ You no longer have the Test role.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 });
@@ -342,13 +342,13 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            var user = reaction.message.guild.members.cache.get(user.id);
-            message.channel.send("✅ " + "<@" + user + ">" + ", You now have the EN role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            });
-            //reaction.message.reply("✅ You now have the role!").then(msg => {
+            //var user = reaction.message.guild.members.cache.get(user.id);
+            //message.channel.send("✅ " + "<@" + user + ">" + ", You now have the EN role!").then(msg => {
                 //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //})//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            //});
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 });
@@ -363,13 +363,13 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '🇺🇸'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            var user = reaction.message.guild.members.cache.get(user.id);
-            message.channel.send("❌ " + "<@" + user + ">" + ", You no longer have the EN role.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            });
-            //reaction.message.reply("❌ Your role has been removed.").then(msg => {
+            //var user = reaction.message.guild.members.cache.get(user.id);
+            //message.channel.send("❌ " + "<@" + user + ">" + ", You no longer have the EN role.").then(msg => {
                 //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //})//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            //});
+            reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
     }
 });
