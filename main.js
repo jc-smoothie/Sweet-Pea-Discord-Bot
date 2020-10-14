@@ -274,7 +274,8 @@ client.on('message', async message => {
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('765927221851586561');
+        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'amongus');
+        messageEmbed.react(reactionEmoji)
     }
 
     if (command == 'osureact') {
