@@ -134,17 +134,11 @@ client.on('message', message => {
        //console.log(message.guild.roles);
    } else if(command == 'timer'){
        const parts = message.content.split(' ');
-       var dice_result = parts[1];
-       var dice_number = parseInt(dice_result, 10);
-       var dice = Math.floor((Math.random() * dice_number));
-       message.reply("You rolled a " + dice + "!");
-       function sleep(milliseconds){
-           const date = Date.now();
-           let currentDate = null;
-           do{
-               currentDate = Date.now();
-           } while (currentDate - date < milliseconds);
-       }
+       var timer_result = parts[1];
+       var timer_number = parseInt(timer_result, 10);
+       var timer = Math.floor((Math.random() * timer_number));
+       message.reply("You rolled a " + timer + "!");
+       message.reply("The timer has finished!");
        
        sleep(seconds*1000);
    } else if(command == 'meme'){
