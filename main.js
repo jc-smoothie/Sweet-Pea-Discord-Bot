@@ -138,7 +138,7 @@ client.on('message', message => {
        var timer = parseInt(timer_result, 10);
        message.reply("Set timer for " + timer + " second(s)!");
        setTimeout(function(){
-           message.reply("Timer has ended!");
+           message.reply(timer + " second(s) timer has ended!");
        }, timer*1000);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
