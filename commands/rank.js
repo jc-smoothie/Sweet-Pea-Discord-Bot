@@ -25,7 +25,7 @@ module.exports = {
             message.member.roles.add(Member);
             message.reply('Welcome, new Member~ Visit #react-role-assign to get language and region roles.');
         } else if(parts[1] == 'weeb'){
-            if(message.member.roles.some(role => role.name === 'Weeb')){
+            if(message.member.roles.has(Weeb)){
                 message.member.roles.remove(Weeb);
             message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
             } else{
