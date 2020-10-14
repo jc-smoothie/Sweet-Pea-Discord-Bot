@@ -136,8 +136,9 @@ client.on('message', message => {
        const parts = message.content.split(' ');
        var timer_result = parts[1];
        var timer = parseInt(timer_result, 10);
+       message.reply("Set timer for " + timer + " second(s)!");
        setTimeout(function(){
-           message.channel.send("Timer has ended!");
+           message.replt("Timer has ended!");
        }, timer*1000);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
