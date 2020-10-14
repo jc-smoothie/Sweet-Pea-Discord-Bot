@@ -279,7 +279,7 @@ client.on('message', async message => {
     } else if(command == 'cancelamongus'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us Canceled!')
-        .setDescription("The Among Us game scheduled later today has been canceled. This may be because not enough people have voted to participate, or has simply been decided to be canceled.")
+        .setDescription("The Among Us game scheduled later today has been canceled. \n This may be because not enough people have voted to participate, or has simply been decided to be canceled.")
         .setColor('#66ccff')
         message.channel.send(reactionsEmbed)
     }
