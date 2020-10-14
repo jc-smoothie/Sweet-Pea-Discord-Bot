@@ -153,13 +153,7 @@ client.on('message', message => {
            //return message.reply(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        //}
        if(!message.mentions.users.size){
-           const avatar = new MessageEmbed()
-           .setTitle('Invite me to a server!')
-           .setDescription("Here'syour avatar:")
-           .setColor('#66ccff')
-           .setImage('${message.author.displayAvatarURL({ format: "png", dynamic: true })}')
-           return message.reply(avatar);
-           //return message.reply(`Your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
+           return message.reply("Here's your avatar: <${message.author.displayAvatarURL({ format: 'png', dynamic: true })}>");
        }
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
