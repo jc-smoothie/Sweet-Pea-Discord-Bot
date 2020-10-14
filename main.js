@@ -137,8 +137,9 @@ client.on('message', message => {
        var timer_result = parts[1];
        var timer_number = parseInt(timer_result, 10);
        var timer = Math.floor((Math.random() * timer_number));
-       message.reply("You rolled a " + timer + "!");
-       message.reply("The timer has finished!");
+       setTimeout(function(){
+           message.reply("Pogggers")
+       }, timer);
        
        sleep(seconds*1000);
    } else if(command == 'meme'){
