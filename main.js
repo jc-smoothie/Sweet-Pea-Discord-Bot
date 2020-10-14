@@ -139,7 +139,7 @@ client.on('message', message => {
        setTimeout(function(){
            message.reply("The timer had ended!")
        }, 3000);
-       sleep(seconds*1000);
+       setTimeout();
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
    } else if(command == 'hug'){
