@@ -136,10 +136,12 @@ client.on('message', message => {
        const parts = message.content.split(' ');
        var timer_result = parts[1];
        var timer = parseInt(timer_result, 10);
-       setTimeout(function(){
+       function endTimer(){
            message.reply("The timer had ended!")
+       }
+       setTimeout(function(){
+           message.channel.send("nice");
        }, 3000);
-       setTimeout();
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
    } else if(command == 'hug'){
