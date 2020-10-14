@@ -168,7 +168,7 @@ client.on('message', message => {
            message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
        } else if(attempts == 2){
            increateAttempts();
-           message.reply("Once again, I can't display my token in a text channel, otherwise others will see. \n Others can write code and commands, and control my actions with my token.")
+           message.reply("Once again, I can't display my token in a text channel, otherwise others will see. Others can write code and commands, and control my actions with my token.")
        } else if(attempts == 3){
            increateAttempts();
            message.reply("Now this is just bullying! I'm telling you, I can't reveal my token! ( >~<')")
