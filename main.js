@@ -145,8 +145,7 @@ client.on('message', message => {
        sleep(seconds*1000);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
-   }
-   else if(command == 'hug'){
+   } else if(command == 'hug'){
        //client.commands.get('hug').execute(message, args);
        if(!args[0]){
            message.channel.send('Missing Arguments!')
