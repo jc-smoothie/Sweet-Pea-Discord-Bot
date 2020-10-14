@@ -228,9 +228,6 @@ client.on('message', message => {
        } else if (attempts == 7){
            message.reply("(;-;)")
        }
-   } else if(command == 'sortthecourt'){
-       //message.channel.send("======================================== \n .....................................SORT THE COURT..................................... \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?");
-       message.channel.send("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?");
    }
 });
 
@@ -291,8 +288,6 @@ client.on('message', async message => {
     }
 });
 
-//if(message.member.roles.some(role => role.name === 'Whatever')) {}
-
 //Test Reaction
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
@@ -304,7 +299,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '❤️'){
             reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            reaction.message.reply("✅ You now have the Test role!").then(msg => {
+            var user = reaction.message.guild.members.cache.get(user.id)
+            user.reply("✅ You now have the Test role!").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
@@ -321,7 +317,8 @@ client.on("messageReactionRemove", async (reaction, user) => {
     if(reaction.message.channel.id === "763441746314133505"){
         if(reaction.emoji.name === '❤️'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            reaction.message.reply("❌ You no longer have the Test role.").then(msg => {
+            var user = reaction.message.guild.members.cache.get(user.id)
+            user.reply("❌ You no longer have the Test role.").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
@@ -812,6 +809,58 @@ client.on("messageReactionRemove", async (reaction, user) => {
         if(reaction.emoji.name === '🌎'){
             reaction.message.guild.members.cache.get(user.id).roles.remove(AM)
             reaction.message.reply("❌ Your role has been removed.").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+//Sort The Court
+client.on('message', async message => {
+    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
+    
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if(command == 'languagereactions'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Sort The Court!')
+        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
+        .setColor('#66ccff')
+        let messageEmbed = await message.channel.send(reactionsEmbed)
+        messageEmbed.react('♔')
+        messageEmbed.react('♕')
+    }
+});
+
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "766037768379695117"){
+        if(reaction.emoji.name === '♔'){
+            reaction.message.guild.members.cache.get(user.id).roles.add(ZW)
+            reaction.message.reply("✅ You now have the role!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        }
+    }
+});
+
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "766037768379695117"){
+        if(reaction.emoji.name === '♕'){
+            reaction.message.guild.members.cache.get(user.id).roles.add(ZW)
+            reaction.message.reply("✅ You now have the role!").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         }
