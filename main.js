@@ -864,6 +864,10 @@ function startAdd(){
     start = start + 1;
 }
 
+function startSubtract(){
+    start = start - 1;
+}
+
 function character(){
     char = Math.floor((Math.random() * 2) + 1);
 }
@@ -875,9 +879,13 @@ function leavesRoom(){
 function visits(){
     dailyVisits = dailyVisits + 1;
     if(dailyVisits == 10){
-        endDay = 1;
         dailyVisits = 0;
+        startAdd();
     }
+}
+
+function forwardDay(){
+    day = day + 1
 }
 
 //Characters
@@ -1109,6 +1117,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 } else if(char == 2){
                     reaction.message.channel.send("Character 2 chosen.");
                 }
+            } else if(start == 9){
+                startSubtract();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day End!')
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Day " + day + " is complete! \n ++++++++++++++++++++++++++++++++++++++++")
+                .setColor('#228B22')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                forwardDay();
             }
         }
     }
