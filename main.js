@@ -830,20 +830,32 @@ client.on("messageReactionRemove", async (reaction, user) => {
 });
 
 //Sort The Court
+var ruler = 0
+
+function king(){
+    var ruler = 1
+}
+
+function queen(){
+    var ruler = 2
+}
+
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if(command == 'languagereactions'){
-        let reactionsEmbed = new MessageEmbed()
-        .setTitle('Sort The Court!')
-        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
-        .setColor('#66ccff')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('♔')
-        messageEmbed.react('♕')
+    if(command == 'start'){
+        if(message.channel.id === "766037768379695117"){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Sort The Court!')
+            .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
+            .setColor('#66ccff')
+            let messageEmbed = await message.channel.send(reactionsEmbed)
+            messageEmbed.react('♔')
+            messageEmbed.react('♕')
+        }
     }
 });
 
@@ -856,10 +868,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '♔'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(ZW)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            king();
         }
     }
 });
@@ -873,13 +882,12 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '♕'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(ZW)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            queen();
         }
     }
 });
+
+
 
 client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.v-WpbuYp4QbYs_WyVdxsK9TJIOY');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
