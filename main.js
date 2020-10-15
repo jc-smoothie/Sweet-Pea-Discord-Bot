@@ -877,30 +877,10 @@ client.on('message', async message => {
             .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
             .setColor('#66ccff')
             let messageEmbed = await message.channel.send(reactionsEmbed)
-            //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'osu');
-            //message.react(reactionEmoji);
-            //messageEmbed.react('♔')
-            //messageEmbed.react('♕')
             messageEmbed.react('🤴')
             messageEmbed.react('👸')
         }
     }
-
-    //Condition
-    /*
-    if(start == 1){
-        var msgSend = message.channel.send("Royal Advisor \n [My" + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]");
-        let msg = await message.channel.send(msgSend)
-        msg.react('✅')
-        msg.react('❌')
-        //message.channel.send("");
-    } else if(start == 2){
-        var msgSend = message.channel.send("Royal Advisor \n [My" + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]");
-        let msg = await message.channel.send(msgSend)
-        msg.react('✅')
-        msg.react('❌')
-    }
-    */
 });
 
 //King user response
@@ -918,7 +898,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 startAdd();
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Royal Advisor')
-                .setDescription("[My " + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]")
+                .setDescription("My " + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?")
                 .setColor('#DC143C')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('✅')
@@ -943,7 +923,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 startAdd();
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Royal Advisor')
-                .setDescription("[My " + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]")
+                .setDescription("My " + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?")
                 .setColor('#DC143C')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('✅')
@@ -966,7 +946,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             if(start == 1){
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Royal Advisor')
-                .setDescription("[Good! You're already got the hang of it.]")
+                .setDescription("Good! You're already got the hang of it.")
                 .setColor('#DC143C')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
@@ -987,7 +967,12 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '❌'){
             if(start == 1){
-                reaction.message.channel.send("Royal Advisor \n [Very funny. Just give people their answers, okay?");
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Very funny. Just give people their answers, okay?")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
                 startAdd();
             }
         }
@@ -1005,35 +990,52 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '➡️'){
             if(start == 2){
-                var msgSend = message.channel.send("Royal Advisor \n [Our city's still very small right now, but \n it certainly has the potential to grow.]");
-                let msg = await message.channel.send(msgSend)
-                msg.react('➡️')
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Our city's still very small right now, but \n it certainly has the potential to grow.")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
                 startAdd();
             } else if(start == 3){
-                var msgSend = message.channel.send("Royal Advisor \n [Perhaps one day we will have a bustling \n metropolis and you'll be invited to join the \n Council of Crowns!]");
-                let msg = await message.channel.send(msgSend)
-                msg.react('➡️')
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Perhaps one day we will have a bustling \n metropolis and you'll be invited to join the \n Council of Crowns!")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
                 startAdd();
             } else if(start == 4){
-                var msgSend = message.channel.send("Royal Advisor \n [For now, all you need to concern yourself \n with is keeping the citizens happy and \n growing our population.]");
-                let msg = await message.channel.send(msgSend)
-                msg.react('➡️')
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("For now, all you need to concern yourself \n with is keeping the citizens happy and \n growing our population.")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
                 startAdd();
             } else if(start == 5){
-                var msgSend = message.channel.send("Royal Advisor \n [At the beginning of the day, you can type \n in `awards` to see the achievements.]");
-                let msg = await message.channel.send(msgSend)
-                msg.react('➡️')
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("At the beginning of the day, you can type \n in `awards` to see the achievements.")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
                 startAdd();
             } else if(start == 6){
-                var msgSend = message.channel.send("Royal Advisor \n [Do your best, " + gender2 + "!]");
-                let msg = await message.channel.send(msgSend)
-                msg.react('➡️')
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Do your best, " + gender2 + "!")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
                 startAdd();
             } else if(start == 7){
-                var msgSend = message.channel.send("Day 1 \n \n ======================================== \n Population: " + population + "\n Happiness: " + happiness + "\n Gold: " + gold + "\n ========================================");
-                let msg = await message.channel.send(msgSend)
-                msg.react('➡️')
-                startAdd();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day 1')
+                .setDescription("======================================== \n Population: " + population + "\n Happiness: " + happiness + "\n Gold: " + gold + "\n ========================================")
+                .setColor('#228B22')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
             }
         }
     }
