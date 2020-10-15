@@ -1123,7 +1123,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } else if(start == 9){
                 startAdd();
                 let reactionsEmbed = new MessageEmbed()
-                .setTitle('Day End!')
+                .setTitle('Day ' + day + ' is complete!')
                 .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Day " + day + " is complete! \n ++++++++++++++++++++++++++++++++++++++++")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
