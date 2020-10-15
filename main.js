@@ -963,7 +963,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '✅'){
             if(start == 1){
-                message.channel.send("Royal Advisor \n [Good! You're already got the hang of it.]");
+                reaction.message.channel.send("Royal Advisor \n [Good! You're already got the hang of it.]");
                 start();
             } //else if(start == 4){
                 //message.channel.send("");
@@ -984,7 +984,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '❌'){
             if(start == 1){
-                message.channel.send("Royal Advisor \n [Very funny. Just give people their answers, okay?");
+                reaction.message.channel.send("Royal Advisor \n [Very funny. Just give people their answers, okay?");
                 start();
             } //else if(start == 4){
                 //message.channel.send("");
