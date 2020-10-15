@@ -1005,7 +1005,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .setColor('#FF1493')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
-                visits();
             }
         }
     }
@@ -1040,7 +1039,6 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .setColor('#FF1493')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
-                visits();
             }
         }
     }
@@ -1109,6 +1107,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 if(char == 1){
                     //reaction.message.channel.send("Character 1 chosen.");
                     sneakyGirl();
+                    visits();
                     let reactionsEmbed = new MessageEmbed()
                     .setTitle('Sneaky Girl')
                     .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
@@ -1118,6 +1117,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     messageEmbed.react('❌')
                 } else if(char == 2){
                     reaction.message.channel.send("Character 2 chosen.");
+                    visits();
                 }
             } else if(start == 9){
                 startSubtract();
