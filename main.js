@@ -1121,7 +1121,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     visits();
                 }
             } else if(start == 9){
-                startSubtract();
+                startAdd();
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day End!')
                 .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Day " + day + " is complete! \n ++++++++++++++++++++++++++++++++++++++++")
@@ -1129,6 +1129,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
                 forwardDay();
+            } else if(start == 10){
+                startSubtract();
+                startSubtract();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day ' + day)
+                .setDescription("======================================== \n Population: " + population + " \n Happiness: " + happiness + " \n Gold: " + gold + " \n ========================================")
+                .setColor('#228B22')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
             }
         }
     }
