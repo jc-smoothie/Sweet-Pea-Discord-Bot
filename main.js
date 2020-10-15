@@ -12,6 +12,9 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.v-WpbuYp4QbYs_WyVdxsK9TJIOY');
+//client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
+
 //Variables
 const EN = '763733022150361098';
 const FR = '763733139222560789';
@@ -831,6 +834,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 
 //Sort The Court
 var ruler = 0
+var start = 0
 
 function king(){
     var ruler = 1
@@ -838,6 +842,10 @@ function king(){
 
 function queen(){
     var ruler = 2
+}
+
+function startAdd(){
+    var start = start + 1
 }
 
 client.on('message', async message => {
@@ -859,6 +867,7 @@ client.on('message', async message => {
     }
 });
 
+//King or queen user response
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
     if(reaction.partial) await reaction.fetch();
@@ -869,6 +878,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '♔'){
             king();
+            startAdd();
         }
     }
 });
@@ -883,11 +893,52 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '♕'){
             queen();
+            MediaStreamTrackAudioSourceNode();
         }
     }
 });
 
+//Condition
+if(i == 1){
+    var msgSend = message.channel.send("Royal Advisor \n [My" + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]");
+    let msg = await message.channel.send(msgSend)
+    msg.react('✅')
+    msg.react('❌')
+    //message.channel.send("");
+}
 
+//Yes or no
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.v-WpbuYp4QbYs_WyVdxsK9TJIOY');
-//client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "766037768379695117"){
+        if(reaction.emoji.name === '✅'){
+            if(start == 1){
+                message.channel.send("Royal Advisor \n [Good! You're already got the hang of it.]");
+                start();
+            }
+        }
+    }
+});
+
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "766037768379695117"){
+        if(reaction.emoji.name === '❌'){
+            if(start == 1){
+                message.channel.send("Royal Advisor \n [Very funny. Just give people their answers, okay?");
+                start();
+            }
+        }
+    }
+});
+
