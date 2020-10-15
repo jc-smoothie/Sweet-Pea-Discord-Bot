@@ -971,10 +971,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
                 start();
-            } //else if(start == 4){
-                //message.channel.send("");
-                //start();
-            //}
+            }
         }
     }
 });
@@ -992,10 +989,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             if(start == 1){
                 reaction.message.channel.send("Royal Advisor \n [Very funny. Just give people their answers, okay?");
                 start();
-            } //else if(start == 4){
-                //message.channel.send("");
-                //start();
-            //}
+            }
         }
     }
 });
