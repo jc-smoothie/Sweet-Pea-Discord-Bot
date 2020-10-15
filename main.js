@@ -833,19 +833,31 @@ client.on("messageReactionRemove", async (reaction, user) => {
 });
 
 //Sort The Court
+
+//Variables
 var ruler = 0
 var start = 0
 
+var gender1 = ""
+var gender2 = ""
+var gender3 = ""
+
 function king(){
-    var ruler = 1
+    ruler = ruler + 1
+    gender1 = "lord"
+    gender2 = "sir"
+    gender3 = "king"
 }
 
 function queen(){
-    var ruler = 2
+    ruler = ruler + 2
+    gender1 = "lady"
+    gender2 = "madam"
+    gender3 = "queen"
 }
 
 function startAdd(){
-    var start = start + 1
+    start = start + 1
 }
 
 client.on('message', async message => {
@@ -865,9 +877,23 @@ client.on('message', async message => {
             messageEmbed.react('♕')
         }
     }
+
+    //Condition
+    if(start == 1){
+        var msgSend = message.channel.send("Royal Advisor \n [My" + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]");
+        let msg = await message.channel.send(msgSend)
+        msg.react('✅')
+        msg.react('❌')
+        //message.channel.send("");
+    } else if(start == 2){
+        var msgSend = message.channel.send("Royal Advisor \n [My" + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]");
+        let msg = await message.channel.send(msgSend)
+        msg.react('✅')
+        msg.react('❌')
+    }
 });
 
-//King or queen user response
+//King user response
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
     if(reaction.partial) await reaction.fetch();
@@ -877,12 +903,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '♔'){
-            king();
-            startAdd();
+            if(start == 0){
+                king();
+                startAdd();
+            }
         }
     }
 });
 
+//Queen user response
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
     if(reaction.partial) await reaction.fetch();
@@ -892,22 +921,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
 
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '♕'){
-            queen();
-            MediaStreamTrackAudioSourceNode();
+            if(start == 0){
+                queen();
+                startAdd();
+            }
         }
     }
 });
 
-//Condition
-if(i == 1){
-    var msgSend = message.channel.send("Royal Advisor \n [My" + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?]");
-    let msg = await message.channel.send(msgSend)
-    msg.react('✅')
-    msg.react('❌')
-    //message.channel.send("");
-}
-
-//Yes or no
+//Yes Reaction
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
     if(reaction.partial) await reaction.fetch();
@@ -920,11 +942,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
             if(start == 1){
                 message.channel.send("Royal Advisor \n [Good! You're already got the hang of it.]");
                 start();
-            }
+            } //else if(start == 4){
+                //message.channel.send("");
+                //start();
+            //}
         }
     }
 });
 
+//No Reaction
 client.on("messageReactionAdd", async (reaction, user) => {
     if(reaction.message.partcial) await reaction.message.fetch();
     if(reaction.partial) await reaction.fetch();
@@ -936,6 +962,54 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if(reaction.emoji.name === '❌'){
             if(start == 1){
                 message.channel.send("Royal Advisor \n [Very funny. Just give people their answers, okay?");
+                start();
+            } //else if(start == 4){
+                //message.channel.send("");
+                //start();
+            //}
+        }
+    }
+});
+
+//Continue Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "766037768379695117"){
+        if(reaction.emoji.name === '➡️'){
+            if(start == 2){
+                var msgSend = message.channel.send("Royal Advisor \n [Our city's still very small right now, but \n it certainly has the potential to grow.]");
+                let msg = await message.channel.send(msgSend)
+                msg.react('➡️')
+                start();
+            } else if(start == 3){
+                var msgSend = message.channel.send("Royal Advisor \n [Perhaps one day we will have a bustling \n metropolis and you'll be invited to join the \n Council of Crowns!]");
+                let msg = await message.channel.send(msgSend)
+                msg.react('➡️')
+                start();
+            } else if(start == 4){
+                var msgSend = message.channel.send("Royal Advisor \n [For now, all you need to concern yourself \n with is keeping the citizens happy and \n growing our population.]");
+                let msg = await message.channel.send(msgSend)
+                msg.react('➡️')
+                start();
+            } else if(start == 5){
+                var msgSend = message.channel.send("Royal Advisor \n [At the beginning of the day, you can type \n in `awards` to see the achievements.]");
+                let msg = await message.channel.send(msgSend)
+                msg.react('➡️')
+                start();
+            } else if(start == 6){
+                var msgSend = message.channel.send("Royal Advisor \n [Do your best, " + gender2 + "!]");
+                let msg = await message.channel.send(msgSend)
+                msg.react('➡️')
+                start();
+            } else if(start == 7){
+                var msgSend = message.channel.send("Day 1 \n \n ======================================== \n Population: " + population + "\n Happiness: " + happiness + "\n Gold: " + gold + "\n ========================================");
+                let msg = await message.channel.send(msgSend)
+                msg.react('➡️')
                 start();
             }
         }
