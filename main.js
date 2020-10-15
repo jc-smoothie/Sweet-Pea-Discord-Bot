@@ -838,6 +838,7 @@ client.on("messageReactionRemove", async (reaction, user) => {
 var ruler = 0;
 var start = 0;
 var visitor = "";
+var dailyVisits = 0;
 
 //var gender1 = "";
 //var gender2 = "";
