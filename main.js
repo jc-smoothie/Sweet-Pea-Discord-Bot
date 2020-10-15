@@ -873,8 +873,12 @@ client.on('message', async message => {
             .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
             .setColor('#66ccff')
             let messageEmbed = await message.channel.send(reactionsEmbed)
-            messageEmbed.react('♔')
-            messageEmbed.react('♕')
+            //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'osu');
+            //message.react(reactionEmoji);
+            //messageEmbed.react('♔')
+            //messageEmbed.react('♕')
+            messageEmbed.react('🤴')
+            messageEmbed.react('👸')
         }
     }
 
