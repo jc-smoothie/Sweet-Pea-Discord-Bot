@@ -865,7 +865,7 @@ function startAdd(){
 }
 
 function character(){
-    char = Math.floor((Math.random() * 1) + 1);
+    char = Math.floor((Math.random() * 2) + 1);
 }
 
 client.on('message', async message => {
