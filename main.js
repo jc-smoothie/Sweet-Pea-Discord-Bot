@@ -842,6 +842,10 @@ var gender1 = ""
 var gender2 = ""
 var gender3 = ""
 
+var population = 100
+var happiness = 100
+var gold = 200
+
 function king(){
     ruler = ruler + 1
     gender1 = "lord"
