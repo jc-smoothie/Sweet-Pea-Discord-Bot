@@ -835,38 +835,67 @@ client.on("messageReactionRemove", async (reaction, user) => {
 //Sort The Court
 
 //Variables
-var ruler = 0
-var start = 0
+var ruler = 0;
+var start = 0;
 
-var gender1 = ""
-var gender2 = ""
-var gender3 = ""
+//var gender1 = "";
+//var gender2 = "";
+//var gender3 = "";
 
-var population = 100
-var happiness = 100
-var gold = 200
+var population = 100;
+var happiness = 100;
+var gold = 200;
 
 function king(){
-    ruler = ruler + 1
-    gender1 = "lord"
-    gender2 = "sir"
-    gender3 = "king"
+    ruler = ruler + 1;
+    gender1 = "lord";
+    gender2 = "sir";
+    gender3 = "king";
 }
 
 function queen(){
-    ruler = ruler + 2
-    gender1 = "lady"
-    gender2 = "madam"
-    gender3 = "queen"
+    ruler = ruler + 2;
+    gender1 = "lady";
+    gender2 = "madam";
+    gender3 = "queen";
 }
 
 function startAdd(){
-    start = start + 1
+    start = start + 1;
 }
 
 function character(){
     char = Math.floor((Math.random() * 2) + 1);
 }
+
+function leavesRoom(){
+    leaveMessage = "(The " + visitor + " leaves the room.)";
+}
+
+function visits(){
+    dailyVisits = dailyVisits + 1;
+    if(dailyVisits == 10){
+        endDay = 1;
+        dailyVisits = 0;
+    }
+}
+
+//Characters
+//Sneaky Girl
+function sneakyGirl(){
+    visitor = "Sneaky Girl"
+}
+
+function sneakyGirlAccept(){
+    acceptMessage = "I knew you couldn't resist! Here's some gold. \n \n ";
+}
+
+function sneakyGirlDecline(){
+    declineMessage = "Taking the high road, huh? I'll see you \n around. \n \n ";
+}
+
+
+
 
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
@@ -956,6 +985,18 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 messageEmbed.react('➡️')
                 startAdd();
             }
+            
+            if(visitor == "Sneaky Girl"){
+                sneakyGirlAccept();
+                leavesRoom();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Sneaky Girl')
+                .setDescription(acceptMessage + leaveMessage)
+                .setColor('#FF1493')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                visits();
+            }
         }
     }
 });
@@ -978,6 +1019,18 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
                 startAdd();
+            }
+
+            if(visitor == "Sneaky Girl"){
+                sneakyGirlDecline();
+                leavesRoom();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Sneaky Girl')
+                .setDescription(declineMessage + leaveMessage)
+                .setColor('#FF1493')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                visits();
             }
         }
     }
@@ -1044,7 +1097,15 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } else if(start == 8){
                 character();
                 if(char == 1){
-                    reaction.message.channel.send("Character 1 chosen.");
+                    //reaction.message.channel.send("Character 1 chosen.");
+                    sneakyGirl();
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Sneaky Girl')
+                    .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
+                    .setColor('#FF1493')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
                 } else if(char == 2){
                     reaction.message.channel.send("Character 2 chosen.");
                 }
