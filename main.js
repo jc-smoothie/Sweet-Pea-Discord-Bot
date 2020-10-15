@@ -906,7 +906,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(!reaction.message.guild) return;
 
     if(reaction.message.channel.id === "766037768379695117"){
-        if(reaction.emoji.name === '♔'){
+        if(reaction.emoji.name === '🤴'){
             if(start == 0){
                 king();
                 startAdd();
@@ -924,7 +924,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(!reaction.message.guild) return;
 
     if(reaction.message.channel.id === "766037768379695117"){
-        if(reaction.emoji.name === '♕'){
+        if(reaction.emoji.name === '👸'){
             if(start == 0){
                 queen();
                 startAdd();
