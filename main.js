@@ -864,6 +864,10 @@ function startAdd(){
     start = start + 1
 }
 
+function character(){
+    char = Math.floor((Math.random() * 1) + 1);
+}
+
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     
@@ -1036,6 +1040,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 8){
+                character();
+                if(char == 1){
+                    reaction.message.channel.send("Character 1 chosen.");
+                } else if(char == 2){
+                    reaction.message.channel.send("Character 2 chosen.");
+                }
             }
         }
     }
