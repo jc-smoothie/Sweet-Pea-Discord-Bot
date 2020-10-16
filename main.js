@@ -898,13 +898,13 @@ function forwardDay(){
 
 function negativeDailyPopulation(){
     generatedDailyPopulation = Math.floor((Math.random() * 15));
-    dailyPopulation = population - generatedDailyPopulation;
+    population = population - generatedDailyPopulation;
     dailyPopulationDisplay = "-" + generatedDailyPopulation;
 }
 
 function positiveDailyPopulation(){
     generatedDailyPopulation = Math.floor((Math.random() * 15));
-    dailyPopulation = population + generatedDailyPopulation;
+    population = population + generatedDailyPopulation;
     dailyPopulationDisplay = "+" + generatedDailyPopulation;
 }
 
