@@ -896,6 +896,12 @@ function forwardDay(){
     day = day + 1
 }
 
+function resetReports(){
+    populationReport = 0;
+    happinessReport = 0;
+    goldReport = 0;
+}
+
 function negativeDailyPopulation(){
     generatedDailyPopulation = Math.floor((Math.random() * 15));
     population = population - generatedDailyPopulation;
@@ -1033,8 +1039,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 if(catOption == 1){
                     bootsTheCat1Accept();
                     leavesRoom();
-                    gold = gold + 50
-                    gold_difference = gold_difference + 50
+                    gold = gold + 50;
+                    gold_difference = gold_difference + 50;
                     let reactionsEmbed = new MessageEmbed()
                     .setTitle('Boots The Cat')
                     .setDescription(acceptMessage + leaveMessage + " \n \n +50 Gold")
@@ -1044,9 +1050,11 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 } else if(catOption == 2){
                     bootsTheCat2Accept();
                     leavesRoom();
+                    happiness = happiness + 3;
+                    happiness_difference = happiness_difference + 3;
                     let reactionsEmbed = new MessageEmbed()
                     .setTitle('Boots The Cat')
-                    .setDescription(acceptMessage + leaveMessage)
+                    .setDescription(acceptMessage + leaveMessage + " \n \n +3 Happiness")
                     .setColor('#DAA520')
                     let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                     messageEmbed.react('➡️')
@@ -1098,8 +1106,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 } else if(catOption == 2){
                     bootsTheCat2Decline();
                     leavesRooms();
-                    happiness = happiness - 3
-                    happiness_difference = happiness_difference - 3
+                    happiness = happiness - 3;
+                    happiness_difference = happiness_difference - 3;
                     let reactionsEmbed = new MessageEmbed()
                     .setTitle('Boots The Cat')
                     .setDescription(declineMessage + leaveMessage + " \n \n -3 Happiness")
@@ -1212,7 +1220,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 } else{
                     populationReport = "+" + population_difference;
                 }
-                if(happiness_difference <= 0){
+                if(happiness_difference < 0){
                     happinessReport = happiness_difference;
                     cityNegativeOpinion();
                 } else{
@@ -1231,6 +1239,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
                 forwardDay();
+                resetReports();
             } else if(start == 10){
                 startSubtract();
                 startSubtract();
