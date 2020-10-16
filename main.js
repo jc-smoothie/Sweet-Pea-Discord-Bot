@@ -915,7 +915,7 @@ function positiveDailyPopulation(){
 }
 
 function cityPositiveOpinion(){
-    cityOpinion = "People are happy! Tour city is growing.";
+    cityOpinion = "People are happy! Your city is growing.";
 }
 
 function cityNegativeOpinion(){
@@ -1234,7 +1234,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 }
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day ' + day + ' is complete!')
-                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Report: \n Population: " + populationReport + " \n Happiness: " + happinessReport + " \n Gold: " + goldReport + " \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Report: \n " + populationReport + " Population \n " + happinessReport + " Happiness \n " + goldReport + " Gold \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
