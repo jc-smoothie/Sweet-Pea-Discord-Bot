@@ -1007,13 +1007,13 @@ client.on("messageReactionAdd", async (reaction, user) => {
             
             if(visitor == "Sneaky Girl"){
                 sneakyGirlAccept();
+                leavesRoom();
                 gold = gold + 20
                 gold_difference = gold_difference + 20
                 population = population - 5
                 population_difference = population_difference - 5
                 happiness = happiness - 10
                 happiness_difference = happiness_difference - 10
-                leavesRoom();
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Sneaky Girl')
                 .setDescription(acceptMessage + leaveMessage + " \n \n +20 Gold \n -5 Population \n -10 Happiness")
@@ -1032,17 +1032,25 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } else if(visitor == "Boots The Cat"){
                 if(catOption == 1){
                     bootsTheCat1Accept();
+                    leavesRoom();
                     gold = gold + 50
                     gold_difference = gold_difference + 50
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription(acceptMessage + leaveMessage + " \n \n +50 Gold")
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('➡️')
                 } else if(catOption == 2){
                     bootsTheCat2Accept();
+                    leavesRoom();
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription(acceptMessage + leaveMessage)
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('➡️')
                 }
-                let reactionsEmbed = new MessageEmbed()
-                .setTitle('Boots The Cat')
-                .setDescription(acceptMessage + leaveMessage + " \n \n +50 Gold")
-                .setColor('#DAA520')
-                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
-                messageEmbed.react('➡️')
             }
         }
     }
