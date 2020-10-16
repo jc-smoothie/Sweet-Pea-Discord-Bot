@@ -908,23 +908,6 @@ function positiveDailyPopulation(){
     dailyPopulationDisplay = "+" + generatedDailyPopulation;
 }
 
-//Characters
-//Sneaky Girl
-function sneakyGirl(){
-    visitor = "Sneaky Girl"
-}
-
-function sneakyGirlAccept(){
-    acceptMessage = "I knew you couldn't resist! Here's some gold. \n \n ";
-}
-
-function sneakyGirlDecline(){
-    declineMessage = "Taking the high road, huh? I'll see you \n around. \n \n ";
-}
-
-
-
-
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     
@@ -1201,3 +1184,16 @@ client.on("messageReactionAdd", async (reaction, user) => {
     }
 });
 
+//Characters
+//Sneaky Girl
+function sneakyGirl(){
+    visitor = "Sneaky Girl"
+}
+
+function sneakyGirlAccept(){
+    acceptMessage = "I knew you couldn't resist! Here's some gold. \n \n ";
+}
+
+function sneakyGirlDecline(){
+    declineMessage = "Taking the high road, huh? I'll see you \n around. \n \n ";
+}
