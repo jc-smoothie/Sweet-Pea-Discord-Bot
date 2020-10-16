@@ -1171,7 +1171,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 }
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day ' + day + ' is complete!')
-                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Population: " + populationResult + " \n Happiness: " + happinessResult + " \n Gold: " + goldResult + " \n ++++++++++++++++++++++++++++++++++++++++")
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Population: " + populationReport + " \n Happiness: " + happinessReport + " \n Gold: " + goldReport + " \n ++++++++++++++++++++++++++++++++++++++++")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
