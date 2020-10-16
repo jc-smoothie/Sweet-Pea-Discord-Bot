@@ -1029,6 +1029,20 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                     messageEmbed.react('➡️')
                 }
+            } else if(visitor == "Boots The Cat"){
+                if(catOption == 1){
+                    bootsTheCat1Accept();
+                    gold = gold + 50
+                    gold_difference = gold_difference + 50
+                } else if(catOption == 2){
+                    bootsTheCat2Accept();
+                }
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Boots The Cat')
+                .setDescription(acceptMessage + leaveMessage + " \n \n +50 Gold")
+                .setColor('#DAA520')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
             }
         }
     }
@@ -1063,6 +1077,28 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .setColor('#FF1493')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
+            } else if(visitor == "Boots The Cat"){
+                if(catOption == 1){
+                    bootsTheCat1Decline();
+                    leavesRooms();
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription(declineMessage + leaveMessage)
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('➡️')
+                } else if(catOption == 2){
+                    bootsTheCat2Decline();
+                    leavesRooms();
+                    happiness = happiness - 3
+                    happiness_difference = happiness_difference - 3
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription(declineMessage + leaveMessage + " \n \n -3 Happiness")
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('➡️')
+                }
             }
         }
     }
@@ -1140,14 +1176,26 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     messageEmbed.react('✅')
                     messageEmbed.react('❌')
                 } else if(char == 2){
+                    bootsTheCat();
                     visits();
-                    let reactionsEmbed = new MessageEmbed()
-                    .setTitle('Sneaky Girl')
-                    .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
-                    .setColor('#FF1493')
-                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
-                    messageEmbed.react('✅')
-                    messageEmbed.react('❌')
+                    bootsTheCatOption();
+                    if(catOption == 1){
+                        let reactionsEmbed = new MessageEmbed()
+                        .setTitle('Boots The Cat')
+                        .setDescription("Meow! (It's just... staring at me... Does it want \n something?)")
+                        .setColor('#FF1493')
+                        let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                        messageEmbed.react('✅')
+                        messageEmbed.react('❌')
+                    } else if(catOption == 2){
+                        let reactionsEmbed = new MessageEmbed()
+                        .setTitle('Boots The Cat')
+                        .setDescription("Meeow. (Looks like he wants somebody \n to pat his belly...)")
+                        .setColor('#FF1493')
+                        let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                        messageEmbed.react('✅')
+                        messageEmbed.react('❌')
+                    }
                 }
             } else if(start == 9){
                 startAdd();
@@ -1203,7 +1251,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
 //Characters
 //Sneaky Girl
 function sneakyGirl(){
-    visitor = "Sneaky Girl"
+    visitor = "Sneaky Girl";
 }
 
 function sneakyGirlAccept(){
@@ -1214,4 +1262,29 @@ function sneakyGirlDecline(){
     declineMessage = "Taking the high road, huh? I'll see you \n around. \n \n ";
 }
 
-//function 
+//Boots The Cat
+function bootsTheCat(){
+    visitor = "Boots The Cat";
+}
+
+function bootsTheCatOption(){
+   catOption = Math.floor((Math.random() * 2) + 1);
+}
+
+//Boots The Cat Option 1
+function bootsTheCat1Accept(){
+    acceptMessage = "Meow! (What just happened? I feel... lucky!)";
+}
+
+function bootsTheCat1Decline(){
+    declineMessage = "(Boots walks around the room.)";
+}
+
+//Boots The Cat Option 2
+function bootsTheCat2Accept(){
+    acceptMessage = "Mmmrrrrow.";
+}
+
+function bootsTheCat2Decline(){
+    declineMessage = "Maow...";
+}
