@@ -1,3 +1,4 @@
+const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
@@ -840,6 +841,7 @@ var start = 0;
 var visitor = "";
 var dailyVisits = 0;
 var day = 1;
+var generatedDailyPopulation = 0;
 
 //var gender1 = "";
 //var gender2 = "";
@@ -848,6 +850,9 @@ var day = 1;
 var population = 100;
 var happiness = 100;
 var gold = 200;
+var population_difference = 0;
+var happiness_difference = 0;
+var gold_difference = 0;
 
 function king(){
     ruler = ruler + 1;
@@ -889,6 +894,18 @@ function visits(){
 
 function forwardDay(){
     day = day + 1
+}
+
+function negativeDailyPopulation(){
+    generatedDailyPopulation = Math.floor((Math.random() * 15));
+    dailyPopulation = population - generatedDailyPopulation;
+    dailyPopulationDisplay = "-" + generatedDailyPopulation;
+}
+
+function positiveDailyPopulation(){
+    generatedDailyPopulation = Math.floor((Math.random() * 15));
+    dailyPopulation = population + generatedDailyPopulation;
+    dailyPopulationDisplay = "+" + generatedDailyPopulation;
 }
 
 //Characters
@@ -999,13 +1016,28 @@ client.on("messageReactionAdd", async (reaction, user) => {
             
             if(visitor == "Sneaky Girl"){
                 sneakyGirlAccept();
+                gold = gold + 20
+                gold_difference = gold_difference + 20
+                population = population - 5
+                population_difference = population_difference - 5
+                happiness = happiness - 10
+                happiness_difference = happiness_difference - 10
                 leavesRoom();
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Sneaky Girl')
-                .setDescription(acceptMessage + leaveMessage)
+                .setDescription(acceptMessage + leaveMessage + " \n \n +20 Gold \n -5 Population \n -10 Happiness")
                 .setColor('#FF1493')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
+                if(population <= 0){
+                    start = 11;
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Everyone Left!')
+                    .setDescription("Press the arrow reaction to see your \n results and you may replay the \n game from the start.")
+                    .setColor('#FF1493')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('➡️')
+                }
             }
         }
     }
@@ -1104,9 +1136,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 messageEmbed.react('➡️')
                 startAdd();
             } else if(start == 8){
+                //Character Selection
                 character();
                 if(char == 1){
-                    //reaction.message.channel.send("Character 1 chosen.");
                     sneakyGirl();
                     visits();
                     let reactionsEmbed = new MessageEmbed()
@@ -1122,9 +1154,24 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 }
             } else if(start == 9){
                 startAdd();
+                if(population_difference <= 0){
+                    populationReport = population_difference;
+                } else{
+                    populationReport = "+" + population_difference;
+                }
+                if(happiness_difference <= 0){
+                    happinessReport = happiness_difference;
+                } else{
+                    happinessReport = "+" + happiness_difference;
+                }
+                if(gold_difference <= 0){
+                    goldReport = gold_difference;
+                } else{
+                    goldReport = "+" + gold_difference;
+                }
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day ' + day + ' is complete!')
-                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Day " + day + " is complete! \n ++++++++++++++++++++++++++++++++++++++++")
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Population: " + populationResult + " \n Happiness: " + happinessResult + " \n Gold: " + goldResult + " \n ++++++++++++++++++++++++++++++++++++++++")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
@@ -1132,12 +1179,23 @@ client.on("messageReactionAdd", async (reaction, user) => {
             } else if(start == 10){
                 startSubtract();
                 startSubtract();
+                if(happiness_difference < 0){
+                    negativeDailyPopulation();
+                } else{
+                    positiveDailyPopulation();
+                }
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day ' + day)
-                .setDescription("======================================== \n Population: " + population + " \n Happiness: " + happiness + " \n Gold: " + gold + " \n ========================================")
+                .setDescription(dailyPopulationDisplay + " \n \n ======================================== \n Population: " + population + " \n Happiness: " + happiness + " \n Gold: " + gold + " \n ========================================")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
+            } else if(start == 11){
+                start = 0;
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day ' + day)
+                .setDescription("**************************************** \n Your kingdom lasted " + day + " days. \n Your kingdom ended with " + population + " people. \n Your kingdom ended with " + happiness + " happiness. \n Your kingdom ended with " + gold + " gold. \n **************************************** \n \n Type `+start` to play the game again.")
+                .setColor('#228B22')
             }
         }
     }
