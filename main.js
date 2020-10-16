@@ -908,6 +908,14 @@ function positiveDailyPopulation(){
     dailyPopulationDisplay = "+" + generatedDailyPopulation;
 }
 
+function cityPositiveOpinion(){
+    cityOpinion = "People are happy! Tour city is growing.";
+}
+
+function cityNegativeOpinion(){
+    cityOpinion = "People are sad! The city is shrinking.";
+}
+
 client.on('message', async message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     
@@ -1132,8 +1140,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     messageEmbed.react('✅')
                     messageEmbed.react('❌')
                 } else if(char == 2){
-                    reaction.message.channel.send("Character 2 chosen.");
                     visits();
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Sneaky Girl')
+                    .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
+                    .setColor('#FF1493')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
                 }
             } else if(start == 9){
                 startAdd();
@@ -1144,8 +1158,10 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 }
                 if(happiness_difference <= 0){
                     happinessReport = happiness_difference;
+                    cityNegativeOpinion();
                 } else{
                     happinessReport = "+" + happiness_difference;
+                    cityPositiveOpinion();
                 }
                 if(gold_difference <= 0){
                     goldReport = gold_difference;
@@ -1154,7 +1170,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 }
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day ' + day + ' is complete!')
-                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Population: " + populationReport + " \n Happiness: " + happinessReport + " \n Gold: " + goldReport + " \n ++++++++++++++++++++++++++++++++++++++++")
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Population: " + populationReport + " \n Happiness: " + happinessReport + " \n Gold: " + goldReport + " \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
@@ -1197,3 +1213,5 @@ function sneakyGirlAccept(){
 function sneakyGirlDecline(){
     declineMessage = "Taking the high road, huh? I'll see you \n around. \n \n ";
 }
+
+//function 
