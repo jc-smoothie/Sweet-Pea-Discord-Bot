@@ -1215,7 +1215,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 }
             } else if(start == 9){
                 startAdd();
-                if(population_difference <= 0){
+                if(population_difference < 0){
                     populationReport = population_difference;
                 } else{
                     populationReport = "+" + population_difference;
@@ -1227,14 +1227,14 @@ client.on("messageReactionAdd", async (reaction, user) => {
                     happinessReport = "+" + happiness_difference;
                     cityPositiveOpinion();
                 }
-                if(gold_difference <= 0){
+                if(gold_difference < 0){
                     goldReport = gold_difference;
                 } else{
                     goldReport = "+" + gold_difference;
                 }
                 let reactionsEmbed = new MessageEmbed()
                 .setTitle('Day ' + day + ' is complete!')
-                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Population: " + populationReport + " \n Happiness: " + happinessReport + " \n Gold: " + goldReport + " \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Report: \n Population: " + populationReport + " \n Happiness: " + happinessReport + " \n Gold: " + goldReport + " \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
                 .setColor('#228B22')
                 let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                 messageEmbed.react('➡️')
