@@ -881,7 +881,7 @@ function character(){
 }
 
 function leavesRoom(){
-    leaveMessage = "(The " + visitor + " leaves the room.)";
+    leaveMessage = " \n \n (The " + visitor + " leaves the room.)";
 }
 
 function visits(){
@@ -1191,7 +1191,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         let reactionsEmbed = new MessageEmbed()
                         .setTitle('Boots The Cat')
                         .setDescription("Meow! (It's just... staring at me... Does it want \n something?)")
-                        .setColor('#FF1493')
+                        .setColor('#DAA520')
                         let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                         messageEmbed.react('✅')
                         messageEmbed.react('❌')
@@ -1199,7 +1199,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
                         let reactionsEmbed = new MessageEmbed()
                         .setTitle('Boots The Cat')
                         .setDescription("Meeow. (Looks like he wants somebody \n to pat his belly...)")
-                        .setColor('#FF1493')
+                        .setColor('#DAA520')
                         let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
                         messageEmbed.react('✅')
                         messageEmbed.react('❌')
@@ -1263,11 +1263,11 @@ function sneakyGirl(){
 }
 
 function sneakyGirlAccept(){
-    acceptMessage = "I knew you couldn't resist! Here's some gold. \n \n ";
+    acceptMessage = "I knew you couldn't resist! Here's some gold.";
 }
 
 function sneakyGirlDecline(){
-    declineMessage = "Taking the high road, huh? I'll see you \n around. \n \n ";
+    declineMessage = "Taking the high road, huh? I'll see you \n around.";
 }
 
 //Boots The Cat
