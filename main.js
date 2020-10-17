@@ -905,13 +905,13 @@ function resetReports(){
 function negativeDailyPopulation(){
     generatedDailyPopulation = Math.floor((Math.random() * 15));
     population = population - generatedDailyPopulation;
-    dailyPopulationDisplay = "-" + generatedDailyPopulation;
+    dailyPopulationDisplay = "-" + generatedDailyPopulation + " Population";
 }
 
 function positiveDailyPopulation(){
     generatedDailyPopulation = Math.floor((Math.random() * 15));
     population = population + generatedDailyPopulation;
-    dailyPopulationDisplay = "+" + generatedDailyPopulation;
+    dailyPopulationDisplay = "+" + generatedDailyPopulation + " Population";
 }
 
 function cityPositiveOpinion(){
