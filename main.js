@@ -215,22 +215,24 @@ client.on('message', message => {
    } else if(command == 'token'){
        if(attempts == 1){
            increateAttempts();
-           message.reply("Sorry, but I can't reveal my token to anyone in a text channel.")
+           message.reply("Sorry, but I can't reveal my token to anyone in a text channel.");
        } else if(attempts == 2){
            increateAttempts();
-           message.reply("Once again, I can't display my token in a text channel, otherwise others will see. Others can write code and commands, and control my actions with my token.")
+           message.reply("Once again, I can't display my token in a text channel, otherwise others will see. Others can write code and commands, and control my actions with my token.");
        } else if(attempts == 3){
            increateAttempts();
-           message.reply("Now this is just bullying! I'm telling you, I can't reveal my token! ( >~<')")
+           message.reply("Now this is just bullying! I'm telling you, I can't reveal my token!");
        } else if(attempts == 4){
            increateAttempts();   
-           message.reply("Mo yada!!")
+           message.reply("Mo yada!!");
        } else if(attempts == 5){
            increateAttempts();
+           message.reply("( >~<')");
        } else if(attempts == 6){
            increateAttempts();
-       } else if (attempts == 7){
-           message.reply("(;-;)")
+           message.reply("(>ᗝ<)");
+       } else if(attempts == 7){
+           message.reply("(;-;)");
        }
    }
 });
