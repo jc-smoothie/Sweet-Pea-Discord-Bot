@@ -87,13 +87,13 @@ client.on('message', message => {
 
    if(command == 'displaycommands'){
        //console.log(message.guild.roles);
-       
        const displayCommandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
-       .setDescription('+displaycommands - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +dog - Receive an image of a dog! \n \n +sortthecourt - (Unavailable) Play Sort The Court, \n a game where you rule a kindgom!')
+       .setDescription('+commands - Receive a list of commands via dm \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +start - (Only available in the sort-the-court text channel) \n Play Sort The Court, a game where you rule a kindgom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
+       //+displaycommands - Receive a list of commands \n in a text channel \n \n 
        //message.author.send(embed);
        message.channel.send(displayCommandsEmbed);
    } else if(command == 'commands'){
