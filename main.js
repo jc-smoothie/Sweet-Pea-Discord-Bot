@@ -302,7 +302,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -316,7 +316,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -331,7 +331,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -345,7 +345,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -360,7 +360,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -374,7 +374,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -389,7 +389,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -403,7 +403,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -418,7 +418,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(FR).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **FR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -432,7 +432,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(FR).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **FR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -447,7 +447,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(ESP).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **ESP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -461,7 +461,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(ESP).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **ESP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -476,7 +476,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(DE).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **DE** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -490,7 +490,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(DE).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **DE** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -505,7 +505,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(VN).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **VN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -519,7 +519,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(VN).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **VN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -534,7 +534,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(PTBR).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -548,7 +548,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(PTBR).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -563,7 +563,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(PTBR).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -577,7 +577,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(PTBR).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -592,7 +592,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(KR).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **KR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -606,7 +606,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(KR).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **KR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -621,7 +621,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(JP).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **JP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -635,7 +635,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(JP).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **JP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -679,7 +679,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(AM).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AM** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -693,7 +693,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(AM).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AM** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
