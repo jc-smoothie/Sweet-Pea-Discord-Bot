@@ -13,7 +13,7 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.v-WpbuYp4QbYs_WyVdxsK9TJIOY');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.kn3HK9WpenZZr9jENa2X-WNUZ1c');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
 //Variables
