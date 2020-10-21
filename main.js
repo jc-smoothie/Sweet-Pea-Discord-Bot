@@ -247,7 +247,7 @@ client.on('message', async message => {
     if(command == 'languagereactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Welcome!')
-        .setDescription("(Work in progress) If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n \n 🇺🇸 🇬🇧 🇨🇦 🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹 🇧🇷 -> PT/BR \n 🇰🇷 -> HG \n 🇯🇵 -> NHG \n 🇨🇳 -> ZW")
+        .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n \n 🇺🇸 🇬🇧 🇨🇦 🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹 🇧🇷 -> PT/BR \n 🇰🇷 -> KR \n 🇯🇵 -> JP \n 🇨🇳 -> CN")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🇺🇸')
@@ -267,7 +267,7 @@ client.on('message', async message => {
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
         //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
-        .setDescription("(Work in progress) If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AM")
+        .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AM")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🌎')
@@ -294,544 +294,409 @@ client.on('message', async message => {
     }
 });
 
-//Test Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '❤️'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            //var user = reaction.message.guild.members.cache.get(user.id);
-            //message.channel.send("✅ " + "<@" + user + ">" + ", You now have the Test role!").then(msg => {
-                //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //});
-            reaction.message.reply("✅ You now have the Test role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
-    }
-});
-
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '❤️'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            //var user = reaction.message.guild.members.cache.get(user.id);
-            //message.channel.send("❌ " + "<@" + user + ">" + ", You no longer have the Test role.").then(msg => {
-                //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //});
-            reaction.message.reply("❌ You no longer have the Test role.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
-    }
-});
-
 //American Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇺🇸'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            //var user = reaction.message.guild.members.cache.get(user.id);
-            //message.channel.send("✅ " + "<@" + user + ">" + ", You now have the EN role!").then(msg => {
-                //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //});
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇺🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(EN).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇺🇸'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            //var user = reaction.message.guild.members.cache.get(user.id);
-            //message.channel.send("❌ " + "<@" + user + ">" + ", You no longer have the EN role.").then(msg => {
-                //msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            //});
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇺🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(EN).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //British Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇬🇧'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇬🇧') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(EN).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇬🇧'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇬🇧') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(EN).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Canadian Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇨🇦'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇦') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(EN).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇨🇦'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇦') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(EN).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Australian Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇦🇺'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(EN)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇦🇺') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(EN).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇦🇺'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(EN)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇦🇺') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(EN).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //French Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇫🇷'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(FR)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇫🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(FR).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇫🇷'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(FR)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇫🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(FR).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Spain Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇪🇸'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(ESP)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇪🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(ESP).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇪🇸'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(ESP)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇪🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(ESP).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //German Flag Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇩🇪'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(DE)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇩🇪') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(DE).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇩🇪'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(DE)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇩🇪') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(DE).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Vietnamese Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇻🇳'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(VN)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇻🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(VN).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇻🇳'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(VN)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇻🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(VN).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Portuguese Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇵🇹'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(PTBR)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇵🇹') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(PTBR).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇵🇹'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(PTBR)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇵🇹') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(PTBR).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Brazilian Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇧🇷'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(PTBR)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇧🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(PTBR).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇧🇷'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(PTBR)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇧🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(PTBR).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Korean Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇰🇷'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(HG)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇰🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(KR).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇰🇷'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(HG)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇰🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(KR).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Japanese Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇯🇵'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(NHG)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇯🇵') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(JP).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇯🇵'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(NHG)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇯🇵') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(JP).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Chinese Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇨🇳'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(ZW)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(CN).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🇨🇳'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(ZW)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(CN).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
 //Americas Reaction
-client.on("messageReactionAdd", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🌎'){
-            reaction.message.guild.members.cache.get(user.id).roles.add(AM)
-            reaction.message.reply("✅ You now have the role!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🌎') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(AM).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
-});
+ });
 
-client.on("messageReactionRemove", async (reaction, user) => {
-    if(reaction.message.partcial) await reaction.message.fetch();
-    if(reaction.partial) await reaction.fetch();
-
-    if(user.bot) return;
-    if(!reaction.message.guild) return;
-
-    if(reaction.message.channel.id === "763441746314133505"){
-        if(reaction.emoji.name === '🌎'){
-            reaction.message.guild.members.cache.get(user.id).roles.remove(AM)
-            reaction.message.reply("❌ Your role has been removed.").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🌎') {
+        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(AM).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-        }
+        });
     }
 });
 
