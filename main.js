@@ -89,7 +89,7 @@ client.on('message', message => {
        //console.log(message.guild.roles);
        const displayCommandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
-       .setDescription('+commands - Receive a list of commands via dm \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +start - (Only available in the sort-the-court text channel) \n Play Sort The Court, a game where you rule a kindgom!')
+       .setDescription('+commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +start - (Only available in the sort-the-court text channel) \n Play Sort The Court, a game where you rule a kingdom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                      Created by jc smoothie')
@@ -97,10 +97,9 @@ client.on('message', message => {
        //message.author.send(embed);
        message.channel.send(displayCommandsEmbed);
    } else if(command == 'commands'){
-       //console.log(message.guild.roles);
        const commandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
-       .setDescription('+displaycommands - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +dog - Receive an image of a dog! \n \n +sortthecourt - (Unavailable) Play Sort The Court, \n a game where you rule a kindgom!')
+       .setDescription('+displaycommands - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +start - (Only available in the sort-the-court text channel) \n Play Sort The Court, a game where you rule a kingdom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                             Created by jc smoothie')
@@ -135,7 +134,6 @@ client.on('message', message => {
        var dice_number = parseInt(dice_result, 10);
        var dice = Math.floor((Math.random() * dice_number));
        message.reply("You rolled a " + dice + "!");
-       //console.log(message.guild.roles);
    } else if(command == 'timer'){
        const parts = message.content.split(' ');
        var timer_result = parts[1];
@@ -150,9 +148,9 @@ client.on('message', message => {
        //client.commands.get('hug').execute(message, args);
        if(!args[0]){
            message.channel.send('Missing Arguments!')
-           console.log('Missing args')
+           //console.log('Missing args')
        } else{
-           console.log('should work.')
+           //console.log('should work.')
            const image = Math.floor((Math.random() * 9) + 1);
            if(image == 1){
                var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655951374024775/giphy.gif';
@@ -208,7 +206,19 @@ client.on('message', message => {
        .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
-   } else if(command == 'deletemessage'){
+   } else if(command == 'sortthecourt'){
+       //https://sort-the-court-a-strategy-game-by-jeffrey-chu-tpms.jeffreychu.repl.run
+       const invite = new MessageEmbed()
+       .setTitle('Invite me to a server!')
+       .setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, select the server you want to add me to. \n \n Walla, I'm in a new server! How awesome is that?")
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
+       .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
+       message.author.send(invite);
+       message.channel.send("Invitation with instructions sent through dms!");
+   }
+   else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
