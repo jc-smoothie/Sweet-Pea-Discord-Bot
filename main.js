@@ -11,6 +11,8 @@ const prefix = '+';
 
 const fs = require('fs');
 
+require('events').EventEmitter.defaultMaxListeners = 20;
+
 client.commands = new Discord.Collection();
 
 client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.OMeJM_S__J_vODGzquoALkBMibM');
