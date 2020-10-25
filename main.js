@@ -11,11 +11,20 @@ const prefix = '+';
 
 const fs = require('fs');
 
-require('events').EventEmitter.defaultMaxListeners = 20;
+require('events').EventEmitter.defaultMaxListeners = 100;
+//emitter.setMaxListeners(20)
+
+const EventEmitter = require("events");
+class MyEmitter extends EventEmitter{}
+
+var emitter = new MyEmitter()
+var emitter2 = new MyEmitter();
+
+console.log(`emitter: ${emitter.getMaxListeners()}`);
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.OMeJM_S__J_vODGzquoALkBMibM');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.TCFW5F6C-mcyTkqYoDz8Sa9r83s');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
 //Variables
