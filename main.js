@@ -13,7 +13,7 @@ const fs = require('fs');
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.cvKIAWf8Q_WTlIbPhlr8jzpdcJI');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.mrGwt94m5g3r797D2Te4-fJsiUM');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
 //Variables
@@ -47,7 +47,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
    console.log('Sweet Pea is online!');
-   client.user.setActivity('anime! | +displaycommands', {type: "WATCHING"}).catch(console.error);
+   client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
 client.on('message', message => {
@@ -85,25 +85,26 @@ client.on('message', message => {
    const args = message.content.slice(prefix.length).split(/ +/);
    const command = args.shift().toLowerCase();
 
-   if(command == 'displaycommands'){
+   if(command == 'help'){
        //console.log(message.guild.roles);
        const displayCommandsEmbed = new MessageEmbed()
-       .setTitle('Server Commands')
-       .setDescription('+commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +amongus - Display a message initializing an Among Us game session! \n \n +cancelamongus - Cancel the current Among Us session! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +start - (Only available in the sort-the-court text channel) \n Play Sort The Court, a game where you rule a kingdom!')
+       .setTitle('Help!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer \n is able to learn and implement them. \n \n +help - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +amongus - Display a message initializing an Among Us game session! \n \n +cancelamongus - Cancel the current Among Us session! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +stc Play Sort The Court, a game where you rule a kingdom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Your wish is my command!                                                                      Created by jc smoothie')
+       .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
        //+displaycommands - Receive a list of commands \n in a text channel \n \n 
        //message.author.send(embed);
        message.channel.send(displayCommandsEmbed);
    } else if(command == 'commands'){
        const commandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
-       .setDescription('+displaycommands - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +amongus - Display a message initializing an Among Us game session! \n \n +cancelamongus - Cancel the current Among Us session! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +start - (Only available in the sort-the-court text channel) \n Play Sort The Court, a game where you rule a kingdom!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer \n is able to learn and implement them. \n \n +help - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +amongus - Display a message initializing an Among Us game session! \n \n +cancelamongus - Cancel the current Among Us session! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +stc Play Sort The Court, a game where you rule a kingdom!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Your wish is my command!                                             Created by jc smoothie')
+       .setFooter('Your wish is my command!                                                       Created by jc smoothie')
        message.author.send(commandsEmbed);
+       message.channel.send("Personal copy of commands sent through dms!");
    } else if(command == 'ping'){
        client.commands.get('ping').execute(message, args);
    } else if(command == 'rules'){
@@ -129,19 +130,22 @@ client.on('message', message => {
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
    } else if(command == 'roll'){
+       client.commands.get('roll').execute(message, args);
+       /*
        const parts = message.content.split(' ');
        var dice_result = parts[1];
        var dice_number = parseInt(dice_result, 10);
-       var dice = Math.floor((Math.random() * dice_number));
+       var dice = Math.floor((Math.random() * dice_number) + 1);
        message.reply("You rolled a " + dice + "!");
-   } else if(command == 'timer'){
-       const parts = message.content.split(' ');
-       var timer_result = parts[1];
-       var timer = parseInt(timer_result, 10);
-       message.reply("Set timer for " + timer + " second(s)!");
-       setTimeout(function(){
-           message.reply("Your " + timer + " second(s) timer has ended!");
-       }, timer*1000);
+       */
+   } else if(command == '8ball'){
+       client.commands.get('8ball').execute(message, args);
+   }
+    else if(command == 'coin'){
+        client.commands.get('coin').execute(message, args);
+   }
+    else if(command == 'timer'){
+        client.commands.get('timer').execute(message, args);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
    } else if(command == 'hug'){
@@ -192,10 +196,15 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
-   } else if(command === 'avatar'){
+   } else if(command == 'duck'){
+       client.commands.get('duck').execute(message, args);
+   } else if(command === 'av'){
+       //client.commands.get('av').execute(message, args);
+       /*
        if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }
+       */
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
@@ -206,19 +215,7 @@ client.on('message', message => {
        .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
-   } else if(command == 'sortthecourt'){
-       //https://sort-the-court-a-strategy-game-by-jeffrey-chu-tpms.jeffreychu.repl.run
-       const invite = new MessageEmbed()
-       .setTitle('Invite me to a server!')
-       .setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, select the server you want to add me to. \n \n Walla, I'm in a new server! How awesome is that?")
-       .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
-       .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
-       message.author.send(invite);
-       message.channel.send("Invitation with instructions sent through dms!");
-   }
-   else if(command == 'deletemessage'){
+   } else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -259,42 +256,43 @@ client.on('message', async message => {
         .setTitle('Welcome!')
         .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n \n 🇺🇸 🇬🇧 🇨🇦 🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹 🇧🇷 -> PT/BR \n 🇰🇷 -> KR \n 🇯🇵 -> JP \n 🇨🇳 -> CN")
         .setColor('#66ccff')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('🇺🇸')
-        messageEmbed.react('🇬🇧')
-        messageEmbed.react('🇨🇦')
-        messageEmbed.react('🇦🇺')
-        messageEmbed.react('🇫🇷')
-        messageEmbed.react('🇪🇸')
-        messageEmbed.react('🇩🇪')
-        messageEmbed.react('🇻🇳')
-        messageEmbed.react('🇵🇹')
-        messageEmbed.react('🇧🇷')
-        messageEmbed.react('🇰🇷')
-        messageEmbed.react('🇯🇵')
-        messageEmbed.react('🇨🇳')
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('🇺🇸');
+        messageEmbed.react('🇬🇧');
+        messageEmbed.react('🇨🇦');
+        messageEmbed.react('🇦🇺');
+        messageEmbed.react('🇫🇷');
+        messageEmbed.react('🇪🇸');
+        messageEmbed.react('🇩🇪');
+        messageEmbed.react('🇻🇳');
+        messageEmbed.react('🇵🇹');
+        messageEmbed.react('🇧🇷');
+        messageEmbed.react('🇰🇷');
+        messageEmbed.react('🇯🇵');
+        messageEmbed.react('🇨🇳');
     } else if(command == 'regionreactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
         //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
         .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AM")
         .setColor('#66ccff')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
+        let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('🌎')
     } else if(command == 'amongus'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
-        const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
-        messageEmbed.react(reactionEmoji);
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('❤️');
+        //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
+        //messageEmbed.react(reactionEmoji);
     } else if(command == 'cancelamongus'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us Canceled!')
         .setDescription("The Among Us game scheduled later today has been canceled. \n This may be because not enough people have voted to participate, or has simply been decided to be canceled.")
         .setColor('#66ccff')
-        message.channel.send(reactionsEmbed)
+        message.channel.send(reactionsEmbed);
     }
 
     if (command == 'osureact') {
@@ -758,7 +756,11 @@ function character(){
 }
 
 function leavesRoom(){
-    leaveMessage = " \n \n (The " + visitor + " leaves the room.)";
+    if(visitor == 'Boots The Cat'){
+        leaveMessage = " \n \n (" + visitor + " leaves the room.)";
+    } else{
+        leaveMessage = " \n \n (The " + visitor + " leaves the room.)";
+    }
 }
 
 function visits(){
@@ -805,7 +807,8 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if(command == 'start'){
+    if(command == 'stc'){
+        /*
         if(message.channel.id === "766037768379695117"){
             let reactionsEmbed = new MessageEmbed()
             .setTitle('Sort The Court!')
@@ -815,6 +818,14 @@ client.on('message', async message => {
             messageEmbed.react('🤴')
             messageEmbed.react('👸')
         }
+        */
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Sort The Court!')
+        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
+        .setColor('#66ccff')
+        let messageEmbed = await message.channel.send(reactionsEmbed)
+        messageEmbed.react('🤴')
+        messageEmbed.react('👸')
     }
 });
 
@@ -826,6 +837,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
+    /*
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '🤴'){
             if(start == 0){
@@ -841,6 +853,21 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
         }
     }
+    */
+
+   if(reaction.emoji.name === '🤴'){
+       if(start == 0){
+           king();
+           startAdd();
+           let reactionsEmbed = new MessageEmbed()
+           .setTitle('Royal Advisor')
+           .setDescription("My " + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?")
+           .setColor('#DC143C')
+           let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+           messageEmbed.react('✅')
+           messageEmbed.react('❌')
+       }
+   }
 });
 
 //Queen user response
@@ -851,6 +878,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
+    /*
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '👸'){
             if(start == 0){
@@ -866,6 +894,21 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
         }
     }
+    */
+
+   if(reaction.emoji.name === '👸'){
+       if(start == 0){
+           queen();
+           startAdd();
+           let reactionsEmbed = new MessageEmbed()
+           .setTitle('Royal Advisor')
+           .setDescription("My " + gender1 + ", I'll help you rule your kingdom. \n but you have to make the tough choices. \n Just say yes or no, understand?")
+           .setColor('#DC143C')
+           let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+           messageEmbed.react('✅')
+           messageEmbed.react('❌')
+       }
+   }
 });
 
 //Yes Reaction
@@ -876,6 +919,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
+    /*
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '✅'){
             if(start == 1){
@@ -939,6 +983,69 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
         }
     }
+    */
+
+    if(reaction.emoji.name === '✅'){
+        if(start == 1){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Good! You're already got the hang of it.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        }
+        
+        if(visitor == "Sneaky Girl"){
+            sneakyGirlAccept();
+            leavesRoom();
+            gold = gold + 20
+            gold_difference = gold_difference + 20
+            population = population - 5
+            population_difference = population_difference - 5
+            happiness = happiness - 10
+            happiness_difference = happiness_difference - 10
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Sneaky Girl')
+            .setDescription(acceptMessage + leaveMessage + " \n \n +20 Gold \n -5 Population \n -10 Happiness")
+            .setColor('#FF1493')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            if(population <= 0){
+                start = 11;
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Everyone Left!')
+                .setDescription("Press the arrow reaction to see your \n results and you may replay the \n game from the start.")
+                .setColor('#FF1493')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+            }
+        } else if(visitor == "Boots The Cat"){
+            if(catOption == 1){
+                bootsTheCat1Accept();
+                leavesRoom();
+                gold = gold + 50;
+                gold_difference = gold_difference + 50;
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Boots The Cat')
+                .setDescription(acceptMessage + leaveMessage + " \n \n +50 Gold")
+                .setColor('#DAA520')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+            } else if(catOption == 2){
+                bootsTheCat2Accept();
+                leavesRoom();
+                happiness = happiness + 3;
+                happiness_difference = happiness_difference + 3;
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Boots The Cat')
+                .setDescription(acceptMessage + leaveMessage + " \n \n +3 Happiness")
+                .setColor('#DAA520')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+            }
+        }
+    }
 });
 
 //No Reaction
@@ -949,6 +1056,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
+    /*
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '❌'){
             if(start == 1){
@@ -995,6 +1103,52 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
         }
     }
+    */
+
+    if(reaction.emoji.name === '❌'){
+        if(start == 1){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Very funny. Just give people their answers, okay?")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        }
+
+        if(visitor == "Sneaky Girl"){
+            sneakyGirlDecline();
+            leavesRoom();
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Sneaky Girl')
+            .setDescription(declineMessage + leaveMessage)
+            .setColor('#FF1493')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+        } else if(visitor == "Boots The Cat"){
+            if(catOption == 1){
+                bootsTheCat1Decline();
+                leavesRooms();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Boots The Cat')
+                .setDescription(declineMessage + leaveMessage)
+                .setColor('#DAA520')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+            } else if(catOption == 2){
+                bootsTheCat2Decline();
+                leavesRooms();
+                happiness = happiness - 3;
+                happiness_difference = happiness_difference - 3;
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Boots The Cat')
+                .setDescription(declineMessage + leaveMessage + " \n \n -3 Happiness")
+                .setColor('#DAA520')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+            }
+        }
+    }
 });
 
 //Continue Reaction
@@ -1005,6 +1159,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
+    /*
     if(reaction.message.channel.id === "766037768379695117"){
         if(reaction.emoji.name === '➡️'){
             if(start == 2){
@@ -1138,6 +1293,141 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 .setDescription("**************************************** \n Your kingdom lasted " + day + " days. \n Your kingdom ended with " + population + " people. \n Your kingdom ended with " + happiness + " happiness. \n Your kingdom ended with " + gold + " gold. \n **************************************** \n \n Type `+start` to play the game again.")
                 .setColor('#228B22')
             }
+        }
+    }
+    */
+
+    if(reaction.emoji.name === '➡️'){
+        if(start == 2){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Our city's still very small right now, but \n it certainly has the potential to grow.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 3){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Perhaps one day we will have a bustling \n metropolis and you'll be invited to join the \n Council of Crowns!")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 4){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("For now, all you need to concern yourself \n with is keeping the citizens happy and \n growing our population.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 5){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("At the beginning of the day, you can type \n in `awards` to see the achievements.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 6){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Do your best, " + gender2 + "!")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 7){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day 1')
+            .setDescription("======================================== \n Population: " + population + "\n Happiness: " + happiness + "\n Gold: " + gold + "\n ========================================")
+            .setColor('#228B22')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 8){
+            //Character Selection
+            character();
+            if(char == 1){
+                sneakyGirl();
+                visits();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Sneaky Girl')
+                .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
+                .setColor('#FF1493')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('✅')
+                messageEmbed.react('❌')
+            } else if(char == 2){
+                bootsTheCat();
+                visits();
+                bootsTheCatOption();
+                if(catOption == 1){
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription("Meow! (It's just... staring at me... Does it want \n something?)")
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
+                } else if(catOption == 2){
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription("Meeow. (Looks like he wants somebody \n to pat his belly...)")
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
+                }
+            }
+        } else if(start == 9){
+            startAdd();
+            if(population_difference < 0){
+                populationReport = population_difference;
+            } else{
+                populationReport = "+" + population_difference;
+            }
+            if(happiness_difference < 0){
+                happinessReport = happiness_difference;
+                cityNegativeOpinion();
+            } else{
+                happinessReport = "+" + happiness_difference;
+                cityPositiveOpinion();
+            }
+            if(gold_difference < 0){
+                goldReport = gold_difference;
+            } else{
+                goldReport = "+" + gold_difference;
+            }
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day ' + day + ' is complete!')
+            .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Report: \n " + populationReport + " Population \n " + happinessReport + " Happiness \n " + goldReport + " Gold \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
+            .setColor('#228B22')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            forwardDay();
+            resetReports();
+        } else if(start == 10){
+            startSubtract();
+            startSubtract();
+            if(happiness_difference < 0){
+                negativeDailyPopulation();
+            } else{
+                positiveDailyPopulation();
+            }
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day ' + day)
+            .setDescription(dailyPopulationDisplay + " \n \n ======================================== \n Population: " + population + " \n Happiness: " + happiness + " \n Gold: " + gold + " \n ========================================")
+            .setColor('#228B22')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+        } else if(start == 11){
+            start = 0;
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day ' + day)
+            .setDescription("**************************************** \n Your kingdom lasted " + day + " days. \n Your kingdom ended with " + population + " people. \n Your kingdom ended with " + happiness + " happiness. \n Your kingdom ended with " + gold + " gold. \n **************************************** \n \n Type `+start` to play the game again.")
+            .setColor('#228B22')
         }
     }
 });
