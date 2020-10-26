@@ -24,7 +24,7 @@ console.log(`emitter: ${emitter.getMaxListeners()}`);
 
 client.commands = new Discord.Collection();
 
-client.login('process.env.NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.BrlwfI1kemqm9P5druFwsppaQ1Y');
+client.login('process.env.NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.TuZetTg9OHAwM-JEmGTdOGd4Hv4');
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
 //Variables
