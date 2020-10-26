@@ -140,7 +140,7 @@ client.on('message', message => {
        message.channel.send(animalsEmbed);
    } else if(command == 'misc'){
        const miscEmbed = new MessageEmbed()
-       .setTitle('Misc!')
+       .setTitle('Miscellaneous!')
        .setDescription('+token')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
