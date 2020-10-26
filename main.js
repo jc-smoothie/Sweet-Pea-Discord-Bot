@@ -234,7 +234,7 @@ client.on('message', message => {
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Need help or want to ask a question? Join the support server!                                                                 Created by jc smoothie')
-       .setURL('https://discord.gg/3ESsQ4Z')
+       .setURL('https://discord.gg/GQqnWHK')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
    }
