@@ -99,16 +99,55 @@ client.on('message', message => {
 
    if(command == 'help'){
        //console.log(message.guild.roles);
-       const displayCommandsEmbed = new MessageEmbed()
+       const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer \n is able to learn and implement them. \n \n +help - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +amongus - Display a message initializing an Among Us game session! \n \n +cancelamongus - Cancel the current Among Us session! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +stc Play Sort The Court, a game where you rule a kingdom!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer \n learns how and implements them. \n \n +support - Receive a link to the support server via dm \n +invite - Receive an invite link with instructions via dm \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
-       //+displaycommands - Receive a list of commands \n in a text channel \n \n 
-       //message.author.send(embed);
-       message.channel.send(displayCommandsEmbed);
-   } else if(command == 'commands'){
+       message.channel.send(helpEmbed);
+   } else if(command == 'fun'){
+       const funEmbed = new MessageEmbed()
+       .setTitle('Fun!')
+       .setDescription('+hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - (Work in progress) Kiss someone in the server!')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
+       message.channel.send(funEmbed);
+   } else if(command == 'games'){
+       const gamesEmbed = new MessageEmbed()
+       .setTitle('Games!')
+       .setDescription('+stc - (Work in progress) Play Sort The Court, a game where you rule a kingdom! \n +cah - (Work in progress) Play Cards Against Humanity, a card game that can get you to laugh at offensive and inappropriate jokes! \n +among - Send a message to start an Among Us game session for players to sign up with an emote. \n +camong -  Send a message to inform players the Among Us Game session is canceled. \n +scratch -(Coming soon)  Send a link to the Scratch profile of my developer with all their projects. \n +ping - Play ping pong with me!')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
+       message.channel.send(gamesEmbed);
+   } else if(command == 'tools'){
+       const toolsEmbed = new MessageEmbed()
+       .setTitle('Tools!')
+       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - (Coming soon) Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin.')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
+       message.channel.send(toolsEmbed);
+   } else if(command == animals){
+       const animalsEmbed = new MessageEmbed()
+       .setTitle('Animals!')
+       .setDescription('+dog \n +cat (Coming soon) \n +duck \n +cow (Coming soon) \n +sheep (Coming soon) \n +pig (Coming soon) \n +turtle (Coming soon) \n +horse (Coming soon) \n +lion (Coming soon) \n +tiger (Coming soon) \n +wolf (Coming soon) \n +penguin (Coming soon) \n +bear (Coming soon) \n +fish (Coming soon)')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
+       message.channel.send(animalsEmbed);
+   } else if(command == misc){
+       const miscEmbed = new MessageEmbed()
+       .setTitle('Animals!')
+       .setDescription('+token')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                Created by jc smoothie')
+       message.channel.send(miscEmbed);
+   }
+    else if(command == 'commands'){
        const commandsEmbed = new MessageEmbed()
        .setTitle('Server Commands')
        .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer \n is able to learn and implement them. \n \n +help - Receive a list of commands \n in a text channel \n \n +commands - Receive a list of commands via dm \n \n +invite - Receive a link via dms to invite me to a server! \n \n +rules - Display the server rules in a text channel! \n \n +rank [role] - Assign a role to yourself \n \n +roll [number] - Generate a random number \n \n +timer [seconds] - set a timer for a number of seconds \n \n +meme - Display a meme in a text channel! \n \n +ping - Play ping pong with me! \n \n +hug [person] - Hug someone in the server! \n \n +slap [person] - Slap someone in the server! \n \n +dog - Receive an image of a dog! \n \n +avatar - Display your Discord avatar in a text channel! \n \n +amongusrules - Display the rules for Among Us in a text channel! \n \n +amongus - Display a message initializing an Among Us game session! \n \n +cancelamongus - Cancel the current Among Us session! \n \n +lore - Display a link to a document of the story lore in a text channel! \n \n +token - You see, I would give you my discord bot token but I can not do that, as that is like a password. So no can do. \n \n +stc Play Sort The Court, a game where you rule a kingdom!')
