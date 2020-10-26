@@ -4,7 +4,8 @@ module.exports = {
     execute(message, args){
         const Projekt_Rossmoor = '637447111725809664';
         const Weeb = '694999716047618199';
-        const Member = '691304349711859792';
+        //const Member = '691304349711859792';
+        const Member = '759550714862764045';
         
         const Eclipsys_Contact = '700620542419664968';
         const Yomifu_Staff = '727677441597767680';
