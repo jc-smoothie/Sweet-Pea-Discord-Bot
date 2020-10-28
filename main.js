@@ -262,7 +262,7 @@ client.on('message', message => {
        .setDescription("Need to ask a question? Well, join the support server and ask away! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, you sould have access to the support server in your discord application/tab. \n \n Walla, you're in the support server! How awesome is that?")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Need help or want to ask a question? Join the support server!                         Created by jc smoothie')
+       .setFooter('Need help or want to ask a question? Join the support server!                    Created by jc smoothie')
        .setURL('https://discord.gg/GQqnWHK')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
