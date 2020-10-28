@@ -253,7 +253,7 @@ client.on('message', message => {
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
-       .setURL('https://discord.com/api/oauth2/authorize?client_id=729142073126682644&permissions=0&scope=bot')
+       .setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=37088328')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
    } else if(command == 'support'){
