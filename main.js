@@ -302,7 +302,7 @@ client.on('message', message => {
        .setFooter('Check out other coding projects by my developer on Scratch!                                                  Created by jc smoothie')
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
-       message.channel.send("Invitation with instructions sent through dms!");
+       message.channel.send("Link with instructions sent through dms!");
    }
 });
 
