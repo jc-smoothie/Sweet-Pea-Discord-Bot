@@ -266,8 +266,7 @@ client.on('message', message => {
        .setURL('https://discord.gg/GQqnWHK')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
-   }
-    else if(command == 'deletemessage'){
+   } else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
