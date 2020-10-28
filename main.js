@@ -299,7 +299,7 @@ client.on('message', message => {
        .setDescription("Interested in other coding projects by my developer, jc smoothie? \n Well, click the blue title at the top, and it will open a new tab in your browser with my developer's Scratch profile. \n \n To see a project, simply click on one from the 'Shared Projects' section. \n If you then want to see the code of the project, you can click on the blue 'See inside' button somewhere on the screen. \n Read the description and notes of the project for some information about it. \n \n My favorite project my developer made is the one called 'Imaginary World' since the music is sooo wholesome, along with the character Tsumugi Kotobuki from K ON who's playing the keyboard. \n My developer spent a long time to edit out the background of 12 images of her playing the keyboard, but the end result was worth it. \n \n Anyways, I hope you enjoy those projects as this was where the coding profession of my developer started!")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Check out other coding projects by my developer on Scratch!                                        Created by jc smoothie')
+       .setFooter('Check out other coding projects by my developer on Scratch!                                   Created by jc smoothie')
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
        message.channel.send("Link with instructions sent through dms!");
