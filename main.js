@@ -158,7 +158,7 @@ client.on('message', message => {
        message.channel.send(commandsEmbed);
        
        //message.channel.send('> 1) Aside from Eclipsys Contact’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n ⚠️ These rules are subject to change at any time.');
-   } else if(command == 'amongusrules'){
+   } else if(command == 'amongrules'){
        const commandsEmbed = new MessageEmbed()
        .setTitle('Among Us Rules!')
        .setDescription("> 1) Mute yourself when in game \n You may ONLY unmute in the in-game meetings. \n \n > 2) When you have been killed in game and are dead, STAY in the Alive voice channel \n You may move into the Dead voice channel ONCE a meeting is held in-game, and everyone else knows that you're dead. \n This is so others will only know when someone's dead by finding a dead body, which is how the game's intended to work. \n \n Note: Those who have died and are in the Dead voice channel may speak with each other.")
@@ -330,7 +330,7 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('🌎')
-    } else if(command == 'amongus'){
+    } else if(command == 'among'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
@@ -339,7 +339,7 @@ client.on('message', async message => {
         messageEmbed.react('❤️');
         //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
         //messageEmbed.react(reactionEmoji);
-    } else if(command == 'cancelamongus'){
+    } else if(command == 'camong'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us Canceled!')
         .setDescription("The Among Us game scheduled later today has been canceled. \n This may be because not enough people have voted to participate, or has simply been decided to be canceled.")
