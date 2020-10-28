@@ -303,6 +303,14 @@ client.on('message', message => {
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
        message.channel.send("Link with instructions sent through dms!");
+   } else if(command == 'wyr'){
+       const wyrEmbed = new MessageEmbed()
+       .setTitle('Would You Rather!')
+       .setDescription('')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+       message.channel.send(wyrEmbed);
    }
 });
 
