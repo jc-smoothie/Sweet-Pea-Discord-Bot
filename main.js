@@ -117,7 +117,7 @@ client.on('message', message => {
    } else if(command == 'games'){
        const gamesEmbed = new MessageEmbed()
        .setTitle('Games!')
-       .setDescription('+stc - (Work in progress) Play Sort The Court, a game where you rule a kingdom! \n +cah - (Work in progress) Play Cards Against Humanity, a card game that can get you to laugh at offensive and inappropriate jokes! \n +among - Send a message to start an Among Us game session for players to sign up with an emote. \n +camong -  Send a message to inform players the Among Us Game session is canceled. \n +scratch -(Coming soon)  Send a link to the Scratch profile of my developer with all their projects. \n +ping - Play ping pong with me!')
+       .setDescription('+stc - (Work in progress) Play Sort The Court, a game where you rule a kingdom! \n +cah - (Work in progress) Play Cards Against Humanity, a card game that can get you to laugh at offensive and inappropriate jokes! \n +among - Send a message to start an Among Us game session for players to sign up with an emote. \n +camong -  Send a message to inform players the Among Us Game session is canceled. \n +scratch - Send a link to the Scratch profile of my developer with all their projects. \n +ping - Play ping pong with me!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
