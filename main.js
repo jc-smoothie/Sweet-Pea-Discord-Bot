@@ -293,6 +293,16 @@ client.on('message', message => {
        } else if(attempts == 7){
            message.reply("(;-;)");
        }
+   } else if(command == 'scratch'){
+       const invite = new MessageEmbed()
+       .setTitle('Check out the Scratch Projects of jc smoothie!')
+       .setDescription("Interested in other coding projects of my developer, jc smoothie? \n Well, click the blue title at the top, and it will open a tab in your browser of my developer's Scratch profile. \n Click on a project to see what it is, and click on the blue 'See inside' button somewhere on the screen of the project to see all the code. \n My favorite is the one called 'Imaginary World' since the music is sooo wholesome along with Mio from K ON, playing the keyboard. \n Anyways, I hope you enjoy those projects as this was where the coding profession of my developer started!")
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Check out other coding projects by my developer on Scratch!                                                                 Created by jc smoothie')
+       .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
+       message.author.send(invite);
+       message.channel.send("Invitation with instructions sent through dms!");
    }
 });
 
