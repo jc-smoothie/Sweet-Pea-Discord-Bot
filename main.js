@@ -18,9 +18,9 @@ const EventEmitter = require("events");
 class MyEmitter extends EventEmitter{}
 
 var emitter = new MyEmitter()
-var emitter2 = new MyEmitter();
+//var emitter2 = new MyEmitter();
 
-console.log(`emitter: ${emitter.getMaxListeners()}`);
+//console.log(`emitter: ${emitter.getMaxListeners()}`);
 
 client.commands = new Discord.Collection();
 
