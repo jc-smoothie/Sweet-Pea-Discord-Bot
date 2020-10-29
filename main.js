@@ -40,7 +40,7 @@ const JP = '763733642127736852';
 const CN = '763733672439971840';
 const AM = '763850145984282654';
 
-const welcome = require('./welcome');
+//const welcome = require('./welcome');
 
 var attempts = 1;
 
