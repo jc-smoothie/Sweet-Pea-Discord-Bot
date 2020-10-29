@@ -40,6 +40,8 @@ const JP = '763733642127736852';
 const CN = '763733672439971840';
 const AM = '763850145984282654';
 
+const welcome = require('./welcome');
+
 var attempts = 1;
 
 function increateAttempts(){
@@ -60,15 +62,9 @@ for(const file of commandFiles){
 client.once('ready', () => {
    console.log('Sweet Pea is online!');
    client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+
+   welcome(client);
 });
-
-client.on('guildMemberAdd', member =>{
-    const channel = member.guild.channels.find(channel => channel.name === "👋welcome")
-
-    if(!channel) return;
-
-    channel.send(`Welcome to our server, ${member}! \n Please read the rules in the rules channel!`)
-})
 
 client.on('message', message => {
     const reply = message.content;
@@ -109,7 +105,7 @@ client.on('message', message => {
        //console.log(message.guild.roles);
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer \n learns how and implements them. \n \n +support - Receive a link to the support server via dm \n +invite - Receive an invite link with instructions via dm \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm \n +invite - Receive an invite link with instructions via dm \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
