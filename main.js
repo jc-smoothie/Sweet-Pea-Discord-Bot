@@ -83,6 +83,7 @@ client.on("guildMemberRemove", member => {
 */
 
 const { CanvasSenpai } = require("canvas-senpai")
+var Canvas = require('canvas');
 const canva = new CanvasSenpai();
 
 client.on('guildMemberAdd', async member => {
