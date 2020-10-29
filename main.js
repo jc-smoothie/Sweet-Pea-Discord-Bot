@@ -62,6 +62,14 @@ client.once('ready', () => {
    client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
+client.on('guildMemberAdd', member =>{
+    const channel = member.guild.channels.find(channel => channel.name === "welcome")
+
+    if(!channel) return;
+
+    channel.send(`Welcome to our server, ${member}! \n Please read the rules in the rules channel!`)
+})
+
 client.on('message', message => {
     const reply = message.content;
     const replyFormatted = reply.toLowerCase();
