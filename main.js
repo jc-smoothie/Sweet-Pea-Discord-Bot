@@ -82,7 +82,7 @@ client.on("guildMemberRemove", member => {
 });
 */
 
-
+/*
 const { CanvasSenpai } = require("canvas-senpai")
 const canva = new CanvasSenpai();
 
@@ -96,7 +96,7 @@ client.on('guildMemberAdd', async member => {
 
     channel.send(`Welcome to the server, ${member.user.username}!`, attachment);   
 });
-
+*/
 
 client.on('message', message => {
     const reply = message.content;
