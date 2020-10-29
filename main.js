@@ -1,5 +1,6 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
+const Canvas = require('canvas');
 
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
@@ -97,6 +98,13 @@ client.on('guildMemberAdd', async member => {
     channel.send(`Welcome to the server, ${member.user.username}!`, attachment);   
 });
 */
+
+client.on('guildMemberAdd', member => {
+	const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
+	if (!channel) return;
+
+	channel.send(`Welcome to the server, ${member}!`);
+});
 
 client.on('message', message => {
     const reply = message.content;
