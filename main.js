@@ -63,7 +63,7 @@ client.once('ready', () => {
    console.log('Sweet Pea is online!');
    client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 
-   welcome(client);
+   //welcome(client);
 });
 
 client.on('message', message => {
