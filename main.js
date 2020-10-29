@@ -69,7 +69,7 @@ client.on("guildMemberAdd", member => {
 
 client.on("guildMemberRemove", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye")
-    welcomeChannel.send(`Welcome to the server, ${member}!`)
+    welcomeChannel.send(`Goodbye, ${member}!`)
 });
 
 client.on('message', message => {
