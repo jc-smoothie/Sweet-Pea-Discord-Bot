@@ -1,3 +1,4 @@
+/*
 module.exports = client => {
     const channelID = '691101347642212362';
 
@@ -10,3 +11,4 @@ module.exports = client => {
         channel.send(message);
     })
 }
+*/
