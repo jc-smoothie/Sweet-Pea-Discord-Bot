@@ -7,7 +7,7 @@ module.exports = {
         const nico_nico_nii = '771147395585146910';
         const B = '764619306553311253';
 
-        function Asian_Invasion(){
+        function Asian_Invasion_roles(){
             const Black = '771568348642672670';
             const Gray = '771568601693159454';
             const White = '771568680416837642';
@@ -30,7 +30,7 @@ module.exports = {
             const Pastel_Purple = '771570764938739743';
         }
 
-        function nico_nico_nii(){
+        function nico_nico_nii_roles(){
             const Black = '771748675469705276';
             const Gray = '771756390163152906';
             const White = '771756488690892821';
@@ -53,7 +53,7 @@ module.exports = {
             const Pastel_Purple = '771758480340025364';
         }
 
-        function B(){
+        function B_roles(){
             const Black = '';
             const Gray = '';
             const White = '';
@@ -77,11 +77,11 @@ module.exports = {
         }
         
         if(message.guild.id == Asian_Invasion){
-            Asian_Invasion();
+            Asian_Invasion_roles();
         } else if(message.guild.id == nico_nico_nii){
-            nico_nico_nii();
+            nico_nico_nii_roles();
         } /*else if(message.guild.id == B){
-            B();
+            B_roles();
         }*/
         
         const parts = message.content.split(' ');
