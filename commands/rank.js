@@ -33,6 +33,17 @@ module.exports = {
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.');
             }
         } else if(parts[1] == 'member'){
+            if(message.member.roles.cache.find(r => r.name === "Member")){
+                //message.member.roles.remove(Member);
+                //message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
+                message.reply("You can not stop being a member! However, if you do want to leave the server, there's nothing stopping you.");
+            } else{
+                message.member.roles.add('759550714862764045');
+                message.reply('Welcome, new Member~ Visit #react-role-assign to get language and region roles.');
+                //message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, new member~");
+                //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+            }
+            /*
             if(member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Member")){
                     //message.member.roles.remove(Member);
@@ -58,6 +69,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
+            */
         } else if(parts[1] == 'weeb'){
             if(member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Weeb")){
