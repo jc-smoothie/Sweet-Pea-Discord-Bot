@@ -212,7 +212,7 @@ client.on('message', message => {
        client.commands.get('lore').execute(message, args);
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
-   } else if(comand == 'color'){
+   } else if(command == 'color'){
        client.commands.get('color').execute(message, args);
    }
    else if(command == 'roll'){
