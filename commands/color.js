@@ -7,6 +7,28 @@ module.exports = {
         const nico_nico_nii = '771147395585146910';
         const B = '764619306553311253';
 
+        const Black = '771568348642672670';
+        const Gray = '771568601693159454';
+        const White = '771568680416837642';
+        const Pink = '771568756672692266';
+        const Red = '771568870732857387';
+        const Pastel_Red = '771568989163225120';
+        const Pastel_Orange = '771569098341482497';
+        const Orange = '771569241861652480';
+        const Yellow = '771569332803076101';
+        const Pastel_Yellow = '771569409910374402';
+        const Yellow_Green = '771569562620526592';
+        const Green = '771569741596327946';
+        const Pastel_Green = '771569860014374913';
+        const Light_Blue_Green = '771570030109917214';
+        const Blue_Green = '771570265511428129';
+        const Pastel_Blue = '771570337853997067';
+        const Blue = '771570340559585290';
+        const Indigo = '771570666041769984';
+        const Violet = '771570721524154389';
+        const Pastel_Purple = '771570764938739743';
+
+        /*
         if(member.guild.id == Asian_Invasion){
             const Black = '771568348642672670';
             const Gray = '771568601693159454';
