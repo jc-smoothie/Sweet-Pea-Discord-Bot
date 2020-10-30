@@ -28,8 +28,7 @@ module.exports = {
         const Violet = '771570721524154389';
         const Pastel_Purple = '771570764938739743';
 
-        /*
-        if(member.guild.id == Asian_Invasion){
+        if(message.guild.id == Asian_Invasion){
             const Black = '771568348642672670';
             const Gray = '771568601693159454';
             const White = '771568680416837642';
@@ -50,7 +49,7 @@ module.exports = {
             const Indigo = '771570666041769984';
             const Violet = '771570721524154389';
             const Pastel_Purple = '771570764938739743';
-        } else if(member.guild.id == nico_nico_nii){
+        } else if(message.guild.id == nico_nico_nii){
             const Black = '771748675469705276';
             const Gray = '771756390163152906';
             const White = '771756488690892821';
@@ -71,7 +70,7 @@ module.exports = {
             const Indigo = '771758474819534858';
             const Violet = '771758477541638144';
             const Pastel_Purple = '771758480340025364';
-        } /*else if(member.guild.id == B){
+        } /*else if(message.guild.id == B){
             const Black = '';
             const Gray = '';
             const White = '';
