@@ -6,28 +6,29 @@ module.exports = {
         const Asian_Invasion = '637447111725809664';
         const nico_nico_nii = '771147395585146910';
         const B = '764619306553311253';
+        const WHS_Anime_Club = '361609091602317312';
 
         function Asian_Invasion_roles(){
-            const Black = '771568348642672670';
-            const Gray = '771568601693159454';
-            const White = '771568680416837642';
-            const Pink = '771568756672692266';
-            const Red = '771568870732857387';
-            const Pastel_Red = '771568989163225120';
-            const Pastel_Orange = '771569098341482497';
-            const Orange = '771569241861652480';
-            const Yellow = '771569332803076101';
-            const Pastel_Yellow = '771569409910374402';
-            const Yellow_Green = '771569562620526592';
-            const Green = '771569741596327946';
-            const Pastel_Green = '771569860014374913';
-            const Light_Blue_Green = '771570030109917214';
-            const Blue_Green = '771570265511428129';
-            const Pastel_Blue = '771570337853997067';
-            const Blue = '771570340559585290';
-            const Indigo = '771570666041769984';
-            const Violet = '771570721524154389';
-            const Pastel_Purple = '771570764938739743';
+            Black = '771568348642672670';
+            Gray = '771568601693159454';
+            White = '771568680416837642';
+            Pink = '771568756672692266';
+            Red = '771568870732857387';
+            Pastel_Red = '771568989163225120';
+            Pastel_Orange = '771569098341482497';
+            Orange = '771569241861652480';
+            Yellow = '771569332803076101';
+            Pastel_Yellow = '771569409910374402';
+            Yellow_Green = '771569562620526592';
+            Green = '771569741596327946';
+            Pastel_Green = '771569860014374913';
+            Light_Blue_Green = '771570030109917214';
+            Blue_Green = '771570265511428129';
+            Pastel_Blue = '771570337853997067';
+            Blue = '771570340559585290';
+            Indigo = '771570666041769984';
+            Violet = '771570721524154389';
+            Pastel_Purple = '771570764938739743';
         }
 
         function nico_nico_nii_roles(){
@@ -75,16 +76,63 @@ module.exports = {
             Violet = '771785315911729182';
             Pastel_Purple = '771785319812038696';
         }
+
+        function WHS_Anime_Club_roles(){
+            Black = '771798625940537374';
+            Gray = '771798630679445504';
+            White = '771798633997271091';
+            Pink = '771798638086324255';
+            Red = '771798644043022356';
+            Pastel_Red = '771798641316593735';
+            Pastel_Orange = '771798646828040202';
+            Orange = '771798653606166570';
+            Yellow = '771798657481179188';
+            Pastel_Yellow = '771798660748410900';
+            Yellow_Green = '771798663001145405';
+            Green = '771798669229555733';
+            Pastel_Green = '771798665915400295';
+            Light_Blue_Green = '771798675956432926';
+            Blue_Green = '771798672555638804';
+            Pastel_Blue = '771798685511450654';
+            Blue = '771798678825861190';
+            Indigo = '771798682340818975';
+            Violet = '771798687898271815';
+            Pastel_Purple = '771798690604122153';
+        }
+
+        /*
+        function Asian_Invasion_roles(){
+            Black = '';
+            Gray = '';
+            White = '';
+            Pink = '';
+            Red = '';
+            Pastel_Red = '';
+            Pastel_Orange = '';
+            Orange = '';
+            Yellow = '';
+            Pastel_Yellow = '';
+            Yellow_Green = '';
+            Green = '';
+            Pastel_Green = '';
+            Light_Blue_Green = '';
+            Blue_Green = '';
+            Pastel_Blue = '';
+            Blue = '';
+            Indigo = '';
+            Violet = '';
+            Pastel_Purple = '';
+        }
+        */
         
         if(message.channel.guild.id == Asian_Invasion){
             Asian_Invasion_roles();
-            console.log("Got server roles");
         } else if(message.channel.guild.id == nico_nico_nii){
             nico_nico_nii_roles();
-            console.log("Got server roles");
         } else if(message.channel.guild.id == B){
             B_roles();
-            console.log("Got server roles");
+        } else if(message.channel.guild.id == WHS_Anime_Club){
+            WHS_Anime_Club_roles();
         }
         
         const parts = message.content.split(' ');
