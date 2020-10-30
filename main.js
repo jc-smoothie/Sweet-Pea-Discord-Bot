@@ -196,8 +196,7 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(colorsEmbed);
-   }
-    else if(command == 'ping'){
+   } else if(command == 'ping'){
        client.commands.get('ping').execute(message, args);
    } else if(command == 'rules'){
        const commandsEmbed = new MessageEmbed()
