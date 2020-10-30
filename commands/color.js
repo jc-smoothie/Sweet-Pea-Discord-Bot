@@ -76,9 +76,9 @@ module.exports = {
             const Pastel_Purple = '';
         }
         
-        if(message.guild.id == Asian_Invasion){
+        if(message.server.id == Asian_Invasion){
             Asian_Invasion_roles();
-        } else if(message.guild.id == nico_nico_nii){
+        } else if(message.server.id == nico_nico_nii){
             nico_nico_nii_roles();
         } /*else if(message.guild.id == B){
             B_roles();
