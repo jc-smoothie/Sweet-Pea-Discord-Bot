@@ -54,26 +54,26 @@ module.exports = {
         }
 
         function B_roles(){
-            const Black = '';
-            const Gray = '';
-            const White = '';
-            const Pink = '';
-            const Red = '';
-            const Pastel_Red = '';
-            const Pastel_Orange = '';
-            const Orange = '';
-            const Yellow = '';
-            const Pastel_Yellow = '';
-            const Yellow_Green = '';
-            const Green = '';
-            const Pastel_Green = '';
-            const Light_Blue_Green = '';
-            const Blue_Green = '';
-            const Pastel_Blue = '';
-            const Blue = '';
-            const Indigo = '';
-            const Violet = '';
-            const Pastel_Purple = '';
+            Black = '771785009765417033';
+            Gray = '771785244428468234';
+            White = '771785249788657684';
+            Pink = '771785254426902579';
+            Red = '771785259191894016';
+            Pastel_Red = '771785263415689246';
+            Pastel_Orange = '771785267962314782';
+            Orange = '771785272445894718';
+            Yellow = '771785276501917766';
+            Pastel_Yellow = '771785280653885476';
+            Yellow_Green = '771785284781211688';
+            Green = '771785289114976316';
+            Pastel_Green = '771785293296173096';
+            Light_Blue_Green = '771785297158864926';
+            Blue_Green = '771785300845920307';
+            Pastel_Blue = '771785304713330699';
+            Blue = '771785308345204736';
+            Indigo = '771785311675613235';
+            Violet = '771785315911729182';
+            Pastel_Purple = '771785319812038696';
         }
         
         if(message.channel.guild.id == Asian_Invasion){
@@ -82,10 +82,10 @@ module.exports = {
         } else if(message.channel.guild.id == nico_nico_nii){
             nico_nico_nii_roles();
             console.log("Got server roles");
-        } /*else if(message.channel.guild.id == B){
+        } else if(message.channel.guild.id == B){
             B_roles();
             console.log("Got server roles");
-        }*/
+        }
         
         const parts = message.content.split(' ');
         const part1 = parts[1];
