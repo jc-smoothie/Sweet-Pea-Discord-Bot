@@ -31,26 +31,26 @@ module.exports = {
         }
 
         function nico_nico_nii_roles(){
-            const Black = '771748675469705276';
-            const Gray = '771756390163152906';
-            const White = '771756488690892821';
-            const Pink = '771756546895511563';
-            const Red = '771756615849476176';
-            const Pastel_Red = '771756928329711617';
-            const Pastel_Orange = '771757019199307807';
-            const Orange = '771757092716806217';
-            const Yellow = '771757133100351528';
-            const Pastel_Yellow = '771757134597455924';
-            const Yellow_Green = '771757161989537832';
-            const Green = '771757259683397653';
-            const Pastel_Green = '771757362796429373';
-            const Light_Blue_Green = '771757423262302208';
-            const Blue_Green = '771757490802393140';
-            const Pastel_Blue = '771758468851695617';
-            const Blue = '771758472202289222';
-            const Indigo = '771758474819534858';
-            const Violet = '771758477541638144';
-            const Pastel_Purple = '771758480340025364';
+            Black = '771748675469705276';
+            Gray = '771756390163152906';
+            White = '771756488690892821';
+            Pink = '771756546895511563';
+            Red = '771756615849476176';
+            Pastel_Red = '771756928329711617';
+            Pastel_Orange = '771757019199307807';
+            Orange = '771757092716806217';
+            Yellow = '771757133100351528';
+            Pastel_Yellow = '771757134597455924';
+            Yellow_Green = '771757161989537832';
+            Green = '771757259683397653';
+            Pastel_Green = '771757362796429373';
+            Light_Blue_Green = '771757423262302208';
+            Blue_Green = '771757490802393140';
+            Pastel_Blue = '771758468851695617';
+            Blue = '771758472202289222';
+            Indigo = '771758474819534858';
+            Violet = '771758477541638144';
+            Pastel_Purple = '771758480340025364';
         }
 
         function B_roles(){
