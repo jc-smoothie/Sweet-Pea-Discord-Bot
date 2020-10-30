@@ -78,10 +78,13 @@ module.exports = {
         
         if(message.channel.guild.id == Asian_Invasion){
             Asian_Invasion_roles();
+            console.log("Got server roles");
         } else if(message.channel.guild.id == nico_nico_nii){
             nico_nico_nii_roles();
+            console.log("Got server roles");
         } /*else if(message.channel.guild.id == B){
             B_roles();
+            console.log("Got server roles");
         }*/
         
         const parts = message.content.split(' ');
