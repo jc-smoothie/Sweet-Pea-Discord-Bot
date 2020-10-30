@@ -191,7 +191,7 @@ client.on('message', message => {
    } else if(command == 'colors'){
        const colorsEmbed = new MessageEmbed()
        .setTitle('Colors!')
-       .setDescription('「Black」 \n 「Gray」 \n 「White」 \n 「Pink」 \n 「Red」 \n 「Pastel Red」 \n 「Pastel Orange」 \n 「Orange」 \n 「Yellow」 \n 「Pastel Yellow」 \n 「Yellow Green」 \n 「Green」 \n 「Pastel Green」 \n 「Light Blue Green」 \n 「Blue Green」 \n 「Pastel Blue」 \n 「Blue」 \n 「Indigo」 \n 「Violet」 \n 「Pastel Purple」')
+       .setDescription('Type `=color` and a color from the list below to get that color role! \n To remove a color you have, type the same message `=color` and that color to remove it. \n Your previous color will be swapped out when you get a different color, so no need to remove it yourself! \n \n **COLORS** \n 「Black」 \n 「Gray」 \n 「White」 \n 「Pink」 \n 「Red」 \n 「Pastel Red」 \n 「Pastel Orange」 \n 「Orange」 \n 「Yellow」 \n 「Pastel Yellow」 \n 「Yellow Green」 \n 「Green」 \n 「Pastel Green」 \n 「Light Blue Green」 \n 「Blue Green」 \n 「Pastel Blue」 \n 「Blue」 \n 「Indigo」 \n 「Violet」 \n 「Pastel Purple」')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
