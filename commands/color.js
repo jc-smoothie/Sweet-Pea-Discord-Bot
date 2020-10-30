@@ -3,26 +3,74 @@ module.exports = {
     description: "this assigns color roles!",
     execute(message, args){
         //Role Variables
-        const Black = '771568348642672670';
-        const Gray = '771568601693159454';
-        const White = '771568680416837642';
-        const Pink = '771568756672692266';
-        const Red = '771568870732857387';
-        const Pastel_Red = '771568989163225120';
-        const Pastel_Orange = '771569098341482497';
-        const Orange = '771569241861652480';
-        const Yellow = '771569332803076101';
-        const Pastel_Yellow = '771569409910374402';
-        const Yellow_Green = '771569562620526592';
-        const Green = '771569741596327946';
-        const Pastel_Green = '771569860014374913';
-        const Light_Blue_Green = '771570030109917214';
-        const Blue_Green = '771570265511428129';
-        const Pastel_Blue = '771570337853997067';
-        const Blue = '771570340559585290';
-        const Indigo = '771570666041769984';
-        const Violet = '771570721524154389';
-        const Pastel_Purple = '771570764938739743';
+        const Asian_Invasion = '637447111725809664';
+        const nico_nico_nii = '771147395585146910';
+        const B = '764619306553311253';
+
+        if(member.guild.id == Asian_Invasion){
+            const Black = '771568348642672670';
+            const Gray = '771568601693159454';
+            const White = '771568680416837642';
+            const Pink = '771568756672692266';
+            const Red = '771568870732857387';
+            const Pastel_Red = '771568989163225120';
+            const Pastel_Orange = '771569098341482497';
+            const Orange = '771569241861652480';
+            const Yellow = '771569332803076101';
+            const Pastel_Yellow = '771569409910374402';
+            const Yellow_Green = '771569562620526592';
+            const Green = '771569741596327946';
+            const Pastel_Green = '771569860014374913';
+            const Light_Blue_Green = '771570030109917214';
+            const Blue_Green = '771570265511428129';
+            const Pastel_Blue = '771570337853997067';
+            const Blue = '771570340559585290';
+            const Indigo = '771570666041769984';
+            const Violet = '771570721524154389';
+            const Pastel_Purple = '771570764938739743';
+        } else if(member.guild.id == nico_nico_nii){
+            const Black = '771748675469705276';
+            const Gray = '771756390163152906';
+            const White = '771756488690892821';
+            const Pink = '771756546895511563';
+            const Red = '771756615849476176';
+            const Pastel_Red = '771756928329711617';
+            const Pastel_Orange = '771757019199307807';
+            const Orange = '771757092716806217';
+            const Yellow = '771757133100351528';
+            const Pastel_Yellow = '771757134597455924';
+            const Yellow_Green = '771757161989537832';
+            const Green = '771757259683397653';
+            const Pastel_Green = '771757362796429373';
+            const Light_Blue_Green = '771757423262302208';
+            const Blue_Green = '771757490802393140';
+            const Pastel_Blue = '771758468851695617';
+            const Blue = '771758472202289222';
+            const Indigo = '771758474819534858';
+            const Violet = '771758477541638144';
+            const Pastel_Purple = '771758480340025364';
+        } /*else if(member.guild.id == B){
+            const Black = '';
+            const Gray = '';
+            const White = '';
+            const Pink = '';
+            const Red = '';
+            const Pastel_Red = '';
+            const Pastel_Orange = '';
+            const Orange = '';
+            const Yellow = '';
+            const Pastel_Yellow = '';
+            const Yellow_Green = '';
+            const Green = '';
+            const Pastel_Green = '';
+            const Light_Blue_Green = '';
+            const Blue_Green = '';
+            const Pastel_Blue = '';
+            const Blue = '';
+            const Indigo = '';
+            const Violet = '';
+            const Pastel_Purple = '';
+        }*/
         
         const parts = message.content.split(' ');
         const part1 = parts[1];
