@@ -64,7 +64,6 @@ module.exports = {
 
         //if(message.member.roles.some(role => role.name === 'Whatever')) {}
         
-        const parts = message.content.split(' ');
         const part1 = parts[1];
         const part2 = parts[2];
         const part3 = parts[3];
