@@ -7,6 +7,7 @@ module.exports = {
         const nico_nico_nii = '771147395585146910';
         const B = '764619306553311253';
 
+        /*
         const Black = '771568348642672670';
         const Gray = '771568601693159454';
         const White = '771568680416837642';
@@ -27,7 +28,8 @@ module.exports = {
         const Indigo = '771570666041769984';
         const Violet = '771570721524154389';
         const Pastel_Purple = '771570764938739743';
-
+        */
+        
         if(message.guild.id == Asian_Invasion){
             const Black = '771568348642672670';
             const Gray = '771568601693159454';
