@@ -212,7 +212,10 @@ client.on('message', message => {
        client.commands.get('lore').execute(message, args);
    } else if(command == 'rank'){
        client.commands.get('rank').execute(message, args);
-   } else if(command == 'roll'){
+   } else if(comand == 'color'){
+       client.commands.get('color').execute(message, args);
+   }
+   else if(command == 'roll'){
        client.commands.get('roll').execute(message, args);
        /*
        const parts = message.content.split(' ');
