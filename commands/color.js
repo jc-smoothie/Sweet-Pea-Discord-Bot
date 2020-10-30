@@ -76,11 +76,11 @@ module.exports = {
             const Pastel_Purple = '';
         }
         
-        if(message.server.id == Asian_Invasion){
+        if(message.channel.server.id == Asian_Invasion){
             Asian_Invasion_roles();
-        } else if(message.server.id == nico_nico_nii){
+        } else if(message.channel.server.id == nico_nico_nii){
             nico_nico_nii_roles();
-        } /*else if(message.guild.id == B){
+        } /*else if(message.channel.server.id == B){
             B_roles();
         }*/
         
