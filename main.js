@@ -151,7 +151,7 @@ client.on('message', message => {
    } else if(command == 'fun'){
        const funEmbed = new MessageEmbed()
        .setTitle('Fun!')
-       .setDescription('+hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - (Work in progress) Kiss someone in the server!')
+       .setDescription('+hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - (Work in progress) Kiss someone in the server! \n +color [color] - (Only works for servers once roles have been added with the aid of jc smoothie) \n Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -188,7 +188,16 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(miscEmbed);
-   } else if(command == 'ping'){
+   } else if(command == 'colors'){
+       const colorsEmbed = new MessageEmbed()
+       .setTitle('Colors!')
+       .setDescription('「Black」 \n 「Gray」 \n 「White」 \n 「Pink」 \n 「Red」 \n 「Pastel Red」 \n 「Pastel Orange」 \n 「Orange」 \n 「Yellow」 \n 「Pastel Yellow」 \n 「Yellow Green」 \n 「Green」 \n 「Pastel Green」 \n 「Light Blue Green」 \n 「Blue Green」 \n 「Pastel Blue」 \n 「Blue」 \n 「Indigo」 \n 「Violet」 \n 「Pastel Purple」')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+       message.channel.send(colorsEmbed);
+   }
+    else if(command == 'ping'){
        client.commands.get('ping').execute(message, args);
    } else if(command == 'rules'){
        const commandsEmbed = new MessageEmbed()
