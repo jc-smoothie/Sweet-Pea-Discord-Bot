@@ -74,7 +74,7 @@ module.exports = {
                     //message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, new member~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
                 }
-            } else if(member.guild.id == jc_smoothie_support_server){
+            } /*else if(member.guild.id == jc_smoothie_support_server){
                 if(message.member.roles.cache.find(r => r.name === "Member")){
                     //message.member.roles.remove(Member);
                     //message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
@@ -85,7 +85,7 @@ module.exports = {
                     //message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, new member~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
                 }
-            } else{
+            }*/ else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
             
