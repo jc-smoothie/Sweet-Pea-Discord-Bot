@@ -24,8 +24,8 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.-0lnEnflC6kFAxpLmANC_FVmCi4');
-client.login(process.env.token);
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.-0lnEnflC6kFAxpLmANC_FVmCi4');
+//client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
 //Variables
@@ -425,6 +425,24 @@ client.on('message', async message => {
         message.react(reactionEmoji);
     }
 });
+
+//Role Variables
+const Asian_Invasion = '637447111725809664';
+const jc_smoothie_suppoet_server = '755814665111470142';
+
+function Asian_Invasion_roles(){
+    reactionRolesChannel = '763441746314133505';
+}
+
+function jc_smoothie_suppoet_server_roles(){
+    reactionRolesChannel = '772076538707312651';
+}
+
+if(messageReaction.message.guild.id == Asian_Invasion){
+    Asian_Invasion_roles();
+} else if(messageReaction.message.guild.id == jc_smoothie_suppoet_server){
+    jc_smoothie_suppoet_server_roles();
+}
 
 //American Flag Reaction
 client.on('messageReactionAdd', async (messageReaction, user) => {
