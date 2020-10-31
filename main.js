@@ -354,7 +354,7 @@ client.on('message', message => {
    } else if(command == 'say'){
        client.commands.get('say').execute(message, args);
    } else if(command == 'bal'){
-    client.commands.get('balance').execute(message, args);
+       client.commands.get('balance').execute(message, args);
    }
 });
 
