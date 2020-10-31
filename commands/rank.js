@@ -41,7 +41,7 @@ module.exports = {
         const parts = message.content.split(' ');
 
         if(parts[1] == 'traveler'){
-            if(member.guild.id == Eclipsys_Contact){
+            if(message.member.guild.id == Eclipsys_Contact){
                 if(message.member.roles.some(role => role.name === 'Traveler')) {
                     message.reply("You can not stop being a Traveler!");
                 } else{
@@ -63,7 +63,7 @@ module.exports = {
                 //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
             }*/
             
-            if(member.guild.id == Asian_Invasion){
+            if(message.member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Member")){
                     //message.member.roles.remove(Member);
                     //message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
@@ -74,7 +74,7 @@ module.exports = {
                     //message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, new member~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
                 }
-            } /*else if(member.guild.id == jc_smoothie_support_server){
+            } /*else if(message.member.guild.id == jc_smoothie_support_server){
                 if(message.member.roles.cache.find(r => r.name === "Member")){
                     //message.member.roles.remove(Member);
                     //message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
@@ -90,10 +90,10 @@ module.exports = {
             }
             
         } else if(parts[1] == 'weeb'){
-            if(member.guild.id == Asian_Invasion){
+            if(message.member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Weeb")){
                     message.member.roles.remove('694999716047618199');
-                message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
                 } else{
                     message.member.roles.add('694999716047618199');
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, fellow Weeb~");
