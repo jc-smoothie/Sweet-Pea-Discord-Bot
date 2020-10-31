@@ -386,7 +386,7 @@ client.on('message', async message => {
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
         //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
-        .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AM")
+        .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AMERICAS \n 🌍 -> EUROPE/AFRICA \n 🌏 -> ASIA/AUSTRALIA")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('🌎');
