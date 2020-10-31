@@ -152,7 +152,7 @@ module.exports = {
         if(message.channel.guild.id == Asian_Invasion){
             Asian_Invasion_roles();
         } else if(message.channel.guild.id == jc_smoothie_suppoet_server){
-            jc_smoothie_suppoet_server_roles();
+            jc_smoothie_support_server_roles();
         } else if(message.channel.guild.id == nico_nico_nii){
             nico_nico_nii_roles();
         } else if(message.channel.guild.id == B){
