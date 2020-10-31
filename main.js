@@ -916,7 +916,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.remove(ASIA/AUSTRALIA).then(() => {
+        userrole.roles.remove(ASIAAUSTRALIA).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **ASIA?AUSTRALIA** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
