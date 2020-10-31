@@ -1,42 +1,32 @@
-/*module.exports.run = async (bot, message, args) => {
-    const m = await message.channel.send("Ping?");
-    m.edit(`ping! ${m.createdTimestamp - message.createdTimestamp}ms`)
-}
+const mongoose = require("mongoose");
+const botconfig = require("../botconfig.json");
 
-module.exports.help = {
-    name: "ping",
-    aliases: ["p"]
-}*/
+mongoose.connect(botconfig.mongoPass, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
 
-/*module.exports = {
-    name: 'ping',
-    description: "this is a ping command!",
-    execute(message, args){
-        message.channel.send('pong!');
-    }
-}*/
-
-const fs = require("fs");
-const money = require("../money.json");
+const Data = require("../models/data.js");
 
 module.exports.run = async (bot, message, args) => {
-    if(!args[0]){
-        var user = message.author;
-    } else{
-        var user = message.mentions.users.first() || bot.users.get(args[0]);
-    }
-
-    if(!money[user.id]){
-        money[user.id] = {
-            name: bot.users.get(user.id).tag,
-            money: 0
+    Data.findOne({
+        userID: message.author.id
+    }, (err, data) => {
+        if(!data){
+            const newData = new Data({
+                name: message.author.usrername,
+                userID: message.author.id,
+                lb: "all",
+                money: 0,
+                xp: 0,
+                daily: 0,
+            })
+            newData.save().catch(err => console.log(err));
+            return message.channel.send("You have $0.");
+        } else{
+            return message.channel.send(`You have $${data.money}.`);
         }
-        fs.writeFile("./money.json", JSON.stringify(money), (err) => {
-            if(err) console.log(err);
-        });
-    }
-
-    return message.channel.send(`${bot.users.get(user.id).username} has $${money[user.id].money}.`);
+    })
 }
 
 module.exports.help = {
