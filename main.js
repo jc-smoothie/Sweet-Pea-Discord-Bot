@@ -845,7 +845,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(AMERICAS).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AMERICAS** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Americas** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -859,7 +859,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(AMERICAS).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AMERICAS** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Americas** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -874,7 +874,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EUROPEAFRICA).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AMERICAS** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Europe/Africa** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -888,7 +888,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EUROPEAFRICA).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AMERICAS** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Europe/Africa** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -903,7 +903,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(ASIAAUSTRALIA).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **ASIA/AUSTRALIA** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Asia/Australia** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -917,7 +917,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(ASIAAUSTRALIA).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **ASIA?AUSTRALIA** role!`).then(msg => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Asia/Australia** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
