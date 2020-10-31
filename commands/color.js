@@ -32,7 +32,7 @@ module.exports = {
             Pastel_Purple = '771570764938739743';
         }
 
-        function jc_smoothie_suppoet_server_roles(){
+        function jc_smoothie_support_server_roles(){
             Black = '772073023439634442';
             Gray = '772073027159457792';
             White = '772073032692793344';
