@@ -48,11 +48,16 @@ for(const file of commandFiles){
 }
 
 client.once('ready', () => {
-    const storedBalances = await Users.findAll();
-    storedBalances.forEach(b => currency.set(b.user_id, b));
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
+
+client.once('ready', async () => {
+	const storedBalances = await Users.findAll();
+    storedBalances.forEach(b => currency.set(b.user_id, b));
+	console.log(`Logged in as ${client.user.tag}!`);
+});
+
 /*
 let memberlog = "691101347642212362";
 
