@@ -9,4 +9,4 @@ const dataSchema = mongoose.Schema({
     daily: Number,
 })
 
-module.exports = mongoose.model("Date", sateSchema);
+module.exports = mongoose.model("Data", dataSchema);
