@@ -390,6 +390,7 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('🌎');
+        messageEmbed.react('🌍');
         messageEmbed.react('🌏');
     } else if(command == 'among'){
         let reactionsEmbed = new MessageEmbed()
@@ -446,6 +447,7 @@ function jc_smoothie_suppoet_server_roles(){
     JP = '772081695687573514';
     CN = '772081734899990528';
     AMERICAS = '772081772417646622';
+    EUROPEAFRICA = '';
     ASIAAUSTRALIA = '772106026433904690';
 }
 
@@ -863,7 +865,36 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     }
 });
 
-//Asia + Australia Reaction
+//Europe/Africa Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌍') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(AMERICAS).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AMERICAS** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌍') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(AMERICAS).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AMERICAS** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Asia/Australia Reaction
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
