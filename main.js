@@ -9,7 +9,7 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
-const mongoPass: "mongodb+srv://jcsmoothie:<password>@sweetpea.wwdao.mongodb.net/<dbname>?retryWrites=true&w=majority";
+const mongoPass = "mongodb+srv://jcsmoothie:<password>@sweetpea.wwdao.mongodb.net/<dbname>?retryWrites=true&w=majority";
 
 const fs = require('fs');
 
