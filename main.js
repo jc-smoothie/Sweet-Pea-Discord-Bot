@@ -389,7 +389,8 @@ client.on('message', async message => {
         .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AM")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
-        messageEmbed.react('🌎')
+        messageEmbed.react('🌎');
+        messageEmbed.react('🌏');
     } else if(command == 'among'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
@@ -429,7 +430,8 @@ function Asian_Invasion_roles(){
     KR = '763733609793716294';
     JP = '763733642127736852';
     CN = '763733672439971840';
-    AM = '763850145984282654';
+    AMERICAS = '763850145984282654';
+    ASIAAUSTRALIA = '';
 }
 
 function jc_smoothie_suppoet_server_roles(){
@@ -443,7 +445,8 @@ function jc_smoothie_suppoet_server_roles(){
     KR = '772081666726297622';
     JP = '772081695687573514';
     CN = '772081734899990528';
-    AM = '772081772417646622';
+    AMERICAS = '772081772417646622';
+    ASIAAUSTRALIA = '772106026433904690';
 }
 
 client.on('messageReactionAdd', async (messageReaction, user) => {
@@ -838,8 +841,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌎') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.add(AM).then(() => {
-            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AM** role!`).then(msg => {
+        userrole.roles.add(AMERICAS).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AMERICAS** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
@@ -852,8 +855,37 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌎') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.remove(AM).then(() => {
-            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AM** role!`).then(msg => {
+        userrole.roles.remove(AMERICAS).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AMERICAS** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Asia + Australia Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(ASIAAUSTRALIA).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **ASIA/AUSTRALIA** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(ASIA/AUSTRALIA).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **ASIA?AUSTRALIA** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
