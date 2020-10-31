@@ -48,8 +48,10 @@ for(const file of commandFiles){
 }
 
 client.once('ready', () => {
-   console.log('Sweet Pea is online!');
-   client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+    const storedBalances = await Users.findAll();
+    storedBalances.forEach(b => currency.set(b.user_id, b));
+    console.log('Sweet Pea is online!');
+    client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 /*
 let memberlog = "691101347642212362";
@@ -356,6 +358,28 @@ client.on('message', message => {
    } else if(command == 'say'){
        client.commands.get('say').execute(message, args);
    }
+});
+
+Reflect.defineProperty(currency, 'add', {
+	/* eslint-disable-next-line func-name-matching */
+	value: async function add(id, amount) {
+		const user = currency.get(id);
+		if (user) {
+			user.balance += Number(amount);
+			return user.save();
+		}
+		const newUser = await Users.create({ user_id: id, balance: amount });
+		currency.set(id, newUser);
+		return newUser;
+	},
+});
+
+Reflect.defineProperty(currency, 'getBalance', {
+	/* eslint-disable-next-line func-name-matching */
+	value: function getBalance(id) {
+		const user = currency.get(id);
+		return user ? user.balance : 0;
+	},
 });
 
 client.on('message', async message => {
