@@ -28,18 +28,6 @@ client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.-0lnEnflC6kFAxpLmANC_FVmCi4');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
-//Variables
-const EN = '763733022150361098';
-const FR = '763733139222560789';
-const ESP = '763733454286094337';
-const DE = '763733491501367317';
-const VN = '763733533700653066';
-const PTBR = '763733564361408534';
-const KR = '763733609793716294';
-const JP = '763733642127736852';
-const CN = '763733672439971840';
-const AM = '763850145984282654';
-
 var attempts = 1;
 
 function increateAttempts(){
@@ -432,24 +420,46 @@ const jc_smoothie_suppoet_server = '755814665111470142';
 
 function Asian_Invasion_roles(){
     reactionRolesChannel = '763441746314133505';
+    EN = '763733022150361098';
+    FR = '763733139222560789';
+    ESP = '763733454286094337';
+    DE = '763733491501367317';
+    VN = '763733533700653066';
+    PTBR = '763733564361408534';
+    KR = '763733609793716294';
+    JP = '763733642127736852';
+    CN = '763733672439971840';
+    AM = '763850145984282654';
 }
 
 function jc_smoothie_suppoet_server_roles(){
     reactionRolesChannel = '772076538707312651';
+    EN = '772080462209613884';
+    FR = '772081493853995008';
+    ESP = '772081524593000478';
+    DE = '772081553106272266';
+    VN = '772081606466076703';
+    PTBR = '772081625433505823';
+    KR = '772081666726297622';
+    JP = '772081695687573514';
+    CN = '772081734899990528';
+    AM = '772081772417646622';
 }
 
-if(messageReaction.message.guild.id == Asian_Invasion){
-    Asian_Invasion_roles();
-} else if(messageReaction.message.guild.id == jc_smoothie_suppoet_server){
-    jc_smoothie_suppoet_server_roles();
-}
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if(messageReaction.message.guild.id == Asian_Invasion){
+        Asian_Invasion_roles();
+    } else if(messageReaction.message.guild.id == jc_smoothie_suppoet_server){
+        jc_smoothie_suppoet_server_roles();
+    }
+});
 
 //American Flag Reaction
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇺🇸') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇺🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
@@ -462,8 +472,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇺🇸') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇺🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
@@ -477,8 +487,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇬🇧') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇬🇧') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
@@ -491,8 +501,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇬🇧') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇬🇧') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
@@ -506,8 +516,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇦') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇨🇦') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
@@ -520,8 +530,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇦') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇨🇦') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
@@ -535,8 +545,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇦🇺') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇦🇺') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
@@ -549,8 +559,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇦🇺') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇦🇺') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
@@ -564,8 +574,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇫🇷') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇫🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(FR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **FR** role!`).then(msg => {
@@ -578,8 +588,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇫🇷') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇫🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(FR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **FR** role!`).then(msg => {
@@ -593,8 +603,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇪🇸') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇪🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(ESP).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **ESP** role!`).then(msg => {
@@ -607,8 +617,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇪🇸') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇪🇸') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(ESP).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **ESP** role!`).then(msg => {
@@ -622,8 +632,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇩🇪') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇩🇪') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(DE).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **DE** role!`).then(msg => {
@@ -636,8 +646,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇩🇪') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇩🇪') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(DE).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **DE** role!`).then(msg => {
@@ -651,8 +661,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇻🇳') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇻🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(VN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **VN** role!`).then(msg => {
@@ -665,8 +675,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇻🇳') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇻🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(VN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **VN** role!`).then(msg => {
@@ -680,8 +690,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇵🇹') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇵🇹') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(PTBR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **PT/BR** role!`).then(msg => {
@@ -694,8 +704,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇵🇹') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇵🇹') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(PTBR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **PT/BR** role!`).then(msg => {
@@ -709,8 +719,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇧🇷') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇧🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(PTBR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **PT/BR** role!`).then(msg => {
@@ -723,8 +733,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇧🇷') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇧🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(PTBR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **PT/BR** role!`).then(msg => {
@@ -738,8 +748,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇰🇷') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇰🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(KR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **KR** role!`).then(msg => {
@@ -752,8 +762,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇰🇷') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇰🇷') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(KR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **KR** role!`).then(msg => {
@@ -767,8 +777,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇯🇵') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇯🇵') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(JP).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **JP** role!`).then(msg => {
@@ -781,8 +791,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇯🇵') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇯🇵') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(JP).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **JP** role!`).then(msg => {
@@ -796,8 +806,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇳') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇨🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(CN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
@@ -810,8 +820,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🇨🇳') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🇨🇳') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(CN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
@@ -825,8 +835,8 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🌎') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌎') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(AM).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AM** role!`).then(msg => {
@@ -839,8 +849,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === '763441746314133505' && messageReaction.emoji.name === '🌎') {
-        const channel = messageReaction.message.guild.channels.cache.get('763441746314133505');
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌎') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(AM).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AM** role!`).then(msg => {
