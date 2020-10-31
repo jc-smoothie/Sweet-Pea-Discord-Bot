@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
         });
     }
 
-    return message.channel.send(`${bot.users.get(user.id).username} has $${money[user.id].money}`)
+    return message.channel.send(`${bot.users.get(user.id).username} has $${money[user.id].money}.`);
 }
 
 module.exports.help = {
