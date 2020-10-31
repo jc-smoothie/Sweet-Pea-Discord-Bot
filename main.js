@@ -432,6 +432,7 @@ function Asian_Invasion_roles(){
     JP = '763733642127736852';
     CN = '763733672439971840';
     AMERICAS = '763850145984282654';
+    EUROPEAFRICA = '';
     ASIAAUSTRALIA = '';
 }
 
@@ -447,7 +448,7 @@ function jc_smoothie_suppoet_server_roles(){
     JP = '772081695687573514';
     CN = '772081734899990528';
     AMERICAS = '772081772417646622';
-    EUROPEAFRICA = '';
+    EUROPEAFRICA = '772108008406253578';
     ASIAAUSTRALIA = '772106026433904690';
 }
 
@@ -872,7 +873,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌍') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.add(AMERICAS).then(() => {
+        userrole.roles.add(EUROPEAFRICA).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **AMERICAS** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -886,7 +887,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌍') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.remove(AMERICAS).then(() => {
+        userrole.roles.remove(EUROPEAFRICA).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **AMERICAS** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
