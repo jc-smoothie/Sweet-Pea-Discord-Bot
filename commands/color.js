@@ -4,6 +4,7 @@ module.exports = {
     execute(message, args){
         //Role Variables
         const Asian_Invasion = '637447111725809664';
+        const jc_smoothie_suppoet_server = '755814665111470142';
         const nico_nico_nii = '771147395585146910';
         const B = '764619306553311253';
         const WHS_Anime_Club = '361609091602317312';
@@ -29,6 +30,29 @@ module.exports = {
             Indigo = '771570666041769984';
             Violet = '771570721524154389';
             Pastel_Purple = '771570764938739743';
+        }
+
+        function jc_smoothie_suppoet_server_roles(){
+            Black = '772073023439634442';
+            Gray = '772073027159457792';
+            White = '772073032692793344';
+            Pink = '772073029663588413';
+            Red = '772073035153801256';
+            Pastel_Red = '772073037641547776';
+            Pastel_Orange = '772073040154460160';
+            Orange = '772073042436292618';
+            Yellow = '772073044885110785';
+            Pastel_Yellow = '772073047376789504';
+            Yellow_Green = '772073049880526848';
+            Green = '772073052212297728';
+            Pastel_Green = '772073054481940481';
+            Light_Blue_Green = '772073056729694220';
+            Blue_Green = '772073059271966730';
+            Pastel_Blue = '772073061746737162';
+            Blue = '772073063931969568';
+            Indigo = '772073066518806528';
+            Violet = '772073068822265897';
+            Pastel_Purple = '772073071137652756';
         }
 
         function nico_nico_nii_roles(){
@@ -127,6 +151,8 @@ module.exports = {
         
         if(message.channel.guild.id == Asian_Invasion){
             Asian_Invasion_roles();
+        } else if(message.channel.guild.id == jc_smoothie_suppoet_server){
+            jc_smoothie_suppoet_server_roles();
         } else if(message.channel.guild.id == nico_nico_nii){
             nico_nico_nii_roles();
         } else if(message.channel.guild.id == B){
