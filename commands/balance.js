@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
             name: bot.users.get(user.id).tag,
             money: 0
         }
-        fs.writeTile("./money.json", JSON.stringify(money), (err) => {
+        fs.writeTitle("./money.json", JSON.stringify(money), (err) => {
             if(err) console.log(err);
         });
     }
