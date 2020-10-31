@@ -9,6 +9,8 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
+//mongodb+srv://jcsmoothie:Z3TWW946XLWLVVG5F@sweetpea.wwdao.mongodb.net/<dbname>?retryWrites=true&w=majority
+
 const fs = require('fs');
 
 require('events').EventEmitter.defaultMaxListeners = 100;
