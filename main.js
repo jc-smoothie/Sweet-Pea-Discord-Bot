@@ -9,6 +9,8 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
+const mongoPass: "mongodb+srv://jcsmoothie:<password>@sweetpea.wwdao.mongodb.net/<dbname>?retryWrites=true&w=majority";
+
 const fs = require('fs');
 
 require('events').EventEmitter.defaultMaxListeners = 100;
@@ -353,8 +355,6 @@ client.on('message', message => {
        message.channel.send(wyrEmbed);
    } else if(command == 'say'){
        client.commands.get('say').execute(message, args);
-   } else if(command == 'bal'){
-       client.commands.get('balance').execute(message, args);
    }
 });
 
