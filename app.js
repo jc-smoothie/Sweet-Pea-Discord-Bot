@@ -93,4 +93,4 @@ client.on('message', async message => {
 	}
 });
 
-client.login('your-token-goes-here');
+client.login(process.env.token);
