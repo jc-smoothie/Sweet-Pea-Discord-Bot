@@ -1040,7 +1040,7 @@ client.on('message', async message => {
         */
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Sort The Court!')
-        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n       Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
+        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🤴')
