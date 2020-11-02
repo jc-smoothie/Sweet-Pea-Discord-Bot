@@ -34,7 +34,7 @@ module.exports = {
                 }
                 const image = urls[Math.floor(Math.random() * urls.length)]
                 const embed = new Discord.MessageEmbed()
-                .setTitle("Dogs!")
+                .setTitle("Cats!")
                 .setImage(image)
                 .setColor("0xC0C0C0")
                 message.channel.send(embed)
