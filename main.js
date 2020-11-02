@@ -281,6 +281,8 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
+   } else if(command == 'cat'){
+       client.commands.get('cat').execute(message, args);
    } else if(command == 'duck'){
        client.commands.get('duck').execute(message, args);
    } else if(command === 'av'){
