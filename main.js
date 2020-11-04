@@ -1,5 +1,9 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
+const Levels = require('discord-xp');
+const mongoose = require('mongooose')
+
+Levels.setURL("")
 
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
@@ -50,6 +54,34 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+});
+
+client.on("message", async message => {
+    if(!message.guild) return;
+    if(message.author.bot) return;
+
+    const randomXp = Math.floor(math.random() * 9) + 1;
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
+    if(hasLeveledUp){
+        const user = await Levels.fetch(message.author.id, message.quild.id);
+        message.channel.send(`You leveled up to ${user.level}! Keep it up!`);
+    }
+
+    if(command == "level"){
+        const user = await Levels.fetch(message.author.id, message.quild.id);
+        message.channel.send(`You are currently level **${user.level}**!`);
+    }
+
+    if(command == "leaderboard" || command == "lb"){
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
+        if(rawLeaderboard.length < 1) return reply("Nobody's in the leaderboard yet.");
+
+        const leaderboard = Levels.computerLeaderboard(bot, rawLeaderboard);
+
+        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocalString()}`);
+
+        message.channel.send(`${lb.join("\n\n")}`);
+    }
 });
 
 /*
@@ -309,7 +341,7 @@ client.on('message', message => {
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Need help or want to ask a question? Join the support server!                    Created by jc smoothie')
-       .setURL('https://discord.gg/GQqnWHK')
+       .setURL('https://discord.gg/m3Q6f3KRDP')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
    } else if(command == 'deletemessage'){
