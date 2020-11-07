@@ -11,7 +11,7 @@ module.exports = {
             console.log('Missing args')
         } else{
             console.log('should work.')
-            const image = Math.floor((Math.random() * 12) + 1);
+            const image = Math.floor((Math.random() * 11) + 1);
             if(image == 1){
                 //works
                 var chosenImage = 'https://media1.tenor.com/images/d307db89f181813e0d05937b5feb4254/tenor.gif?itemid=16371489';
@@ -31,13 +31,13 @@ module.exports = {
                 //works
                 var chosenImage = 'https://cutewallpaper.org/21/best-anime-kisses/Anime-kiss-GIFs-Get-the-best-GIF-on-GIPHY.gif';
             } else if(image == 7){
-
+                //works
                 var chosenImage = 'https://media1.tenor.com/images/2b2662689048ee9cc66468c20ee13ffa/tenor.gif?itemid=14042664';
             } else if(image == 8){
                 //works
                 var chosenImage = 'https://media1.tenor.com/images/279c4716a469ace39b15e34d7fa3e7c4/tenor.gif?itemid=11487318';
             } else if(image == 9){
-
+                //works
                 var chosenImage = 'https://media1.tenor.com/images/641aeeb446c7a2350843b5ce69ccfd2b/tenor.gif?itemid=17500022';
             } else if(image == 10){
                 //works
@@ -48,10 +48,8 @@ module.exports = {
             } else if(image == 12){
                 //works
                 var chosenImage = 'https://media.discordyui.net/reactions/kiss/723805.gif';
-            } else if(image == 13){
-
-                var chosenImage = 'https://media.discordyui.net/reactions/kiss/zAVG8ov.gif';
             }
+
             const personTagged = message.mentions.members.first();
             
             let embed = new Discord.MessageEmbed()
