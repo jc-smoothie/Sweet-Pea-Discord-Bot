@@ -1,7 +1,9 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 const Levels = require('discord-xp');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
 Levels.setURL("")
 
