@@ -2,6 +2,7 @@ const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
+const welcome = require('./welcome');
 
 mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -56,6 +57,7 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+    welcome(client);
 });
 
 /*client.on("message", async message => {
@@ -122,13 +124,6 @@ client.on('guildMemberAdd', async member => {
     channel.send(`Welcome to the server, ${member.user.username}!`, attachment);   
 });
 */
-
-client.on('guildMemberAdd', member => {
-	const channel = member.guild.channels.cache.find(channel => channel.name === 'welcome');
-	if (!channel) return;
-
-	channel.send(`Welcome to the server, ${member}!`);
-});
 
 client.on('message', message => {
     const reply = message.content;
