@@ -2,7 +2,6 @@ const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
-const welcome = require('./welcome');
 
 mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -57,7 +56,25 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
-    welcome(client);
+});
+
+//let memberlog = "691101347642212362";
+
+client.on("guildMemberAdd", member => {
+    //const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+    //welcomeChannel.send(`Welcome to the server, ${member}! Be sure to read the #sweet-pea-commands and enjoy the server!`);
+
+    if(member.guild.id !== "637447111725809664") return;
+    client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}>!`);
+    member.roles.add('759550714862764045');
+});
+
+client.on("guildMemberRemove", member => {
+    //const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
+    //goodbyeChannel.send(`Goodbye, ${member}!`);
+
+    if(member.guild.id !== "637447111725809664") return;
+    client.channels.cache.get(memberlog).send(`So long. . . <@!${member.user.id}>.`);
 });
 
 /*client.on("message", async message => {
@@ -87,27 +104,6 @@ client.once('ready', () => {
         message.channel.send(`${lb.join("\n\n")}`);
     }
 });*/
-
-/*
-let memberlog = "691101347642212362";
-
-client.on("guildMemberAdd", member => {
-    //const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
-    //welcomeChannel.send(`Welcome to the server, ${member}! Be sure to read the #sweet-pea-commands and enjoy the server!`);
-
-    if(member.guild.id !== "637447111725809664") return;
-    client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}>!`);
-    member.roles.add('759550714862764045');
-});
-
-client.on("guildMemberRemove", member => {
-    //const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
-    //goodbyeChannel.send(`Goodbye, ${member}!`);
-
-    if(member.guild.id !== "637447111725809664") return;
-    client.channels.cache.get(memberlog).send(`So long. . . <@!${member.user.id}>.`);
-});
-*/
 
 /*
 const { CanvasSenpai } = require("canvas-senpai")
