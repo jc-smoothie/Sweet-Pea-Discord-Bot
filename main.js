@@ -58,7 +58,7 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
-//let memberlog = "691101347642212362";
+let memberlog = "775127852458180608";
 
 client.on("guildMemberAdd", member => {
     //const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
