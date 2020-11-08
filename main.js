@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
-Levels.setURL("")
+Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
 
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
