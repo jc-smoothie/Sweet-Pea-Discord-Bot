@@ -64,7 +64,7 @@ client.on("guildMemberAdd", member => {
     //const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
     //welcomeChannel.send(`Welcome to the server, ${member}! Be sure to read the #sweet-pea-commands and enjoy the server!`);
 
-    if(member.guild.id !== "637447111725809664") return;
+    if(member.guild.id !== "700620542419664968") return;
     client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}>!`);
     member.roles.add('759550714862764045');
 });
@@ -73,7 +73,7 @@ client.on("guildMemberRemove", member => {
     //const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
     //goodbyeChannel.send(`Goodbye, ${member}!`);
 
-    if(member.guild.id !== "637447111725809664") return;
+    if(member.guild.id !== "700620542419664968") return;
     client.channels.cache.get(memberlog).send(`So long. . . <@!${member.user.id}>.`);
 });
 
