@@ -1,4 +1,4 @@
-modules.exports = client => {
+module.exports = client => {
     const channelId = '775127852458180608' // welcome channel
     const targetChannelId = '775127852458180608' // tules and info
 
