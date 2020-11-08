@@ -58,7 +58,7 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
-client.on("message", async message => {
+/*client.on("message", async message => {
     if(!message.guild) return;
     if(message.author.bot) return;
 
@@ -84,7 +84,7 @@ client.on("message", async message => {
 
         message.channel.send(`${lb.join("\n\n")}`);
     }
-});
+});*/
 
 /*
 let memberlog = "691101347642212362";
@@ -124,7 +124,7 @@ client.on('guildMemberAdd', async member => {
 */
 
 client.on('guildMemberAdd', member => {
-	const channel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
+	const channel = member.guild.channels.cache.find(channel => channel.name === 'welcome');
 	if (!channel) return;
 
 	channel.send(`Welcome to the server, ${member}!`);
