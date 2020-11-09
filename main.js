@@ -62,10 +62,10 @@ const canvas = require("discord-canvas"),
   welcomeCanvas = new canvas.Welcome();
 
 let image = await welcomeCanvas
-  .setUsername("xixi52")
+  .setUsername(message.author.username)
   .setDiscriminator("0001")
   .setMemberCount("140")
-  .setGuildName("Server DEV")
+  .setGuildName("Eclipsys Contact Official")
   .setAvatar("https://www.site.com/avatar.jpg")
   .setColor("border", "#8015EA")
   .setColor("username-box", "#8015EA")
