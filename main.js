@@ -183,7 +183,7 @@ client.on('message', message => {
    } else if(command == 'tools'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Tools!')
-       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - (Coming soon) Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin.')
+       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -314,11 +314,10 @@ client.on('message', message => {
        client.commands.get('duck').execute(message, args);
    } else if(command === 'av'){
        //client.commands.get('av').execute(message, args);
-       /*
+
        if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }
-       */
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
