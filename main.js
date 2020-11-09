@@ -56,29 +56,29 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+
+    const canvas = require("discord-canvas"),
+    welcomeCanvas = new canvas.Welcome();
+    
+    let image = await welcomeCanvas
+    .setUsername(message.author.username)
+    .setDiscriminator("0001")
+    .setMemberCount("140")
+    .setGuildName("Eclipsys Contact Official")
+    .setAvatar("https://www.site.com/avatar.jpg")
+    .setColor("border", "#8015EA")
+    .setColor("username-box", "#8015EA")
+    .setColor("discriminator-box", "#8015EA")
+    .setColor("message-box", "#8015EA")
+    .setColor("title", "#8015EA")
+    .setColor("avatar", "#8015EA")
+    .setBackground("https://www.site.com/background.jpg")
+    .toAttachment();
+    
+    let attachment = new Discord.Attachment(image.toBuffer(), "welcome-image.png");
+    
+    message.channel.send(attachment);
 });
-
-const canvas = require("discord-canvas"),
-  welcomeCanvas = new canvas.Welcome();
-
-let image = await welcomeCanvas
-  .setUsername(message.author.username)
-  .setDiscriminator("0001")
-  .setMemberCount("140")
-  .setGuildName("Eclipsys Contact Official")
-  .setAvatar("https://www.site.com/avatar.jpg")
-  .setColor("border", "#8015EA")
-  .setColor("username-box", "#8015EA")
-  .setColor("discriminator-box", "#8015EA")
-  .setColor("message-box", "#8015EA")
-  .setColor("title", "#8015EA")
-  .setColor("avatar", "#8015EA")
-  .setBackground("https://www.site.com/background.jpg")
-  .toAttachment();
-
-let attachment = new Discord.Attachment(image.toBuffer(), "welcome-image.png");
-
-message.channel.send(attachment);
 
 /*let memberlog = "775127852458180608";
 
