@@ -58,7 +58,29 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
-let memberlog = "775127852458180608";
+const canvas = require("discord-canvas"),
+  welcomeCanvas = new canvas.Welcome();
+
+let image = await welcomeCanvas
+  .setUsername("xixi52")
+  .setDiscriminator("0001")
+  .setMemberCount("140")
+  .setGuildName("Server DEV")
+  .setAvatar("https://www.site.com/avatar.jpg")
+  .setColor("border", "#8015EA")
+  .setColor("username-box", "#8015EA")
+  .setColor("discriminator-box", "#8015EA")
+  .setColor("message-box", "#8015EA")
+  .setColor("title", "#8015EA")
+  .setColor("avatar", "#8015EA")
+  .setBackground("https://www.site.com/background.jpg")
+  .toAttachment();
+
+let attachment = new Discord.Attachment(image.toBuffer(), "welcome-image.png");
+
+message.channel.send(attachment);
+
+/*let memberlog = "775127852458180608";
 
 client.on("guildMemberAdd", member => {
     //const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
@@ -75,7 +97,7 @@ client.on("guildMemberRemove", member => {
 
     if(member.guild.id !== "700620542419664968") return;
     client.channels.cache.get(memberlog).send(`So long. . . <@!${member.user.id}>.`);
-});
+});*/
 
 /*client.on("message", async message => {
     if(!message.guild) return;
