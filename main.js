@@ -56,7 +56,9 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+});
 
+client.on("message", async message => {
     const canvas = require("discord-canvas"),
     welcomeCanvas = new canvas.Welcome();
     
