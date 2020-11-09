@@ -58,7 +58,7 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
-client.on("message", async message => {
+client.on("guildMemberAdd", async member => {
     const canvas = require("discord-canvas"),
     welcomeCanvas = new canvas.Welcome();
     
