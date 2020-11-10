@@ -1256,6 +1256,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     }
     */
 
+    /*
     if(reaction.emoji.name === '✅'){
         if(start == 1){
             let reactionsEmbed = new MessageEmbed()
@@ -1317,6 +1318,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
         }
     }
+    */
 });
 
 //No Reaction
@@ -1376,6 +1378,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     }
     */
 
+    /*
     if(reaction.emoji.name === '❌'){
         if(start == 1){
             let reactionsEmbed = new MessageEmbed()
@@ -1420,6 +1423,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             }
         }
     }
+    */
 });
 
 //Continue Reaction
@@ -1568,6 +1572,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
     }
     */
 
+    /*
     if(reaction.emoji.name === '➡️'){
         if(start == 2){
             let reactionsEmbed = new MessageEmbed()
@@ -1701,6 +1706,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
             .setColor('#228B22')
         }
     }
+    */
 });
 
 //Characters
