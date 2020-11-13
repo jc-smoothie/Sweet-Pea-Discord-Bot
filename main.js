@@ -337,8 +337,6 @@ client.on('message', message => {
    } else if(command == 'duck'){
        client.commands.get('duck').execute(message, args);
    } else if(command === 'av'){
-       //client.commands.get('av').execute(message, args);
-
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }*/
@@ -355,16 +353,24 @@ client.on('message', message => {
            const emb = new Discord.MessageEmbed().setImage(message.author.displayAvatarURL()).setTitle(message.author.username)
            message.channel.send(emb)
        }*/
-
        
-       let user = message.mentions.users.first();
+       let member=message.mentions.users.first()
+       if(member){
+           const emb = new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
+           message.channel.send(emb)
+       } else{
+           message.channel.send("Sorry none found with that name")
+       }
+
+       /*let user = message.mentions.users.first();
        if(!user) user = message.author;
        let color = message.member.displayHexColor;
        if (color == '#000000') color = message.member.hoistRole.hexColor;
        const embed = new MessageEmbed()
+       .setTitle("")
        .setImage(user.avatarURL)
        .setColor(color)
-       message.channel.send({embed});
+       message.channel.send({embed});*/
        
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
