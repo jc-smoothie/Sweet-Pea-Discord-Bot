@@ -494,7 +494,7 @@ client.on('message', async message => {
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
-        messageEmbed.react('❤️');
+        reactionsEmbed.react('❤️');
         //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
         //messageEmbed.react(reactionEmoji);
     } else if(command == 'camong'){
@@ -508,7 +508,7 @@ client.on('message', async message => {
         .setTitle('Verification!')
         .setDescription("After reading the rules, verify yourself by clicking on the reaction below! You'll then gain access to the rest of the server!")
         .setColor('#66ccff')
-        message.channel.send(reactionsEmbed);
+        let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('✅');
     }
 
