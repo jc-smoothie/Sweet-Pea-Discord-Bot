@@ -342,6 +342,11 @@ client.on('message', message => {
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }*/
+       if (!message.mentions.users.size){
+           message.channel.send('Nobody was mentioned');
+           return;
+       }
+
        const user = message.mentions.users.first() || message.author;
        const avatarEmbed = new Discord.RichEmbed()
        .setColor(0x333333)
