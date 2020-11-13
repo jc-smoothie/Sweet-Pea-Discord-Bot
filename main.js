@@ -1159,6 +1159,7 @@ client.on('message', async message => {
             messageEmbed.react('👸')
         }
         */
+        /*
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Sort The Court!')
         .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
@@ -1166,6 +1167,7 @@ client.on('message', async message => {
         let messageEmbed = await message.channel.send(reactionsEmbed)
         messageEmbed.react('🤴')
         messageEmbed.react('👸')
+        */
     }
 });
 
