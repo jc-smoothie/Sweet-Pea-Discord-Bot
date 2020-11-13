@@ -420,7 +420,18 @@ client.on('message', message => {
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
        message.channel.send("Link with instructions sent through dms!");
-   } else if(command == 'wyr'){
+   } else if(command == 'stc'){
+       const invite = new MessageEmbed()
+       .setTitle('Sort The Court!')
+       .setDescription("You're a ruler of a kingdom and make decisions to improve it. Gain population and get into the Council of Crowns to beat the game. Have fun!")
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Check out this game made by my creator!                                                                 Created by jc smoothie')
+       .setURL('https://repl.it/@jcjeffrey/Sort-The-Court-Strategy-Game-coded-by-jcjeffreysmoothie#main.py')
+       message.author.send(invite);
+       message.channel.send("Invitation with instructions sent through dms!");
+   }
+    else if(command == 'wyr'){
        const wyrEmbed = new MessageEmbed()
        .setTitle('Would You Rather!')
        .setDescription('')
