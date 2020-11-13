@@ -361,7 +361,7 @@ client.on('message', message => {
        if(!user) user = message.author;
        let color = message.member.displayHexColor;
        if (color == '#000000') color = message.member.hoistRole.hexColor;
-       const embed = new Discordd.MessageEmbed()
+       const embed = new Discord.MessageEmbed()
        .setImage(user.avatarURL)
        .setColor(color)
        message.channel.send({embed});
