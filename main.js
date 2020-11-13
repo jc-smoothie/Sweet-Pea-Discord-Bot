@@ -1028,13 +1028,15 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 });
 
 //Verification
+const Verified = '776164933649039391';
+
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.add(ASIAAUSTRALIA).then(() => {
+        userrole.roles.add(Verified).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -1048,7 +1050,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.remove(ASIAAUSTRALIA).then(() => {
+        userrole.roles.remove(Verified).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified.`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
