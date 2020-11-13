@@ -339,9 +339,15 @@ client.on('message', message => {
    } else if(command === 'av'){
        //client.commands.get('av').execute(message, args);
 
-       if(!message.mentions.users.size){
+       /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
-       }
+       }*/
+       const user = message.mentions.users.first() || message.author;
+       const avatarEmbed = new Discord.RichEmbed()
+       .setColor(0x333333)
+       .setAuthor(user.username)
+       .setImage(user.avatarURL);
+       message.channel.send(avatarEmbed);
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
@@ -462,6 +468,13 @@ client.on('message', async message => {
         .setDescription("The Among Us game scheduled later today has been canceled. \n This may be because not enough people have voted to participate, or has simply been decided to be canceled.")
         .setColor('#66ccff')
         message.channel.send(reactionsEmbed);
+    } else if(command == 'verification'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Verification!')
+        .setDescription("After reading the rules, verify yourself by clicking on the reaction below! You'll then gain access to the rest of the server!")
+        .setColor('#66ccff')
+        message.channel.send(reactionsEmbed);
+        messageEmbed.react('✅');
     }
 
     if (command == 'osureact') {
@@ -973,6 +986,35 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(ASIAAUSTRALIA).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Asia/Australia** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Verification
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(ASIAAUSTRALIA).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '🌏') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(ASIAAUSTRALIA).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified.`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
