@@ -342,17 +342,18 @@ client.on('message', message => {
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }*/
-       if (!message.mentions.users.size){
-           message.channel.send('Nobody was mentioned');
-           return;
+       if(message.mentions.users.size){
+           let member=message.mentions.users.first()
+           if(member){
+               const emb = new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
+               message.channel.send(emb)
+           } else{
+               message.channel.send("Sorry none found with that name")
+           }
+       } else{
+           const emb = new Discord.MessageEmbed().setImage(message.author.displayAvatarURL()).setTitle(message.author.username)
+           message.channel.send(emb)
        }
-
-       const user = message.mentions.users.first() || message.author;
-       const avatarEmbed = new Discord.RichEmbed()
-       .setColor(0x333333)
-       .setAuthor(user.username)
-       .setImage(user.avatarURL);
-       message.channel.send(avatarEmbed);
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
