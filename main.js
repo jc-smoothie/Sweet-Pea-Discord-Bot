@@ -342,7 +342,8 @@ client.on('message', message => {
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }*/
-       if(message.mentions.users.size){
+
+       /*if(message.mentions.users.size){
            let member=message.mentions.users.first()
            if(member){
                const emb = new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
@@ -353,7 +354,16 @@ client.on('message', message => {
        } else{
            const emb = new Discord.MessageEmbed().setImage(message.author.displayAvatarURL()).setTitle(message.author.username)
            message.channel.send(emb)
-       }
+       }*/
+
+       let user = message.mentions.users.first();
+       if(!user) user = message.author;
+       let color = message.member.displayHexColor;
+       if (color == '#000000') color = message.member.hoistRole.hexColor;
+       const embed = new Discord.RichEmbed()
+       .setImage(user.avatarURL)
+       .setColor(color)
+       message.channel.send({embed});
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
