@@ -82,6 +82,10 @@ client.on("guildMemberAdd", async member => {
     message.channel.send(attachment);
 });
 
+client.on('guildMemberAdd', member => {
+    member.guild.channels.get('775127852458180608').send("Welcome");
+});
+
 /*let memberlog = "775127852458180608";
 
 client.on("guildMemberAdd", member => {
@@ -265,13 +269,6 @@ client.on('message', message => {
    }
    else if(command == 'roll'){
        client.commands.get('roll').execute(message, args);
-       /*
-       const parts = message.content.split(' ');
-       var dice_result = parts[1];
-       var dice_number = parseInt(dice_result, 10);
-       var dice = Math.floor((Math.random() * dice_number) + 1);
-       message.reply("You rolled a " + dice + "!");
-       */
    } else if(command == '8ball'){
        client.commands.get('8ball').execute(message, args);
    }
@@ -449,6 +446,12 @@ client.on('message', message => {
        message.channel.send(wyrEmbed);
    } else if(command == 'say'){
        client.commands.get('say').execute(message, args);
+   } else if(command == 'hello'){
+       message.channel.send("hii");
+   } else if(command == 'hru'){
+       message.channel.send("good, hbu?");
+   } else if(command == 'alright'){
+       message.channel.send("awesome");
    }
 });
 
