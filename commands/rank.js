@@ -3,28 +3,28 @@ module.exports = {
     description: "this assigns server roles!",
     execute(message, args){
         const Asian_Invasion = '637447111725809664';
-        const jc_smoothie_suppoet_server = '755814665111470142';
+        const jc_smoothie_support_server = '755814665111470142';
         const Eclipsys_Contact = '700620542419664968';
 
         function Asian_Invasion_roles(){
-            const Weeb = '694999716047618199';
-            const Member = '691304349711859792';
+            Weeb = '694999716047618199';
+            Member = '691304349711859792';
         }
 
         function Eclipsys_Contact_roles(){
-            const Yomifu_Staff = '727677441597767680';
-            const MOD = '727680375266213968';
-            const Traveler = '708750286038106133';
-            const Bot = '727682963415760906';
+            Yomifu_Staff = '727677441597767680';
+            MOD = '727680375266213968';
+            Traveler = '708750286038106133';
+            Bot = '727682963415760906';
         }
 
         function jc_smoothie_support_server_roles(){
-            const Member = '759550714862764045';
+            Member = '773549608008941569';
         }
 
         if(message.channel.guild.id == Asian_Invasion){
             Asian_Invasion_roles();
-        } else if(message.channel.guild.id == jc_smoothie_suppoet_server){
+        } else if(message.channel.guild.id == jc_smoothie_support_server){
             jc_smoothie_support_server_roles();
         } else if(message.channel.guild.id == Eclipsys_Contact){
             Eclipsys_Contact_roles();
