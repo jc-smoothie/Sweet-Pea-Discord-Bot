@@ -3,7 +3,8 @@ module.exports = {
     description: "this says what someone types after the command!",
     execute(message, args){
         const msg = message.content.slice(4);
-        if(msg == '') return;
+        if(msg == '') return; message.delete();
         message.channel.send(msg);
+        message.delete();
     }
 }
