@@ -3,6 +3,11 @@ const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
 
+/*
+const EconomyClient = require('./structures/Client');
+new EconomyClient().start(require('./config').token, './commands');
+*/
+
 mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
 Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
@@ -15,7 +20,7 @@ const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
-//mongodb+srv://jcsmoothie:Z3TWW946XLWLVVG5F@sweetpea.wwdao.mongodb.net/<dbname>?retryWrites=true&w=majority
+//mongodb+srv://jcsmoothie:Z3TWW946XLWLVVG5F@sweetpea.wwdao.mongodb.net/Data?retryWrites=true&w=majority
 
 const fs = require('fs');
 
@@ -32,7 +37,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.-0lnEnflC6kFAxpLmANC_FVmCi4');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.JVAgP2qp-CwRn10trEFtPKKjxVo');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
@@ -46,6 +51,12 @@ function resetAttempts(){
     attempts = 1
 }
 
+/*function getNickname(){
+    guild = client.guilds.get('serverID');
+    member = guild.member(message.author);
+    nickname = member ? member.displayName : null;
+}*/
+
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
    const command = require(`./commands/${file}`);
@@ -58,7 +69,19 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 });
 
-client.on("guildMemberAdd", async member => {
+client.on("guildMemberAdd", member => {
+    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+
+    welcomeChannel.send(`Welcome, ${member}!`);
+});
+
+client.on("guildMemberRemove", member => {
+    const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
+
+    goodbyeChannel.send(`Goodbye, ${member}.`);
+});
+
+/*client.on("guildMemberAdd", async member => {
     const canvas = require("discord-canvas"),
     welcomeCanvas = new canvas.Welcome();
     
@@ -80,11 +103,7 @@ client.on("guildMemberAdd", async member => {
     let attachment = new Discord.Attachment(image.toBuffer(), "welcome-image.png");
     
     message.channel.send(attachment);
-});
-
-client.on('guildMemberAdd', member => {
-    member.guild.channels.get('775127852458180608').send("Welcome");
-});
+});*/
 
 /*let memberlog = "775127852458180608";
 
@@ -153,10 +172,22 @@ client.on('message', message => {
     const reply = message.content;
     const replyFormatted = reply.toLowerCase();
     if(replyFormatted == 'cool'){
-        setTimeout(function(){
+        /*setTimeout(function(){
             message.channel.send("nice");
-        }, 500);
-    } else if(replyFormatted == 'introduce yourself'){
+        }, 500);*/
+        message.channel.startTyping();
+        setTimeout(() => {  message.channel.send("nice"); }, 1000);
+        message.channel.stopTyping();
+    } else if(replyFormatted == 'oof'){
+        message.channel.startTyping();
+        setTimeout(() => {  message.channel.send("rip"); }, 1000);
+        message.channel.stopTyping();
+    } else if(replyFormatted == 'sad'){
+        message.react('😢');
+    } else if(replyFormatted == 'wat'){
+        message.react('❓');
+    }
+    /*else if(replyFormatted == 'introduce yourself'){
         setTimeout(function(){
             message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by jc smoothie!");
         }, 500);
@@ -175,7 +206,7 @@ client.on('message', message => {
         if(attempts == 7){
             message.channel.send("Hmm, give me a hug, then I'll forgive you.");
         }
-    }
+    }*/
 });
 
 client.on('message', message => {
@@ -195,7 +226,7 @@ client.on('message', message => {
    } else if(command == 'fun'){
        const funEmbed = new MessageEmbed()
        .setTitle('Fun!')
-       .setDescription('+hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - (Work in progress) Kiss someone in the server! \n +color [color] - (Only works for servers once roles have been added with the aid of jc smoothie) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
+       .setDescription('+hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +color [color] - (Only works for servers once roles have been added with the aid of jc smoothie) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -211,7 +242,7 @@ client.on('message', message => {
    } else if(command == 'tools'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Tools!')
-       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin.')
+       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin. \n +poll [text] - Start a poll with the answer being either yes or no.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -219,7 +250,7 @@ client.on('message', message => {
    } else if(command == 'animals'){
        const animalsEmbed = new MessageEmbed()
        .setTitle('Animals!')
-       .setDescription('+dog \n +cat (Coming soon) \n +duck \n +cow (Coming soon) \n +sheep (Coming soon) \n +pig (Coming soon) \n +turtle (Coming soon) \n +horse (Coming soon) \n +lion (Coming soon) \n +tiger (Coming soon) \n +wolf (Coming soon) \n +penguin (Coming soon) \n +bear (Coming soon) \n +fish (Coming soon)')
+       .setDescription('+dog \n +cat \n +duck \n +cow (Coming soon) \n +sheep (Coming soon) \n +pig (Coming soon) \n +turtle (Coming soon) \n +horse (Coming soon) \n +lion (Coming soon) \n +tiger (Coming soon) \n +wolf (Coming soon) \n +penguin (Coming soon) \n +bear (Coming soon) \n +fish (Coming soon)')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -228,6 +259,14 @@ client.on('message', message => {
        const miscEmbed = new MessageEmbed()
        .setTitle('Miscellaneous!')
        .setDescription('+token')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+       message.channel.send(miscEmbed);
+   } else if(command == 'info'){
+       const miscEmbed = new MessageEmbed()
+       .setTitle('Info')
+       .setDescription('Recent Updates: \n - Sweet Pea now appears to be typing before sending some messages! \n - Poll command added! Type `+poll [text]` to create a poll! \n \n Currently working on: \n - Purge command \n - Kick command \n - Ban command (including timed bans) \n - Music command')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -372,11 +411,13 @@ client.on('message', message => {
    } else if(command == 'invite'){
        const invite = new MessageEmbed()
        .setTitle('Invite me to a server!')
-       .setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, select the server you want to add me to. \n \n Walla, I'm in a new server! How awesome is that?")
+       //.setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, select the server you want to add me to. \n \n Walla, I'm in a new server! How awesome is that?")
+       .setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, click on the invite button to invite me to a server! \n \n Then select the server you want to add me to. \n \n Hit continue, then authorize my permissions. \n \n Walla, I'm in a new server! How awesome is that?")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
-       .setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=37088328')
+       .setURL('https://top.gg/bot/729142073126682644')
+       //.setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=37088328')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
    } else if(command == 'support'){
@@ -435,8 +476,7 @@ client.on('message', message => {
        .setURL('https://repl.it/@jcjeffrey/Sort-The-Court-Strategy-Game-coded-by-jcjeffreysmoothie#main.py')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
-   }
-    else if(command == 'wyr'){
+   } else if(command == 'wyr'){
        const wyrEmbed = new MessageEmbed()
        .setTitle('Would You Rather!')
        .setDescription('')
@@ -445,13 +485,20 @@ client.on('message', message => {
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(wyrEmbed);
    } else if(command == 'say'){
-       client.commands.get('say').execute(message, args);
+       //client.commands.get('say').execute(message, args);
+       const auth = message.author
+       message.delete();
+       message.channel.startTyping();
+       setTimeout(() => {  message.channel.send(`<@${auth.id}>, Stop it, get some help.`).then(msg => {
+        msg.delete({ timeout: 4000 /*time unitl delete in milliseconds*/});
+    }); }, 2000);
+       message.channel.stopTyping();
    } else if(command == 'hello'){
-       message.channel.send("hii");
-   } else if(command == 'hru'){
-       message.channel.send("good, hbu?");
-   } else if(command == 'alright'){
-       message.channel.send("awesome");
+       message.channel.startTyping();
+       setTimeout(() => {  message.channel.send("hii"); }, 2000);
+       message.channel.stopTyping();
+   } else if(command == 'purge'){
+       client.commands.get('purge').execute(message, args);
    }
 });
 
@@ -484,13 +531,22 @@ client.on('message', async message => {
     } else if(command == 'regionreactions'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
-        //.setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it.")
-        .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react to remove it. \n \n 🌎 -> AMERICAS \n 🌍 -> EUROPE/AFRICA \n 🌏 -> ASIA/AUSTRALIA")
+        .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react again to remove it. \n \n 🌎 -> AMERICAS \n 🌍 -> EUROPE/AFRICA \n 🌏 -> ASIA/AUSTRALIA")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('🌎');
         messageEmbed.react('🌍');
         messageEmbed.react('🌏');
+    } else if(command == 'grades'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Grade Level')
+        .setDescription("If you don't have a grade level role, react to get yours! \n If you already have one and want to remove it, react again to remove it. \n Your previous grade level role will be swapped out when you get a different one, so no need to remove it yourself! \n \n 📗 -> Freshman \n 📘 -> Sophomore \n 📕 -> Junior \n 📙 -> Senior")
+        .setColor('#66ccff')
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('📗');
+        messageEmbed.react('📘');
+        messageEmbed.react('📕');
+        messageEmbed.react('📙');
     } else if(command == 'among'){
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
@@ -513,6 +569,28 @@ client.on('message', async message => {
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('✅');
+    } else if(command == 'poll'){
+        const msg = message.content.slice(5);
+        if(msg == '') return;
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Poll!')
+        .setDescription("**" + message.member.displayName + "** created a poll: \n __" + msg + "__ \n \n React with a check mark or an x to vote!")
+        .setColor('#66ccff')
+        message.delete();
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('✅');
+        messageEmbed.react('❌');
+    } else if(command == 'anime'){
+        const msg = message.content.slice(6);
+        if(msg == '') return;
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Anime Recommendation!')
+        .setDescription("Note: No shows with over 26 episodes, otherwise we won't watch it to completion and thus be rejected. Also, no animes rated R+ on myanimelist or very lewd scenes/themes. Use your sixth sense here: common sense. \n \n **" + message.member.displayName + "** has suggested __" + msg + "__ \n \n React with a check mark or an x to vote!")
+        .setColor('#66ccff')
+        message.delete();
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('✅');
+        messageEmbed.react('❌');
     }
 
     if (command == 'osureact') {
@@ -525,6 +603,7 @@ client.on('message', async message => {
 //Role Variables
 const Asian_Invasion = '637447111725809664';
 const jc_smoothie_suppoet_server = '755814665111470142';
+const WHS_Anime_Club = '361609091602317312';
 
 function Asian_Invasion_roles(){
     reactionRolesChannel = '763441746314133505';
@@ -558,11 +637,195 @@ function jc_smoothie_suppoet_server_roles(){
     ASIAAUSTRALIA = '772106026433904690';
 }
 
+function WHS_Anime_Club_roles(){
+    reactionRolesChannel = '778233243698462732';
+    freshman = '777896782628782100';
+    sophomore = '777896779592892436';
+    junior = '777896776199176202';
+    senior = '777896772684742656';
+}
+
+//Assigning the correct role ids according to the server
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if(messageReaction.message.guild.id == Asian_Invasion){
         Asian_Invasion_roles();
     } else if(messageReaction.message.guild.id == jc_smoothie_suppoet_server){
         jc_smoothie_suppoet_server_roles();
+    } else if(messageReaction.message.guild.id == WHS_Anime_Club){
+        WHS_Anime_Club_roles();
+    }
+});
+
+//Verification Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '✅') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add('776164933649039391').then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '✅') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove('776164933649039391').then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Freshman Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📗') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
+            messageReaction.message.member.roles.remove(sophomore);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
+            messageReaction.message.member.roles.remove(junior);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
+            messageReaction.message.member.roles.remove(senior);
+        }
+        userrole.roles.add(freshman).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Freshman** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📗') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(freshman).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Freshman** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Sophomore Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📘') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
+            messageReaction.message.member.roles.remove(freshman);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
+            messageReaction.message.member.roles.remove(junior);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
+            messageReaction.message.member.roles.remove(senior);
+        }
+        userrole.roles.add(sophomore).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Sophomore** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📘') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(sophomore).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Sophomore** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Junior Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📕') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
+            messageReaction.message.member.roles.remove(freshman);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
+            messageReaction.message.member.roles.remove(sophomore);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
+            messageReaction.message.member.roles.remove(senior);
+        }
+        userrole.roles.add(junior).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Junior** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📕') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(junior).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Junior** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Senior Reaction
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📙') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
+            messageReaction.message.member.roles.remove(freshman);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
+            messageReaction.message.member.roles.remove(sophomore);
+        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
+            messageReaction.message.member.roles.remove(junior);
+        }
+        userrole.roles.add(senior).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Senior** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📙') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(senior).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Senior** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
     }
 });
 
