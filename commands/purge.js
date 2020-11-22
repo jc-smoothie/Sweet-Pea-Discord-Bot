@@ -1,3 +1,4 @@
+/*
 module.exports = {
     name: 'purge',
     description: "Deletes an amount of messages inputted.",
@@ -23,3 +24,4 @@ module.exports = {
         }
     }
 }
+*/
