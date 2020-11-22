@@ -2,15 +2,20 @@ const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
+const memberCount = require('./member-count');
+
+/*let createdTime = message.guild.createdAt
+let memberCount = message.guild.memberCount
+let onlineCount = message.guild*/
 
 /*
 const EconomyClient = require('./structures/Client');
 new EconomyClient().start(require('./config').token, './commands');
 */
 
-mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
-Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
+//Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
 
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
@@ -67,6 +72,8 @@ for(const file of commandFiles){
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+
+    memberCount(client)
 });
 
 client.on("guildMemberAdd", member => {
@@ -186,6 +193,11 @@ client.on('message', message => {
         message.react('😢');
     } else if(replyFormatted == 'wat'){
         message.react('❓');
+    } else if(replyFormatted == 'morning'){
+        /*message.channel.startTyping();
+        setTimeout(() => {  message.channel.send("gm!"); }, 1000);
+        message.channel.stopTyping();*/
+        message.react('🌄');
     }
     /*else if(replyFormatted == 'introduce yourself'){
         setTimeout(function(){
@@ -274,7 +286,7 @@ client.on('message', message => {
    } else if(command == 'colors'){
        const colorsEmbed = new MessageEmbed()
        .setTitle('Colors!')
-       .setDescription("**Note** \n Your entire message must be in lowercase, otherwise your message won't be read properly. \n \n Type `+color` and a color from the list below to get that color role! \n To remove a color you have, type the same message `+color` and that color to remove it. \n Your previous color will be swapped out when you get a different color, so no need to remove it yourself! \n \n **Colors** \n Black \n Gray \n White \n Pink \n Red \n Pastel Red \n Pastel Orange \n Orange \n Yellow \n Pastel Yellow \n Yellow Green \n Green \n Pastel Green \n Light Blue Green \n Blue Green \n Pastel Blue \n Blue \n Indigo \n Violet \n Pastel Purple")
+       .setDescription("**Note** \n Color roles are only available to a certain amount of servers that have had them configured onto by jc smoothie, my creator. \n If you know this server does have color roles configured by jc smoothie, then your entire message must be in lowercase, otherwise your message won't be read properly. \n \n Type `+color` along with a color from the list below to get that color role! \n To remove a color you have, retype the same message as you did to receive the color. \n Your previous color will be swapped out when you get a different color, so no need to remove it yourself! \n This makes it so you may only have one color at a time, ensuring that the color you recently received to will actually change the color of your displayed name. \n \n **Colors** \n Black \n Gray \n White \n Pink \n Red \n Pastel Red \n Pastel Orange \n Orange \n Yellow \n Pastel Yellow \n Yellow Green \n Green \n Pastel Green \n Light Blue Green \n Blue Green \n Pastel Blue \n Blue \n Indigo \n Violet \n Pastel Purple")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -390,9 +402,13 @@ client.on('message', message => {
            message.channel.send(emb)
        }*/
        
-       let member=message.mentions.users.first()
+       const parts = message.content.split(' ');
+       let member = message.mentions.users.first()
        if(member){
            const emb = new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(member.username)
+           message.channel.send(emb)
+       } else if(parts[1] == ''){
+           const emb = new Discord.MessageEmbed().setImage(member.displayAvatarURL()).setTitle(message.author.username)
            message.channel.send(emb)
        } else{
            message.channel.send("Sorry none found with that name")
@@ -433,8 +449,20 @@ client.on('message', message => {
    } else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-       })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
-   } else if(command == 'token'){
+       }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+   } /*else if(command == 'purge'){
+       const args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
+       const amount = args.join(' '); // Amount of messages which should be deleted
+       
+       if (!amount) return msg.reply('You haven\'t given an amount of messages which should be deleted!'); // Checks if the `amount` parameter is given
+       if (isNaN(amount)) return msg.reply('The amount parameter isn`t a number!'); // Checks if the `amount` parameter is a number. If not, the command throws an error
+       
+       if (amount > 100) return msg.reply('You can`t delete more than 100 messages at once!'); // Checks if the `amount` integer is bigger than 100
+       if (amount < 1) return msg.reply('You have to delete at least 1 message!'); // Checks if the `amount` integer is smaller than 1
+       await msg.channel.messages.fetch({ limit: amount }).then(messages => { // Fetches the messages
+        msg.channel.bulkDelete(messages // Bulk deletes all messages that have been fetched and are not older than 14 days (due to the Discord API)
+        )});
+   }*/ else if(command == 'token'){
        if(attempts == 1){
            increateAttempts();
            message.reply("Sorry, but I can't reveal my token to anyone in a text channel.");
@@ -497,8 +525,26 @@ client.on('message', message => {
        message.channel.startTyping();
        setTimeout(() => {  message.channel.send("hii"); }, 2000);
        message.channel.stopTyping();
-   } else if(command == 'purge'){
+   } /*else if(command == 'purge'){
        client.commands.get('purge').execute(message, args);
+   }*/ else if(command == 'cuterate'){
+       const personTagged = message.mentions.members.first();
+
+       var cuteness = Math.floor((Math.random() * 99) + 1);
+       const cuterate = new MessageEmbed()
+       .setTitle('QT!')
+       .setDescription("You are " + cuteness + "% a cutie!")
+       .setColor('#66ccff')
+       .setThumbnail('https://media1.tenor.com/images/097f46e1db35653902b10b0a322c908f/tenor.gif?itemid=12003933')
+       message.channel.send(cuterate);
+   } else if(command == 'weebrate'){
+       var weebness = Math.floor((Math.random() * 99) + 1);
+       const weebrate = new MessageEmbed()
+       .setTitle('Calling fellow weebs!')
+       .setDescription("You are " + weebness + "% a weeb!")
+       .setColor('#66ccff')
+       .setThumbnail('https://pbs.twimg.com/profile_images/777681909979680768/-7qNVsGS.jpg')
+       message.channel.send(weebrate);
    }
 });
 
@@ -666,7 +712,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add('776164933649039391').then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -680,7 +726,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove('776164933649039391').then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -692,17 +738,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📗') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
+        /*if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
             messageReaction.message.member.roles.remove(sophomore);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
             messageReaction.message.member.roles.remove(junior);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
             messageReaction.message.member.roles.remove(senior);
-        }
+        }*/
         userrole.roles.add(freshman).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Freshman** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -716,7 +762,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(freshman).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Freshman** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -728,17 +774,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📘') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
+        /*if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
             messageReaction.message.member.roles.remove(freshman);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
             messageReaction.message.member.roles.remove(junior);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
             messageReaction.message.member.roles.remove(senior);
-        }
+        }*/
         userrole.roles.add(sophomore).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Sophomore** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -752,7 +798,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(sophomore).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Sophomore** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -764,17 +810,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📕') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
+        /*if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
             messageReaction.message.member.roles.remove(freshman);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
             messageReaction.message.member.roles.remove(sophomore);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
             messageReaction.message.member.roles.remove(senior);
-        }
+        }*/
         userrole.roles.add(junior).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Junior** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -788,7 +834,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(junior).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Junior** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -800,17 +846,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📙') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
+        /*if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
             messageReaction.message.member.roles.remove(freshman);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
             messageReaction.message.member.roles.remove(sophomore);
         } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
             messageReaction.message.member.roles.remove(junior);
-        }
+        }*/
         userrole.roles.add(senior).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Senior** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -824,7 +870,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(senior).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Senior** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -839,7 +885,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -853,7 +899,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -868,7 +914,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -882,7 +928,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -897,7 +943,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -911,7 +957,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -926,7 +972,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(EN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -940,7 +986,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(EN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **EN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -955,7 +1001,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(FR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **FR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -969,7 +1015,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(FR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **FR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -984,7 +1030,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(ESP).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **ESP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -998,7 +1044,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(ESP).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **ESP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1013,7 +1059,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(DE).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **DE** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1027,7 +1073,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(DE).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **DE** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1042,7 +1088,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(VN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **VN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1056,7 +1102,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(VN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **VN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1071,7 +1117,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(PTBR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1085,7 +1131,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(PTBR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1100,7 +1146,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(PTBR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1114,7 +1160,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(PTBR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **PT/BR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1129,7 +1175,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(KR).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **KR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1143,7 +1189,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(KR).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **KR** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1158,7 +1204,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(JP).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **JP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1172,7 +1218,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(JP).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **JP** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1187,7 +1233,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(CN).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **CN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1201,7 +1247,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(CN).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **CN** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1216,7 +1262,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(AMERICAS).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Americas** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1230,7 +1276,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(AMERICAS).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Americas** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1245,7 +1291,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(EUROPEAFRICA).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Europe/Africa** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1259,7 +1305,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(EUROPEAFRICA).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Europe/Africa** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1274,7 +1320,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(ASIAAUSTRALIA).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Asia/Australia** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1288,7 +1334,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(ASIAAUSTRALIA).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Asia/Australia** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
@@ -1305,7 +1351,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         userrole.roles.add(Verified).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
  });
@@ -1319,7 +1365,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         userrole.roles.remove(Verified).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified.`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
-            })//.catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
 });
