@@ -1,3 +1,4 @@
+/*
 const { DiscordAPIError } = require("discord.js");
 
 const { Client } = require('discord.js');
@@ -34,3 +35,4 @@ class EconomyClient extends Client {
 }
 
 module.exports = EconomyClient
+*/
