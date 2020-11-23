@@ -278,7 +278,7 @@ client.on('message', message => {
    } else if(command == 'info'){
        const miscEmbed = new MessageEmbed()
        .setTitle('Info')
-       .setDescription('Recent Updates: \n - Sweet Pea now appears to be typing before sending some messages! \n - Poll command added! Type `+poll [text]` to create a poll! \n \n Currently working on: \n - Purge command \n - Kick command \n - Ban command (including timed bans) \n - Music command')
+       .setDescription('Recent Updates: \n - Sweet Pea now appears to be typing before sending some messages! These are for easter eggs you can find with Sweet Pea! \n - Poll command added! Type `+poll [text]` to create a poll! \n - `+cuterate [person]` \n - `+weebrate [person]` \n \n Currently working on: \n - Purge command \n - Kick command \n - Ban command (including timed bans) \n - Music command')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -528,23 +528,61 @@ client.on('message', message => {
    } /*else if(command == 'purge'){
        client.commands.get('purge').execute(message, args);
    }*/ else if(command == 'cuterate'){
-       const personTagged = message.mentions.members.first();
+       if(!args[0]){
+           //console.log('Missing args')
+           var cuteness = Math.floor((Math.random() * 99) + 1);
+           const cuterate = new MessageEmbed()
+           .setTitle('QT!')
+           .setDescription("You are " + cuteness + "% a cutie!")
+           .setColor('#66ccff')
+           .setThumbnail('https://media1.tenor.com/images/097f46e1db35653902b10b0a322c908f/tenor.gif?itemid=12003933')
+           message.channel.send(cuterate);
+       } else{
+           //console.log('should work.')
+           const personTagged = message.mentions.members.first();
+           var cuteness = Math.floor((Math.random() * 99) + 1);
+           const cuterate = new MessageEmbed()
+           .setTitle('QT!')
+           .setDescription("**" + personTagged.displayName + "** is " + cuteness + "% a cutie!")
+           .setColor('#66ccff')
+           .setThumbnail('https://media1.tenor.com/images/097f46e1db35653902b10b0a322c908f/tenor.gif?itemid=12003933')
+           message.channel.send(cuterate);
 
-       var cuteness = Math.floor((Math.random() * 99) + 1);
-       const cuterate = new MessageEmbed()
-       .setTitle('QT!')
-       .setDescription("You are " + cuteness + "% a cutie!")
-       .setColor('#66ccff')
-       .setThumbnail('https://media1.tenor.com/images/097f46e1db35653902b10b0a322c908f/tenor.gif?itemid=12003933')
-       message.channel.send(cuterate);
+           /*
+           if(personTagged.displayName == "Sweet Pea"){
+               message.reply("❤️ Aww, thanks! I feel better now.");
+               resetAttempts();
+           }
+           */
+       }
    } else if(command == 'weebrate'){
-       var weebness = Math.floor((Math.random() * 99) + 1);
-       const weebrate = new MessageEmbed()
-       .setTitle('Calling fellow weebs!')
-       .setDescription("You are " + weebness + "% a weeb!")
-       .setColor('#66ccff')
-       .setThumbnail('https://pbs.twimg.com/profile_images/777681909979680768/-7qNVsGS.jpg')
-       message.channel.send(weebrate);
+    if(!args[0]){
+        //console.log('Missing args')
+        var weebness = Math.floor((Math.random() * 99) + 1);
+        const weebrate = new MessageEmbed()
+        .setTitle('Calling fellow weebs!')
+        .setDescription("You are " + weebness + "% a weeb!")
+        .setColor('#66ccff')
+        .setThumbnail('https://pbs.twimg.com/profile_images/777681909979680768/-7qNVsGS.jpg')
+        message.channel.send(weebrate);
+    } else{
+        //console.log('should work.')
+        const personTagged = message.mentions.members.first();
+        var weebness = Math.floor((Math.random() * 99) + 1);
+        const weebrate = new MessageEmbed()
+        .setTitle('Calling fellow weebs!')
+        .setDescription("You are " + weebness + "% a weeb!")
+        .setColor('#66ccff')
+        .setThumbnail('https://pbs.twimg.com/profile_images/777681909979680768/-7qNVsGS.jpg')
+        message.channel.send(weebrate);
+
+        /*
+        if(personTagged.displayName == "Sweet Pea"){
+            message.reply("❤️ Aww, thanks! I feel better now.");
+            resetAttempts();
+        }
+        */
+    }
    }
 });
 
