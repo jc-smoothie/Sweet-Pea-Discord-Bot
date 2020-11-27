@@ -748,7 +748,7 @@ client.on('message', async message => {
         const msg = message.content.slice(12);
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Get your server roles!')
-        .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n <:minecraft:781962289040850954> -> Minecraft \n <:LolIcon:781967459401203752> -> League")
+        .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n <:minecraft:781962289040850954> -> Minecraft \n <:LolIcon:781967459401203752> -> League \n <:roblox:781976618868408351> -> Roblox \n <:fleethefacility:781973423722201178> -> Flee the Facility \n <:entrypoint:781973273771900928> -> Entry Point \n <:arsenal:781973252448059402> -> Arsenal \n \n **Misc** \n <:sovietlel:781973189097160744> -> Comrade \n <:uwuweebs:781976106013949993> -> Weeb \n ")
         .setColor('#66ccff')
         message.delete();
         let messageEmbed = await message.channel.send(reactionsEmbed);
@@ -756,6 +756,18 @@ client.on('message', async message => {
         messageEmbed.react(minecraftEmoji);
         const leagueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'LolIcon');
         messageEmbed.react(leagueEmoji);
+        const robloxEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'roblox');
+        messageEmbed.react(robloxEmoji);
+        const fleeEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'fleethefacility');
+        messageEmbed.react(fleeEmoji);
+        const entryPointEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'entrypoint');
+        messageEmbed.react(entryPointEmoji);
+        const arsenalEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'arsenal');
+        messageEmbed.react(arsenalEmoji);
+        const sovietEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'sovietlel');
+        messageEmbed.react(sovietEmoji);
+        const weebEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'uwuweebs');
+        messageEmbed.react(weebEmoji);
     }
 
     if (command == 'osureact') {
@@ -812,6 +824,7 @@ function WHS_Anime_Club_roles(){
 }
 
 function The_Toilet_roles(){
+    reactionRolesChannel = '781949679994535946';
     member = '781948743171833906';
     weeb = '781954294404087868';
     waman = '781953590130245642';
@@ -1534,7 +1547,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '') {
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'uwuweebs') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(weeb).then(() => {
@@ -1548,7 +1561,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
     
-    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '') {
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'uwuweebs') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(weeb).then(() => {
