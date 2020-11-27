@@ -8,7 +8,7 @@ module.exports = (client) => {
         const message = `Please welcome <@${member.id}> to the server!`;
 
         //const channel = member.guild.channels.cache.get(channelId);
-        const channel = member.channels.find(channel => channel.name === "welcome");
+        //const channel = member.channels.find(channel => channel.name === "welcome");
         channel.send(message);
     })
 }
