@@ -744,6 +744,16 @@ client.on('message', async message => {
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('✅');
         messageEmbed.react('❌');
+    } else if(command == 'toiletroles'){
+        const msg = message.content.slice(12);
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Get your server roles!')
+        .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n  -> Minecraft")
+        .setColor('#66ccff')
+        message.delete();
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('✅');
+        messageEmbed.react('❌');
     }
 
     if (command == 'osureact') {
@@ -757,6 +767,7 @@ client.on('message', async message => {
 const Asian_Invasion = '637447111725809664';
 const jc_smoothie_suppoet_server = '755814665111470142';
 const WHS_Anime_Club = '361609091602317312';
+const The_Toilet = '781945168491446353';
 
 function Asian_Invasion_roles(){
     reactionRolesChannel = '763441746314133505';
@@ -798,6 +809,21 @@ function WHS_Anime_Club_roles(){
     senior = '777896772684742656';
 }
 
+function The_Toilet_roles(){
+    member = '781948743171833906';
+    weeb = '781954294404087868';
+    waman = '781953590130245642';
+    boi = '781954015587598406';
+    minecraft = '781954482292129863';
+    arsenal = '781954660226433054';
+    league = '781954823477395487';
+    dnd = '781955082811998248';
+    entry_point = '781955745876803585';
+    flee = '781956039561838622';
+    comrade = '781956110839054367';
+    kpop = '781957997000654879';
+}
+
 function Not_Identified_Server(){
     reactionRolesChannel = '';
     EN = '';
@@ -826,6 +852,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         jc_smoothie_support_server_roles();
     } else if(messageReaction.message.guild.id == WHS_Anime_Club){
         WHS_Anime_Club_roles();
+    } else if(messageReaction.message.guild.id == The_Toilet){
+        The_Toilet_roles();
     } else{
         Not_Identified_Server();
     }
@@ -1493,6 +1521,36 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(Verified).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified.`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//The Toilet Reaction Roles
+//Weeb
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(weeb).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Weeb** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+ });
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(weeb).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Weeb** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
