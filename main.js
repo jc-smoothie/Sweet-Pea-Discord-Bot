@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
 const memberCount = require('./member-count');
+const welcome = require('./welcome');
 
 /*let createdTime = message.guild.createdAt
 let memberCount = message.guild.memberCount
@@ -76,8 +77,10 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 
     memberCount(client)
+    welcome(client)
 });
 
+/*
 client.on("guildMemberAdd", member => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
@@ -89,6 +92,11 @@ client.on("guildMemberRemove", member => {
 
     goodbyeChannel.send(`Goodbye, ${member}.`);
 });
+*/
+
+/*client.on('guildMemberAdd', member => {
+    member.guild.channels.get('775127852458180608').send("Welcome"); 
+});*/
 
 /*client.on("guildMemberAdd", async member => {
     const canvas = require("discord-canvas"),
@@ -766,7 +774,7 @@ function Asian_Invasion_roles(){
     ASIAAUSTRALIA = '';
 }
 
-function jc_smoothie_suppoet_server_roles(){
+function jc_smoothie_support_server_roles(){
     reactionRolesChannel = '772076538707312651';
     EN = '772080462209613884';
     FR = '772081493853995008';
@@ -815,11 +823,11 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if(messageReaction.message.guild.id == Asian_Invasion){
         Asian_Invasion_roles();
     } else if(messageReaction.message.guild.id == jc_smoothie_suppoet_server){
-        jc_smoothie_suppoet_server_roles();
+        jc_smoothie_support_server_roles();
     } else if(messageReaction.message.guild.id == WHS_Anime_Club){
         WHS_Anime_Club_roles();
     } else{
-
+        Not_Identified_Server();
     }
 });
 
