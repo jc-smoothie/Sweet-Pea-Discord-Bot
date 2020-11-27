@@ -754,7 +754,7 @@ client.on('message', async message => {
         let messageEmbed = await message.channel.send(reactionsEmbed);
         const minecraftEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'minecraft');
         messageEmbed.react(minecraftEmoji);
-        const leagueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'LoLIcon');
+        const leagueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'LolIcon');
         messageEmbed.react(leagueEmoji);
     }
 
