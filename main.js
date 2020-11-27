@@ -748,12 +748,14 @@ client.on('message', async message => {
         const msg = message.content.slice(12);
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Get your server roles!')
-        .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n  -> Minecraft")
+        .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n <:minecraft:781962289040850954> -> Minecraft \n <:LolIcon:781967459401203752> -> League")
         .setColor('#66ccff')
         message.delete();
         let messageEmbed = await message.channel.send(reactionsEmbed);
-        messageEmbed.react('✅');
-        messageEmbed.react('❌');
+        const minecraftEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'minecraft');
+        messageEmbed.react(minecraftEmoji);
+        const leagueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'LoLIcon');
+        messageEmbed.react(leagueEmoji);
     }
 
     if (command == 'osureact') {
