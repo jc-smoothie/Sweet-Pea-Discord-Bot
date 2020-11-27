@@ -1,4 +1,4 @@
-const weather = require('weather-js');
+/*const weather = require('weather-js');
 const discord = require('discord.js')
 
 module.exports = {
@@ -34,4 +34,4 @@ let embed = new discord.MessageEmbed()
 });   
 
   }
-}
+}*/

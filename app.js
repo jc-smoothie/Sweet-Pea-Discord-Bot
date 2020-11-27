@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+/*const Discord = require('discord.js');
 
 const client = new Discord.Client();
 const { Users, CurrencyShop } = require('./dbObjects');
@@ -7,7 +7,7 @@ const currency = new Discord.Collection();
 const PREFIX = '+';
 
 Reflect.defineProperty(currency, 'add', {
-	/* eslint-disable-next-line func-name-matching */
+	// eslint-disable-next-line func-name-matching
 	value: async function add(id, amount) {
 		const user = currency.get(id);
 		if (user) {
@@ -21,7 +21,7 @@ Reflect.defineProperty(currency, 'add', {
 });
 
 Reflect.defineProperty(currency, 'getBalance', {
-	/* eslint-disable-next-line func-name-matching */
+	// eslint-disable-next-line func-name-matching
 	value: function getBalance(id) {
 		const user = currency.get(id);
 		return user ? user.balance : 0;
@@ -93,4 +93,4 @@ client.on('message', async message => {
 	}
 });
 
-client.login(process.env.token);
+client.login(process.env.token);*/

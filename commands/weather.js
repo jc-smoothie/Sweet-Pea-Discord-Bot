@@ -33,7 +33,7 @@ module.exports = {
     }
 }*/
 
-const Discord = require("discord.js");
+/*const Discord = require("discord.js");
 const weather = require("weather-js");
 
 exports.run = async (client, message, args) => {
@@ -78,4 +78,4 @@ exports.help = {
 exports.conf = {
     aliases: [],
     cooldown: 7.5
-}
+}*/

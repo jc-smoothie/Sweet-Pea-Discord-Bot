@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+/*const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize('database', 'username', 'password', {
 	host: 'localhost',
@@ -22,4 +22,4 @@ sequelize.sync({ force }).then(async () => {
 	await Promise.all(shop);
 	console.log('Database synced');
 	sequelize.close();
-}).catch(console.error);
+}).catch(console.error);*/

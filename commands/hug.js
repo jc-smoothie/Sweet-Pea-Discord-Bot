@@ -7,11 +7,11 @@ module.exports = {
     usage: "+hug <user>",
     execute(message, args){
         if(!args[0]){
-            message.channel.send('Missing Arguments!')
-            console.log('Missing args')
+            message.channel.send("You didn't say who you wanted to hug! Please @mention them next time.")
+            //console.log('Missing args')
         } else{
-            console.log('should work.')
-            const image = Math.floor((Math.random() * 9) + 1);
+            //console.log('should work.')
+            const image = Math.floor((Math.random() * 10) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655951374024775/giphy.gif';
             } else if(image == 2){
@@ -23,7 +23,7 @@ module.exports = {
             } else if(image == 5){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655981442990169/tumblr_ma7l17EWnk1rq65rlo1_500.gif';
             } else if(image == 6){
-             var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655982890156032/b62f047f8ed11b832cb6c0d8ec30687b.gif';
+                var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655982890156032/b62f047f8ed11b832cb6c0d8ec30687b.gif';
             } else if(image == 7){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733656000049053766/1451239600645.gif';
             } else if(image == 8){
@@ -33,6 +33,7 @@ module.exports = {
             } else if(image == 10){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif';
             }
+            
             const personTagged = message.mentions.members.first();
             
             let embed = new Discord.MessageEmbed()
