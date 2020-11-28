@@ -49,6 +49,16 @@ client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.JVAgP2qp-CwRn10trEFtPKKjxVo');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
+var nextNumber = 0;
+
+function increaseNumber(){
+    nextNumber = nextNumber + 1;
+    if(dailyVisits == 10){
+        dailyVisits = 0;
+        startAdd();
+    }
+}
+
 var attempts = 1;
 
 function increateAttempts(){
@@ -209,6 +219,14 @@ client.on('message', message => {
         message.channel.stopTyping();*/
         message.react('🌄');
     }
+
+    parseInt(replyFormatted);
+
+    if(replyFormatted == '1'){
+        increaseNumber();
+        message.react('✅');
+    }
+
     /*else if(replyFormatted == 'introduce yourself'){
         setTimeout(function(){
             message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by jc smoothie!");
@@ -768,6 +786,8 @@ client.on('message', async message => {
         messageEmbed.react(sovietEmoji);
         const weebEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'uwuweebs');
         messageEmbed.react(weebEmoji);
+        const kpopEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'kpoploveheart');
+        messageEmbed.react(kpopEmoji);
     }
 
     if (command == 'osureact') {
@@ -830,6 +850,7 @@ function The_Toilet_roles(){
     waman = '781953590130245642';
     boi = '781954015587598406';
     minecraft = '781954482292129863';
+    roblox = '781992798261739590';
     arsenal = '781954660226433054';
     league = '781954823477395487';
     dnd = '781955082811998248';
@@ -1543,6 +1564,209 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 });
 
 //The Toilet Reaction Roles
+//Minecraft
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'minecraft') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(minecraft).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Minecraft** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'minecraft') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(minecraft).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Minecraft** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Lol Icon
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'LolIcon') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(league).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **League** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'LolIcon') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(league).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **League** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Roblox
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'roblox') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(roblox).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Roblox** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'roblox') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(roblox).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Roblox** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Flee the Facility
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'fleethefacility') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(flee).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Flee** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'fleethefacility') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(flee).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Flee** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Entry Point
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'entrypoint') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(entry_point).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Entry Point** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'entrypoint') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(entry_point).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Entry Point** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Arsenal
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'arsenal') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(arsenal).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Arsenal** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'arsenal') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(arsenal).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Arsenal** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Comrade
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'sovietlel') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(comrade).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Comrade** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'sovietlel') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(comrade).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Comrade** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
 //Weeb
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -1556,7 +1780,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -1566,6 +1790,35 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(weeb).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Weeb** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Kpop
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'kpoploveheart') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(kpop).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Kpop** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'kpoploveheart') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(kpop).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Kpop** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
