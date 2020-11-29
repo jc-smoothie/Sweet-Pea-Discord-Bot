@@ -49,16 +49,7 @@ client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.JVAgP2qp-CwRn10trEFtPKKjxVo');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
-var nextNumber = 0;
-
-function increaseNumber(){
-    nextNumber = nextNumber + 1;
-    if(dailyVisits == 10){
-        dailyVisits = 0;
-        startAdd();
-    }
-}
-
+//Sort the Court Stuff
 var attempts = 1;
 
 function increateAttempts(){
@@ -195,7 +186,32 @@ client.on('guildMemberAdd', async member => {
 });
 */
 
+//Counting Stuff
+var counting = 0;
+var nextNumber = 1;
+
+function startCounting(){
+    counting++
+}
+
+function stopCounting(){
+    counting--
+}
+
+function formatNumber(){
+    userNumber = parseInt(replyFormatted);
+}
+
+function increaseNumber(){
+    nextNumber = nextNumber + 1;
+}
+
+function resetNumber(){
+    nextNumber = 0;
+}
+
 client.on('message', message => {
+    if(message.author.id === client.user.id) return;
     const reply = message.content;
     const replyFormatted = reply.toLowerCase();
     if(replyFormatted == 'cool'){
@@ -218,16 +234,7 @@ client.on('message', message => {
         setTimeout(() => {  message.channel.send("gm!"); }, 1000);
         message.channel.stopTyping();*/
         message.react('🌄');
-    }
-
-    parseInt(replyFormatted);
-
-    if(replyFormatted == '1'){
-        increaseNumber();
-        message.react('✅');
-    }
-
-    /*else if(replyFormatted == 'introduce yourself'){
+    } /*else if(replyFormatted == 'introduce yourself'){
         setTimeout(function(){
             message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by jc smoothie!");
         }, 500);
@@ -248,6 +255,46 @@ client.on('message', message => {
         }
     }*/
 });
+
+// Stores the current count.
+let count = 0
+// Stores the timeout used to make the bot count if nobody else counts for a set period of
+// time.
+let timeout
+
+client.on('message', ({channel, content, member}) => {
+    // Only do this for the counting channel of course
+    // If you want to simply make this work for all channels called 'counting', you
+    // could use this line:
+    if (client.channels.cache.filter(c => c.name === 'counting').keyArray().includes(channel.id)){
+    //if (channel.id === 'counting channel id') {
+      // You can ignore all bot messages like this
+      if (member.user.bot) return
+      // If the message is the current count + 1...
+      if (Number(content) === count + 1){
+        // ...increase the count
+        count++
+        // Remove any existing timeout to count
+        if (timeout) client.clearTimeout(timeout)
+        // Add a new timeout
+        timeout = client.setTimeout(
+          // This will make the bot count and log all errors
+          () => channel.send(++count).catch(console.error),
+          // after 30 seconds
+          30000
+        )
+      // If the message wasn't sent by the bot...
+      } else if (member.id !== client.user.id) {
+        // ...send a message because the person stuffed up the counting (and log all errors)
+        channel.send(`${member} messed up!`).catch(console.error)
+        // Reset the count
+        count = 0
+        // Reset any existing timeout because the bot has counted so it doesn't need to
+        // count again
+        if (timeout) client.clearTimeout(timeout)
+      }
+    }
+  })
 
 client.on('message', message => {
    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
@@ -670,6 +717,22 @@ client.on('message', message => {
            .setThumbnail('https://i.pinimg.com/originals/ba/76/ef/ba76ef5073422254cdd76038a817875c.gif')
            message.channel.send(epicrate);
        }
+   } else if(command == 'quiz'){
+       const quiz = require('./quiz.json');
+       const item = quiz[Math.floor(Math.random() * quiz.length)];
+       const filter = response => {
+           return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+       };
+
+        message.channel.send(item.question).then(() => {
+            message.channel.awaitMessages(filter, { max: 1, time: 30000, errors: ['time'] })
+            .then(collected => {
+                message.channel.send(`${collected.first().author} got the correct answer!`);
+            })
+            .catch(collected => {
+                message.channel.send('Looks like nobody got the answer this time.');
+            });
+        });
    }
 });
 
