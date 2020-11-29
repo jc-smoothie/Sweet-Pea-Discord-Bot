@@ -1,0 +1,14 @@
+[
+	{
+		"question": "What color is the sky?",
+		"answers": ["blue"]
+	},
+	{
+		"question": "How many letters are there in the alphabet?",
+		"answers": ["26", "twenty-six", "twenty six", "twentysix"]
+    },
+    {
+        "question": "What is the name of the planet we live on?",
+        "answers": ["earth", "Earth"]
+    }
+]
