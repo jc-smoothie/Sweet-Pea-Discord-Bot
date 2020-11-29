@@ -256,6 +256,68 @@ client.on('message', message => {
     }*/
 });
 
+client.on('message', message => {
+    let args = message.content.substring(prefix.length).split(" ");
+
+    switch (args[0]){
+        case 'kick':
+            if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+
+            const user = message.mentions.users.first();
+
+            if(user){
+                const member = message.guild.member(user);
+
+                if(member){
+                    member.kick("You were kicked for trolling!").then(() => {
+                        message.reply(`Successfully kicked ${user.tag}.`);
+                    }).catch(err => {
+                        message.reply(`I was unable to kick the member.`);
+                        console.log(err);
+                    })
+                } else{
+                    message.reply("That user isn\'t in this guild.")
+                }
+            } else{
+                message.reply('You need to specify a user!');
+            }
+        break;
+    }
+})
+
+client.on('message', message => {
+    let args = message.content.substring(prefix.length).split(" ");
+
+    switch (args[0]){
+        case 'ban':
+            if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+
+            const user = message.mentions.users.first();
+
+            if(user){
+                const member = message.guild.member(user);
+
+                if(member){
+                    member.ban("You were banned for being bad!").then(() => {
+                        message.reply(`Successfully banned ${user.tag}.`);
+                    }).catch(err => {
+                        message.reply(`I was unable to ban the member.`);
+                        console.log(err);
+                    })
+                } else{
+                    message.reply("That user isn\'t in this guild.")
+                }
+            } else{
+                message.reply('You need to specify a user!');
+            }
+        break;
+    }
+})
+
 // Stores the current count.
 let count = 0
 // Stores the timeout used to make the bot count if nobody else counts for a set period of
@@ -329,7 +391,7 @@ client.on('message', message => {
    } else if(command == 'tools'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Tools!')
-       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin. \n +poll [text] - Start a poll with the answer being either yes or no.')
+       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin. \n +poll [text] - Start a poll with the answer being either yes or no. \n +clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -733,6 +795,8 @@ client.on('message', message => {
                 message.channel.send('Looks like nobody got the answer this time.');
             });
         });
+   } else if(command == 'mute'){
+       client.commands.get('mute').execute(message. args);
    }
 });
 
