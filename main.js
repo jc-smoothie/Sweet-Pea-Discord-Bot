@@ -5,132 +5,16 @@ const mongoose = require('mongoose');
 const memberCount = require('./member-count');
 const welcome = require('./welcome');
 
-const {
+/*const {
     Client,
     Attachment
-} = require('discord.js');
+} = require('discord.js');*/
 
 const ytdl = require("ytdl-core");
 
 const client = new Discord.Client();
 
 const queue = new Map();
-
-/*client.once("reconnecting", () => {
-  console.log("Reconnecting!");
-});
-
-client.once("disconnect", () => {
-  console.log("Disconnect!");
-});
-
-client.on("message", async message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-
-  const serverQueue = queue.get(message.guild.id);
-
-  if (message.content.startsWith(prefix + "play")) {
-    execute(message, serverQueue);
-    return;
-  } else if (message.content.startsWith(prefix + "skip")) {
-    skip(message, serverQueue);
-    return;
-  } else if (message.content.startsWith(prefix + "stop")) {
-    stop(message, serverQueue);
-    return;
-  } //else {
-    //message.channel.send("You need to enter a valid command!");
-  //}
-});
-
-async function execute(message, serverQueue) {
-  const args = message.content.split(" ");
-
-  const voiceChannel = message.member.voice.channel;
-  if (!voiceChannel)
-    return message.channel.send(
-      "You need to be in a voice channel to play music!"
-    );
-  const permissions = voiceChannel.permissionsFor(message.client.user);
-  if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
-    return message.channel.send(
-      "I need the permissions to join and speak in your voice channel!"
-    );
-  }
-
-  const songInfo = await ytdl.getInfo(args[1]);
-  const song = {
-        title: songInfo.videoDetails.title,
-        url: songInfo.videoDetails.video_url,
-   };
-
-  if (!serverQueue) {
-    const queueContruct = {
-      textChannel: message.channel,
-      voiceChannel: voiceChannel,
-      connection: null,
-      songs: [],
-      volume: 5,
-      playing: true
-    };
-
-    queue.set(message.guild.id, queueContruct);
-
-    queueContruct.songs.push(song);
-
-    try {
-      var connection = await voiceChannel.join();
-      queueContruct.connection = connection;
-      play(message.guild, queueContruct.songs[0]);
-    } catch (err) {
-      console.log(err);
-      queue.delete(message.guild.id);
-      return message.channel.send(err);
-    }
-  } else {
-    serverQueue.songs.push(song);
-    return message.channel.send(`${song.title} has been added to the queue!`);
-  }
-}
-
-function skip(message, serverQueue) {
-  if (!message.member.voice.channel)
-    return message.channel.send(
-      "You have to be in a voice channel to stop the music!"
-    );
-  if (!serverQueue)
-    return message.channel.send("There is no song that I could skip!");
-  serverQueue.connection.dispatcher.end();
-}
-
-function stop(message, serverQueue) {
-  if (!message.member.voice.channel)
-    return message.channel.send(
-      "You have to be in a voice channel to stop the music!"
-    );
-  serverQueue.songs = [];
-  serverQueue.connection.dispatcher.end();
-}
-
-function play(guild, song) {
-  const serverQueue = queue.get(guild.id);
-  if (!song) {
-    serverQueue.voiceChannel.leave();
-    queue.delete(guild.id);
-    return;
-  }
-
-  const dispatcher = serverQueue.connection
-    .play(ytdl(song.url))
-    .on("finish", () => {
-      serverQueue.songs.shift();
-      play(guild, serverQueue.songs[0]);
-    })
-    .on("error", error => console.error(error));
-  dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
-  serverQueue.textChannel.send(`Start playing: **${song.title}**`);
-}*/
 
 /*let createdTime = message.guild.createdAt
 let memberCount = message.guild.memberCount
@@ -151,7 +35,7 @@ new EconomyClient().start(require('./config').token, './commands');
 //const client = new Client();
 
 //This is another client assignor
-//const {Client, MessageEmbed} = require('discord.js');
+const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
@@ -648,7 +532,7 @@ client.on('message', message => {
    } else if(command == 'updates'){
        const miscEmbed = new MessageEmbed()
        .setTitle('Updates!')
-       .setDescription('The next batch of commands have arrived!: \n - Sweet Pea now has a counting game! Create a new text channel in your server exactly named "counting" and start by typing 1. The game is to keep counting, and you lose by either typing the incorrect number next in the sequence or typing text. \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Moderation!** \n Ban and mute commands have the option to specify an amount of time, otherwise you may leave it blank. \n +clear [number] - Purge command. \n +kick [person] - Kicks a user. \n +ban [person] [time] - Bans a user. \n +mute [person] [time] - Mutes a user. Must have a member role and muted role called exactly "Member" and "Muted" to be functioning. \n \n Currently working on: \n - Music command')
+       .setDescription('The next batch of commands have arrived!: \n - Sweet Pea now has a counting game! Create a new text channel in your server exactly named "counting" and start by typing 1. The game is to keep counting, and you lose by either typing the incorrect number next in the sequence or typing text. \n \n **Music** \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. There is a skip command, however it works just like the stop command, since there would only be one song in the "queue." \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel. \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Moderation!** \n Ban and mute commands have the option to specify an amount of time, otherwise you may leave it blank. \n You must have a member role and muted role called exactly "Member" and "Muted" for the mute and unmute commands to be functioning. At the moment, these two commands are being looked at, and hopefully fixed in the future. \n +clear [number] - Purge command. \n +kick [person] - Kicks a user. \n +ban [person] [time] - Bans a user. \n +mute [person] [time] - Mutes a user. \n +unmute [person] - Unmutes a user who has been muted. \n \n Currently working on: \n - Welcome command')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
