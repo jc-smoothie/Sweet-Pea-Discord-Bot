@@ -11,7 +11,7 @@ module.exports = {
             console.log('Missing args')
         } else{
             console.log('should work.')
-            const image = Math.floor((Math.random() * 12) + 1);
+            const image = Math.floor((Math.random() * 13) + 1);
             if(image == 1){
                 var chosenImage = 'https://media1.tenor.com/images/d307db89f181813e0d05937b5feb4254/tenor.gif?itemid=16371489';
             } else if(image == 2){
