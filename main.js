@@ -234,6 +234,8 @@ client.on('message', message => {
         setTimeout(() => {  message.channel.send("gm!"); }, 1000);
         message.channel.stopTyping();*/
         message.react('🌄');
+    } else if(replyFormatted == 'yawn' || replyFormatted == '*yawn*'){
+        message.react('🥱');
     } /*else if(replyFormatted == 'introduce yourself'){
         setTimeout(function(){
             message.channel.send("My name is Sweet Pea, and I am a discord bot coded in JavaScript by jc smoothie!");
@@ -367,7 +369,7 @@ client.on('message', message => {
    if(command == 'help'){
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm \n +invite - Receive an invite link with instructions via dm \n +info - Display a message of recent updates and additions \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -375,7 +377,7 @@ client.on('message', message => {
    } else if(command == 'fun'){
        const funEmbed = new MessageEmbed()
        .setTitle('Fun!')
-       .setDescription('+hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +color [color] - (Only works for servers once roles have been added with the aid of jc smoothie) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
+       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Other** \n +color [color] - (Only works for servers with color roles created by jc smoothie themself) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -383,7 +385,7 @@ client.on('message', message => {
    } else if(command == 'games'){
        const gamesEmbed = new MessageEmbed()
        .setTitle('Games!')
-       .setDescription('+stc - (Work in progress) Play Sort The Court, a game where you rule a kingdom! \n +cah - (Work in progress) Play Cards Against Humanity, a card game that can get you to laugh at offensive and inappropriate jokes! \n +among - Send a message to start an Among Us game session for players to sign up with an emote. \n +camong -  Send a message to inform players the Among Us Game session is canceled. \n +scratch - Send a link to the Scratch profile of my developer with all their projects. \n +ping - Play ping pong with me!')
+       .setDescription('+stc - Play Sort The Court, a game where you rule a kingdom! \n +cah - (Work in progress) Play Cards Against Humanity, a card game that can get you to laugh at offensive and inappropriate jokes! \n +among - Send a message to start an Among Us game session for players to sign up with an emote. \n +camong -  Send a message to inform players the Among Us Game session is canceled. \n +scratch - Send a link to the Scratch profile of my developer with all their projects. \n +ping - Play ping pong with me!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -391,7 +393,15 @@ client.on('message', message => {
    } else if(command == 'tools'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Tools!')
-       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin. \n +poll [text] - Start a poll with the answer being either yes or no. \n +clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100.')
+       .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin. \n +poll [text] - Start a poll with the answer being either yes or no.')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+       message.channel.send(toolsEmbed);
+   } else if(command == 'moderation'){
+       const toolsEmbed = new MessageEmbed()
+       .setTitle('Moderation!')
+       .setDescription('+clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100. \n +kick [person] - Kicks a user in the server. \n +ban [person] [time] - Bans a user, with an option for a timed ban. \n +mute [person] [time] - Mute a user, with an option for a timed mute. \n +unmute [person] - Unmutes a user.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -412,10 +422,10 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(miscEmbed);
-   } else if(command == 'info'){
+   } else if(command == 'updates'){
        const miscEmbed = new MessageEmbed()
-       .setTitle('Info')
-       .setDescription('Recent Updates: \n - Sweet Pea now appears to be typing before sending some messages! These are for easter eggs you can find with Sweet Pea! \n - Poll command added! Type `+poll [text]` to create a poll! \n - `+cuterate [person]` \n - `+weebrate [person]` \n \n Currently working on: \n - Purge command \n - Kick command \n - Ban command (including timed bans) \n - Music command')
+       .setTitle('Updates!')
+       .setDescription('The next batch of commands have arrived!: \n - Sweet Pea now has a counting game! Create a new text channel in your server exactly named "counting" and start by typing 1. The game is to keep counting, and you lose by either typing the incorrect number next in the sequence or typing text. \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Moderation!** \n Ban and mute commands have the option to specify an amount of time, otherwise you may leave it blank. \n +clear [number] - Purge command. \n +kick [person] - Kicks a user. \n +ban [person] [time] - Bans a user. \n +mute [person] [time] - Mutes a user. Must have a member role and muted role called exactly "Member" and "Muted" to be functioning. \n \n Currently working on: \n - Music command')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -512,6 +522,8 @@ client.on('message', message => {
        client.commands.get('slap').execute(message, args);
    } else if(command == 'kiss'){
        client.commands.get('kiss').execute(message, args);
+   } else if(command == 'kill'){
+       client.commands.get('kill').execute(message, args);
    } else if(command == 'dog'){
        client.commands.get('dog').execute(message, args);
    } else if(command == 'cat'){
@@ -522,7 +534,7 @@ client.on('message', message => {
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
        }*/
-
+       
        /*if(message.mentions.users.size){
            let member=message.mentions.users.first()
            if(member){
@@ -797,6 +809,8 @@ client.on('message', message => {
         });
    } else if(command == 'mute'){
        client.commands.get('mute').execute(message. args);
+   } else if(command == 'unmute'){
+    client.commands.get('unmute').execute(message. args);
    }
 });
 
