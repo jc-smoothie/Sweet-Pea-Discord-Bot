@@ -5,13 +5,18 @@ const mongoose = require('mongoose');
 const memberCount = require('./member-count');
 const welcome = require('./welcome');
 
+const {
+    Client,
+    Attachment
+} = require('discord.js');
+
 const ytdl = require("ytdl-core");
 
 const client = new Discord.Client();
 
 const queue = new Map();
 
-client.once("reconnecting", () => {
+/*client.once("reconnecting", () => {
   console.log("Reconnecting!");
 });
 
@@ -34,9 +39,9 @@ client.on("message", async message => {
   } else if (message.content.startsWith(prefix + "stop")) {
     stop(message, serverQueue);
     return;
-  } else {
-    message.channel.send("You need to enter a valid command!");
-  }
+  } //else {
+    //message.channel.send("You need to enter a valid command!");
+  //}
 });
 
 async function execute(message, serverQueue) {
@@ -125,7 +130,7 @@ function play(guild, song) {
     .on("error", error => console.error(error));
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   serverQueue.textChannel.send(`Start playing: **${song.title}**`);
-}
+}*/
 
 /*let createdTime = message.guild.createdAt
 let memberCount = message.guild.memberCount
@@ -145,7 +150,8 @@ new EconomyClient().start(require('./config').token, './commands');
 
 //const client = new Client();
 
-const {Client, MessageEmbed} = require('discord.js');
+//This is another client assignor
+//const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
@@ -293,20 +299,114 @@ client.on("guildMemberRemove", member => {
     }
 });*/
 
-/*
-const { CanvasSenpai } = require("canvas-senpai")
-const canva = new CanvasSenpai();
+var servers = {};
 
-client.on('guildMemberAdd', async member => {
-    const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
-    if (!channel) return;
-    
-    let data = await canva.welcome(member, { link: "https://wallpapercave.com/wp/wp5128415.jpg" })
+client.on('message', message => {
+    let args = message.content.substring(prefix.length).split(" ");
 
-    const attachment = new Discord.MessageAttachment(data, "welcome-image.png");
+    switch (args[0]){
+        case 'play':
+            function play(connection, message){
+                var server = servers[message.guild.id];
 
-    channel.send(`Welcome to the server, ${member.user.username}!`, attachment);   
+                /*
+                if(!server.queue[1]){
+                    server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))}
+                    
+                    server.dispatcher.on("finish",function(){
+                        server.queue.shift()
+                        if(server.queue[0]){
+                            play(connection,message)
+                        } else{
+                            server.queue.push(args[1]);
+                        }
+                    });
+                */
+                
+                
+                server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}));
+
+                server.queue.shift();
+
+                server.dispatcher.on("finish", function(){
+                    if(server.queue[0]){
+                        play(connection, message);
+                    } else{
+                        connection.disconnect();
+                        message.channel.send("Song done, bye!")
+                    }
+                });
+                
+            }
+
+            if(!args[1]){
+                message.channel.send("You need to provide a link!");
+                return;
+            }
+
+            if(!message.member.voice.channel){
+                message.channel.send("You must be in a voice channel to play music!");
+                return;
+            }
+
+            if(!servers[message.guild.id]) servers[message.guild.id] = {
+                queue: []
+            }
+            
+            var server = servers[message.guild.id];
+
+            server.queue.push(args[1]);
+
+            message.react('✅');
+
+            if(!message.guild.voiceConnection) message.member.voice.channel.join().then(function(connection){
+                play(connection, message);
+            });
+
+        break;
+
+        case 'skip':
+            var server = servers[message.guild.id];
+            if(server.dispatcher) server.dispatcher.end();
+            message.react('✅');
+            message.channel.send("Skipping the current song.");
+        break;
+
+        case 'stop':
+            var server = servers[message.guild.id];
+            if(message.guild.voice.connection){
+                for(var i = server.queue.length -1; i >= 0; i--){
+                    server.queue.splice(i, 1);
+                }
+
+                server.dispatcher.end();
+                message.react('✅');
+                message.channel.send("Ending the queue, leaving the voice channel.");
+                console.log('Stopped the queue');
+            }
+
+            if(message.guild.connection) message.guild.voice.connection.disconnect();
+        break;
+    }
 });
+
+/*
+//Pause
+server.dispatcher.pause()
+//Resume
+server.dispatcher.play()
+server.dispatcher.resume()
+
+View queue (show YouTube links, basic):
+var server = servers[message.guild.id];
+var queueOutput;
+var count = 1;
+
+server.queue.forEach(function(entry) { // For each queue item
+     queueOutput = queueOutput + count + ". " + entry + "\n";
+     count++;
+});
+message.channel.send(queueOutput)
 */
 
 //Counting Stuff
@@ -348,7 +448,7 @@ client.on('message', message => {
         message.channel.startTyping();
         setTimeout(() => {  message.channel.send("rip"); }, 1000);
         message.channel.stopTyping();
-    } else if(replyFormatted == 'sad'){
+    } else if(replyFormatted == ';-;'){
         message.react('😢');
     } else if(replyFormatted == 'wat'){
         message.react('❓');
@@ -931,9 +1031,20 @@ client.on('message', message => {
             });
         });
    } else if(command == 'mute'){
-       client.commands.get('mute').execute(message. args);
+       message.channel.send("This command is currently being looked at and is in the process of repair.")
+       //client.commands.get('mute').execute(message. args);
    } else if(command == 'unmute'){
-    client.commands.get('unmute').execute(message. args);
+    message.channel.send("This command is currently being looked at and is in the process of repair.")
+       //client.commands.get('unmute').execute(message. args);
+   } else if(command == 'story'){
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Sort The Court!')
+        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
+        .setColor('#66ccff')
+        message.channel.send(reactionsEmbed);
+        //let messageEmbed = await message.channel.send(reactionsEmbed)
+        //messageEmbed.react('🤴')
+        //messageEmbed.react('👸')
    }
 });
 

@@ -2,6 +2,9 @@ module.exports = {
     name: 'unmute',
     description: "This command unmutes a member!",
     execute(message, args){
+        if(!args[1]){
+            return message.reply("You didn't mention who to unmute!")
+        }
         const target = message.mentions.users.first();
         if(target){
             let mainRole = message.guild.roles.cache.find(role => role.name === 'Member');
