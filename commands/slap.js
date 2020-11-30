@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require("discord.js");
- 
+
 module.exports = {
     name: 'slap',
     description: "Default command.",
@@ -12,7 +12,7 @@ module.exports = {
         } 
         else {
             //console.log('should work.')
-            const image = Math.floor((Math.random() * 9) + 1);
+            const image = Math.floor((Math.random() * 10) + 1);
             if(image == 1){
                 var chosenImage = 'https://media1.tenor.com/images/d14969a21a96ec46f61770c50fccf24f/tenor.gif?itemid=5509136';
             } else if(image == 2){
