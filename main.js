@@ -241,7 +241,8 @@ client.on('message', message => {
     switch (args[0]){
         case 'play':
             function play(connection, message){
-                var server = servers[message.guild.id];
+                //var server = servers[message.guild.id];
+                var server = process.env.server;
 
                 /*
                 if(!server.queue[1]){
@@ -287,7 +288,8 @@ client.on('message', message => {
                 queue: []
             }
             
-            var server = servers[message.guild.id];
+            //var server = servers[message.guild.id];
+            var server = process.env.server;
 
             server.queue.push(args[1]);
 
@@ -300,14 +302,16 @@ client.on('message', message => {
         break;
 
         case 'skip':
-            var server = servers[message.guild.id];
+            //var server = servers[message.guild.id];
+            var server = process.env.server;
             if(server.dispatcher) server.dispatcher.end();
             message.react('✅');
             message.channel.send("Skipping the current song.");
         break;
 
         case 'stop':
-            var server = servers[message.guild.id];
+            //var server = servers[message.guild.id];
+            var server = process.env.server;
             if(message.guild.voice.connection){
                 for(var i = server.queue.length -1; i >= 0; i--){
                     server.queue.splice(i, 1);
