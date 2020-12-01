@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
 const memberCount = require('./member-count');
-const welcome = require('./welcome');
+//const welcome = require('./welcome');
 
 /*const {
     Client,
@@ -58,7 +58,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.JVAgP2qp-CwRn10trEFtPKKjxVo');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.81G4Nhz6zbQB6OGZBZbo2eLPtc8');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
@@ -91,22 +91,72 @@ client.once('ready', () => {
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 
     memberCount(client)
-    welcome(client)
+    //welcome(client)
 });
 
-/*
-client.on("guildMemberAdd", member => {
+//Message sent to the owner of the guild who added Sweet Pea to their server
+client.on("guildCreate", (guild) => {
+    guild.owner.send('Thanks! You can use +help to discover commands.')
+});
+
+client.on("guildCreate", (guild) => {
+    var found = false;
+    guild.channels.forEach(function(channel, id) {
+        // If a channel is already found, nothing more needs to be done
+        if(found == true || channel.type != "text") {
+          return;
+        }
+        // If the channel isn't found and the bot has permission to 
+        // send and read messages in the channel, send a welcome message there
+        if(guild.me.permissionsIn(channel).has("SEND_MESSAGES") && guild.me.permissionsIn(channel).has("VIEW_CHANNEL")) {
+          found = true;
+          return channel.send("Thanks for inviting me! Do `+help` so display a list of command categories.")
+        }
+    })
+});
+
+//Welcome message
+/*client.on("guildMemberAdd", (member) => {
     const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
-    welcomeChannel.send(`Welcome, ${member}!`);
-});
+    let embed = new MessageEmbed()
+    .setTitle(`Welcome to, ${guild.name}`)
+    .setImage(memberuser..displayAvatarURL())
+    .setDescription(`${member.user.tag} has joined this server! \n https://data.whicdn.com/images/307098937/original.gif`)
+    .setColor('#66ccff')
+    .setTimestamp()
 
-client.on("guildMemberRemove", member => {
+    if(!message.mentions.users.first()){
+        embed.setTitle('Your avater:')
+        embed.setImage(message.author.displayAvatarURL())
+        //embed.setColor(message.author.displayHexColor)
+        //embed.setColor(message.member.hoistRole.hexColor)
+        return message.channel.send(embed)
+    } else{
+        let user = message.mentions.users.first()
+        embed.setTitle(`${user.tag}'s avater:`)
+        embed.setImage(user.displayAvatarURL())
+        //embed.setColor(user.displayHexColor)
+        //embed.setColor(user.hoistRole.hexColor)
+        return message.channel.send(embed)
+    }
+
+    welcomeChannel.send(embed);
+});*/
+
+/*client.on("guildMemberRemove", (member) => {
     const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
 
-    goodbyeChannel.send(`Goodbye, ${member}.`);
-});
-*/
+    let embed = new MessageEmbed()
+    .setTitle(`Goodbye, ${member}`)
+    .setImage(member.displayAvatarURL())
+    .setDescription(`${member.user.tag} has joined this server!`)
+    .setColor('#66ccff')
+    .setTimestamp()
+
+    welcomeChannel.send(embed);
+});*/
+
 
 /*client.on('guildMemberAdd', member => {
     member.guild.channels.get('775127852458180608').send("Welcome"); 
@@ -476,7 +526,7 @@ client.on('message', message => {
    if(command == 'help'){
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +music - Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -505,10 +555,18 @@ client.on('message', message => {
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(toolsEmbed);
+   } else if(command == 'music'){
+    const toolsEmbed = new MessageEmbed()
+    .setTitle('Music!')
+    .setDescription('There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. There is a skip command, however it works just like the stop command, since there would only be one song in the "queue." \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel.')
+    .setColor('#66ccff')
+    .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+    .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+    message.channel.send(toolsEmbed);
    } else if(command == 'moderation'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Moderation!')
-       .setDescription('+clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100. \n +kick [person] - Kicks a user in the server. \n +ban [person] [time] - Bans a user, with an option for a timed ban. \n +mute [person] [time] - Mute a user, with an option for a timed mute. \n +unmute [person] - Unmutes a user.')
+       .setDescription('**Note** \n The muting and unmuting commands are currently unavailable. These commands are being looked at, and hopefully fixed in the future. \n \n +clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100. \n +kick [person] - Kicks a user in the server. \n +ban [person] [time] - Bans a user, with an option for a timed ban. \n +mute [person] [time] - Mute a user, with an option for a timed mute. \n +unmute [person] - Unmutes a user.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -532,7 +590,7 @@ client.on('message', message => {
    } else if(command == 'updates'){
        const miscEmbed = new MessageEmbed()
        .setTitle('Updates!')
-       .setDescription('The next batch of commands have arrived!: \n - Sweet Pea now has a counting game! Create a new text channel in your server exactly named "counting" and start by typing 1. The game is to keep counting, and you lose by either typing the incorrect number next in the sequence or typing text. \n \n **Music** \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. There is a skip command, however it works just like the stop command, since there would only be one song in the "queue." \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel. \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Moderation!** \n Ban and mute commands have the option to specify an amount of time, otherwise you may leave it blank. \n You must have a member role and muted role called exactly "Member" and "Muted" for the mute and unmute commands to be functioning. At the moment, these two commands are being looked at, and hopefully fixed in the future. \n +clear [number] - Purge command. \n +kick [person] - Kicks a user. \n +ban [person] [time] - Bans a user. \n +mute [person] [time] - Mutes a user. \n +unmute [person] - Unmutes a user who has been muted. \n \n Currently working on: \n - Welcome command')
+       .setDescription('The next batch of commands have arrived!: \n Sweet Pea now has a counting game! Create a new text channel in your server exactly named "counting" and start by typing 1. The game is to keep counting, and you lose by either typing the incorrect number next in the sequence or typing text. \n \n **Music!** \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. There is a skip command, however it works just like the stop command, since there would only be one song in the "queue." \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel. \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Moderation!** \n Ban and mute commands have the option to specify an amount of time, otherwise you may leave it blank. \n You must have a member role and muted role called exactly "Member" and "Muted" for the mute and unmute commands to be functioning. At the moment, these two commands are being looked at, and hopefully fixed in the future. \n \n +clear [number] - Purge command. \n +kick [person] - Kicks a user. \n +ban [person] [time] - Bans a user. \n +mute [person] [time] - Mutes a user. \n +unmute [person] - Unmutes a user who has been muted. \n \n Currently working on: \n - Welcome command')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
