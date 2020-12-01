@@ -58,8 +58,8 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.81G4Nhz6zbQB6OGZBZbo2eLPtc8');
-client.login(process.env.token);
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.81G4Nhz6zbQB6OGZBZbo2eLPtc8');
+//client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
 //Sort the Court Stuff
