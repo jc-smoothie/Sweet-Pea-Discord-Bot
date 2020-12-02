@@ -58,7 +58,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.81G4Nhz6zbQB6OGZBZbo2eLPtc8');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.9OGGR8y-kEOcfZV15WqyxCRKHG4');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
@@ -116,33 +116,24 @@ client.on("guildCreate", (guild) => {
 });
 
 //Welcome message
-/*client.on("guildMemberAdd", (member) => {
-    const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+const jc_smoothie_server = '782599860238942209';
+//const Eclipsys_Contact = '700620542419664968';
 
-    let embed = new MessageEmbed()
-    .setTitle(`Welcome to, ${guild.name}`)
-    .setImage(memberuser..displayAvatarURL())
-    .setDescription(`${member.user.tag} has joined this server! \n https://data.whicdn.com/images/307098937/original.gif`)
-    .setColor('#66ccff')
-    .setTimestamp()
+client.on("guildMemberAdd", (member) => {
+    if(member.guild.id == Asian_Invasion || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server){
+        const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
-    if(!message.mentions.users.first()){
-        embed.setTitle('Your avater:')
-        embed.setImage(message.author.displayAvatarURL())
-        //embed.setColor(message.author.displayHexColor)
-        //embed.setColor(message.member.hoistRole.hexColor)
-        return message.channel.send(embed)
-    } else{
-        let user = message.mentions.users.first()
-        embed.setTitle(`${user.tag}'s avater:`)
-        embed.setImage(user.displayAvatarURL())
-        //embed.setColor(user.displayHexColor)
-        //embed.setColor(user.hoistRole.hexColor)
-        return message.channel.send(embed)
+        let embed = new MessageEmbed()
+        .setTitle(`Welcome to ${member.guild.id}!`)
+        //.setImage(member.user.displayAvatarURL())
+        .setImage("https://data.whicdn.com/images/307098937/original.gif")
+        .setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+        .setColor('#66ccff')
+        .setThumbnail(member.user.avatarURL())
+        .setTimestamp()
+        welcomeChannel.send(embed);
     }
-
-    welcomeChannel.send(embed);
-});*/
+});
 
 /*client.on("guildMemberRemove", (member) => {
     const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
@@ -306,13 +297,13 @@ client.on('message', message => {
 
         break;
 
-        case 'skip':
+        /*case 'skip':
             var server = servers[message.guild.id];
             //ar server = process.env.server;
             if(server.dispatcher) server.dispatcher.end();
             message.react('✅');
             message.channel.send("Skipping the current song.");
-        break;
+        break;*/
 
         case 'stop':
             var server = servers[message.guild.id];
@@ -1125,7 +1116,7 @@ client.on('message', async message => {
 
 //Role Variables
 const Asian_Invasion = '637447111725809664';
-const jc_smoothie_suppoet_server = '755814665111470142';
+const jc_smoothie_support_server = '755814665111470142';
 const WHS_Anime_Club = '361609091602317312';
 const The_Toilet = '781945168491446353';
 
@@ -1210,7 +1201,7 @@ function Not_Identified_Server(){
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if(messageReaction.message.guild.id == Asian_Invasion){
         Asian_Invasion_roles();
-    } else if(messageReaction.message.guild.id == jc_smoothie_suppoet_server){
+    } else if(messageReaction.message.guild.id == jc_smoothie_support_server){
         jc_smoothie_support_server_roles();
     } else if(messageReaction.message.guild.id == WHS_Anime_Club){
         WHS_Anime_Club_roles();
