@@ -124,7 +124,7 @@ client.on("guildMemberAdd", (member) => {
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
         let embed = new MessageEmbed()
-        .setTitle(`Welcome to ${member.guild.id}!`)
+        .setTitle(`Welcome to <${member.guild.id}>!`)
         //.setImage(member.user.displayAvatarURL())
         .setImage("https://data.whicdn.com/images/307098937/original.gif")
         .setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
