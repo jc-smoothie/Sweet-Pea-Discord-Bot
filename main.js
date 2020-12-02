@@ -58,7 +58,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.9OGGR8y-kEOcfZV15WqyxCRKHG4');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.oOBqET2Hv2uUvVR_q2YTqxlgvPo');
 //client.login(process.env.token);
 //client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
 
@@ -117,19 +117,20 @@ client.on("guildCreate", (guild) => {
 
 //Welcome message
 const jc_smoothie_server = '782599860238942209';
-//const Eclipsys_Contact = '700620542419664968';
+const Eclipsys_Contact = '700620542419664968';
 
 client.on("guildMemberAdd", (member) => {
-    if(member.guild.id == Asian_Invasion || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server){
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server){
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
         let embed = new MessageEmbed()
-        .setTitle(`Welcome to <${member.guild.id}>!`)
-        //.setImage(member.user.displayAvatarURL())
+        .setTitle(`Welcome to ${member.guild.name}!`)
         .setImage("https://data.whicdn.com/images/307098937/original.gif")
-        .setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+        //.setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+        .setDescription(`**Thank you for joining our server!** \n Hey **${member.displayName}**! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
         .setColor('#66ccff')
         .setThumbnail(member.user.avatarURL())
+        .setFooter(`Member #${member.guild.memberCount}`)
         .setTimestamp()
         welcomeChannel.send(embed);
     }
@@ -987,6 +988,24 @@ client.on('message', message => {
         //let messageEmbed = await message.channel.send(reactionsEmbed)
         //messageEmbed.react('🤴')
         //messageEmbed.react('👸')
+   } else if(command == 'welcome'){
+       if(message.member.id == '457592359660683265'){
+           if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server){
+               const welcomeChannel = message.member.guild.channels.cache.find(channel => channel.name === "welcome");
+               
+               let embed = new MessageEmbed()
+               .setTitle(`Welcome to ${message.member.guild.name}!`)
+               .setImage("https://data.whicdn.com/images/307098937/original.gif")
+               //.setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+               .setDescription(`**Thank you for joining our server!** \n Hey **${message.member.displayName}**! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+               .setColor('#66ccff')
+               .setThumbnail(message.member.user.avatarURL())
+               .setFooter(`Member #${message.member.guild.memberCount}`)
+               .setTimestamp()
+               welcomeChannel.send(embed);
+               message.channel.send("Done! Check the welcome text channel!");
+           }
+       }
    }
 });
 
