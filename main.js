@@ -49,6 +49,7 @@ require('events').EventEmitter.defaultMaxListeners = 100;
 const EventEmitter = require("events");
 const { hasUncaughtExceptionCaptureCallback } = require('process');
 const { error } = require('console');
+const { execute } = require('./commands/rank');
 class MyEmitter extends EventEmitter{}
 
 var emitter = new MyEmitter()
@@ -119,15 +120,16 @@ client.on("guildCreate", (guild) => {
 const jc_smoothie_server = '782599860238942209';
 const Eclipsys_Contact = '700620542419664968';
 
+
 client.on("guildMemberAdd", (member) => {
-    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server){
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet){
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
         let embed = new MessageEmbed()
         .setTitle(`Welcome to ${member.guild.name}!`)
         .setImage("https://data.whicdn.com/images/307098937/original.gif")
         //.setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
-        .setDescription(`**Thank you for joining our server!** \n Hey **${member.displayName}**! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+        .setDescription(`**Thank you for joining our server!** \n Hey **${member.displayName}**! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
         .setColor('#66ccff')
         .setThumbnail(member.user.avatarURL())
         .setFooter(`Member #${member.guild.memberCount}`)
@@ -989,15 +991,15 @@ client.on('message', message => {
         //messageEmbed.react('🤴')
         //messageEmbed.react('👸')
    } else if(command == 'welcome'){
-       if(message.member.id == '457592359660683265'){
-           if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server){
+       if(message.member.displayName == 'jc smoothie'){
+           if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server || message.member.guild.id == The_Toilet){
                const welcomeChannel = message.member.guild.channels.cache.find(channel => channel.name === "welcome");
                
                let embed = new MessageEmbed()
                .setTitle(`Welcome to ${message.member.guild.name}!`)
                .setImage("https://data.whicdn.com/images/307098937/original.gif")
                //.setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
-               .setDescription(`**Thank you for joining our server!** \n Hey **${message.member.displayName}**! Make sure to read the #rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+               .setDescription(`**Thank you for joining our server!** \n Hey **${message.member.displayName}**! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
                .setColor('#66ccff')
                .setThumbnail(message.member.user.avatarURL())
                .setFooter(`Member #${message.member.guild.memberCount}`)
@@ -1005,8 +1007,43 @@ client.on('message', message => {
                welcomeChannel.send(embed);
                message.channel.send("Done! Check the welcome text channel!");
            }
+       } else{
+           message.channel.send("Unfortunately, you do not have the permissions to use this command.")
        }
-   }
+   } /*else if(command == 'role'){
+       client.on('message', async message => {
+           let rName = message.content.split("role ").join("");
+           let rColor;
+           
+           args.forEach(arg => {
+               if(arg.startsWith("#")){
+                   rColor = arg;
+               }
+           });
+           
+           if(!rName){
+               return message.channel.send('You did not specify a name for your role!')
+           }
+           if(!rColor){
+               return message.channel.send('You did not specify a color for your role!')
+           }
+           if(rColor >= 16777215) return message.channel.send('That hex color range was too big! Keep it between 0 and 16777215!');
+           if(rColor <= 16777215) return message.channel.send('That hex color range was too small! Keep it between 0 and 16777215!');
+           rName = rName.replace(`${rColor}`,``);
+           let rNew = message.guild.roles.create({
+               data: {
+                   name: rName,
+                   color: rColor,
+               }
+           });
+           
+           const Embed = new MessageEmbed()
+           .setTitle("New role created!")
+           .setDescription(`${message.author.username} has created the role "${rName}" \n Hex color code: ${rColor} \n ID: ${rNew.id}`)
+           .setColor(rColor)
+           message.channel.send(Embed);
+       });
+   }*/
 });
 
 //Reaction stuff
