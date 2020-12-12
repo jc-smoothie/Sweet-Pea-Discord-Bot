@@ -3,7 +3,6 @@ const Discord = require('discord.js');
 const Levels = require('discord-xp');
 const mongoose = require('mongoose');
 const memberCount = require('./member-count');
-//const welcome = require('./welcome');
 
 /*const {
     Client,
@@ -29,7 +28,7 @@ new EconomyClient().start(require('./config').token, './commands');
 
 //Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
 
-//This is other client assignor
+//This is the other client assignor
 //const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 //const client = new Client();
@@ -59,9 +58,8 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.oOBqET2Hv2uUvVR_q2YTqxlgvPo');
-//client.login(process.env.token);
-//client.login('NzQyMTE3MDUxNzYxNjg4NjM3.XzBcXQ.8bnHz6YKfLAYO_Wlk1s-WxV-Gjw');
+//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.oOBqET2Hv2uUvVR_q2YTqxlgvPo');
+client.login(process.env.token);
 
 //Sort the Court Stuff
 var attempts = 1;
@@ -73,12 +71,6 @@ function increateAttempts(){
 function resetAttempts(){
     attempts = 1
 }
-
-/*function getNickname(){
-    guild = client.guilds.get('serverID');
-    member = guild.member(message.author);
-    nickname = member ? member.displayName : null;
-}*/
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles){
@@ -97,14 +89,14 @@ client.once('ready', () => {
 
 //Message sent to the owner of the guild who added Sweet Pea to their server
 client.on("guildCreate", (guild) => {
-    guild.owner.send('Thanks! You can use +help to discover commands.')
+    guild.owner.send(`Thanks for inviting me to **${guild.name}**! ` +  "Type `+help` to display a list of categorized commands, and I hope I am able to suit your needs!")
 });
 
-client.on("guildCreate", (guild) => {
+/*client.on("guildCreate", (guild) => {
     var found = false;
     guild.channels.forEach(function(channel, id) {
         // If a channel is already found, nothing more needs to be done
-        if(found == true || channel.type != "text") {
+        if(found == true || !channel.type == "text") {
           return;
         }
         // If the channel isn't found and the bot has permission to 
@@ -114,7 +106,7 @@ client.on("guildCreate", (guild) => {
           return channel.send("Thanks for inviting me! Do `+help` so display a list of command categories.")
         }
     })
-});
+});*/
 
 //Welcome message
 const jc_smoothie_server = '782599860238942209';
@@ -139,66 +131,20 @@ client.on("guildMemberAdd", (member) => {
 });
 
 /*client.on("guildMemberRemove", (member) => {
-    const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet){
+        const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
 
-    let embed = new MessageEmbed()
-    .setTitle(`Goodbye, ${member}`)
-    .setImage(member.displayAvatarURL())
-    .setDescription(`${member.user.tag} has joined this server!`)
-    .setColor('#66ccff')
-    .setTimestamp()
-
-    welcomeChannel.send(embed);
-});*/
-
-
-/*client.on('guildMemberAdd', member => {
-    member.guild.channels.get('775127852458180608').send("Welcome"); 
-});*/
-
-/*client.on("guildMemberAdd", async member => {
-    const canvas = require("discord-canvas"),
-    welcomeCanvas = new canvas.Welcome();
+        let embed = new MessageEmbed()
+        .setTitle(`Goodbye, ${member}`)
+        .setDescription("Come back soon, or not.")
+        .setColor('#66ccff')
+        .setTimestamp()
     
-    let image = await welcomeCanvas
-    .setUsername(message.author.username)
-    .setDiscriminator("0001")
-    .setMemberCount("140")
-    .setGuildName("Eclipsys Contact Official")
-    .setAvatar("https://www.site.com/avatar.jpg")
-    .setColor("border", "#8015EA")
-    .setColor("username-box", "#8015EA")
-    .setColor("discriminator-box", "#8015EA")
-    .setColor("message-box", "#8015EA")
-    .setColor("title", "#8015EA")
-    .setColor("avatar", "#8015EA")
-    .setBackground("https://www.site.com/background.jpg")
-    .toAttachment();
-    
-    let attachment = new Discord.Attachment(image.toBuffer(), "welcome-image.png");
-    
-    message.channel.send(attachment);
+        goodbyeChannel.send(embed);
+    }
 });*/
 
-/*let memberlog = "775127852458180608";
-
-client.on("guildMemberAdd", member => {
-    //const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
-    //welcomeChannel.send(`Welcome to the server, ${member}! Be sure to read the #sweet-pea-commands and enjoy the server!`);
-
-    if(member.guild.id !== "700620542419664968") return;
-    client.channels.cache.get(memberlog).send(`Welcome to the **${member.guild.name}**, <@!${member.user.id}>!`);
-    member.roles.add('759550714862764045');
-});
-
-client.on("guildMemberRemove", member => {
-    //const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
-    //goodbyeChannel.send(`Goodbye, ${member}!`);
-
-    if(member.guild.id !== "700620542419664968") return;
-    client.channels.cache.get(memberlog).send(`So long. . . <@!${member.user.id}>.`);
-});*/
-
+//Xp System
 /*client.on("message", async message => {
     if(!message.guild) return;
     if(message.author.bot) return;
@@ -228,34 +174,51 @@ client.on("guildMemberRemove", member => {
 });*/
 
 var servers = {};
+//const yts = require("yt-search");
 
-client.on('message', message => {
+/*client.on('message', message => {
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
         case 'play':
+            if(!message.guild) return message.channel.send('You must be in a guild.');
             if (!message.content.includes('https://www.youtube.com/watch?v=')){
                 message.channel.send('Please provide a valid youtube link!');
                 return;
             }
+
+            //let song;
+            //if (ytdl.validateURL(args[1])){
+                //const songInfo = await ytdl.getInfo(args[1]);
+                //song = {
+                    //title: songInfo.title,
+                    //url: songInfo.video_url
+                //}
+            //} else{
+                //const {videos} = await yts(args.slice(1).join(" "));
+                //if (!videos.length) return message.channel.send("No songs were found!");
+                //song = {
+                    //title: videos[0].title,
+                    //url: videos[0].url
+                //}
+            //}
             
             function play(connection, message){
                 var server = servers[message.guild.id];
-                //var server = process.env.server;
+                    //var server = process.env.server;
 
-                /*
-                if(!server.queue[1]){
-                    server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))}
+                
+                //if(!server.queue[1]){
+                    //server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))}
                     
-                    server.dispatcher.on("finish",function(){
-                        server.queue.shift()
-                        if(server.queue[0]){
-                            play(connection,message)
-                        } else{
-                            server.queue.push(args[1]);
-                        }
-                    });
-                */
+                    //server.dispatcher.on("finish",function(){
+                        //server.queue.shift()
+                        //if(server.queue[0]){
+                            //play(connection,message)
+                        //} else{
+                            //server.queue.push(args[1]);
+                        //}
+                    //});
                 
                 
                 server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}));
@@ -288,9 +251,21 @@ client.on('message', message => {
             }
             
             var server = servers[message.guild.id];
-            //var server = process.env.server;
+                //var server = process.env.server;
 
             server.queue.push(args[1]);
+
+            var voiceChannelName = message.member.voice.channel.name;
+            var textChannelName = message.channel.name;
+            var embed = 0;
+
+            while(embed == 0){
+                if(message.embeds[0]){
+                    var videoTitle = message.embeds[0].title;
+                    message.channel.send("Joined **" + voiceChannelName + "** from **" + textChannelName + `** by __*${message.member.displayName}*__! Now playing __` + videoTitle + "__!");
+                    embed = 1;
+                }
+            }
 
             message.react('✅');
 
@@ -300,17 +275,18 @@ client.on('message', message => {
 
         break;
 
-        /*case 'skip':
-            var server = servers[message.guild.id];
-            //ar server = process.env.server;
-            if(server.dispatcher) server.dispatcher.end();
-            message.react('✅');
-            message.channel.send("Skipping the current song.");
-        break;*/
+        case 'skip':
+            //var server = servers[message.guild.id];
+                //var server = process.env.server;
+            //if(server.dispatcher) server.dispatcher.end();
+            //message.react('✅');
+            //message.channel.send("Skipping the current song.");
+        //break;
 
         case 'stop':
+            if(!message.guild) return message.channel.send('You must be in a guild.');
             var server = servers[message.guild.id];
-            //var server = process.env.server;
+                //var server = process.env.server;
             if(message.guild.voice.connection){
                 for(var i = server.queue.length -1; i >= 0; i--){
                     server.queue.splice(i, 1);
@@ -325,7 +301,7 @@ client.on('message', message => {
             if(message.guild.connection) message.guild.voice.connection.disconnect();
         break;
     }
-});
+});*/
 
 /*
 //Pause
@@ -345,30 +321,6 @@ server.queue.forEach(function(entry) { // For each queue item
 });
 message.channel.send(queueOutput)
 */
-
-//Counting Stuff
-var counting = 0;
-var nextNumber = 1;
-
-function startCounting(){
-    counting++
-}
-
-function stopCounting(){
-    counting--
-}
-
-function formatNumber(){
-    userNumber = parseInt(replyFormatted);
-}
-
-function increaseNumber(){
-    nextNumber = nextNumber + 1;
-}
-
-function resetNumber(){
-    nextNumber = 0;
-}
 
 client.on('message', message => {
     if(message.author.id === client.user.id) return;
@@ -423,6 +375,7 @@ client.on('message', message => {
 
     switch (args[0]){
         case 'kick':
+            if(!message.guild) return message.channel.send('You must be in a guild.');
             if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -454,6 +407,7 @@ client.on('message', message => {
 
     switch (args[0]){
         case 'ban':
+            if(!message.guild) return message.channel.send('You must be in a guild.');
             if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
                 msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
             }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -480,6 +434,38 @@ client.on('message', message => {
     }
 })
 
+client.on('message', message => {
+    let args = message.content.substring(prefix.length).split(" ");
+
+    switch (args[0]){
+        case 'unban':
+            if(!message.guild) return message.channel.send('You must be in a guild.');
+            if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
+                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
+            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+
+            const user = message.mentions.users.first();
+
+            if(user){
+                const member = message.guild.member(user);
+
+                if(member){
+                    guild.members.unban(member, 'Ban appealed.').then(() => {
+                        message.reply(`Successfully unbanned ${user.tag}.`);
+                    }).catch(err => {
+                        message.reply(`I was unable to unban the member.`);
+                        console.log(err);
+                    })
+                } else{
+                    message.reply("That user isn\'t banned in this guild.")
+                }
+            } else{
+                message.reply('You need to specify a user!');
+            }
+        break;
+    }
+})
+
 // Stores the current count.
 let count = 0
 // Stores the timeout used to make the bot count if nobody else counts for a set period of
@@ -490,16 +476,16 @@ client.on('message', ({channel, content, member}) => {
     // Only do this for the counting channel of course
     // If you want to simply make this work for all channels called 'counting', you
     // could use this line:
-    if (client.channels.cache.filter(c => c.name === 'counting').keyArray().includes(channel.id)){
+    if(client.channels.cache.filter(c => c.name === 'counting').keyArray().includes(channel.id)){
     //if (channel.id === 'counting channel id') {
       // You can ignore all bot messages like this
-      if (member.user.bot) return
+      if(member.user.bot) return
       // If the message is the current count + 1...
-      if (Number(content) === count + 1){
+      if(Number(content) === count + 1){
         // ...increase the count
         count++
         // Remove any existing timeout to count
-        if (timeout) client.clearTimeout(timeout)
+        if(timeout) client.clearTimeout(timeout)
         // Add a new timeout
         timeout = client.setTimeout(
           // This will make the bot count and log all errors
@@ -508,14 +494,14 @@ client.on('message', ({channel, content, member}) => {
           30000
         )
       // If the message wasn't sent by the bot...
-      } else if (member.id !== client.user.id) {
+      } else if(member.id !== client.user.id){
         // ...send a message because the person stuffed up the counting (and log all errors)
         channel.send(`${member} messed up!`).catch(console.error)
         // Reset the count
         count = 0
         // Reset any existing timeout because the bot has counted so it doesn't need to
         // count again
-        if (timeout) client.clearTimeout(timeout)
+        if(timeout) client.clearTimeout(timeout)
       }
     }
   })
@@ -529,7 +515,7 @@ client.on('message', message => {
    if(command == 'help'){
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +music - Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -559,17 +545,17 @@ client.on('message', message => {
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(toolsEmbed);
    } else if(command == 'music'){
-    const toolsEmbed = new MessageEmbed()
-    .setTitle('Music!')
-    .setDescription('There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. There is a skip command, however it works just like the stop command, since there would only be one song in the "queue." \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel.')
-    .setColor('#66ccff')
-    .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-    .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
-    message.channel.send(toolsEmbed);
+       const toolsEmbed = new MessageEmbed()
+       .setTitle('Music!')
+       .setDescription('[Note: These music commands are currently unavailable due the the way Sweet Pea is currently hosted.] \n \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel.') //There is a skip command, however it works just like the stop command, since there would only be one song in the "queue."
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+       message.channel.send(toolsEmbed);
    } else if(command == 'moderation'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Moderation!')
-       .setDescription('**Note** \n The muting and unmuting commands are currently unavailable. These commands are being looked at, and hopefully fixed in the future. \n \n +clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100. \n +kick [person] - Kicks a user in the server. \n +ban [person] [time] - Bans a user, with an option for a timed ban. \n +mute [person] [time] - Mute a user, with an option for a timed mute. \n +unmute [person] - Unmutes a user.')
+       .setDescription('**Note** \n The muting and unmuting commands are currently unavailable. These commands are being looked at, and hopefully fixed in the future. \n \n +clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100. \n +kick [person] - Kicks a user in the server. \n +ban [person] [time] - Bans a user, with an option for a timed ban. \n +unban [person] - Unbans a banned user. \n +mute [person] [time] - Mute a user, with an option for a timed mute. \n +unmute [person] - Unmutes a user.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -608,7 +594,8 @@ client.on('message', message => {
        message.channel.send(colorsEmbed);
    } else if(command == 'ping'){
        client.commands.get('ping').execute(message, args);
-   } else if(command == 'rules'){
+   } /*else if(command == 'rules'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        const commandsEmbed = new MessageEmbed()
        .setTitle('Rules!')
        .setDescription('> 1) Aside from Eclipsys Contact’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n \n ⚠️ These rules are subject to change at any time.')
@@ -619,6 +606,7 @@ client.on('message', message => {
        
        //message.channel.send('> 1) Aside from Eclipsys Contact’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n ⚠️ These rules are subject to change at any time.');
    } else if(command == 'amongrules'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        const commandsEmbed = new MessageEmbed()
        .setTitle('Among Us Rules!')
        .setDescription("> 1) Mute yourself when in game \n You may ONLY unmute in the in-game meetings. \n \n > 2) When you have been killed in game and are dead, STAY in the Alive voice channel \n You may move into the Dead voice channel ONCE a meeting is held in-game, and everyone else knows that you're dead. \n This is so others will only know when someone's dead by finding a dead body, which is how the game's intended to work. \n \n Note: Those who have died and are in the Dead voice channel may speak with each other.")
@@ -628,21 +616,496 @@ client.on('message', message => {
        message.channel.send(commandsEmbed);
    } else if(command == 'lore'){
        client.commands.get('lore').execute(message, args);
-   } else if(command == 'rank'){
+   }*/ else if(command == 'rank'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('rank').execute(message, args);
    } else if(command == 'color'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('color').execute(message, args);
+   } else if(command == "addcolors"){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
+       if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Lack of permissions!");
+
+       const black = message.guild.roles.cache.find(black_role => black_role.name === '「Black」');
+       const gray = message.guild.roles.cache.find(gray_role => gray_role.name == '「Gray」');
+       const white = message.guild.roles.cache.find(white_role => white_role.name == '「White」');
+       const pink = message.guild.roles.cache.find(pink_role => pink_role.name == '「Pink」');
+       const red = message.guild.roles.cache.find(red_role => red_role.name == '「Red」');
+       const pastel_red = message.guild.roles.cache.find(pastel_red_role => pastel_red_role.name == '「Pastel Red」');
+       const pastel_orange = message.guild.roles.cache.find(pastel_orange_role => pastel_orange_role.name == '「Pastel Orange」');
+       const orange = message.guild.roles.cache.find(orange_role => orange_role.name == '「Orange」');
+       const yellow = message.guild.roles.cache.find(yellow_role => yellow_role.name == '「Yellow」');
+       const pastel_yellow = message.guild.roles.cache.find(pastel_yellow_role => pastel_yellow_role.name == '「Pastel Yellow」');
+       const yellow_green = message.guild.roles.cache.find(yellow_green_role => yellow_green_role.name == '「Yellow Green」');
+       const green = message.guild.roles.cache.find(green_role => green_role.name == '「Green」');
+       const pastel_green = message.guild.roles.cache.find(pastel_green_role => pastel_green_role.name == '「Pastel Green」');
+       const light_blue_green = message.guild.roles.cache.find(light_blue_green_role => light_blue_green_role.name == '「Light Blue Green」');
+       const blue_green = message.guild.roles.cache.find(blue_green_role => blue_green_role.name == '「Blue Green」');
+       const pastel_blue = message.guild.roles.cache.find(pastel_blue_role => pastel_blue_role.name == '「Pastel Blue」');
+       const blue = message.guild.roles.cache.find(blue_role => blue_role.name == '「Blue」');
+       const indigo = message.guild.roles.cache.find(indigo_role => indigo_role.name == '「Indigo」');
+       const violet = message.guild.roles.cache.find(violet_role => violet_role.name == '「Violet」');
+       const pastel_purple = message.guild.roles.cache.find(pastel_purple_role => pastel_purple_role.name == '「Pastel Purple」');
+
+       //Create Black Role
+       if(black){
+           message.channel.send("Tind the 「Black」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Black」',
+                   color: '111111',
+               }
+           });
+       }
+
+       //Create Gray Role
+       if(gray){
+           message.channel.send("The 「Gray」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Gray」',
+                   color: 'acacac',
+               }
+           });
+       }
+       
+       //Create White Role
+       if(white){
+           message.channel.send("The 「White」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「White」',
+                   color: 'ffffff',
+               }
+           });
+       }
+       
+       //Create Pink Role
+       if(pink){
+           message.channel.send("The 「Pink」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pink」',
+                   color: 'ffa0a0',
+               }
+           });
+       }
+       
+       //Create Red Role
+       if(red){
+           message.channel.send("The 「Red」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Red」',
+                   color: 'ff0000',
+               }
+           });
+       }
+       
+       //Create Pastel Red Role
+       if(pastel_red){
+           message.channel.send("The 「Pastel Red」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pastel Red」',
+                   color: 'ff5555',
+               }
+           });
+       }
+       
+       //Create Pastel Orange Role
+       if(pastel_orange){
+           message.channel.send("The 「Pastel_Orange」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pastel Orange」',
+                   color: 'ffac69',
+               }
+           });
+       }
+       
+       //Create Orange Role
+       if(orange){
+           message.channel.send("The 「Orange」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Orange」',
+                   color: 'e67e22',
+               }
+           });
+       }
+       
+       //Create Yellow Role
+       if(yellow){
+           message.channel.send("The 「Yellow」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Yellow」',
+                   color: 'f1c40f',
+               }
+           });
+       }
+       
+       //Create Pastel Yellow Role
+       if(pastel_yellow){
+           message.channel.send("The 「Pastel_yellow」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pastel Yellow」',
+                   color: 'ffffa0',
+               }
+           });
+       }
+       
+       //Create Yellow Green Role
+       if(yellow_green){
+           message.channel.send("The 「Yellow Green」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Yellow Green」',
+                   color: 'ccff00',
+               }
+           });
+       }
+       
+       //Create Green Role
+       if(green){
+           message.channel.send("The 「Green」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Green」',
+                   color: '1eff00',
+               }
+           });
+       }
+       
+       //Create Pastel Green Role
+       if(pastel_green){
+           message.channel.send("The 「Pastel Green」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pastel Green」',
+                   color: '90ff9b',
+               }
+           });
+       }
+       
+       //Create Light Blue Green Role
+       if(light_blue_green){
+           message.channel.send("The 「Light Blue Green」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Light Blue Green」',
+                   color: '00ffac',
+               }
+           });
+       }
+       
+       //Create Blue Green Role
+       if(blue_green){
+           message.channel.send("The 「Blue Green」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Blue Green」',
+                   color: '1abc9c',
+               }
+           });
+       }
+       
+       //Create Pastel Blue Role
+       if(pastel_blue){
+           message.channel.send("The 「Pastel Blue」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pastel Blue」',
+                   color: 'aae1ff',
+               }
+           });
+       }
+       
+       //Create Blue Role
+       if(blue){
+           message.channel.send("The 「Blue」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Blue」',
+                   color: '00acff',
+               }
+           });
+       }
+       
+       //Create Indigo Role
+       if(indigo){
+           message.channel.send("The 「Indigo」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Indigo」',
+                   color: '9b59b6',
+               }
+           });
+       }
+       
+       //Create Violet Role
+       if(violet){
+           message.channel.send("The 「Violet」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Violet」',
+                   color: '71368a',
+               }
+           });
+       }
+       
+       //Create Pastel Purple Role
+       if(pastel_purple){
+           message.channel.send("The「Pastel Purple」 color role already exists.");
+       } else{
+           message.guild.roles.create({
+               data: {
+                   name: '「Pastel Purple」',
+                   color: 'c17cff',
+               }
+           });
+       }
+       
+       message.channel.send("Created 20 new color roles! Type `+colors` to see what colors were added. To remove all 20 of these colors, type `+delcolors`.");
+   } else if(command == 'delcolors'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
+       if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Lack of permissions!")
+       
+       const black = message.guild.roles.cache.find(black_role => black_role.name === '「Black」');
+       const gray = message.guild.roles.cache.find(gray_role => gray_role.name == '「Gray」');
+       const white = message.guild.roles.cache.find(white_role => white_role.name == '「White」');
+       const pink = message.guild.roles.cache.find(pink_role => pink_role.name == '「Pink」');
+       const red = message.guild.roles.cache.find(red_role => red_role.name == '「Red」');
+       const pastel_red = message.guild.roles.cache.find(pastel_red_role => pastel_red_role.name == '「Pastel Red」');
+       const pastel_orange = message.guild.roles.cache.find(pastel_orange_role => pastel_orange_role.name == '「Pastel Orange」');
+       const orange = message.guild.roles.cache.find(orange_role => orange_role.name == '「Orange」');
+       const yellow = message.guild.roles.cache.find(yellow_role => yellow_role.name == '「Yellow」');
+       const pastel_yellow = message.guild.roles.cache.find(pastel_yellow_role => pastel_yellow_role.name == '「Pastel Yellow」');
+       const yellow_green = message.guild.roles.cache.find(yellow_green_role => yellow_green_role.name == '「Yellow Green」');
+       const green = message.guild.roles.cache.find(green_role => green_role.name == '「Green」');
+       const pastel_green = message.guild.roles.cache.find(pastel_green_role => pastel_green_role.name == '「Pastel Green」');
+       const light_blue_green = message.guild.roles.cache.find(light_blue_green_role => light_blue_green_role.name == '「Light Blue Green」');
+       const blue_green = message.guild.roles.cache.find(blue_green_role => blue_green_role.name == '「Blue Green」');
+       const pastel_blue = message.guild.roles.cache.find(pastel_blue_role => pastel_blue_role.name == '「Pastel Blue」');
+       const blue = message.guild.roles.cache.find(blue_role => blue_role.name == '「Blue」');
+       const indigo = message.guild.roles.cache.find(indigo_role => indigo_role.name == '「Indigo」');
+       const violet = message.guild.roles.cache.find(violet_role => violet_role.name == '「Violet」');
+       const pastel_purple = message.guild.roles.cache.find(pastel_purple_role => pastel_purple_role.name == '「Pastel Purple」');
+       
+       //Delete Black Role
+       if(!black){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           black.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Gray Role
+       if(!gray){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           gray.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete White Role
+       if(!white){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           white.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pink Role
+       if(!pink){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pink.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Red Role
+       if(!red){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           red.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pastel Red
+       if(!pastel_red){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pastel_red.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pastel Orange
+       if(!pastel_orange){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pastel_orange.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Orange
+       if(!orange){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           orange.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Yellow
+       if(!yellow){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           yellow.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pastel Yellow
+       if(!pastel_yellow){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pastel_yellow.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Yellow Green
+       if(!yellow_green){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           yellow_green.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Green
+       if(!green){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           green.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pastel Green
+       if(!pastel_green){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pastel_green.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Light Blue Green
+       if(!light_blue_green){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           light_blue_green.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Blue Green
+       if(!blue_green){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           blue_green.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pastel Blue
+       if(!pastel_blue){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pastel_blue.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Blue
+       if(!blue){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           blue.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Indigo
+       if(!indigo){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           indigo.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Violet
+       if(!violet){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           violet.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       //Delete Pastel Purple
+       if(!pastel_purple){
+           message.channel.send("Couldn't find the 「Black」 color role.");
+       } else{
+           pastel_purple.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+
+       message.channel.send("Successfully deleted all __20__ color roles!")
    } else if(command == 'roll'){
        client.commands.get('roll').execute(message, args);
    } else if(command == '8ball'){
        client.commands.get('8ball').execute(message, args);
    } else if(command == 'coin'){
-        client.commands.get('coin').execute(message, args);
+       client.commands.get('coin').execute(message, args);
    } else if(command == 'timer'){
-        client.commands.get('timer').execute(message, args);
+       client.commands.get('timer').execute(message, args);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
    } else if(command == 'hug'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        //client.commands.get('hug').execute(message, args);
        if(!args[0]){
            message.channel.send("You didn't say who you wanted to hug! Please @mention them next time.")
@@ -783,6 +1246,7 @@ client.on('message', message => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
        }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
    } else if(command == 'clear'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('clear').execute(message, args);
    } /*else if(command == 'purge'){
        const args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
@@ -828,7 +1292,7 @@ client.on('message', message => {
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
        message.channel.send("Link with instructions sent through dms!");
-   } else if(command == 'stc'){
+   } /*else if(command == 'stc'){
        const invite = new MessageEmbed()
        .setTitle('Sort The Court!')
        .setDescription("You're a ruler of a kingdom and make decisions to improve it. Gain population and get into the Council of Crowns to beat the game. Have fun!")
@@ -838,7 +1302,7 @@ client.on('message', message => {
        .setURL('https://repl.it/@jcjeffrey/Sort-The-Court-Strategy-Game-coded-by-jcjeffreysmoothie#main.py')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
-   } else if(command == 'wyr'){
+   }*/ else if(command == 'wyr'){
        const wyrEmbed = new MessageEmbed()
        .setTitle('Would You Rather!')
        .setDescription('')
@@ -847,6 +1311,7 @@ client.on('message', message => {
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(wyrEmbed);
    } else if(command == 'say'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('say').execute(message, args);
        /*const auth = message.author
        message.delete();
@@ -859,9 +1324,7 @@ client.on('message', message => {
        message.channel.startTyping();
        setTimeout(() => {  message.channel.send("hii"); }, 2000);
        message.channel.stopTyping();
-   } /*else if(command == 'purge'){
-       client.commands.get('purge').execute(message, args);
-   }*/ else if(command == 'cuterate'){
+   } else if(command == 'cuterate'){
        if(!args[0]){
            //console.log('Missing args')
            var cuteness = Math.floor(Math.random() * 101);
@@ -872,6 +1335,11 @@ client.on('message', message => {
            .setThumbnail('https://media1.tenor.com/images/097f46e1db35653902b10b0a322c908f/tenor.gif?itemid=12003933')
            message.channel.send(cuterate);
        } else{
+           if(!message.mentions.members.first()){
+               message.channel.send("Please @mention someone!")
+               return;
+           }
+
            //console.log('should work.')
            const personTagged = message.mentions.members.first();
            var cuteness = Math.floor(Math.random() * 101);
@@ -900,6 +1368,11 @@ client.on('message', message => {
            .setThumbnail('https://pbs.twimg.com/profile_images/777681909979680768/-7qNVsGS.jpg')
            message.channel.send(weebrate);
        } else{
+           if(!message.mentions.members.first()){
+               message.channel.send("Please @mention someone!")
+               return;
+           }
+
            //console.log('should work.')
            const personTagged = message.mentions.members.first();
            var weebness = Math.floor(Math.random() * 101);
@@ -928,6 +1401,11 @@ client.on('message', message => {
            .setThumbnail('https://media.tenor.com/images/2ab5635c3ca5d3c2891666347e44e587/tenor.gif')
            message.channel.send(smartrate);
        } else{
+           if(!message.mentions.members.first()){
+               message.channel.send("Please @mention someone!")
+               return;
+           }
+
            //console.log('should work.')
            const personTagged = message.mentions.members.first();
            var smartness = Math.floor(Math.random() * 101);
@@ -949,6 +1427,11 @@ client.on('message', message => {
            .setThumbnail('https://i.pinimg.com/originals/ba/76/ef/ba76ef5073422254cdd76038a817875c.gif')
            message.channel.send(epicrate);
        } else{
+           if(!message.mentions.members.first()){
+               message.channel.send("Please @mention someone!")
+               return;
+           }
+
            //console.log('should work.')
            const personTagged = message.mentions.members.first();
            var epicness = Math.floor(Math.random() * 101);
@@ -976,21 +1459,15 @@ client.on('message', message => {
             });
         });
    } else if(command == 'mute'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        message.channel.send("This command is currently being looked at and is in the process of repair.")
        //client.commands.get('mute').execute(message. args);
    } else if(command == 'unmute'){
-    message.channel.send("This command is currently being looked at and is in the process of repair.")
+       if(!message.guild) return message.channel.send('You must be in a guild.');
+       message.channel.send("This command is currently being looked at and is in the process of repair.")
        //client.commands.get('unmute').execute(message. args);
-   } else if(command == 'story'){
-        let reactionsEmbed = new MessageEmbed()
-        .setTitle('Sort The Court!')
-        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
-        .setColor('#66ccff')
-        message.channel.send(reactionsEmbed);
-        //let messageEmbed = await message.channel.send(reactionsEmbed)
-        //messageEmbed.react('🤴')
-        //messageEmbed.react('👸')
    } else if(command == 'welcome'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
        if(message.member.displayName == 'jc smoothie'){
            if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server || message.member.guild.id == The_Toilet){
                const welcomeChannel = message.member.guild.channels.cache.find(channel => channel.name === "welcome");
@@ -1010,40 +1487,54 @@ client.on('message', message => {
        } else{
            message.channel.send("Unfortunately, you do not have the permissions to use this command.")
        }
-   } /*else if(command == 'role'){
-       client.on('message', async message => {
-           let rName = message.content.split("role ").join("");
-           let rColor;
-           
-           args.forEach(arg => {
-               if(arg.startsWith("#")){
-                   rColor = arg;
-               }
-           });
-           
-           if(!rName){
-               return message.channel.send('You did not specify a name for your role!')
+   } else if(command == 'addrole'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
+       if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Lack of permissions!");
+       if(!args[0]){
+           message.channel.send("Please type the hexcolor starting with a # followed by a 6 digit number, along with the desired name for the new role to create.");
+           return;
+       } else if(args[0].length < 7 || args[0].length > 7){
+           message.channel.send("Please type the hexcolor with __exactly__ a 6 digit number. Remember to add a # at the front of the number.");
+           return;
+       } else if(!args[1]){
+           message.channel.send("Please type the name of the role to add.");
+           return;
+       }
+
+       const inputtedName = message.content.slice(10 + args[0].length);
+       //guild.roles.create({ data: roleData, reason: 'New staff role!' });
+       message.guild.roles.create({
+           data: {
+               name: inputtedName,
+               color: args[1],
            }
-           if(!rColor){
-               return message.channel.send('You did not specify a color for your role!')
-           }
-           if(rColor >= 16777215) return message.channel.send('That hex color range was too big! Keep it between 0 and 16777215!');
-           if(rColor <= 16777215) return message.channel.send('That hex color range was too small! Keep it between 0 and 16777215!');
-           rName = rName.replace(`${rColor}`,``);
-           let rNew = message.guild.roles.create({
-               data: {
-                   name: rName,
-                   color: rColor,
-               }
-           });
-           
-           const Embed = new MessageEmbed()
-           .setTitle("New role created!")
-           .setDescription(`${message.author.username} has created the role "${rName}" \n Hex color code: ${rColor} \n ID: ${rNew.id}`)
-           .setColor(rColor)
-           message.channel.send(Embed);
        });
-   }*/
+
+       message.channel.send("Created a new role named **" + inputtedName + "** with the hexcolor __" + args[0] + "__!");
+   } else if(command == 'delrole'){
+       if(!message.guild) return message.channel.send('You must be in a guild.');
+       if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Lack of permissions!")
+       if(!args[1]){
+           message.channel.send("Please type the name of a role to delete.");
+           return;
+       }
+
+       const selectedRole = message.content.slice(9);
+       const role = message.guild.roles.cache.find(role => role.name === selectedRole);
+
+       if(!role){
+           message.channel.send(`Couldn't find a role named ` + selectedRole + '. Please try again, and make sure to type the name __exactly__ how it is shown.');
+           return;
+       } else{
+           role.delete('The role needed to go')
+           .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
+           .catch(console.error);
+       }
+   } else if(command == 'play'){ //Hosting on Heroku doesn't allow for the music commands to work, so they were removed to prevent errors from occuring
+       message.channel.send("[Note: Currently unavailable due to bot hosting.]");
+   } else if(command == 'stop'){
+       message.channel.send("[Note: Currently unavailable due to bot hosting.]");
+   }
 });
 
 //Reaction stuff
@@ -2198,6 +2689,330 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     }
 });
 
+//Journey Beginning
+client.on('message', async message => {
+    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
+    
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if(command == 'story'){
+        if (client.channels.cache.filter(c => c.name === 'story').keyArray().includes(channel.id)){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Sort The Court!')
+            .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
+            .setColor('#66ccff')
+            let messageEmbed = await message.channel.send(reactionsEmbed)
+            messageEmbed.react('🤴')
+            messageEmbed.react('👸')
+        }
+    }
+});
+
+//Story
+client.on('message', async message => {
+    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
+    
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+    
+    if(command == 'story'){
+        const storyChannel = guild.channels.find(c => c.name === 'story');
+        if(!message.channel == storyChannel){
+            message.channel.send('Sorry, but you must be in the text channel called "story" to be able to use this feature. If there is no text channel named that, create it or ask someone to.');
+            return;
+        }
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Your Journey Begins!')
+        .setDescription("You arrive in the town of Glendale, a small settlement distant from any bustling town or city like those around the capital. The people live peacefully in calm solitude, with few travelers or outsiders. You decided to explore these lands, and happened to stumble upon the humble town. \n \n Walking up to the gate, you hit up a conversation with one of the two guards standing alongside the wall.")
+        .setColor('#ffffff')
+        message.channel.send(reactionsEmbed);
+        let messageEmbed = await message.channel.send(reactionsEmbed)
+        messageEmbed.react('➡️')
+    }
+});
+
+//Continue Reaction
+client.on("messageReactionAdd", async (reaction, user) => {
+    if(reaction.message.partcial) await reaction.message.fetch();
+    if(reaction.partial) await reaction.fetch();
+
+    if(user.bot) return;
+    if(!reaction.message.guild) return;
+
+    if(reaction.message.channel.id === "766037768379695117"){
+        if(reaction.emoji.name === '➡️'){
+            if(start == 2){
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Our city's still very small right now, but \n it certainly has the potential to grow.")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 3){
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Perhaps one day we will have a bustling \n metropolis and you'll be invited to join the \n Council of Crowns!")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 4){
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("For now, all you need to concern yourself \n with is keeping the citizens happy and \n growing our population.")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 5){
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("At the beginning of the day, you can type \n in `awards` to see the achievements.")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 6){
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Royal Advisor')
+                .setDescription("Do your best, " + gender2 + "!")
+                .setColor('#DC143C')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 7){
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day 1')
+                .setDescription("======================================== \n Population: " + population + "\n Happiness: " + happiness + "\n Gold: " + gold + "\n ========================================")
+                .setColor('#228B22')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                startAdd();
+            } else if(start == 8){
+                //Character Selection
+                character();
+                if(char == 1){
+                    sneakyGirl();
+                    visits();
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Sneaky Girl')
+                    .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
+                    .setColor('#FF1493')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
+                } else if(char == 2){
+                    bootsTheCat();
+                    visits();
+                    bootsTheCatOption();
+                    if(catOption == 1){
+                        let reactionsEmbed = new MessageEmbed()
+                        .setTitle('Boots The Cat')
+                        .setDescription("Meow! (It's just... staring at me... Does it want \n something?)")
+                        .setColor('#DAA520')
+                        let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                        messageEmbed.react('✅')
+                        messageEmbed.react('❌')
+                    } else if(catOption == 2){
+                        let reactionsEmbed = new MessageEmbed()
+                        .setTitle('Boots The Cat')
+                        .setDescription("Meeow. (Looks like he wants somebody \n to pat his belly...)")
+                        .setColor('#DAA520')
+                        let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                        messageEmbed.react('✅')
+                        messageEmbed.react('❌')
+                    }
+                }
+            } else if(start == 9){
+                startAdd();
+                if(population_difference < 0){
+                    populationReport = population_difference;
+                } else{
+                    populationReport = "+" + population_difference;
+                }
+                if(happiness_difference < 0){
+                    happinessReport = happiness_difference;
+                    cityNegativeOpinion();
+                } else{
+                    happinessReport = "+" + happiness_difference;
+                    cityPositiveOpinion();
+                }
+                if(gold_difference < 0){
+                    goldReport = gold_difference;
+                } else{
+                    goldReport = "+" + gold_difference;
+                }
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day ' + day + ' is complete!')
+                .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Report: \n " + populationReport + " Population \n " + happinessReport + " Happiness \n " + goldReport + " Gold \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
+                .setColor('#228B22')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+                forwardDay();
+                resetReports();
+            } else if(start == 10){
+                startSubtract();
+                startSubtract();
+                if(happiness_difference < 0){
+                    negativeDailyPopulation();
+                } else{
+                    positiveDailyPopulation();
+                }
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day ' + day)
+                .setDescription(dailyPopulationDisplay + " \n \n ======================================== \n Population: " + population + " \n Happiness: " + happiness + " \n Gold: " + gold + " \n ========================================")
+                .setColor('#228B22')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('➡️')
+            } else if(start == 11){
+                start = 0;
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Day ' + day)
+                .setDescription("**************************************** \n Your kingdom lasted " + day + " days. \n Your kingdom ended with " + population + " people. \n Your kingdom ended with " + happiness + " happiness. \n Your kingdom ended with " + gold + " gold. \n **************************************** \n \n Type `+start` to play the game again.")
+                .setColor('#228B22')
+            }
+        }
+    }
+
+    /*
+    if(reaction.emoji.name === '➡️'){
+        if(start == 2){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Our city's still very small right now, but \n it certainly has the potential to grow.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 3){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Perhaps one day we will have a bustling \n metropolis and you'll be invited to join the \n Council of Crowns!")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 4){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("For now, all you need to concern yourself \n with is keeping the citizens happy and \n growing our population.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 5){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("At the beginning of the day, you can type \n in `awards` to see the achievements.")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 6){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Royal Advisor')
+            .setDescription("Do your best, " + gender2 + "!")
+            .setColor('#DC143C')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 7){
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day 1')
+            .setDescription("======================================== \n Population: " + population + "\n Happiness: " + happiness + "\n Gold: " + gold + "\n ========================================")
+            .setColor('#228B22')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            startAdd();
+        } else if(start == 8){
+            //Character Selection
+            character();
+            if(char == 1){
+                sneakyGirl();
+                visits();
+                let reactionsEmbed = new MessageEmbed()
+                .setTitle('Sneaky Girl')
+                .setDescription("Want me to steal from the rich and give \n to... you? Not just the rich, I'll steal from \n whoever,basically.")
+                .setColor('#FF1493')
+                let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                messageEmbed.react('✅')
+                messageEmbed.react('❌')
+            } else if(char == 2){
+                bootsTheCat();
+                visits();
+                bootsTheCatOption();
+                if(catOption == 1){
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription("Meow! (It's just... staring at me... Does it want \n something?)")
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
+                } else if(catOption == 2){
+                    let reactionsEmbed = new MessageEmbed()
+                    .setTitle('Boots The Cat')
+                    .setDescription("Meeow. (Looks like he wants somebody \n to pat his belly...)")
+                    .setColor('#DAA520')
+                    let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+                    messageEmbed.react('✅')
+                    messageEmbed.react('❌')
+                }
+            }
+        } else if(start == 9){
+            startAdd();
+            if(population_difference < 0){
+                populationReport = population_difference;
+            } else{
+                populationReport = "+" + population_difference;
+            }
+            if(happiness_difference < 0){
+                happinessReport = happiness_difference;
+                cityNegativeOpinion();
+            } else{
+                happinessReport = "+" + happiness_difference;
+                cityPositiveOpinion();
+            }
+            if(gold_difference < 0){
+                goldReport = gold_difference;
+            } else{
+                goldReport = "+" + gold_difference;
+            }
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day ' + day + ' is complete!')
+            .setDescription("++++++++++++++++++++++++++++++++++++++++ \n Report: \n " + populationReport + " Population \n " + happinessReport + " Happiness \n " + goldReport + " Gold \n \n " + cityOpinion + " \n ++++++++++++++++++++++++++++++++++++++++")
+            .setColor('#228B22')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+            forwardDay();
+            resetReports();
+        } else if(start == 10){
+            startSubtract();
+            startSubtract();
+            if(happiness_difference < 0){
+                negativeDailyPopulation();
+            } else{
+                positiveDailyPopulation();
+            }
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day ' + day)
+            .setDescription(dailyPopulationDisplay + " \n \n ======================================== \n Population: " + population + " \n Happiness: " + happiness + " \n Gold: " + gold + " \n ========================================")
+            .setColor('#228B22')
+            let messageEmbed = await reaction.message.channel.send(reactionsEmbed)
+            messageEmbed.react('➡️')
+        } else if(start == 11){
+            start = 0;
+            let reactionsEmbed = new MessageEmbed()
+            .setTitle('Day ' + day)
+            .setDescription("**************************************** \n Your kingdom lasted " + day + " days. \n Your kingdom ended with " + population + " people. \n Your kingdom ended with " + happiness + " happiness. \n Your kingdom ended with " + gold + " gold. \n **************************************** \n \n Type `+start` to play the game again.")
+            .setColor('#228B22')
+        }
+    }
+    */
+});
+
 //Sort The Court
 
 //Variables
@@ -2297,28 +3112,17 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     
-    if(command == 'stc'){
-        /*
-        if(message.channel.id === "766037768379695117"){
+    /*if(command == 'stc'){
+        if(message.guild.channels.cache.filter(c => c.name === 'sort the court')){
             let reactionsEmbed = new MessageEmbed()
             .setTitle('Sort The Court!')
-            .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 1.2.4> \n - NEW CHARACTERS! \n       Dragon, Black Smith, Skelly, Yarno, \n       Button Boy, Advisor Pia, \n       King Andromedus, Queen Chanterelle, \n       Queen Cerith, Advisor Pontus, \n       and Advisor Agaric \n - Added achievements! \n - More options with  Royal Advisor \n - True ending: Council of Crowns \n ======================================== \n  \n Are you a king or queen?")
+            .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
             .setColor('#66ccff')
             let messageEmbed = await message.channel.send(reactionsEmbed)
             messageEmbed.react('🤴')
             messageEmbed.react('👸')
         }
-        */
-        /*
-        let reactionsEmbed = new MessageEmbed()
-        .setTitle('Sort The Court!')
-        .setDescription("======================================== \n                                    SORT THE COURT                                    \n <VERSION 0.5> \n - TWO CHARACTERS! \n Sneaky Girl and Boots the Cat \n ======================================== \n  \n Are you a king or queen?")
-        .setColor('#66ccff')
-        let messageEmbed = await message.channel.send(reactionsEmbed)
-        messageEmbed.react('🤴')
-        messageEmbed.react('👸')
-        */
-    }
+    }*/
 });
 
 //King user response
@@ -2329,8 +3133,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
-    /*
-    if(reaction.message.channel.id === "766037768379695117"){
+    
+    //if(reaction.message.channel.id === "766037768379695117"){
+    /*if(reaction.message.guild.channels.cache.filter(c => c.name === 'sort the court')){
         if(reaction.emoji.name === '🤴'){
             if(start == 0){
                 king();
@@ -2344,8 +3149,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 messageEmbed.react('❌')
             }
         }
-    }
-    */
+    }*/
+    
 
    /*if(reaction.emoji.name === '🤴'){
        if(start == 0){
@@ -2370,8 +3175,9 @@ client.on("messageReactionAdd", async (reaction, user) => {
     if(user.bot) return;
     if(!reaction.message.guild) return;
 
-    /*
-    if(reaction.message.channel.id === "766037768379695117"){
+    
+    //if(reaction.message.channel.id === "766037768379695117"){
+    /*if(reaction.message.guilds.channels.cache.filter(c => c.name === 'sort the court')){
         if(reaction.emoji.name === '👸'){
             if(start == 0){
                 queen();
@@ -2385,8 +3191,8 @@ client.on("messageReactionAdd", async (reaction, user) => {
                 messageEmbed.react('❌')
             }
         }
-    }
-    */
+    }*/
+    
 
    /*if(reaction.emoji.name === '👸'){
        if(start == 0){
