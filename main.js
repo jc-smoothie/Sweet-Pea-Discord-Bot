@@ -523,7 +523,7 @@ client.on('message', message => {
    } else if(command == 'fun'){
        const funEmbed = new MessageEmbed()
        .setTitle('Fun!')
-       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Other** \n +color [color] - (Only works for servers with color roles created by jc smoothie themself) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
+       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +kill [person] - Kill someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Other** \n +color [color] - (Only works for servers with color roles created by jc smoothie themself) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -1227,7 +1227,7 @@ client.on('message', message => {
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
-       .setURL('https://top.gg/bot/729142073126682644')
+       .setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=8')
        //.setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=37088328')
        message.author.send(invite);
        message.channel.send("Invitation with instructions sent through dms!");
