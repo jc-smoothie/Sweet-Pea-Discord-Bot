@@ -52,6 +52,21 @@ module.exports = {
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.');
             }
         } else if(parts[1] == 'member'){
+            const member = message.guild.roles.cache.find(r => r.name === "Member");
+            if(!member){
+                message.channel.send("Sorry, but there doesn't seem to the a role called `Member`. Try to contact the server owner or and possible moderator to check if this role exists in the server.")
+            } else{
+                if(message.member.roles.cache.find(r => r.name === "Member")){
+                    //message.member.roles.remove(Member);
+                    //message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
+                    message.reply("You can not stop being a member! However, if you do want to leave the server, there's nothing stopping you.");
+                } else{
+                    message.member.roles.add(member.id);
+                    message.reply('Welcome, new Member~ Visit #react-role-assign to get language and region roles.');
+                    //message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, new member~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            }
             /*if(message.member.roles.cache.find(r => r.name === "Member")){
                 //message.member.roles.remove(Member);
                 //message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Weeb.");
@@ -63,6 +78,7 @@ module.exports = {
                 //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
             }*/
             
+            //Checks if the server id matches with one of my own servers
             if(message.member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Member")){
                     //message.member.roles.remove(Member);
