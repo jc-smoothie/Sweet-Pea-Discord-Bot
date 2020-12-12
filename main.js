@@ -1435,7 +1435,7 @@ client.on('message', message => {
            //console.log('should work.')
            const personTagged = message.mentions.members.first();
            var epicness = Math.floor(Math.random() * 101);
-           const weebrate = new MessageEmbed()
+           const epicrate = new MessageEmbed()
            .setTitle('Epic!')
            .setDescription("You are " + epicness + "% epic!")
            .setColor('#66ccff')
