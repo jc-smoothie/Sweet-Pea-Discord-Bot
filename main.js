@@ -1609,6 +1609,15 @@ client.on('message', async message => {
         if(msg == '') return;
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Poll!')
+        .setDescription("**" + message.member.displayName + "** created a poll: \n __" + msg + "__ \n \n Type your response below!")
+        .setColor('#66ccff')
+        message.delete();
+        message.channel.send(reactionsEmbed);
+    } else if(command == 'ynpoll'){
+        const msg = message.content.slice(5);
+        if(msg == '') return;
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Yess No Poll!')
         .setDescription("**" + message.member.displayName + "** created a poll: \n __" + msg + "__ \n \n React with a check mark or an x to vote!")
         .setColor('#66ccff')
         message.delete();
