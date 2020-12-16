@@ -58,8 +58,8 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.oOBqET2Hv2uUvVR_q2YTqxlgvPo');
-client.login(process.env.token);
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.oOBqET2Hv2uUvVR_q2YTqxlgvPo');
+//client.login(process.env.token);
 
 //Sort the Court Stuff
 var attempts = 1;
@@ -1163,6 +1163,8 @@ client.on('message', message => {
        client.commands.get('duck').execute(message, args);
    } else if(command == 'cow'){
        client.commands.get('cow').execute(message, args);
+   } else if(command == 'sheep'){
+       client.commands.get('sheep').execute(message, args);
    } else if(command == 'av'){
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
