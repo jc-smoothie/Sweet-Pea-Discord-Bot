@@ -11,7 +11,7 @@ module.exports = {
             console.log('Missing args')
         } else{
             console.log('should work.')
-            const image = Math.floor((Math.random() * 13) + 1);
+            const image = Math.floor((Math.random() * 2) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733712400368533544/bt2ZRjJ.gif';
             } else if(image == 2){
