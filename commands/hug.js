@@ -11,7 +11,7 @@ module.exports = {
             //console.log('Missing args')
         } else{
             //console.log('should work.')
-            const image = Math.floor((Math.random() * 10) + 1);
+            const image = Math.floor((Math.random() * 11) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655951374024775/giphy.gif';
             } else if(image == 2){
@@ -32,6 +32,8 @@ module.exports = {
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655994063650906/tenor.gif';
             } else if(image == 10){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif';
+            } else if(image == 11){
+                var chosenImage = 'https://media1.tenor.com/images/556acd32c0a48f6bc18de26c391689be/tenor.gif?itemid=13878376';
             }
             
             const personTagged = message.mentions.members.first();
