@@ -11,7 +11,7 @@ module.exports = {
             console.log('Missing args')
         } else{
             console.log('should work.')
-            const image = Math.floor((Math.random() * 13) + 1);
+            const image = Math.floor((Math.random() * 7) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.weeb.sh/images/BkNe8LQPW.gif';
             } else if(image == 2){
