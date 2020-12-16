@@ -1104,14 +1104,14 @@ client.on('message', message => {
        client.commands.get('timer').execute(message, args);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
-   } else if(command == 'hug'){
+   } else if(command == 'hug'){ //Action commands
        if(!message.guild) return message.channel.send('You must be in a guild.');
        //client.commands.get('hug').execute(message, args);
        if(!args[0]){
            message.channel.send("You didn't say who you wanted to hug! Please @mention them next time.")
-           //console.log('Missing args')
+           //console.log('Missing args');
        } else{
-           //console.log('should work.')
+           //console.log('should work.');
            const image = Math.floor((Math.random() * 10) + 1);
            if(image == 1){
                var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655951374024775/giphy.gif';
@@ -1155,7 +1155,7 @@ client.on('message', message => {
        client.commands.get('kiss').execute(message, args);
    } else if(command == 'kill'){
        client.commands.get('kill').execute(message, args);
-   } else if(command == 'dog'){
+   } else if(command == 'dog'){ //Animal commands
        client.commands.get('dog').execute(message, args);
    } else if(command == 'cat'){
        client.commands.get('cat').execute(message, args);
@@ -1165,6 +1165,24 @@ client.on('message', message => {
        client.commands.get('cow').execute(message, args);
    } else if(command == 'sheep'){
        client.commands.get('sheep').execute(message, args);
+   } else if(command == 'pig'){
+       client.commands.get('pig').execute(message, args);
+   } else if(command == 'turtle'){
+       client.commands.get('turtle').execute(message, args);
+   } else if(command == 'horse'){
+       client.commands.get('horse').execute(message, args);
+   } else if(command == 'lion'){
+       client.commands.get('lion').execute(message, args);
+   } else if(command == 'tiger'){
+       client.commands.get('tiger').execute(message, args);
+   } else if(command == 'wolf'){
+       client.commands.get('wolf').execute(message, args);
+   } else if(command == 'penguin'){
+       client.commands.get('penguin').execute(message, args);
+   } else if(command == 'bear'){
+       client.commands.get('bear').execute(message, args);
+   } else if(command == 'fish'){
+       client.commands.get('fish').execute(message, args);
    } else if(command == 'av'){
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
