@@ -1161,6 +1161,8 @@ client.on('message', message => {
        client.commands.get('cat').execute(message, args);
    } else if(command == 'duck'){
        client.commands.get('duck').execute(message, args);
+   } else if(command == 'cow'){
+       client.commands.get('cow').execute(message, args);
    } else if(command == 'av'){
        /*if(!message.mentions.users.size){
            return message.reply(`Here's your avatar: <${message.author.displayAvatarURL({ format: "png", dynamic: true })}>`);
