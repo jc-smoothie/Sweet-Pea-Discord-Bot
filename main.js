@@ -1155,6 +1155,18 @@ client.on('message', message => {
        client.commands.get('kiss').execute(message, args);
    } else if(command == 'kill'){
        client.commands.get('kill').execute(message, args);
+   } else if(command == 'pat'){
+       client.commands.get('pat').execute(message, args);
+   } else if(command == 'cuddle'){
+       client.commands.get('cuddle').execute(message, args);
+   } else if(command == 'tickle'){
+       client.commands.get('tickle').execute(message, args);
+   } else if(command == 'poke'){
+       client.commands.get('poke').execute(message, args);
+   } else if(command == 'lick'){
+       client.commands.get('poke').execute(message, args);
+   } else if(command == 'punch'){
+       client.commands.get('punch').execute(message, args);
    } else if(command == 'dog'){ //Animal commands
        client.commands.get('dog').execute(message, args);
    } else if(command == 'cat'){
