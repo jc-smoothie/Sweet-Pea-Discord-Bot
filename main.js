@@ -563,7 +563,7 @@ client.on('message', message => {
    } else if(command == 'animals'){
        const animalsEmbed = new MessageEmbed()
        .setTitle('Animals!')
-       .setDescription('+dog \n +cat \n +duck \n +cow (Coming soon) \n +sheep (Coming soon) \n +pig (Coming soon) \n +turtle (Coming soon) \n +horse (Coming soon) \n +lion (Coming soon) \n +tiger (Coming soon) \n +wolf (Coming soon) \n +penguin (Coming soon) \n +bear (Coming soon) \n +fish (Coming soon)')
+       .setDescription('+dog \n +cat \n +duck \n +cow \n +sheep \n +pig \n +turtle \n +horse \n +lion \n +tiger \n +wolf \n +penguin \n +bear \n +fish')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
