@@ -133,7 +133,7 @@ module.exports = {
             Pastel_Purple = '771798690604122153';
         }
 
-        //This function was a comment
+        //Template
         /*function Asian_Invasion_roles(){
             Black = '';
             Gray = '';
@@ -1178,14 +1178,17 @@ module.exports = {
     name: 'color',
     description: "this assigns color roles!",
     execute(message, args){
+        var Black = message.member.roles.cache.find(r => r.name === "「Black」";
+        var BlackID = Black.id;
+
         const parts = message.content.split(' ');
         const part1 = parts[1];
         const part2 = parts[2];
         const part3 = parts[3];
 
         if(part1 == 'black'){
-            if(message.member.roles.cache.find(r => r.name === "「Black」")){
-                message.member.roles.remove(Black);
+            if(Black)){
+                message.member.roles.remove(BlackID);
                 message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Black」.");
             } else{
                 if(message.member.roles.cache.find(r => r.name === "「Black」")){
