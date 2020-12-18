@@ -1179,64 +1179,64 @@ module.exports = {
     description: "this assigns color roles!",
     execute(message, args){
         var Black = message.member.roles.cache.find(r => r.name === "「Black」");
-        var BlackID = Black.id;
+        //var BlackID = Black.id;
 
         var Gray = message.member.roles.cache.find(r => r.name === "「Gray」");
-        var GrayID = Gray.id;
+        //var GrayID = Gray.id;
 
         var White = message.member.roles.cache.find(r => r.name === "「White」");
-        var WhiteID = White.id;
+        //var WhiteID = White.id;
 
         var Pink = message.member.roles.cache.find(r => r.name === "「Pink」");
-        var PinkID = Pink.id;
+        //var PinkID = Pink.id;
 
         var Red = message.member.roles.cache.find(r => r.name === "「Red」");
-        var RedID = Red.id;
+        //var RedID = Red.id;
 
         var Pastel_Red = message.member.roles.cache.find(r => r.name === "「Pastel Red」");
-        var Pastel_RedID = Pastel_Red.id;
+        //var Pastel_RedID = Pastel_Red.id;
 
         var Pastel_Orange = message.member.roles.cache.find(r => r.name === "「Pastel Orange」");
-        var Pastel_OrangeID = Pastel_Orange.id;
+        //var Pastel_OrangeID = Pastel_Orange.id;
 
         var Orange = message.member.roles.cache.find(r => r.name === "「Orange」");
-        var OrangeID = Orange.id;
+        //var OrangeID = Orange.id;
 
         var Yellow = message.member.roles.cache.find(r => r.name === "「Yellow」");
-        var YellowID = Yellow.id;
+        //var YellowID = Yellow.id;
 
         var Pastel_Yellow = message.member.roles.cache.find(r => r.name === "「Pastel Yellow」");
-        var Pastel_YellowID = Pastel_Yellow.id;
+        //var Pastel_YellowID = Pastel_Yellow.id;
 
         var Yellow_Green = message.member.roles.cache.find(r => r.name === "「Yellow Green」");
-        var Yellow_GreenID = Yellow_Green.id;
+        //var Yellow_GreenID = Yellow_Green.id;
 
         var Green = message.member.roles.cache.find(r => r.name === "「Green」");
-        var GreenID = Green.id;
+        //var GreenID = Green.id;
 
         var Pastel_Green = message.member.roles.cache.find(r => r.name === "「Pastel Green」");
-        var Pastel_GreenID = Pastel_Green.id;
+        //var Pastel_GreenID = Pastel_Green.id;
 
         var Light_Blue_Green = message.member.roles.cache.find(r => r.name === "「Light Blue Green」");
-        var Light_Blue_GreenID = Light_Blue_Green.id;
+        //var Light_Blue_GreenID = Light_Blue_Green.id;
 
         var Blue_Green = message.member.roles.cache.find(r => r.name === "「Blue Green」");
-        var Blue_GreenID = Blue_Green.id;
+        //var Blue_GreenID = Blue_Green.id;
 
         var Pastel_Blue = message.member.roles.cache.find(r => r.name === "「Pastel Blue」");
-        var Pastel_BlueID = Pastel_Blue.id;
+        //var Pastel_BlueID = Pastel_Blue.id;
 
         var Blue = message.member.roles.cache.find(r => r.name === "「Blue」");
-        var BlueID = Blue.id;
+        //var BlueID = Blue.id;
 
         var Indigo = message.member.roles.cache.find(r => r.name === "「Indigo」");
-        var IndigoID = Indigo.id;
+        //var IndigoID = Indigo.id;
 
         var Violet = message.member.roles.cache.find(r => r.name === "「Violet」");
-        var VioletID = Violet.id;
+        //var VioletID = Violet.id;
 
         var Pastel_Purple = message.member.roles.cache.find(r => r.name === "「Pastel Purple」");
-        var Pastel_PurpleID = Pastel_Purple.id;
+        //var Pastel_PurpleID = Pastel_Purple.id;
 
 
         const parts = message.content.split(' ');
