@@ -58,7 +58,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.fXD3E28aBdVFjyYnn4KOW_n5ChI');
 //client.login(process.env.token);
 
 //Sort the Court Stuff
@@ -523,7 +523,7 @@ client.on('message', message => {
    } else if(command == 'fun'){
        const funEmbed = new MessageEmbed()
        .setTitle('Fun!')
-       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +kill [person] - Kill someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Other** \n +color [color] - (Only works for servers with color roles created by jc smoothie themself) Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
+       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +kill [person] - Kill someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Other** \n +addcolors - Add new color roles to the server. \n delcolors - Delete the color roles in the server. \n +color [color] - Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -579,7 +579,7 @@ client.on('message', message => {
    } else if(command == 'updates'){
        const miscEmbed = new MessageEmbed()
        .setTitle('Updates!')
-       .setDescription('The next batch of commands have arrived!: \n Sweet Pea now has a counting game! Create a new text channel in your server exactly named "counting" and start by typing 1. The game is to keep counting, and you lose by either typing the incorrect number next in the sequence or typing text. \n \n **Music!** \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. There is a skip command, however it works just like the stop command, since there would only be one song in the "queue." \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel. \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Moderation!** \n Ban and mute commands have the option to specify an amount of time, otherwise you may leave it blank. \n You must have a member role and muted role called exactly "Member" and "Muted" for the mute and unmute commands to be functioning. At the moment, these two commands are being looked at, and hopefully fixed in the future. \n \n +clear [number] - Purge command. \n +kick [person] - Kicks a user. \n +ban [person] [time] - Bans a user. \n +mute [person] [time] - Mutes a user. \n +unmute [person] - Unmutes a user who has been muted. \n \n Currently working on: \n - Welcome command')
+       .setDescription('The next batch of commands have arrived!: \n \n **Color Roles!** \n Color roles are now available for all servers with Sweet Pea! \n Type `+addcolors` to create 20 new color roles in a server. If you want to delete these color roles, type `delcolors`. \n \n +color [color role] - Give yourself a color role! \n +colors - Display the 20 vailable color roles you can pick from! \n \n **Animals!** \n More animal commands have been added, so Sweet Pea may now display images of more animals! To see the list, type `+animals` and hit enter. \n \n **More Action Commands!** \n With the original hug, slap, kiss, and kill action commands, there are now more of them! These actions are done to other users in the server by mentioning them in your message, but there are also emotion commands, such as laughing, crying, pouting, smirking, and more!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -587,7 +587,7 @@ client.on('message', message => {
    } else if(command == 'colors'){
        const colorsEmbed = new MessageEmbed()
        .setTitle('Colors!')
-       .setDescription("**Note** \n Color roles are only available to a certain amount of servers that have had them configured onto by jc smoothie, my creator. \n If you know this server does have color roles configured by jc smoothie, then your entire message must be in lowercase, otherwise your message won't be read properly. \n \n Type `+color` along with a color from the list below to get that color role! \n To remove a color you have, retype the same message as you did to receive the color. \n Your previous color will be swapped out when you get a different color, so no need to remove it yourself! \n This makes it so you may only have one color at a time, ensuring that the color you recently received to will actually change the color of your displayed name. \n \n **Colors** \n Black \n Gray \n White \n Pink \n Red \n Pastel Red \n Pastel Orange \n Orange \n Yellow \n Pastel Yellow \n Yellow Green \n Green \n Pastel Green \n Light Blue Green \n Blue Green \n Pastel Blue \n Blue \n Indigo \n Violet \n Pastel Purple")
+       .setDescription("Your previous color will be swapped out when you get a different color, so no need to remove it yourself! This ensures the color you recently received will actually change the color of your displayed name, making it so you may only have one color at a time. \n \n +color [color role] - Give yourself a color role! To remove the color role you have, retype the same message as you did to receive the color. \n \n **Colors** \n Black \n Gray \n White \n Pink \n Red \n Pastel Red \n Pastel Orange \n Orange \n Yellow \n Pastel Yellow \n Yellow Green \n Green \n Pastel Green \n Light Blue Green \n Blue Green \n Pastel Blue \n Blue \n Indigo \n Violet \n Pastel Purple")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
