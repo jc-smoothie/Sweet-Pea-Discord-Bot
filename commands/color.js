@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
     name: 'color',
     description: "this assigns color roles!",
     execute(message, args){
@@ -134,28 +134,28 @@ module.exports = {
         }
 
         //Template
-        /*function Asian_Invasion_roles(){
-            Black = '';
-            Gray = '';
-            White = '';
-            Pink = '';
-            Red = '';
-            Pastel_Red = '';
-            Pastel_Orange = '';
-            Orange = '';
-            Yellow = '';
-            Pastel_Yellow = '';
-            Yellow_Green = '';
-            Green = '';
-            Pastel_Green = '';
-            Light_Blue_Green = '';
-            Blue_Green = '';
-            Pastel_Blue = '';
-            Blue = '';
-            Indigo = '';
-            Violet = '';
-            Pastel_Purple = '';
-        }*/
+        //function Asian_Invasion_roles(){
+            //Black = '';
+            //Gray = '';
+            //White = '';
+            //Pink = '';
+            //Red = '';
+            //Pastel_Red = '';
+            //Pastel_Orange = '';
+            //Orange = '';
+            //Yellow = '';
+            //Pastel_Yellow = '';
+            //Yellow_Green = '';
+            //Green = '';
+            //Pastel_Green = '';
+            //Light_Blue_Green = '';
+            //Blue_Green = '';
+            //Pastel_Blue = '';
+            //Blue = '';
+            //Indigo = '';
+            //Violet = '';
+            //Pastel_Purple = '';
+        //}
         
         if(message.channel.guild.id == Asian_Invasion){
             enableColorRoles()
@@ -1172,16 +1172,72 @@ module.exports = {
             message.reply("Unfortunately my creator, jc smoothie, hasn't added and configured color roles on this server. For me to be able to assign color roles to others, this action is required. This makes these color roles only available on certain servers at the moment.");
         }
     }
-}
+}*/
 
-/*module.exports = {
+module.exports = {
     name: 'color',
     description: "this assigns color roles!",
     execute(message, args){
-        var Black = message.member.roles.cache.find(r => r.name === "「Black」";
+        var Black = message.member.roles.cache.find(r => r.name === "「Black」");
         var BlackID = Black.id;
-        var Gray = message.member.roles.cache.find(r => r.name === "「Gray」";
+
+        var Gray = message.member.roles.cache.find(r => r.name === "「Gray」");
         var GrayID = Gray.id;
+
+        var White = message.member.roles.cache.find(r => r.name === "「White」");
+        var WhiteID = White.id;
+
+        var Pink = message.member.roles.cache.find(r => r.name === "「Pink」");
+        var PinkID = Pink.id;
+
+        var Red = message.member.roles.cache.find(r => r.name === "「Red」");
+        var RedID = Red.id;
+
+        var Pastel_Red = message.member.roles.cache.find(r => r.name === "「Pastel Red」");
+        var Pastel_RedID = Pastel_Red.id;
+
+        var Pastel_Orange = message.member.roles.cache.find(r => r.name === "「Pastel Orange」");
+        var Pastel_OrangeID = Pastel_Orange.id;
+
+        var Orange = message.member.roles.cache.find(r => r.name === "「Orange」");
+        var OrangeID = Orange.id;
+
+        var Yellow = message.member.roles.cache.find(r => r.name === "「Yellow」");
+        var YellowID = Yellow.id;
+
+        var Pastel_Yellow = message.member.roles.cache.find(r => r.name === "「Pastel Yellow」");
+        var Pastel_YellowID = Pastel_Yellow.id;
+
+        var Yellow_Green = message.member.roles.cache.find(r => r.name === "「Yellow Green」");
+        var Yellow_GreenID = Yellow_Green.id;
+
+        var Green = message.member.roles.cache.find(r => r.name === "「Green」");
+        var GreenID = Green.id;
+
+        var Pastel_Green = message.member.roles.cache.find(r => r.name === "「Pastel Green」");
+        var Pastel_GreenID = Pastel_Green.id;
+
+        var Light_Blue_Green = message.member.roles.cache.find(r => r.name === "「Light Blue Green」");
+        var Light_Blue_GreenID = Light_Blue_Green.id;
+
+        var Blue_Green = message.member.roles.cache.find(r => r.name === "「Blue Green」");
+        var Blue_GreenID = Blue_Green.id;
+
+        var Pastel_Blue = message.member.roles.cache.find(r => r.name === "「Pastel Blue」");
+        var Pastel_BlueID = Pastel_Blue.id;
+
+        var Blue = message.member.roles.cache.find(r => r.name === "「Blue」");
+        var BlueID = Blue.id;
+
+        var Indigo = message.member.roles.cache.find(r => r.name === "「Indigo」");
+        var IndigoID = Indigo.id;
+
+        var Violet = message.member.roles.cache.find(r => r.name === "「Violet」");
+        var VioletID = Violet.id;
+
+        var Pastel_Purple = message.member.roles.cache.find(r => r.name === "「Pastel Purple」");
+        var Pastel_PurpleID = Pastel_Purple.id;
+
 
         const parts = message.content.split(' ');
         const part1 = parts[1];
@@ -1189,7 +1245,7 @@ module.exports = {
         const part3 = parts[3];
 
         if(part1 == 'black'){
-            if(Black)){
+            if(Black){
                 message.member.roles.remove(BlackID);
                 message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Black」.");
             } else{
@@ -2176,4 +2232,4 @@ module.exports = {
             message.reply("Sorry, either the color role you entered is not available or does not exist. Also check that the entire message is lowercase, otherwise it can't be read properly. Please try again.")
         }
     }
-}*/
+}
