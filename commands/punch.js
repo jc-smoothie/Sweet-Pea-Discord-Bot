@@ -11,14 +11,14 @@ module.exports = {
             console.log('Missing args')
         } else{
             console.log('should work.')
-            const image = Math.floor((Math.random() * 3) + 1);
+            const image = Math.floor((Math.random() * 2) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.weeb.sh/images/BkdyPTZWz.gif';
             } else if(image == 2){
                 var chosenImage = 'https://cdn.weeb.sh/images/B1-ND6WWM.gif';
-            } else if(image == 3){
+            }/* else if(image == 3){
                 var chosenImage = '';
-            }/* else if(image == 4){
+            } else if(image == 4){
                 var chosenImage = '';
             } else if(image == 5){
                 var chosenImage = '';
