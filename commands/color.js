@@ -62,12 +62,11 @@ module.exports = {
         var Pastel_Purple = message.member.guild.roles.cache.find(r => r.name === "「Pastel Purple」");
         var Pastel_PurpleID = Pastel_Purple.id;
 
-        const colors = message.content.split(' ');
-        const parts = colors.toString().toLowerCase();
+        const partsFormatted = message.content.toString().toLowerCase();
+        const parts = partsFormatted.split(' ');
         const part1 = parts[1];
         const part2 = parts[2];
         const part3 = parts[3];
-        console.log(part1);
 
         if(part1 == 'black'){
             if(message.member.roles.cache.find(r => r.name === "「Black」")){
