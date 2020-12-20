@@ -515,7 +515,7 @@ client.on('message', message => {
    if(command == 'help'){
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +colors - Display the color roles you can choose from for the +color command! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -523,7 +523,7 @@ client.on('message', message => {
    } else if(command == 'fun'){
        const funEmbed = new MessageEmbed()
        .setTitle('Fun!')
-       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +kill [person] - Kill someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person] \n \n **Other** \n +addcolors - Add new color roles to the server. \n delcolors - Delete the color roles in the server. \n +color [color] - Give yourself a colored username! \n +colors - Display the color roles you can choose from for the +color command!')
+       .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +kill [person] - Kill someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person]')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -547,7 +547,7 @@ client.on('message', message => {
    } else if(command == 'music'){
        const toolsEmbed = new MessageEmbed()
        .setTitle('Music!')
-       .setDescription('[Note: These music commands are currently unavailable due the the way Sweet Pea is currently hosted.] \n \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel.') //There is a skip command, however it works just like the stop command, since there would only be one song in the "queue."
+       .setDescription('**Note** \n These music commands are currently unavailable due the the way Sweet Pea is currently hosted. \n \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel.') //There is a skip command, however it works just like the stop command, since there would only be one song in the "queue."
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
