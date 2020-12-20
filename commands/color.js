@@ -1053,7 +1053,7 @@ module.exports = {
         } else if(!part1){
             message.reply("You haven't stated a color! To see the collection of colors available, type `+colors` then hit enter, before trying again.")
         } else {
-            message.reply("Sorry, either the color role you entered is not available or does not exist. Also check that the entire message is lowercase, otherwise it can't be read properly. Please try again.")
+            message.reply("Sorry, either the color role you entered is not available or does not exist. Please try again.")
         }
     }
 }
