@@ -35,6 +35,11 @@ module.exports = {
             } else if(image == 11){
                 var chosenImage = 'https://media1.tenor.com/images/556acd32c0a48f6bc18de26c391689be/tenor.gif?itemid=13878376';
             }
+
+            if(!message.mentions.members.first()){
+                message.reply("Please mention someone to perform this action to!");
+                return;
+            }
             
             const personTagged = message.mentions.members.first();
             
@@ -43,7 +48,7 @@ module.exports = {
             .setDescription(message.author.username + ' hugs ' + personTagged.displayName)
             .setImage(chosenImage)
             .setColor("RANDOM")
-            message.channel.send(embed)
+            message.channel.send(embed);
             
             if(personTagged.displayName == "Sweet Pea"){
                 message.reply("❤️ Aww, thanks! I feel better now.");
