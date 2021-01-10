@@ -38,14 +38,20 @@ module.exports = {
             } //else if(image == 11){
                 //var chosenImage = 'https://steamuserimages-a.akamaihd.net/ugc/442858231150348236/D74979E09E92A3491B34666FB3AFE5D98FE98EE9/';
             //}
-                const personTagged = message.mentions.members.first();
+
+            if(!message.mentions.members.first()){
+                message.reply("Please mention someone to perform this action to!");
+                return;
+            }
+            
+            const personTagged = message.mentions.members.first();
  
-                let embed = new Discord.MessageEmbed()
-                .setTitle("Slaps")
-                .setDescription(message.author.username + ' slaps ' + personTagged.displayName)
-                .setImage(chosenImage)
-                .setColor("RANDOM")
-                message.channel.send(embed)
+            let embed = new Discord.MessageEmbed()
+            .setTitle("Slaps")
+            .setDescription(message.author.username + ' slaps ' + personTagged.displayName)
+            .setImage(chosenImage)
+            .setColor("RANDOM")
+            message.channel.send(embed);
         }
     }
 }
