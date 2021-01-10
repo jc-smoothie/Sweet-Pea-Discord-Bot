@@ -52,14 +52,20 @@ module.exports = {
             } //else if(image == 19){
                 //var chosenImage = 'https://i.gifer.com/PXEk.gif';
             //}
-                const personTagged = message.mentions.members.first();
- 
-                let embed = new Discord.MessageEmbed()
-                .setTitle("Death")
-                .setDescription(message.author.username + ' kills ' + personTagged.displayName)
-                .setImage(chosenImage)
-                .setColor("RANDOM")
-                message.channel.send(embed)
+
+            if(!message.mentions.members.first()){
+                message.reply("Please mention someone to perform this action to!");
+                return;
+            }
+            
+            const personTagged = message.mentions.members.first();
+
+            let embed = new Discord.MessageEmbed()
+            .setTitle("Death")
+            .setDescription(message.author.username + ' kills ' + personTagged.displayName)
+            .setImage(chosenImage)
+            .setColor("RANDOM")
+            message.channel.send(embed);
         }
     }
 }
