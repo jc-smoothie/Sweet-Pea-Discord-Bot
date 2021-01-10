@@ -83,13 +83,13 @@ client.once('ready', () => {
     console.log('Sweet Pea is online!');
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
 
-    memberCount(client)
-    //welcome(client)
+    memberCount(client);
+    //welcome(client);
 });
 
 //Message sent to the owner of the guild who added Sweet Pea to their server
 client.on("guildCreate", (guild) => {
-    guild.owner.send(`Thanks for inviting me to **${guild.name}**! ` +  "Type `+help` to display a list of categorized commands, and I hope I am able to suit your needs!")
+    guild.owner.send(`Thank you for inviting me to **${guild.name}**! ` +  "Type `+help` to display a list of categorized commands, and I hope I am able to suit your needs!")
 });
 
 /*client.on("guildCreate", (guild) => {
@@ -176,7 +176,7 @@ client.on("guildMemberAdd", (member) => {
 var servers = {};
 //const yts = require("yt-search");
 
-/*client.on('message', message => {
+client.on('message', message => {
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
@@ -301,7 +301,7 @@ var servers = {};
             if(message.guild.connection) message.guild.voice.connection.disconnect();
         break;
     }
-});*/
+});
 
 /*
 //Pause
@@ -512,7 +512,37 @@ client.on('message', message => {
    const args = message.content.slice(prefix.length).split(/ +/);
    const command = args.shift().toLowerCase();
 
-   if(command == 'help'){
+   if(command == 'support'){
+       const invite = new MessageEmbed()
+       .setTitle('Join the support server!')
+       .setDescription("Need to ask a question? Well, join the support server and ask away! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, you sould have access to the support server in your discord application/tab. \n \n Walla, you're in the support server! How awesome is that?")
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Need help or want to ask a question? Join the support server!                    Created by jc smoothie')
+       .setURL('https://discord.gg/m3Q6f3KRDP')
+       message.author.send(invite);
+       message.channel.send("Invitation with instructions sent through dms!");
+   } else if(command == 'invite'){
+       const invite = new MessageEmbed()
+       .setTitle('Invite me to a server!')
+       //.setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, select the server you want to add me to. \n \n Walla, I'm in a new server! How awesome is that?")
+       .setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, click on the invite button to invite me to a server! \n \n Then select the server you want to add me to. \n \n Hit continue, then authorize my permissions. \n \n Walla, I'm in a new server! How awesome is that?")
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
+       .setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=8')
+       //.setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=37088328')
+       message.author.send(invite);
+       message.channel.send("Invitation with instructions sent through dms!");
+   } else if(command == 'updates'){
+       const miscEmbed = new MessageEmbed()
+       .setTitle('Updates!')
+       .setDescription('The next batch of commands have arrived!: \n \n **Color Roles!** \n Color roles are now available for all servers with Sweet Pea! \n Type `+addcolors` to create 20 new color roles in a server. If you want to delete these color roles, type `delcolors`. \n \n +color [color role] - Give yourself a color role! \n +colors - Display the 20 vailable color roles you can pick from! \n \n **Animals!** \n More animal commands have been added, so Sweet Pea may now display images of more animals! To see the list, type `+animals` and hit enter. \n \n **More Action Commands!** \n With the original hug, slap, kiss, and kill action commands, there are now more of them! These actions are done to other users in the server by mentioning them in your message, but there are also emotion commands, such as laughing, crying, pouting, smirking, and more!')
+       .setColor('#66ccff')
+       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
+       message.channel.send(miscEmbed);
+   } else if(command == 'help'){
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
        .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +colors - Display the color roles you can choose from for the +color command! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
@@ -572,14 +602,6 @@ client.on('message', message => {
        const miscEmbed = new MessageEmbed()
        .setTitle('Miscellaneous!')
        .setDescription('+token')
-       .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
-       message.channel.send(miscEmbed);
-   } else if(command == 'updates'){
-       const miscEmbed = new MessageEmbed()
-       .setTitle('Updates!')
-       .setDescription('The next batch of commands have arrived!: \n \n **Color Roles!** \n Color roles are now available for all servers with Sweet Pea! \n Type `+addcolors` to create 20 new color roles in a server. If you want to delete these color roles, type `delcolors`. \n \n +color [color role] - Give yourself a color role! \n +colors - Display the 20 vailable color roles you can pick from! \n \n **Animals!** \n More animal commands have been added, so Sweet Pea may now display images of more animals! To see the list, type `+animals` and hit enter. \n \n **More Action Commands!** \n With the original hug, slap, kiss, and kill action commands, there are now more of them! These actions are done to other users in the server by mentioning them in your message, but there are also emotion commands, such as laughing, crying, pouting, smirking, and more!')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
@@ -1134,6 +1156,11 @@ client.on('message', message => {
            } else if(image == 10){
                var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655987331924008/c61.gif';
            }
+
+           if(!message.mentions.members.first()){
+               message.reply("Please mention someone to perform this action to!");
+               return;
+           }
            
            const personTagged = message.mentions.members.first();
            
@@ -1142,7 +1169,7 @@ client.on('message', message => {
            .setDescription(message.author.username + ' hugs ' + personTagged.displayName)
            .setImage(chosenImage)
            .setColor("RANDOM")
-           message.channel.send(embed)
+           message.channel.send(embed);
            
            if(personTagged.displayName == "Sweet Pea"){
                message.reply("❤️ Aww, thanks! I feel better now.");
@@ -1253,28 +1280,6 @@ client.on('message', message => {
        .setColor(color)
        message.channel.send({embed});*/
        
-   } else if(command == 'invite'){
-       const invite = new MessageEmbed()
-       .setTitle('Invite me to a server!')
-       //.setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, select the server you want to add me to. \n \n Walla, I'm in a new server! How awesome is that?")
-       .setDescription("Want me to join a server? Well, now you can do just that! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, click on the invite button to invite me to a server! \n \n Then select the server you want to add me to. \n \n Hit continue, then authorize my permissions. \n \n Walla, I'm in a new server! How awesome is that?")
-       .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('New servers with new people? Add me!                                                                 Created by jc smoothie')
-       .setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=8')
-       //.setURL('https://discord.com/oauth2/authorize?client_id=729142073126682644&scope=bot&permissions=37088328')
-       message.author.send(invite);
-       message.channel.send("Invitation with instructions sent through dms!");
-   } else if(command == 'support'){
-       const invite = new MessageEmbed()
-       .setTitle('Join the support server!')
-       .setDescription("Need to ask a question? Well, join the support server and ask away! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, you sould have access to the support server in your discord application/tab. \n \n Walla, you're in the support server! How awesome is that?")
-       .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setFooter('Need help or want to ask a question? Join the support server!                    Created by jc smoothie')
-       .setURL('https://discord.gg/m3Q6f3KRDP')
-       message.author.send(invite);
-       message.channel.send("Invitation with instructions sent through dms!");
    } else if(command == 'deletemessage'){
        message.reply('This message will delete itself after 5 seconds').then(msg => {
            msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
@@ -1358,7 +1363,7 @@ client.on('message', message => {
        message.channel.startTyping();
        setTimeout(() => {  message.channel.send("hii"); }, 2000);
        message.channel.stopTyping();
-   } else if(command == 'cuterate'){
+   } else if(command == 'cuterate'){ //Rates
        if(!args[0]){
            //console.log('Missing args')
            var cuteness = Math.floor(Math.random() * 101);
@@ -1564,11 +1569,11 @@ client.on('message', message => {
            .then(deleted => message.channel.send(`Deleted role __${deleted.name}__.`))
            .catch(console.error);
        }
-   } else if(command == 'play'){ //Hosting on Heroku doesn't allow for the music commands to work, so they were removed to prevent errors from occuring
+   }/* else if(command == 'play'){ //Hosting on Heroku doesn't allow for the music commands to work, so they were removed to prevent errors from occuring
        message.channel.send("[Note: Currently unavailable due to bot hosting.]");
    } else if(command == 'stop'){
        message.channel.send("[Note: Currently unavailable due to bot hosting.]");
-   }
+   }*/
 });
 
 //Reaction stuff
