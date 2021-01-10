@@ -363,53 +363,104 @@ module.exports = {
                 message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Orange」!");
             }
         } else if(part1 == 'yellow'){
-            if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
-                message.member.roles.remove(YellowID);
-                message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Yellow」.");
-            } else{
-                if(message.member.roles.cache.find(r => r.name === "「Black」")){
-                    message.member.roles.remove(BlackID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Gray」")){
-                    message.member.roles.remove(GrayID);
-                } else if(message.member.roles.cache.find(r => r.name === "「White」")){
-                    message.member.roles.remove(WhiteID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pink」")){
-                    message.member.roles.remove(PinkID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Red」")){
-                    message.member.roles.remove(RedID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Red」")){
-                    message.member.roles.remove(Pastel_RedID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Orange」")){
-                    message.member.roles.remove(Pastel_OrangeID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Orange」")){
-                    message.member.roles.remove(OrangeID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
-                    message.member.roles.remove(YellowID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Yellow」")){
-                    message.member.roles.remove(Pastel_YellowID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
-                    message.member.roles.remove(Yellow_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Green」")){
-                    message.member.roles.remove(GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Green」")){
-                    message.member.roles.remove(Pastel_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Light Blue Green」")){
-                    message.member.roles.remove(Light_Blue_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
-                    message.member.roles.remove(Blue_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Blue」")){
-                    message.member.roles.remove(Pastel_BlueID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Blue」")){
-                    message.member.roles.remove(BlueID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
-                    message.member.roles.remove(IndigoID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Violet」")){
-                    message.member.roles.remove(VioletID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
-                    message.member.roles.remove(Pastel_PurpleID);
+            if(part2 == 'green'){
+                if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
+                    message.member.roles.remove(YellowGreenID);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「YellowGreen」.");
+                } else{
+                    if(message.member.roles.cache.find(r => r.name === "「Black」")){
+                        message.member.roles.remove(BlackID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Gray」")){
+                        message.member.roles.remove(GrayID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「White」")){
+                        message.member.roles.remove(WhiteID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pink」")){
+                        message.member.roles.remove(PinkID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Red」")){
+                        message.member.roles.remove(RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Red」")){
+                        message.member.roles.remove(Pastel_RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Orange」")){
+                        message.member.roles.remove(Pastel_OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Orange」")){
+                        message.member.roles.remove(OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
+                        message.member.roles.remove(YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Yellow」")){
+                        message.member.roles.remove(Pastel_YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
+                        message.member.roles.remove(Yellow_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Green」")){
+                        message.member.roles.remove(GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Green」")){
+                        message.member.roles.remove(Pastel_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Light Blue Green」")){
+                        message.member.roles.remove(Light_Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
+                        message.member.roles.remove(Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Blue」")){
+                        message.member.roles.remove(Pastel_BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue」")){
+                        message.member.roles.remove(BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
+                        message.member.roles.remove(IndigoID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Violet」")){
+                        message.member.roles.remove(VioletID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
+                        message.member.roles.remove(Pastel_PurpleID);
+                    }
+                    message.member.roles.add(YellowGreenID);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Yellow Green」!");
                 }
-                message.member.roles.add(YellowID);
-                message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Yellow」!");
+            } else{
+                if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
+                    message.member.roles.remove(YellowID);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Yellow」.");
+                } else{
+                    if(message.member.roles.cache.find(r => r.name === "「Black」")){
+                        message.member.roles.remove(BlackID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Gray」")){
+                        message.member.roles.remove(GrayID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「White」")){
+                        message.member.roles.remove(WhiteID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pink」")){
+                        message.member.roles.remove(PinkID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Red」")){
+                        message.member.roles.remove(RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Red」")){
+                        message.member.roles.remove(Pastel_RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Orange」")){
+                        message.member.roles.remove(Pastel_OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Orange」")){
+                        message.member.roles.remove(OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
+                        message.member.roles.remove(YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Yellow」")){
+                        message.member.roles.remove(Pastel_YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
+                        message.member.roles.remove(Yellow_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Green」")){
+                        message.member.roles.remove(GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Green」")){
+                        message.member.roles.remove(Pastel_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Light Blue Green」")){
+                        message.member.roles.remove(Light_Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
+                        message.member.roles.remove(Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Blue」")){
+                        message.member.roles.remove(Pastel_BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue」")){
+                        message.member.roles.remove(BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
+                        message.member.roles.remove(IndigoID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Violet」")){
+                        message.member.roles.remove(VioletID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
+                        message.member.roles.remove(Pastel_PurpleID);
+                    }
+                    message.member.roles.add(YellowID);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Yellow」!");
+                }
             }
         } else if(part1 == 'green'){
             if(message.member.roles.cache.find(r => r.name === "「Green」")){
@@ -461,53 +512,104 @@ module.exports = {
                 message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Green」!");
             }
         } else if(part1 == 'blue'){
-            if(message.member.roles.cache.find(r => r.name === "「Blue」")){
-                message.member.roles.remove(BlueID);
-                message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Blue」.");
-            } else{
-                if(message.member.roles.cache.find(r => r.name === "「Black」")){
-                    message.member.roles.remove(BlackID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Gray」")){
-                    message.member.roles.remove(GrayID);
-                } else if(message.member.roles.cache.find(r => r.name === "「White」")){
-                    message.member.roles.remove(WhiteID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pink」")){
-                    message.member.roles.remove(PinkID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Red」")){
-                    message.member.roles.remove(RedID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Red」")){
-                    message.member.roles.remove(Pastel_RedID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Orange」")){
-                    message.member.roles.remove(Pastel_OrangeID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Orange」")){
-                    message.member.roles.remove(OrangeID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
-                    message.member.roles.remove(YellowID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Yellow」")){
-                    message.member.roles.remove(Pastel_YellowID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
-                    message.member.roles.remove(Yellow_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Green」")){
-                    message.member.roles.remove(GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Green」")){
-                    message.member.roles.remove(Pastel_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Light Blue Green」")){
-                    message.member.roles.remove(Light_Blue_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
-                    message.member.roles.remove(Blue_GreenID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Blue」")){
-                    message.member.roles.remove(Pastel_BlueID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Blue」")){
-                    message.member.roles.remove(BlueID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
-                    message.member.roles.remove(IndigoID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Violet」")){
-                    message.member.roles.remove(VioletID);
-                } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
-                    message.member.roles.remove(Pastel_PurpleID);
+            if(part2 == 'green'){
+                if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
+                    message.member.roles.remove(BlueGreenID);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Blue Green」.");
+                } else{
+                    if(message.member.roles.cache.find(r => r.name === "「Black」")){
+                        message.member.roles.remove(BlackID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Gray」")){
+                        message.member.roles.remove(GrayID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「White」")){
+                        message.member.roles.remove(WhiteID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pink」")){
+                        message.member.roles.remove(PinkID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Red」")){
+                        message.member.roles.remove(RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Red」")){
+                        message.member.roles.remove(Pastel_RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Orange」")){
+                        message.member.roles.remove(Pastel_OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Orange」")){
+                        message.member.roles.remove(OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
+                        message.member.roles.remove(YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Yellow」")){
+                        message.member.roles.remove(Pastel_YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
+                        message.member.roles.remove(Yellow_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Green」")){
+                        message.member.roles.remove(GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Green」")){
+                        message.member.roles.remove(Pastel_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Light Blue Green」")){
+                        message.member.roles.remove(Light_Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
+                        message.member.roles.remove(Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Blue」")){
+                        message.member.roles.remove(Pastel_BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue」")){
+                        message.member.roles.remove(BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
+                        message.member.roles.remove(IndigoID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Violet」")){
+                        message.member.roles.remove(VioletID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
+                        message.member.roles.remove(Pastel_PurpleID);
+                    }
+                    message.member.roles.add(BlueGreenID);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Blue Green」!");
                 }
-                message.member.roles.add(BlueID);
-                message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Blue」!");
+            } else{
+                if(message.member.roles.cache.find(r => r.name === "「Blue」")){
+                    message.member.roles.remove(BlueID);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role 「Blue」.");
+                } else{
+                    if(message.member.roles.cache.find(r => r.name === "「Black」")){
+                        message.member.roles.remove(BlackID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Gray」")){
+                        message.member.roles.remove(GrayID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「White」")){
+                        message.member.roles.remove(WhiteID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pink」")){
+                        message.member.roles.remove(PinkID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Red」")){
+                        message.member.roles.remove(RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Red」")){
+                        message.member.roles.remove(Pastel_RedID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Orange」")){
+                        message.member.roles.remove(Pastel_OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Orange」")){
+                        message.member.roles.remove(OrangeID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow」")){
+                        message.member.roles.remove(YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Yellow」")){
+                        message.member.roles.remove(Pastel_YellowID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Yellow Green」")){
+                        message.member.roles.remove(Yellow_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Green」")){
+                        message.member.roles.remove(GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Green」")){
+                        message.member.roles.remove(Pastel_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Light Blue Green」")){
+                        message.member.roles.remove(Light_Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue Green」")){
+                        message.member.roles.remove(Blue_GreenID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Blue」")){
+                        message.member.roles.remove(Pastel_BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Blue」")){
+                        message.member.roles.remove(BlueID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
+                        message.member.roles.remove(IndigoID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Violet」")){
+                        message.member.roles.remove(VioletID);
+                    } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
+                        message.member.roles.remove(Pastel_PurpleID);
+                    }
+                    message.member.roles.add(BlueID);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Blue」!");
+                }
             }
         } else if(part1 == 'indigo'){
             if(message.member.roles.cache.find(r => r.name === "「Indigo」")){
