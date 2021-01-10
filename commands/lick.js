@@ -40,6 +40,11 @@ module.exports = {
                 var chosenImage = '';
             }*/
 
+            if(!message.mentions.members.first()){
+                message.reply("Please mention someone to perform this action to!");
+                return;
+            }
+
             const personTagged = message.mentions.members.first();
             
             let embed = new Discord.MessageEmbed()
@@ -47,7 +52,7 @@ module.exports = {
             .setDescription(message.author.username + ' licks ' + personTagged.displayName)
             .setImage(chosenImage)
             .setColor("RANDOM")
-            message.channel.send(embed)
+            message.channel.send(embed);
         }
     }
 }
