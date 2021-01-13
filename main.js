@@ -58,7 +58,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.fXD3E28aBdVFjyYnn4KOW_n5ChI');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.c6saGPSBjgTFJVP5YxTWeZ3QB7E');
 //client.login(process.env.token);
 
 //Sort the Court Stuff
@@ -187,38 +187,38 @@ client.on('message', message => {
                 return;
             }
 
-            //let song;
-            //if (ytdl.validateURL(args[1])){
-                //const songInfo = await ytdl.getInfo(args[1]);
-                //song = {
-                    //title: songInfo.title,
-                    //url: songInfo.video_url
-                //}
-            //} else{
-                //const {videos} = await yts(args.slice(1).join(" "));
-                //if (!videos.length) return message.channel.send("No songs were found!");
-                //song = {
-                    //title: videos[0].title,
-                    //url: videos[0].url
-                //}
-            //}
+            /*let song;
+            if (ytdl.validateURL(args[1])){
+                const songInfo = await ytdl.getInfo(args[1]);
+                song = {
+                    title: songInfo.title,
+                    url: songInfo.video_url
+                }
+            } else{
+                const {videos} = await yts(args.slice(1).join(" "));
+                if (!videos.length) return message.channel.send("No songs were found!");
+                song = {
+                    title: videos[0].title,
+                    url: videos[0].url
+                }
+            }*/
             
             function play(connection, message){
                 var server = servers[message.guild.id];
                     //var server = process.env.server;
 
                 
-                //if(!server.queue[1]){
-                    //server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))}
+                if(!server.queue[1]){
+                    server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))}
                     
-                    //server.dispatcher.on("finish",function(){
-                        //server.queue.shift()
-                        //if(server.queue[0]){
-                            //play(connection,message)
-                        //} else{
-                            //server.queue.push(args[1]);
-                        //}
-                    //});
+                    server.dispatcher.on("finish",function(){
+                        server.queue.shift()
+                        if(server.queue[0]){
+                            play(connection,message)
+                        } else{
+                            server.queue.push(args[1]);
+                        }
+                    });
                 
                 
                 server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}));
@@ -276,12 +276,12 @@ client.on('message', message => {
         break;
 
         case 'skip':
-            //var server = servers[message.guild.id];
+            var server = servers[message.guild.id];
                 //var server = process.env.server;
-            //if(server.dispatcher) server.dispatcher.end();
-            //message.react('✅');
-            //message.channel.send("Skipping the current song.");
-        //break;
+            if(server.dispatcher) server.dispatcher.end();
+            message.react('✅');
+            message.channel.send("Skipping the current song.");
+        break;
 
         case 'stop':
             if(!message.guild) return message.channel.send('You must be in a guild.');
@@ -641,6 +641,54 @@ client.on('message', message => {
    }*/ else if(command == 'rank'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('rank').execute(message, args);
+   } else if(command == 'userinfo'){
+       const{guild, channel} = message;
+
+       const user = message.mentions.users.first() || message.author;
+       const member = guild.members.cache.get(user.id);
+
+       /*if(!message.mentions.users.first()){
+           embed.setTitle('Your avater:')
+           embed.setImage(message.author.displayAvatarURL())
+           //embed.setColor(message.author.displayHexColor)
+           //embed.setColor(message.member.hoistRole.hexColor)
+           return message.channel.send(embed)
+       } else{
+           let user = message.mentions.users.first()
+           embed.setTitle(`${user.tag}'s avater:`)
+           embed.setImage(user.displayAvatarURL())
+           //embed.setColor(user.displayHexColor)
+           //embed.setColor(user.hoistRole.hexColor)
+           return message.channel.send(embed)
+       }*/
+       
+       const embed = new MessageEmbed().setAuthor(`User info for ${user.username}`, user.displayAvaterURL()).addFields(
+           {
+               name: 'User tag',
+               value: user.tag
+           },
+           {
+               name: 'Is bot',
+               value: user.bot
+           },
+           {
+               name: 'Nickname',
+               value: member.nickname || 'None'
+           },
+           {
+               name: 'Joined server',
+               value: new Date(member.joinedTimestamp).toLocaleDateString(),
+           },
+           {
+               name: 'Joined Discord',
+               value: new Date(user.createdTimestamp).toLocaleDateString()
+           },
+           {
+               name: 'Role count',
+               value: member.roles.cache.size - 1,
+           })
+       
+       channel.send(embed);
    } else if(command == 'color'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('color').execute(message, args);
