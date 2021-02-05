@@ -2,63 +2,143 @@ module.exports = {
     name: 'color',
     description: "this assigns color roles!",
     execute(message, args){
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Black」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Black = message.member.guild.roles.cache.find(r => r.name === "「Black」");
         var BlackID = Black.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Gray」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Gray = message.member.guild.roles.cache.find(r => r.name === "「Gray」");
         var GrayID = Gray.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「White」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var White = message.member.guild.roles.cache.find(r => r.name === "「White」");
         var WhiteID = White.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pink」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pink = message.member.guild.roles.cache.find(r => r.name === "「Pink」");
         var PinkID = Pink.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Red」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Red = message.member.guild.roles.cache.find(r => r.name === "「Red」");
         var RedID = Red.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pastel Red」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pastel_Red = message.member.guild.roles.cache.find(r => r.name === "「Pastel Red」");
         var Pastel_RedID = Pastel_Red.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pastel Orange」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pastel_Orange = message.member.guild.roles.cache.find(r => r.name === "「Pastel Orange」");
         var Pastel_OrangeID = Pastel_Orange.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Orange」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Orange = message.member.guild.roles.cache.find(r => r.name === "「Orange」");
         var OrangeID = Orange.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Yellow」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Yellow = message.member.guild.roles.cache.find(r => r.name === "「Yellow」");
         var YellowID = Yellow.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pastel Yellow」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pastel_Yellow = message.member.guild.roles.cache.find(r => r.name === "「Pastel Yellow」");
         var Pastel_YellowID = Pastel_Yellow.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Yellow Green」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Yellow_Green = message.member.guild.roles.cache.find(r => r.name === "「Yellow Green」");
         var Yellow_GreenID = Yellow_Green.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Green」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Green = message.member.guild.roles.cache.find(r => r.name === "「Green」");
         var GreenID = Green.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pastel Green」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pastel_Green = message.member.guild.roles.cache.find(r => r.name === "「Pastel Green」");
         var Pastel_GreenID = Pastel_Green.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Light Blue Green」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Light_Blue_Green = message.member.guild.roles.cache.find(r => r.name === "「Light Blue Green」");
         var Light_Blue_GreenID = Light_Blue_Green.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Blue Green」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Blue_Green = message.member.guild.roles.cache.find(r => r.name === "「Blue Green」");
         var Blue_GreenID = Blue_Green.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pastel Blue」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pastel_Blue = message.member.guild.roles.cache.find(r => r.name === "「Pastel Blue」");
         var Pastel_BlueID = Pastel_Blue.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Blue」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Blue = message.member.guild.roles.cache.find(r => r.name === "「Blue」");
         var BlueID = Blue.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Indigo」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Indigo = message.member.guild.roles.cache.find(r => r.name === "「Indigo」");
         var IndigoID = Indigo.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Violet」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Violet = message.member.guild.roles.cache.find(r => r.name === "「Violet」");
         var VioletID = Violet.id;
 
+        if(!message.member.guild.roles.cache.find(r => r.name === "「Pastel Purple」")){
+            message.channel.send("The color role stated does not exist in this server. Type `+addcolors` to add in 20 new color roles if you have the manage roles permission.");
+            return;
+        }
         var Pastel_Purple = message.member.guild.roles.cache.find(r => r.name === "「Pastel Purple」");
         var Pastel_PurpleID = Pastel_Purple.id;
 
