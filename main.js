@@ -129,6 +129,21 @@ client.on("guildMemberAdd", (member) => {
         .setTimestamp()
         welcomeChannel.send(embed);
     }
+
+    if(member.guild.id == Starlight_Survival){
+        const member = '787001825567571998';
+        const bot = '787001864830451773';
+
+        //Role Sections
+        const games = '787002149636276244';
+
+        if(!message.author.id === client.user.id){
+            message.member.roles.add(member);
+            message.member.roles.add(games);
+        } else{
+            message.member.roles.add(bot);
+        }
+    }
 });
 
 /*client.on("guildMemberRemove", (member) => {
@@ -178,6 +193,7 @@ var servers = {};
 //const yts = require("yt-search");
 
 client.on('message', message => {
+    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
@@ -334,19 +350,23 @@ client.on('message', message => {
         message.channel.startTyping();
         setTimeout(() => {  message.channel.send("nice"); }, 1000);
         message.channel.stopTyping();
-    } else if(replyFormatted == 'oof'){
+    }/* else if(replyFormatted == 'oof'){
         message.channel.startTyping();
         setTimeout(() => {  message.channel.send("rip"); }, 1000);
         message.channel.stopTyping();
-    } else if(replyFormatted == ';-;'){
+    }*/ else if(replyFormatted == ';-;'){
         message.react('😢');
-    } else if(replyFormatted == 'wat'){
+    }/* else if(replyFormatted == 'wat'){
         message.react('❓');
-    } else if(replyFormatted == 'morning'){
+    }*/ else if(replyFormatted == 'morning'){
         /*message.channel.startTyping();
         setTimeout(() => {  message.channel.send("gm!"); }, 1000);
         message.channel.stopTyping();*/
         message.react('🌄');
+    } else if(replyFormatted == 'night'){
+        message.react('🌃');
+    } else if(replyFormatted == 'evening'){
+        message.react('🌇');
     } else if(replyFormatted == 'yawn' || replyFormatted == '*yawn*'){
         message.react('🥱');
     } /*else if(replyFormatted == 'introduce yourself'){
@@ -414,12 +434,13 @@ client.on('message', message => {
             }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
 
             const user = message.mentions.users.first();
+            const banReason = message.content.slice(args[0].length + args[1].length);
 
             if(user){
                 const member = message.guild.member(user);
 
                 if(member){
-                    member.ban("You were banned for being bad!").then(() => {
+                    member.ban({reason: banReason }).then(() => {
                         message.reply(`Successfully banned ${user.tag}.`);
                     }).catch(err => {
                         message.reply(`I was unable to ban the member.`);
@@ -619,6 +640,8 @@ client.on('message', message => {
        client.commands.get('ping').execute(message, args);
    } else if(command == 'rules'){
        if(!message.member.displayName == 'jc smoothie'){
+           message.delete();
+           message.reply("You are not allowed to use this command!");
            return;
        }
 
@@ -1728,7 +1751,6 @@ client.on('message', async message => {
         messageEmbed.react('✅');
         messageEmbed.react('❌');
     } else if(command == 'toiletroles'){
-        const msg = message.content.slice(12);
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Get your server roles!')
         .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n <:minecraft:781962289040850954> -> Minecraft \n <:LolIcon:781967459401203752> -> League \n <:roblox:781976618868408351> -> Roblox \n <:fleethefacility:781973423722201178> -> Flee the Facility \n <:entrypoint:781973273771900928> -> Entry Point \n <:arsenal:781973252448059402> -> Arsenal \n \n **Misc** \n <:sovietlel:781973189097160744> -> Comrade \n <:uwuweebs:781976106013949993> -> Weeb \n ")
@@ -1753,6 +1775,41 @@ client.on('message', async message => {
         messageEmbed.react(weebEmoji);
         const kpopEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'kpoploveheart');
         messageEmbed.react(kpopEmoji);
+    } else if(command == 'starlightmcroles'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!");
+            return;
+        }
+
+        message.delete();
+        let reactionsEmbed = new MessageEmbed()
+        .setTitle('Get your minecraft version role!')
+        .setDescription("Welcome to the Starlight Survival discord server! \n React with the corresponding reaction to get that role. The server roles are listed below: \n \n **Minecraft Version** \n <:GrassBlock:801438478071627848> -> Minecraft Java Edition \n <:Bedrock:801438499714629666> -> Minecraft Bedrock Edition ") //\n <:LolIcon:781967459401203752> -> League \n <:roblox:781976618868408351> -> Roblox \n <:fleethefacility:781973423722201178> -> Flee the Facility \n <:entrypoint:781973273771900928> -> Entry Point \n <:arsenal:781973252448059402> -> Arsenal \n \n **Misc** \n <:sovietlel:781973189097160744> -> Comrade \n <:uwuweebs:781976106013949993> -> Weeb \n ")
+        .setColor('#66ccff')
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        const minecraftJavaEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'GrassBlock');
+        messageEmbed.react(minecraftJavaEmoji);
+        const minecraftBedrockEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Bedrock');
+        messageEmbed.react(minecraftBedrockEmoji);
+        /*
+        const leagueEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'LolIcon');
+        messageEmbed.react(leagueEmoji);
+        const robloxEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'roblox');
+        messageEmbed.react(robloxEmoji);
+        const fleeEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'fleethefacility');
+        messageEmbed.react(fleeEmoji);
+        const entryPointEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'entrypoint');
+        messageEmbed.react(entryPointEmoji);
+        const arsenalEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'arsenal');
+        messageEmbed.react(arsenalEmoji);
+        const sovietEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'sovietlel');
+        messageEmbed.react(sovietEmoji);
+        const weebEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'uwuweebs');
+        messageEmbed.react(weebEmoji);
+        const kpopEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'kpoploveheart');
+        messageEmbed.react(kpopEmoji);
+        */
     }
 
     if (command == 'osureact') {
@@ -1825,6 +1882,14 @@ function The_Toilet_roles(){
     kpop = '781957997000654879';
 }
 
+function Starlight_Survival_roles(){
+    reactionRolesChannel = '801435425607909397';
+    member = '787001825567571998';
+    bot = '787001864830451773';
+    minecraftJava = '787009016597184553';
+    minecraftBedrock = '787009083484012556';
+}
+
 function Not_Identified_Server(){
     reactionRolesChannel = '';
     EN = '';
@@ -1855,6 +1920,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         WHS_Anime_Club_roles();
     } else if(messageReaction.message.guild.id == The_Toilet){
         The_Toilet_roles();
+    } else if(messageReaction.message.guild.id == Starlight_Survival){
+        Starlight_Survival_roles();
     } else{
         Not_Identified_Server();
     }
@@ -2784,6 +2851,65 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.remove(kpop).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Kpop** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Starlight Survival Reaction Roles
+//Minecraft Java
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'GrassBlock') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(minecraftJava).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Minecraft Java** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'GrassBlock') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(minecraftJava).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Minecraft Java** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+//Minecraft Bedrock
+client.on('messageReactionAdd', async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'Bedrock') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.add(minecraftBedrock).then(() => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Minecraft Bedrock** role!`).then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+        });
+    }
+});
+
+client.on("messageReactionRemove", async (messageReaction, user) => {
+    if (user.bot || !messageReaction.message.guild) return;
+    
+    if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === 'Bedrock') {
+        const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
+        const userrole = messageReaction.message.guild.members.cache.get(user.id);
+        userrole.roles.remove(minecraftBedrock).then(() => {
+            messageReaction.message.channel.send(`❌ <@${user.id}> You no longer have the **Minecraft Bedrock** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
