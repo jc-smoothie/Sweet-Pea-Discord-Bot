@@ -670,10 +670,23 @@ client.on('message', message => {
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('rank').execute(message, args);
    } else if(command == 'userinfo'){
-       const{guild, channel} = message;
+       const embed = new MessageEmbed()
+       .setTitle('User Info')
+       .addField('Username', message.author.tag)
+       .addField('Server', message.guild.name)
+       .addField('Join Server', new Date(message.author.joinedTimestamp).toLocaleDateString())
+       .addField('Joined Discord', new Date(message.author.createdTimestamp).toLocaleDateString())
+       .addField('Role Count', message.member.roles.cache.size - 1)
+       //message.member.roles.cache.find(r => r.name === "「Black」")
+       .setColor(0xFF8AFF)
+       .setThumbnail(message.author.displayAvatarURL())
+       //.setFooter(`Akasuki ${version}`, client.user.avatarURL);
+       message.channel.send(embed);
+
+       /*const{guild, channel} = message;
 
        const user = message.mentions.users.first() || message.author;
-       const member = guild.members.cache.get(user.id);
+       const member = guild.members.cache.get(user.id);*/
 
        /*if(!message.mentions.users.first()){
            embed.setTitle('Your avater:')
@@ -690,7 +703,7 @@ client.on('message', message => {
            return message.channel.send(embed)
        }*/
        
-       const embed = new MessageEmbed().setAuthor(`User info for ${user.username}`, user.displayAvaterURL()).addFields(
+       /*const embed = new MessageEmbed().setAuthor(`User info for ${user.username}`, user.displayAvaterURL()).addFields(
            {
                name: 'User tag',
                value: user.tag
@@ -716,7 +729,7 @@ client.on('message', message => {
                value: member.roles.cache.size - 1,
            })
        
-       channel.send(embed);
+       channel.send(embed);*/
    } else if(command == 'color'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('color').execute(message, args);
