@@ -675,11 +675,14 @@ client.on('message', message => {
        .addField('Username', message.author.tag)
        .addField('Server', message.guild.name)
        .addField('Join Server', new Date(message.author.joinedTimestamp).toLocaleDateString())
+       //new Date(message.author.joinedTimestamp).toLocaleDateString()
+       //formatDate(message.author.joinedAt)
        .addField('Joined Discord', new Date(message.author.createdTimestamp).toLocaleDateString())
        .addField('Role Count', message.member.roles.cache.size - 1)
        //message.member.roles.cache.find(r => r.name === "「Black」")
        .setColor(0xFF8AFF)
-       .setThumbnail(message.author.displayAvatarURL())
+       //.setThumbnail(message.author.displayAvatarURL())
+       .setAuthor(message.author.displayAvatarURL())
        .setTimestamp()
        //.setFooter(`Akasuki ${version}`, client.user.avatarURL);
        message.channel.send(embed);
