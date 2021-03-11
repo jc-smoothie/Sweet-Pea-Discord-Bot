@@ -680,6 +680,7 @@ client.on('message', message => {
        //message.member.roles.cache.find(r => r.name === "「Black」")
        .setColor(0xFF8AFF)
        .setThumbnail(message.author.displayAvatarURL())
+       .setTimestamp()
        //.setFooter(`Akasuki ${version}`, client.user.avatarURL);
        message.channel.send(embed);
 
