@@ -1202,6 +1202,8 @@ client.on('message', message => {
        client.commands.get('timer').execute(message, args);
    } else if(command == 'meme'){
        client.commands.get('meme').execute(message, args);
+   } else if(command == "topic"){
+    client.commands.get('topic').execute(message, args);
    } else if(command == 'hug'){ //Action commands
        if(!message.guild) return message.channel.send('You must be in a guild.');
        //client.commands.get('hug').execute(message, args);
