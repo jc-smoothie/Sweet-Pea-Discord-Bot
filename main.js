@@ -49,6 +49,7 @@ const EventEmitter = require("events");
 const { hasUncaughtExceptionCaptureCallback } = require('process');
 const { error } = require('console');
 const { execute } = require('./commands/rank');
+const { slice } = require('ffmpeg-static');
 class MyEmitter extends EventEmitter{}
 
 var emitter = new MyEmitter()
@@ -672,9 +673,11 @@ client.on('message', message => {
    } else if(command == 'userinfo'){
        const embed = new MessageEmbed()
        .setTitle('User Info')
+       .addField('Display Name', message.member.displayName)
        .addField('Username', message.author.tag)
+       .addField('Tag', message.author.tag.slice(-5))
        .addField('Server', message.guild.name)
-       .addField('Join Server', new Date(message.author.joinedTimestamp).toLocaleDateString())
+       .addField('Joined Server', new Date(message.member.joinedTimestamp).toLocaleDateString())
        //new Date(message.author.joinedTimestamp).toLocaleDateString()
        //formatDate(message.author.joinedAt)
        .addField('Joined Discord', new Date(message.author.createdTimestamp).toLocaleDateString())
@@ -682,7 +685,7 @@ client.on('message', message => {
        //message.member.roles.cache.find(r => r.name === "「Black」")
        .setColor(0xFF8AFF)
        //.setThumbnail(message.author.displayAvatarURL())
-       .setAuthor(message.author.displayAvatarURL())
+       .setAuthor(message.author.tag, message.author.displayAvatarURL())
        .setTimestamp()
        //.setFooter(`Akasuki ${version}`, client.user.avatarURL);
        message.channel.send(embed);
