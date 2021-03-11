@@ -1721,8 +1721,8 @@ client.on('message', async message => {
         .setTitle('Among Us!')
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
         .setColor('#66ccff')
-        let reactionsEmbed = await message.channel.send(reactionsEmbed);
-        reactionsEmbed.react('❤️');
+        let messageEmbed = await message.channel.send(reactionsEmbed);
+        messageEmbed.react('❤️');
         //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
         //messageEmbed.react(reactionEmoji);
     } else if(command == 'camong'){
