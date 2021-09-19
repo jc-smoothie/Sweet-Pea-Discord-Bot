@@ -10,7 +10,7 @@ module.exports = {
             message.channel.send('Missing Arguments!')
             console.log('Missing args')
         } else{
-            console.log('should work.')
+            console.log('punch command activatedd!')
             const image = Math.floor((Math.random() * 2) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.weeb.sh/images/BkdyPTZWz.gif';
