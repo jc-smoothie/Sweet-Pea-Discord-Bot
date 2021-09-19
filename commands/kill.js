@@ -11,7 +11,7 @@ module.exports = {
             //console.log('Missing args')
         } 
         else {
-            //console.log('should work.')
+            console.log('kill commandd activated!')
             const image = Math.floor((Math.random() * 10) + 1);
             if(image == 1){
                 var chosenImage = 'https://steamuserimages-a.akamaihd.net/ugc/863984095731146516/2F554E3A99C30F53394677C8558E3048418DFC60/';
