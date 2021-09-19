@@ -11,7 +11,7 @@ module.exports = {
             //console.log('Missing args')
         } 
         else {
-            //console.log('should work.')
+            console.log('slap command activated!')
             const image = Math.floor((Math.random() * 11) + 1);
             if(image == 1){
                 var chosenImage = 'https://media1.tenor.com/images/d14969a21a96ec46f61770c50fccf24f/tenor.gif?itemid=5509136';
