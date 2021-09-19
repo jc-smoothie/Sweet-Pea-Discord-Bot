@@ -10,7 +10,7 @@ module.exports = {
             message.channel.send('Missing Arguments!')
             console.log('Missing args')
         } else{
-            console.log('should work.')
+            console.log('pat command activated!')
             const image = Math.floor((Math.random() * 6) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.weeb.sh/images/rybs1yFDb.gif';
