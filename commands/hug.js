@@ -10,7 +10,7 @@ module.exports = {
             message.channel.send("You didn't say who you wanted to hug! Please @mention them next time.")
             //console.log('Missing args')
         } else{
-            //console.log('should work.')
+            console.log('hug command aactivated!')
             const image = Math.floor((Math.random() * 11) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733655951374024775/giphy.gif';
