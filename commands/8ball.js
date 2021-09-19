@@ -6,9 +6,9 @@ module.exports = {
 
         if(!parts[1]){
             message.reply("Please state a question.")
-        } else if(!parts[1] == 'do' || !parts[1] == 'should' || !parts[1] == 'can' || !parts[1] == 'were' || !parts[1] == 'did' || !parts[1] == 'have' || !parts[1] == 'does' || !parts[1] == 'is' || parts[1] != 'are'){
+        }/* else if(!parts[1] == 'do' || !parts[1] == 'should' || !parts[1] == 'can' || !parts[1] == 'were' || !parts[1] == 'did' || !parts[1] == 'have' || !parts[1] == 'does' || !parts[1] == 'is' || parts[1] != 'are' || parts[1] != 'am' || parts[1] != 'will'){
             message.reply("Please ask a yes or no question.")
-        } else{
+        }*/ else{
             var shake = Math.floor((Math.random() * 20) + 1);
             if(shake == 1){
                 message.reply("🎱 | As I see it, yes");
