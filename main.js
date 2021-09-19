@@ -59,7 +59,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.c6saGPSBjgTFJVP5YxTWeZ3QB7E');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.Nw6lauoeQ-RxYF99y4BmklJzLqU');
 //client.login(process.env.token);
 
 //Sort the Court Stuff
@@ -112,12 +112,24 @@ client.on("guildCreate", (guild) => {
 //Welcome message
 const jc_smoothie_server = '782599860238942209';
 const Eclipsys_Contact = '700620542419664968';
-const Starlight_Survival = '787001697980776528';
-
+const LeToilet_MC = '787001697980776528';
 
 client.on("guildMemberAdd", (member) => {
-    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet || member.guild.id == Starlight_Survival){
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet){
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+
+        let embed = new MessageEmbed()
+        .setTitle(`Welcome to ${member.guild.name}!`)
+        .setImage("https://data.whicdn.com/images/307098937/original.gif")
+        //.setDescription(`**Thank you for joining our server!** \n Hey ${member.user.tag}! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+        .setDescription(`**Thank you for joining our server!** \n Hey **${member.displayName}**! Make sure to read the rules, check out the reaction roles, and we hope you enjoy your stay! Please contect any of the staff if you have any questions.`)
+        .setColor('#66ccff')
+        .setThumbnail(member.user.avatarURL())
+        .setFooter(`Member #${member.guild.memberCount}`)
+        .setTimestamp()
+        welcomeChannel.send(embed);
+    } else if(member.guild.id == LeToilet_MC){
+        const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "entrance");
 
         let embed = new MessageEmbed()
         .setTitle(`Welcome to ${member.guild.name}!`)
@@ -131,19 +143,28 @@ client.on("guildMemberAdd", (member) => {
         welcomeChannel.send(embed);
     }
 
-    if(member.guild.id == Starlight_Survival){
-        const member = '787001825567571998';
+    if(member.guild.id == LeToilet_MC){
+        const memberID = '787001825567571998';
         const bot = '787001864830451773';
+        const games_tag = '787002149636276244';
+        const minecraft_server_tag = '820001327358148659';
 
         //Role Sections
-        const games = '787002149636276244';
-
-        if(!message.author.id === client.user.id){
-            message.member.roles.add(member);
-            message.member.roles.add(games);
+        if(!member.user.bot){
+            //message.member.roles.add(member);
+            member.roles.add(games_tag);
+            member.roles.add(minecraft_server_tag);
         } else{
-            message.member.roles.add(bot);
+            member.roles.add(bot);
         }
+
+        /*if(!message.author.id === client.user.id){
+            //member.roles.add(member);
+            member.roles.add(games_tag);
+            member.roles.add(minecraft_server_tag);
+        } else{
+            member.roles.add(bot);
+        }*/
     }
 });
 
@@ -288,6 +309,7 @@ client.on('message', message => {
             message.react('✅');
 
             if(!message.guild.voiceConnection) message.member.voice.channel.join().then(function(connection){
+                connection.voice.setSelfDeaf(true);
                 play(connection, message);
             });
 
@@ -341,7 +363,8 @@ message.channel.send(queueOutput)
 */
 
 client.on('message', message => {
-    if(message.author.id === client.user.id) return;
+    //if(message.author.id === client.user.id) return;
+    if(message.author.bot) return;
     const reply = message.content;
     const replyFormatted = reply.toLowerCase();
     if(replyFormatted == 'cool'){
@@ -648,8 +671,8 @@ client.on('message', message => {
 
        if(!message.guild) return message.channel.send('You must be in a guild.');
        const commandsEmbed = new MessageEmbed()
-       .setTitle('Rules!')
-       .setDescription('> 1) Aside from Starlight Survival’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n \n ⚠️ These rules are subject to change at any time.')
+       .setTitle('Discord Server Rules!')
+       .setDescription('> 1) Aside from LeToilet MC’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n \n ⚠️ These rules are subject to change at any time.')
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Thank you for reading! Now go and have fun!')
@@ -670,6 +693,8 @@ client.on('message', message => {
    }*/ else if(command == 'rank'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('rank').execute(message, args);
+   } else if(command == 'fizzbuzz'){
+       client.commands.get('fizzbuzz').execute(message, args);
    } else if(command == 'userinfo'){
        const embed = new MessageEmbed()
        .setTitle('User Info')
@@ -678,16 +703,14 @@ client.on('message', message => {
        .addField('Tag', message.author.tag.slice(-5))
        .addField('Server', message.guild.name)
        .addField('Joined Server', new Date(message.member.joinedTimestamp).toLocaleDateString())
-       //new Date(message.author.joinedTimestamp).toLocaleDateString()
-       //formatDate(message.author.joinedAt)
        .addField('Joined Discord', new Date(message.author.createdTimestamp).toLocaleDateString())
        .addField('Role Count', message.member.roles.cache.size - 1)
-       //message.member.roles.cache.find(r => r.name === "「Black」")
-       .setColor(0xFF8AFF)
+       //.setColor(message.member.displayHexColor)
+       .setColor(message.guild.me.displayColor)
+       //.setColor(0xFF8AFF)
        //.setThumbnail(message.author.displayAvatarURL())
        .setAuthor(message.author.tag, message.author.displayAvatarURL())
        .setTimestamp()
-       //.setFooter(`Akasuki ${version}`, client.user.avatarURL);
        message.channel.send(embed);
 
        /*const{guild, channel} = message;
@@ -737,7 +760,7 @@ client.on('message', message => {
            })
        
        channel.send(embed);*/
-   } else if(command == 'color'){
+   } else if(command == 'color' || command == 'colour'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('color').execute(message, args);
    } else if(command == "addcolors"){
@@ -1354,18 +1377,19 @@ client.on('message', message => {
        //This code works well
        let embed = new MessageEmbed()
        if(!message.mentions.users.first()){
-           embed.setTitle('Your avater:')
-           embed.setImage(message.author.displayAvatarURL())
+           embed.setTitle('Your avater:');
+           embed.setImage(message.author.displayAvatarURL());
            //embed.setColor(message.author.displayHexColor)
            //embed.setColor(message.member.hoistRole.hexColor)
-           return message.channel.send(embed)
+           embed.setColor(message.member.displayHexColor);
+           return message.channel.send(embed);
        } else{
-           let user = message.mentions.users.first()
-           embed.setTitle(`${user.tag}'s avater:`)
-           embed.setImage(user.displayAvatarURL())
+           let user = message.mentions.users.first();
+           embed.setTitle(`${user.tag}'s avater:`);
+           embed.setImage(user.displayAvatarURL());
            //embed.setColor(user.displayHexColor)
            //embed.setColor(user.hoistRole.hexColor)
-           return message.channel.send(embed)
+           return message.channel.send(embed);
        }
 
        /*let user = message.mentions.users.first();
@@ -1429,17 +1453,17 @@ client.on('message', message => {
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
        message.channel.send("Link with instructions sent through dms!");
-   } /*else if(command == 'stc'){
+   } else if(command == 'stc'){
        const invite = new MessageEmbed()
        .setTitle('Sort The Court!')
-       .setDescription("You're a ruler of a kingdom and make decisions to improve it. Gain population and get into the Council of Crowns to beat the game. Have fun!")
+       .setDescription("You're a ruler of a kingdom and make decisions to improve it. Gain population and get into the Council of Crowns to beat the game. Have fun! \n \n This game is a replica of the original Sort the Court game, entirely coded by jc smoothie in Python many years ago.")
        .setColor('#66ccff')
        .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setFooter('Check out this game made by my creator!                                                            Created by jc smoothie')
        .setURL('https://repl.it/@jcjeffrey/Sort-The-Court-Strategy-Game-coded-by-jcjeffreysmoothie#main.py')
        message.author.send(invite);
-       message.channel.send("Invitation with instructions sent through dms!");
-   }*/ else if(command == 'wyr'){
+       message.channel.send("Game link with instructions sent through dms!");
+   } else if(command == 'wyr'){
        const wyrEmbed = new MessageEmbed()
        .setTitle('Would You Rather!')
        .setDescription('')
@@ -1532,8 +1556,8 @@ client.on('message', message => {
            //console.log('Missing args')
            var smartness = Math.floor(Math.random() * 101);
            const smartrate = new MessageEmbed()
-           .setTitle('Intelligence!')
-           .setDescription("You are " + smartness + "% an intelligent!")
+           .setTitle('Intellectual!')
+           .setDescription("You are " + smartness + "% an intellectual!")
            .setColor('#66ccff')
            .setThumbnail('https://media.tenor.com/images/2ab5635c3ca5d3c2891666347e44e587/tenor.gif')
            message.channel.send(smartrate);
@@ -1578,6 +1602,39 @@ client.on('message', message => {
            .setColor('#66ccff')
            .setThumbnail('https://i.pinimg.com/originals/ba/76/ef/ba76ef5073422254cdd76038a817875c.gif')
            message.channel.send(epicrate);
+       }
+   } else if(command == 'gayrate'){
+       if(!args[0]){
+           //console.log('Missing args')
+           var gayness = Math.floor(Math.random() * 101);
+           const gayrate = new MessageEmbed()
+           .setTitle('QT!')
+           .setDescription("You are " + gayness + "% gay!")
+           .setColor('#66ccff')
+           .setThumbnail('https://tenor.com/view/flag-lgbt-rainbow-happy-pride-gif-12056452')
+           message.channel.send(gayrate);
+       } else{
+           if(!message.mentions.members.first()){
+               message.channel.send("Please @mention someone!")
+               return;
+           }
+
+           //console.log('should work.')
+           const personTagged = message.mentions.members.first();
+           var gayness = Math.floor(Math.random() * 101);
+           const gayrate = new MessageEmbed()
+           .setTitle('QT!')
+           .setDescription("**" + personTagged.displayName + "** is " + gayness + "% gay!")
+           .setColor('#66ccff')
+           .setThumbnail('https://tenor.com/view/flag-lgbt-rainbow-happy-pride-gif-12056452')
+           message.channel.send(gayrate);
+
+           /*
+           if(personTagged.displayName == "Sweet Pea"){
+               message.reply("❤️ Aww, thanks! I feel better now.");
+               resetAttempts();
+           }
+           */
        }
    } else if(command == 'quiz'){
        const quiz = require('./quiz.json');
@@ -1797,7 +1854,7 @@ client.on('message', async message => {
         messageEmbed.react(weebEmoji);
         const kpopEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'kpoploveheart');
         messageEmbed.react(kpopEmoji);
-    } else if(command == 'starlightmcroles'){
+    } else if(command == 'letoiletmcroles'){
         if(!message.member.displayName == 'jc smoothie'){
             message.delete();
             message.reply("You are not allowed to use this command!");
@@ -1807,7 +1864,7 @@ client.on('message', async message => {
         message.delete();
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Get your minecraft version role!')
-        .setDescription("Welcome to the Starlight Survival discord server! \n React with the corresponding reaction to get that role. The server roles are listed below: \n \n **Minecraft Version** \n <:GrassBlock:801438478071627848> -> Minecraft Java Edition \n <:Bedrock:801438499714629666> -> Minecraft Bedrock Edition ") //\n <:LolIcon:781967459401203752> -> League \n <:roblox:781976618868408351> -> Roblox \n <:fleethefacility:781973423722201178> -> Flee the Facility \n <:entrypoint:781973273771900928> -> Entry Point \n <:arsenal:781973252448059402> -> Arsenal \n \n **Misc** \n <:sovietlel:781973189097160744> -> Comrade \n <:uwuweebs:781976106013949993> -> Weeb \n ")
+        .setDescription("Welcome to the LeToilet MC discord server! \n React with the corresponding reaction to get that role. The server roles are listed below: \n \n **Minecraft Version** \n <:GrassBlock:801438478071627848> -> Minecraft Java Edition \n <:Bedrock:801438499714629666> -> Minecraft Bedrock Edition ") //\n <:LolIcon:781967459401203752> -> League \n <:roblox:781976618868408351> -> Roblox \n <:fleethefacility:781973423722201178> -> Flee the Facility \n <:entrypoint:781973273771900928> -> Entry Point \n <:arsenal:781973252448059402> -> Arsenal \n \n **Misc** \n <:sovietlel:781973189097160744> -> Comrade \n <:uwuweebs:781976106013949993> -> Weeb \n ")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         const minecraftJavaEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'GrassBlock');
@@ -1904,7 +1961,7 @@ function The_Toilet_roles(){
     kpop = '781957997000654879';
 }
 
-function Starlight_Survival_roles(){
+function LeToilet_MC_roles(){
     reactionRolesChannel = '801435425607909397';
     member = '787001825567571998';
     bot = '787001864830451773';
@@ -1942,8 +1999,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         WHS_Anime_Club_roles();
     } else if(messageReaction.message.guild.id == The_Toilet){
         The_Toilet_roles();
-    } else if(messageReaction.message.guild.id == Starlight_Survival){
-        Starlight_Survival_roles();
+    } else if(messageReaction.message.guild.id == LeToilet_MC){
+        LeToilet_MC_roles();
     } else{
         Not_Identified_Server();
     }
@@ -2879,7 +2936,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     }
 });
 
-//Starlight Survival Reaction Roles
+//LeToilet MC Reaction Roles
 //Minecraft Java
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
