@@ -489,7 +489,7 @@ module.exports = {
                     } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
                         message.member.roles.remove(Pastel_PurpleID);
                     }
-                    message.member.roles.add(YellowGreenID);
+                    message.member.roles.add(Yellow_GreenID);
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Yellow Green」!");
                 }
             } else{
@@ -638,7 +638,7 @@ module.exports = {
                     } else if(message.member.roles.cache.find(r => r.name === "「Pastel Purple」")){
                         message.member.roles.remove(Pastel_PurpleID);
                     }
-                    message.member.roles.add(BlueGreenID);
+                    message.member.roles.add(Blue_GreenID);
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role 「Blue Green」!");
                 }
             } else{
