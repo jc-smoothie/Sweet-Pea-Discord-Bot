@@ -10,7 +10,7 @@ module.exports = {
             message.channel.send('Missing Arguments!')
             console.log('Missing args')
         } else{
-            console.log('should work.')
+            console.log('kiss command activated!')
             const image = Math.floor((Math.random() * 13) + 1);
             if(image == 1){
                 var chosenImage = 'https://media1.tenor.com/images/d307db89f181813e0d05937b5feb4254/tenor.gif?itemid=16371489';
@@ -48,8 +48,8 @@ module.exports = {
             const personTagged = message.mentions.members.first();
             
             let embed = new Discord.MessageEmbed()
-            .setTitle("Kissess")
-            .setDescription(message.author.username + ' kissess ' + personTagged.displayName)
+            .setTitle("Kisses")
+            .setDescription(message.author.username + ' kisses ' + personTagged.displayName)
             .setImage(chosenImage)
             .setColor("RANDOM")
             message.channel.send(embed);
