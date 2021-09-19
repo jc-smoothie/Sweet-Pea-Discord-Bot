@@ -10,7 +10,7 @@ module.exports = {
             message.channel.send('Missing Arguments!')
             console.log('Missing args')
         } else{
-            console.log('should work.')
+            console.log('cuddle command activated!')
             const image = Math.floor((Math.random() * 7) + 1);
             if(image == 1){
                 var chosenImage = 'https://cdn.weeb.sh/images/BkNe8LQPW.gif';
@@ -26,7 +26,7 @@ module.exports = {
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733706755376283778/PoliticalCrazyFlycatcher-max-1mb.gif';
             } else if(image == 7){
                 var chosenImage = 'https://cdn.discordapp.com/attachments/730136973372555386/733706735205744690/tenor-1.gif';
-            }/* else if(image == 8){
+            } else if(image == 8){
                 var chosenImage = '';
             } else if(image == 9){
                 var chosenImage = '';
@@ -38,7 +38,7 @@ module.exports = {
                 var chosenImage = '';
             } else if(image == 13){
                 var chosenImage = '';
-            }*/
+            }
             
             if(!message.mentions.members.first()){
                 message.reply("Please mention someone to perform this action to!");
