@@ -1777,6 +1777,7 @@ client.on('message', async message => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
             return;
         }
+        message.delete();
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Grade Level')
         .setDescription("If you don't have a grade level role, react to get yours! \n If you already have one and want to remove it, react again to remove it. \n Your previous grade level role will be swapped out when you get a different one, so no need to remove it yourself! \n \n 📗 -> Freshman \n 📘 -> Sophomore \n 📕 -> Junior \n 📙 -> Senior")
