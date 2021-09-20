@@ -59,8 +59,9 @@ module.exports = {
         //if(message.member.roles.some(role => role.name === 'Whatever')) {}
         
         const parts = message.content.split(' ');
+        const role = parts[1].shift().toLowerCase();
 
-        if(parts[1] == 'traveler'){
+        if(role == 'traveler'){
             if(message.member.guild.id == Eclipsys_Contact){
                 if(message.member.roles.cache.find(r => r.name === "Traveler")){
                     message.reply("You can not stop being a Traveler!");
@@ -71,7 +72,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.');
             }
-        } else if(parts[1] == 'member'){
+        } else if(role == 'member'){
             const member = message.guild.roles.cache.find(r => r.name === "Member");
             /*if(!member){
                 message.channel.send("Sorry, but there doesn't seem to the a role called `Member`. Try to contact the server owner or and possible moderator to check if this role exists in the server.")
@@ -137,7 +138,7 @@ module.exports = {
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
             
-        } else if(parts[1] == 'weeb'){
+        } else if(role == 'weeb'){
             if(message.member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Weeb")){
                     message.member.roles.remove(Weeb);
@@ -150,7 +151,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'gamer' || parts[1] == 'gamers'){
+        } else if(role == 'gamer' || parts[1] == 'gamers'){
             if(message.member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Gamers")){
                     message.member.roles.remove(Gamers);
@@ -172,9 +173,9 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
+        } else if(role == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
             message.reply('You can not give youself the "Staff" or "Moderator" roles. \n These roles are manually given by the current staff to those who are deemed worthy.');
-        } else if(parts[1] == 'freshman'){
+        } else if(role == 'freshman'){
             if(message.member.guild.id == Anime_Club){
                 if(message.member.roles.cache.find(r => r.name === "Freshman")){
                     message.member.roles.remove(Freshman);
@@ -194,7 +195,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'sophomore'){
+        } else if(role == 'sophomore'){
             if(message.member.guild.id == Anime_Club){
                 if(message.member.roles.cache.find(r => r.name === "Sophomore")){
                     message.member.roles.remove(Sophomore);
@@ -214,7 +215,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'junior'){
+        } else if(role == 'junior'){
             if(message.member.guild.id == Anime_Club){
                 if(message.member.roles.cache.find(r => r.name === "Junior")){
                     message.member.roles.remove(Junior);
@@ -234,7 +235,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'senior'){
+        } else if(role == 'senior'){
             if(message.member.guild.id == Anime_Club){
                 if(message.member.roles.cache.find(r => r.name === "Senior")){
                     message.member.roles.remove(Senior);
@@ -254,7 +255,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'artist'){
+        } else if(role == 'artist'){
             if(message.member.guild.id == Asian_Invasion){
                 if(message.member.roles.cache.find(r => r.name === "Artist")){
                     message.member.roles.remove(Artist);
@@ -267,7 +268,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(parts[1] == 'announcements'){
+        } else if(role == 'announcements'){
             if(message.member.guild.id == Anime_Club){
                 if(message.member.roles.cache.find(r => r.name === "Announcements")){
                     message.member.roles.remove(Announcements);
@@ -280,7 +281,7 @@ module.exports = {
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
-        } else if(!parts[1]){
+        } else if(!role){
             message.reply('Please enter the role you wish to give yourself.');
         } else {
             message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
