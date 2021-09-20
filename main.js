@@ -1956,6 +1956,7 @@ function WHS_Anime_Club_roles(){
     sophomore = '777896779592892436';
     junior = '777896776199176202';
     senior = '777896772684742656';
+    alumni = '609187024343269376';
 }
 
 function The_Toilet_roles(){
@@ -2001,6 +2002,7 @@ function Not_Identified_Server(){
     sophomore = '';
     junior = '';
     senior = '';
+    alumni = '';
 }
 
 //Assigning the correct role ids according to the server
@@ -2033,7 +2035,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2058,12 +2060,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Sophomore")){
-            //messageReaction.message.member.roles.remove(sophomore);
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📘").users.remove(user.id);
             memberWhoReacted.roles.remove(sophomore);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Junior")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📕").users.remove(user.id);
             memberWhoReacted.roles.remove(junior);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Senior")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📙").users.remove(user.id);
             memberWhoReacted.roles.remove(senior);
+        } else if(memberWhoReacted.roles.cache.find(r => r.name === "Alumni")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "🎓").users.remove(user.id);
+            memberWhoReacted.roles.remove(alumni);
         }
         userrole.roles.add(freshman).then(() => {
             
@@ -2072,7 +2079,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2097,11 +2104,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Freshman")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📗").users.remove(user.id);
             memberWhoReacted.roles.remove(freshman);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Junior")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📕").users.remove(user.id);
             memberWhoReacted.roles.remove(junior);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Senior")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📙").users.remove(user.id);
             memberWhoReacted.roles.remove(senior);
+        } else if(memberWhoReacted.roles.cache.find(r => r.name === "Alumni")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "🎓").users.remove(user.id);
+            memberWhoReacted.roles.remove(alumni);
         }
         userrole.roles.add(sophomore).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Sophomore** role!`).then(msg => {
@@ -2109,7 +2122,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2134,11 +2147,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Freshman")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📗").users.remove(user.id);
             memberWhoReacted.roles.remove(freshman);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Sophomore")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📘").users.remove(user.id);
             memberWhoReacted.roles.remove(sophomore);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Senior")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📙").users.remove(user.id);
             memberWhoReacted.roles.remove(senior);
+        } else if(memberWhoReacted.roles.cache.find(r => r.name === "Alumni")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "🎓").users.remove(user.id);
+            memberWhoReacted.roles.remove(alumni);
         }
         userrole.roles.add(junior).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Junior** role!`).then(msg => {
@@ -2146,7 +2165,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2171,11 +2190,17 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Freshman")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📗").users.remove(user.id);
             memberWhoReacted.roles.remove(freshman);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Sophomore")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📘").users.remove(user.id);
             memberWhoReacted.roles.remove(sophomore);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Junior")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "📕").users.remove(user.id);
             memberWhoReacted.roles.remove(junior);
+        } else if(memberWhoReacted.roles.cache.find(r => r.name === "Alumni")){
+            message.reactions.cache.find(reaction => reaction.emoji.name == "🎓").users.remove(user.id);
+            memberWhoReacted.roles.remove(alumni);
         }
         userrole.roles.add(senior).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Senior** role!`).then(msg => {
@@ -2183,7 +2208,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2219,7 +2244,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2248,7 +2273,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2277,7 +2302,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2306,7 +2331,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2335,7 +2360,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2364,7 +2389,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2393,7 +2418,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2422,7 +2447,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2451,7 +2476,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2480,7 +2505,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2509,7 +2534,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2538,7 +2563,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2567,7 +2592,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2596,7 +2621,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2625,7 +2650,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2654,7 +2679,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2683,7 +2708,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
@@ -2714,7 +2739,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
- });
+});
 
 client.on("messageReactionRemove", async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
