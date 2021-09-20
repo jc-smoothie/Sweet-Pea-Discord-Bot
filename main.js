@@ -2056,12 +2056,13 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📗') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
-            messageReaction.message.member.roles.remove(sophomore);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
-            messageReaction.message.member.roles.remove(junior);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
-            messageReaction.message.member.roles.remove(senior);
+        if(user.roles.cache.find(r => r.name === "Sophomore")){
+            //messageReaction.message.member.roles.remove(sophomore);
+            user.roles.remove(sophomore);
+        } else if(user.roles.cache.find(r => r.name === "Junior")){
+            user.roles.remove(junior);
+        } else if(user.roles.cache.find(r => r.name === "Senior")){
+            user.roles.remove(senior);
         }
         userrole.roles.add(freshman).then(() => {
             
@@ -2093,12 +2094,12 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📘') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
-            messageReaction.message.member.roles.remove(freshman);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
-            messageReaction.message.member.roles.remove(junior);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
-            messageReaction.message.member.roles.remove(senior);
+        if(user.roles.cache.find(r => r.name === "Freshman")){
+            user.roles.remove(freshman);
+        } else if(user.roles.cache.find(r => r.name === "Junior")){
+            user.roles.remove(junior);
+        } else if(user.roles.cache.find(r => r.name === "Senior")){
+            user.roles.remove(senior);
         }
         userrole.roles.add(sophomore).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Sophomore** role!`).then(msg => {
@@ -2129,12 +2130,12 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📕') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
-            messageReaction.message.member.roles.remove(freshman);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
-            messageReaction.message.member.roles.remove(sophomore);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Senior")){
-            messageReaction.message.member.roles.remove(senior);
+        if(user.roles.cache.find(r => r.name === "Freshman")){
+            user.roles.remove(freshman);
+        } else if(user.roles.cache.find(r => r.name === "Sophomore")){
+            user.roles.remove(sophomore);
+        } else if(user.roles.cache.find(r => r.name === "Senior")){
+            user.roles.remove(senior);
         }
         userrole.roles.add(junior).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Junior** role!`).then(msg => {
@@ -2165,12 +2166,12 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📙') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        if(messageReaction.message.member.roles.cache.find(r => r.name === "Freshman")){
-            messageReaction.message.member.roles.remove(freshman);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Sophomore")){
-            messageReaction.message.member.roles.remove(sophomore);
-        } else if(messageReaction.message.member.roles.cache.find(r => r.name === "Junior")){
-            messageReaction.message.member.roles.remove(junior);
+        if(user.roles.cache.find(r => r.name === "Freshman")){
+            user.roles.remove(freshman);
+        } else if(user.roles.cache.find(r => r.name === "Sophomore")){
+            user.roles.remove(sophomore);
+        } else if(user.roles.cache.find(r => r.name === "Junior")){
+            user.roles.remove(junior);
         }
         userrole.roles.add(senior).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Senior** role!`).then(msg => {
