@@ -160,21 +160,97 @@ module.exports = {
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, fellow Gamer~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
                 }
+            } else if(message.member.guild.id == Anime_Club){
+                if(message.member.roles.cache.find(r => r.name === "Gamers")){
+                    message.member.roles.remove(Gamers);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Gamers.");
+                } else{
+                    message.member.roles.add(Gamers);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, fellow Gamer~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
             } else{
                 message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
         } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
             message.reply('You can not give youself the "Staff" or "Moderator" roles. \n These roles are manually given by the current staff to those who are deemed worthy.');
         } else if(parts[1] == 'freshman'){
-            if(message.member.guild.id == Asian_Invasion){
+            if(message.member.guild.id == Anime_Club){
                 if(message.member.roles.cache.find(r => r.name === "Freshman")){
                     message.member.roles.remove(Freshman);
                     message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Freshman.");
                 } else{
-                    message.member.roles.add(Gamers);
-                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, fellow Gamer~");
+                    message.member.roles.add(Freshman);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Freshman~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
                 }
+            } else{
+                message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
+            }
+        } else if(parts[1] == 'sophomore'){
+            if(message.member.guild.id == Anime_Club){
+                if(message.member.roles.cache.find(r => r.name === "Sophomore")){
+                    message.member.roles.remove(Sophomore);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Sophomore.");
+                } else{
+                    message.member.roles.add(Sophomore);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Sophomore~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            } else{
+                message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
+            }
+        } else if(parts[1] == 'junior'){
+            if(message.member.guild.id == Anime_Club){
+                if(message.member.roles.cache.find(r => r.name === "Junior")){
+                    message.member.roles.remove(Junior);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Junior.");
+                } else{
+                    message.member.roles.add(Junior);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Junior~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            } else{
+                message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
+            }
+        } else if(parts[1] == 'senior'){
+            if(message.member.guild.id == Anime_Club){
+                if(message.member.roles.cache.find(r => r.name === "Senior")){
+                    message.member.roles.remove(Senior);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Senior.");
+                } else{
+                    message.member.roles.add(Senior);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Senior~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            } else{
+                message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
+            }
+        } else if(parts[1] == 'artist'){
+            if(message.member.guild.id == Asian_Invasion){
+                if(message.member.roles.cache.find(r => r.name === "Artist")){
+                    message.member.roles.remove(Artist);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Artist.");
+                } else{
+                    message.member.roles.add(Artist);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Artist~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            } else{
+                message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
+            }
+        } else if(parts[1] == 'announcements'){
+            if(message.member.guild.id == Anime_Club){
+                if(message.member.roles.cache.find(r => r.name === "Announcements")){
+                    message.member.roles.remove(Announcements);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Announcements.");
+                } else{
+                    message.member.roles.add(Announcements);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", You now have the role Announcements!");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            } else{
+                message.reply('Sorry, either the role you entered is not available or does not exist. Please try again.')
             }
         } else if(!parts[1]){
             message.reply('Please enter the role you wish to give yourself.');
