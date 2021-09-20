@@ -665,7 +665,9 @@ client.on('message', message => {
    } else if(command == 'rules'){
        if(!message.member.displayName == 'jc smoothie'){
            message.delete();
-           message.reply("You are not allowed to use this command!");
+           message.reply("You are not allowed to use this command!").then(msg => {
+               msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+           }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
            return;
        }
 
@@ -1472,7 +1474,7 @@ client.on('message', message => {
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(wyrEmbed);
    } else if(command == 'say'){
-       if(!message.guild) return message.channel.send('You must be in a guild.');
+       if(!message.guild) return message.channel.send('You must be in a server.');
        client.commands.get('say').execute(message, args);
        /*const auth = message.author
        message.delete();
@@ -1767,6 +1769,14 @@ client.on('message', async message => {
         messageEmbed.react('🌍');
         messageEmbed.react('🌏');
     } else if(command == 'grades'){
+        if(!message.guild) return message.channel.send('You must be in a server.');
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Grade Level')
         .setDescription("If you don't have a grade level role, react to get yours! \n If you already have one and want to remove it, react again to remove it. \n Your previous grade level role will be swapped out when you get a different one, so no need to remove it yourself! \n \n 📗 -> Freshman \n 📘 -> Sophomore \n 📕 -> Junior \n 📙 -> Senior")
@@ -1857,7 +1867,9 @@ client.on('message', async message => {
     } else if(command == 'letoiletmcroles'){
         if(!message.member.displayName == 'jc smoothie'){
             message.delete();
-            message.reply("You are not allowed to use this command!");
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);;
             return;
         }
 
