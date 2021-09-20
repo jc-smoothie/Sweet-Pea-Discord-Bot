@@ -563,7 +563,8 @@ client.on('message', message => {
        .setTitle('Join the support server!')
        .setDescription("Need to ask a question? Well, join the support server and ask away! \n \n Instructions: \n - Click on the title in blue to be redirected to a page in your browser. \n - Afterwards, you sould have access to the support server in your discord application/tab. \n \n Walla, you're in the support server! How awesome is that?")
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Need help or want to ask a question? Join the support server!                    Created by jc smoothie')
        .setURL('https://discord.gg/m3Q6f3KRDP')
        message.author.send(invite);
@@ -586,7 +587,8 @@ client.on('message', message => {
        .setTitle('Updates!')
        .setDescription('The next batch of commands have arrived!: \n \n **Color Roles!** \n Color roles are now available for all servers with Sweet Pea! \n Type `+addcolors` to create 20 new color roles in a server. If you want to delete these color roles, type `delcolors`. \n \n +color [color role] - Give yourself a color role! \n +colors - Display the 20 vailable color roles you can pick from! \n \n **Animals!** \n More animal commands have been added, so Sweet Pea may now display images of more animals! To see the list, type `+animals` and hit enter. \n \n **More Action Commands!** \n With the original hug, slap, kiss, and kill action commands, there are now more of them! These actions are done to other users in the server by mentioning them in your message, but there are also emotion commands, such as laughing, crying, pouting, smirking, and more!')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(miscEmbed);
    } else if(command == 'help'){
@@ -594,7 +596,8 @@ client.on('message', message => {
        .setTitle('Help!')
        .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +colors - Display the color roles you can choose from for the +color command! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(helpEmbed);
    } else if(command == 'fun'){
@@ -602,7 +605,8 @@ client.on('message', message => {
        .setTitle('Fun!')
        .setDescription('**Actions!** \n +hug [person] - Hug someone in the server! \n +slap [person] - Slap someone in the server! \n +kiss [person] - Kiss someone in the server! \n +kill [person] - Kill someone in the server! \n \n **Rates!** \n You may leave the [person] space empty to check the rate of yourself. \n +cuterate [person] \n +weebrate [person] \n +epicrate [person] \n +smartrate [person]')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(funEmbed);
    } else if(command == 'games'){
@@ -610,7 +614,8 @@ client.on('message', message => {
        .setTitle('Games!')
        .setDescription('+stc - Play Sort The Court, a game where you rule a kingdom! \n +cah - (Work in progress) Play Cards Against Humanity, a card game that can get you to laugh at offensive and inappropriate jokes! \n +among - Send a message to start an Among Us game session for players to sign up with an emote. \n +camong -  Send a message to inform players the Among Us Game session is canceled. \n +scratch - Send a link to the Scratch profile of my developer with all their projects. \n +ping - Play ping pong with me!')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(gamesEmbed);
    } else if(command == 'tools'){
@@ -618,7 +623,8 @@ client.on('message', message => {
        .setTitle('Tools!')
        .setDescription('+roll [number] - Roll a number up to the number you inputted. \n +timer [seconds] - Set a timer for a number of seconds. \n +av - Display your avatar. \n +8ball - Shake a magic 8 ball! \n +coin - Flip a coin. \n +poll [text] - Start a poll for responses. \n +ynpoll [text] - +poll [text] - Start a poll with the answer being either yes or no.')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(toolsEmbed);
    } else if(command == 'music'){
@@ -626,7 +632,8 @@ client.on('message', message => {
        .setTitle('Music!')
        .setDescription('**Note** \n These music commands are currently unavailable due the the way Sweet Pea is currently hosted. \n \n There is no queueing ability at the moment, so you will have to retype the play command with another link to continue playing music. \n \n +play [link] - Play music with a YouTube link in a voice channel. \n +stop - Stops playing songs and leaves the voice channel.') //There is a skip command, however it works just like the stop command, since there would only be one song in the "queue."
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(toolsEmbed);
    } else if(command == 'moderation'){
@@ -634,7 +641,8 @@ client.on('message', message => {
        .setTitle('Moderation!')
        .setDescription('**Note** \n The muting and unmuting commands are currently unavailable. These commands are being looked at, and hopefully fixed in the future. \n \n +clear [number] - Clear a number of messages in a text channel. Max number of messages to be cleared at a time is 100. \n +kick [person] - Kicks a user in the server. \n +ban [person] [time] - Bans a user, with an option for a timed ban. \n +unban [person] - Unbans a banned user. \n +mute [person] [time] - Mute a user, with an option for a timed mute. \n +unmute [person] - Unmutes a user.')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(toolsEmbed);
    } else if(command == 'animals'){
@@ -642,7 +650,8 @@ client.on('message', message => {
        .setTitle('Animals!')
        .setDescription('+dog \n +cat \n +duck \n +cow \n +sheep \n +pig \n +turtle \n +horse \n +lion \n +tiger \n +wolf \n +penguin \n +bear \n +fish')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(animalsEmbed);
    } else if(command == 'misc'){
@@ -650,7 +659,8 @@ client.on('message', message => {
        .setTitle('Miscellaneous!')
        .setDescription('+token')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(miscEmbed);
    } else if(command == 'colors'){
@@ -658,7 +668,8 @@ client.on('message', message => {
        .setTitle('Colors!')
        .setDescription("Your previous color role will be swapped out when you get a different one, so no need to remove it yourself! This ensures the color role you recently received will actually change the color of your displayed name, leading to you only have one color role at a time. \n \n +color [color role] - Give yourself a color role! To remove the color role you have, retype the same message as you did to receive it. \n \n **Set Up Color Roles!** \n To be able to give yourself a color role, the color roles must first be set up in the server! The following two commands will allow those who have the __Manage Roles__ permission to add the 20 color roles, and delete them if desired. Once you add the color roles, you must have the Sweet Pea role above the color roles for me to give them to others, and the color roles must be above the roles that you want them to be available to. \n \n For example, to have functioning color roles for members, move the member role below the color roles so members' usernames will change color with a color role. This is because of Discord's role hierarchy system, which makes the username the color of the highest role the user has. \n \n +addcolors - Create 20 color roles in the server. \n +delcolors - Delete the color roles in the server. \n \n **Colors** \n Black \n Gray \n White \n Pink \n Red \n Pastel Red \n Pastel Orange \n Orange \n Yellow \n Pastel Yellow \n Yellow Green \n Green \n Pastel Green \n Light Blue Green \n Blue Green \n Pastel Blue \n Blue \n Indigo \n Violet \n Pastel Purple")
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(colorsEmbed);
    } else if(command == 'ping'){
@@ -677,7 +688,8 @@ client.on('message', message => {
        .setTitle('Discord Server Rules!')
        .setDescription('> 1) Aside from LeToilet MC’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n \n ⚠️ These rules are subject to change at any time.')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Thank you for reading! Now go and have fun!')
        message.channel.send(commandsEmbed);
        
@@ -1451,7 +1463,8 @@ client.on('message', message => {
        .setTitle('Check out the Scratch Projects of jc smoothie!')
        .setDescription("Interested in other coding projects by my developer, jc smoothie? \n Well, click the blue title at the top, and it will open a new tab in your browser with my developer's Scratch profile. \n \n To see a project, simply click on one from the 'Shared Projects' section. \n If you then want to see the code of the project, you can click on the blue 'See inside' button somewhere on the screen. \n Read the description and notes of the project for some information about it. \n \n My favorite project my developer made is the one called 'Imaginary World' since the music is sooo wholesome, along with the character Tsumugi Kotobuki from K ON who's playing the keyboard. \n My developer spent a long time to edit out the background of 12 images of her playing the keyboard, but the end result was worth it. \n \n Anyways, I hope you enjoy those projects as this was where the coding profession of my developer started!")
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Check out other coding projects by my developer on Scratch!                    Created by jc smoothie')
        .setURL('https://scratch.mit.edu/users/jc_jeffrey/')
        message.author.send(invite);
@@ -1461,7 +1474,8 @@ client.on('message', message => {
        .setTitle('Sort The Court!')
        .setDescription("You're a ruler of a kingdom and make decisions to improve it. Gain population and get into the Council of Crowns to beat the game. Have fun! \n \n This game is a replica of the original Sort the Court game, entirely coded by jc smoothie in Python many years ago.")
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Check out this game made by my creator!                                                            Created by jc smoothie')
        .setURL('https://repl.it/@jcjeffrey/Sort-The-Court-Strategy-Game-coded-by-jcjeffreysmoothie#main.py')
        message.author.send(invite);
@@ -1471,7 +1485,8 @@ client.on('message', message => {
        .setTitle('Would You Rather!')
        .setDescription('')
        .setColor('#66ccff')
-       .setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(wyrEmbed);
    } else if(command == 'say'){
