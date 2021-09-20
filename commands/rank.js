@@ -180,6 +180,13 @@ module.exports = {
                     message.member.roles.remove(Freshman);
                     message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Freshman.");
                 } else{
+                    if(message.member.roles.cache.find(r => r.name === "Sophomore")){
+                        message.member.roles.remove(Sophomre);
+                    } else if(message.member.roles.cache.find(r => r.name === "Junior")){
+                        message.member.roles.remove(Junior);
+                    } else if(message.member.roles.cache.find(r => r.name === "Senior")){
+                        message.member.roles.remove(Senior);
+                    }
                     message.member.roles.add(Freshman);
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Freshman~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
@@ -193,6 +200,13 @@ module.exports = {
                     message.member.roles.remove(Sophomore);
                     message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Sophomore.");
                 } else{
+                    if(message.member.roles.cache.find(r => r.name === "Freshman")){
+                        message.member.roles.remove(Freshman);
+                    } else if(message.member.roles.cache.find(r => r.name === "Junior")){
+                        message.member.roles.remove(Junior);
+                    } else if(message.member.roles.cache.find(r => r.name === "Senior")){
+                        message.member.roles.remove(Senior);
+                    }
                     message.member.roles.add(Sophomore);
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Sophomore~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
@@ -206,6 +220,13 @@ module.exports = {
                     message.member.roles.remove(Junior);
                     message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Junior.");
                 } else{
+                    if(message.member.roles.cache.find(r => r.name === "Freshman")){
+                        message.member.roles.remove(Freshman);
+                    } else if(message.member.roles.cache.find(r => r.name === "Sophomore")){
+                        message.member.roles.remove(Sophomore);
+                    } else if(message.member.roles.cache.find(r => r.name === "Senior")){
+                        message.member.roles.remove(Senior);
+                    }
                     message.member.roles.add(Junior);
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Junior~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
@@ -219,6 +240,13 @@ module.exports = {
                     message.member.roles.remove(Senior);
                     message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Senior.");
                 } else{
+                    if(message.member.roles.cache.find(r => r.name === "Freshman")){
+                        message.member.roles.remove(Freshman);
+                    } else if(message.member.roles.cache.find(r => r.name === "Sophomore")){
+                        message.member.roles.remove(Sophomore);
+                    } else if(message.member.roles.cache.find(r => r.name === "Junior")){
+                        message.member.roles.remove(Junior);
+                    }
                     message.member.roles.add(Senior);
                     message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, Senior~");
                     //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
