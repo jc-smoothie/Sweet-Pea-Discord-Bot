@@ -1780,7 +1780,7 @@ client.on('message', async message => {
         message.delete();
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Grade Level [New]')
-        .setDescription("If you don't have a grade level role, react to get yours! \n If you already have one and want to remove it, react again to remove it. \n Your previous grade level role will be swapped out when you get a different one, so no need to remove it yourself! \n \n 📗 -> Freshman \n 📘 -> Sophomore \n 📕 -> Junior \n 📙 -> Senior")
+        .setDescription("If you don't have a grade level role, react to get yours! \n If you already have one and want to remove it, react again to remove it. \n Your previous grade level role will be swapped out when you get a different one, so no need to remove it yourself! \n \n 📗 -> Freshman \n 📘 -> Sophomore \n 📕 -> Junior \n 📙 -> Senior \n 🎓 -> Alumni")
         .setColor('#66ccff')
         let messageEmbed = await message.channel.send(reactionsEmbed);
         messageEmbed.react('📗');
