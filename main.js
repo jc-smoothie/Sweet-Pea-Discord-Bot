@@ -2160,7 +2160,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
             memberWhoReacted.roles.remove(alumni);
         }
         userrole.roles.add(junior).then(() => {
-            messageReaction.messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Junior** role!`).then(msg => {
+            messageReaction.message.channel.send(`✅ <@${user.id}> You now have the **Junior** role!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
