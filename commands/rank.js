@@ -62,7 +62,7 @@ module.exports = {
 
         if(parts[1] == 'traveler'){
             if(message.member.guild.id == Eclipsys_Contact){
-                if(message.member.roles.some(role => role.name === 'Traveler')) {
+                if(message.member.roles.cache.find(r => r.name === "Traveler")){
                     message.reply("You can not stop being a Traveler!");
                 } else{
                     message.member.roles.add(Traveler);
