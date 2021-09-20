@@ -59,7 +59,8 @@ module.exports = {
         //if(message.member.roles.some(role => role.name === 'Whatever')) {}
         
         const parts = message.content.split(' ');
-        const role = parts[1].shift().toLowerCase();
+        const part1 = parts[1];
+        const role = part1.shift().toLowerCase();
 
         if(role == 'traveler'){
             if(message.member.guild.id == Eclipsys_Contact){
