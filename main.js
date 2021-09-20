@@ -2056,7 +2056,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📗') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        const memberWhoReacted = messageReaction.message.guild.members.find(member => member.id === user.id);
+        const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Sophomore")){
             //messageReaction.message.member.roles.remove(sophomore);
             memberWhoReacted.roles.remove(sophomore);
@@ -2095,7 +2095,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📘') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        const memberWhoReacted = messageReaction.message.guild.members.find(member => member.id === user.id);
+        const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Freshman")){
             memberWhoReacted.roles.remove(freshman);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Junior")){
@@ -2132,7 +2132,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📕') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        const memberWhoReacted = messageReaction.message.guild.members.find(member => member.id === user.id);
+        const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Freshman")){
             memberWhoReacted.roles.remove(freshman);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Sophomore")){
@@ -2169,7 +2169,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '📙') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        const memberWhoReacted = messageReaction.message.guild.members.find(member => member.id === user.id);
+        const memberWhoReacted = messageReaction.message.guild.members.cache.find(member => member.id === user.id);
         if(memberWhoReacted.roles.cache.find(r => r.name === "Freshman")){
             memberWhoReacted.roles.remove(freshman);
         } else if(memberWhoReacted.roles.cache.find(r => r.name === "Sophomore")){
