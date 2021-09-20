@@ -6,6 +6,7 @@ module.exports = {
         const jc_smoothie_support_server = '755814665111470142';
         const Eclipsys_Contact = '700620542419664968';
         const LeToilet_MC = '787001697980776528';
+        const Anime_Club = '361609091602317312';
 
         function Asian_Invasion_roles(){
             Weeb = '694999716047618199';
@@ -28,6 +29,17 @@ module.exports = {
             Member = '787001825567571998';
         }
 
+        function Anime_Club_roles(){
+            Freshman = '777896782628782100';
+            Sophomore = '777896779592892436';
+            Junior = '777896776199176202';
+            Senior = '777896772684742656';
+            Alumni = '609187024343269376';
+            Artist = '609186787658825738';
+            Gamers = '609187986000707614';
+            Announcements = '852984054663872513';
+        }
+
         if(message.channel.guild.id == Asian_Invasion){
             Asian_Invasion_roles();
         } else if(message.channel.guild.id == jc_smoothie_support_server){
@@ -36,12 +48,12 @@ module.exports = {
             Eclipsys_Contact_roles();
         } else if(message.channel.guild.id == LeToilet_MC){
             LeToilet_MC_roles();
+        } else if(message.channel.guild.id == Anime_Club){
+            Anime_Club_roles();
         }/* else if(message.channel.guild.id == nico_nico_nii){
             nico_nico_nii_roles();
         } else if(message.channel.guild.id == B){
             B_roles();
-        } else if(message.channel.guild.id == WHS_Anime_Club){
-            WHS_Anime_Club_roles();
         }*/
 
         //if(message.member.roles.some(role => role.name === 'Whatever')) {}
@@ -153,6 +165,17 @@ module.exports = {
             }
         } else if(parts[1] == 'staff' || parts[1] == 'mod' || parts[1] == 'moderator'){
             message.reply('You can not give youself the "Staff" or "Moderator" roles. \n These roles are manually given by the current staff to those who are deemed worthy.');
+        } else if(parts[1] == 'freshman'){
+            if(message.member.guild.id == Asian_Invasion){
+                if(message.member.roles.cache.find(r => r.name === "Freshman")){
+                    message.member.roles.remove(Freshman);
+                    message.channel.send("❌ " + "<@" + message.author.id + ">" + ", You no longer have the role Freshman.");
+                } else{
+                    message.member.roles.add(Gamers);
+                    message.channel.send("✅ " + "<@" + message.author.id + ">" + ", Welcome, fellow Gamer~");
+                    //message.reply('Welcome, fellow Weeb~ Visit #react-role-assign to get language and region roles.');
+                }
+            }
         } else if(!parts[1]){
             message.reply('Please enter the role you wish to give yourself.');
         } else {
