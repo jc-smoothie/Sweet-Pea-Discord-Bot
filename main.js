@@ -59,8 +59,8 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.Nw6lauoeQ-RxYF99y4BmklJzLqU');
-//client.login(process.env.token);
+//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.Nw6lauoeQ-RxYF99y4BmklJzLqU');
+client.login(process.env.token);
 
 //Sort the Court Stuff
 var attempts = 1;
