@@ -6,7 +6,7 @@ module.exports = {
         var dice_result = parts[1];
         var dice_number = parseInt(dice_result, 10);
         var dice = Math.floor((Math.random() * dice_number) + 1);
-        if(!parts[1] || dice.isNaN()){
+        if(!parts[1] || dice_number.isNan()){
             return message.reply("Enter a number for the amount you want to roll up to!");
         }
         message.reply("You rolled a " + dice + "!");
