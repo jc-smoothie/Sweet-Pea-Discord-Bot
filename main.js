@@ -4,6 +4,8 @@ const Levels = require('discord-xp');
 const mongoose = require('mongoose');
 const memberCount = require('./member-count');
 
+const herokuHosting = true;
+
 /*const {
     Client,
     Attachment
@@ -216,6 +218,12 @@ var servers = {};
 
 client.on('message', message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
+
+    //if hosted on Heroku, music command won't work and will reply with a message
+    if(herokuHosting == true){
+        message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
+        return;
+    }
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
@@ -290,7 +298,7 @@ client.on('message', message => {
             }
             
             var server = servers[message.guild.id];
-                //var server = process.env.server;
+            //var server = process.env.server;
 
             server.queue.push(args[1]);
 
@@ -326,7 +334,7 @@ client.on('message', message => {
         case 'stop':
             if(!message.guild) return message.channel.send('You must be in a guild.');
             var server = servers[message.guild.id];
-                //var server = process.env.server;
+            //var server = process.env.server;
             if(message.guild.voice.connection){
                 for(var i = server.queue.length -1; i >= 0; i--){
                     server.queue.splice(i, 1);
@@ -524,33 +532,32 @@ client.on('message', ({channel, content, member}) => {
     // could use this line:
     if(client.channels.cache.filter(c => c.name === 'counting').keyArray().includes(channel.id)){
     //if (channel.id === 'counting channel id') {
-      // You can ignore all bot messages like this
-      if(member.user.bot) return
-      // If the message is the current count + 1...
-      if(Number(content) === count + 1){
-        // ...increase the count
-        count++
-        // Remove any existing timeout to count
-        if(timeout) client.clearTimeout(timeout)
-        // Add a new timeout
-        timeout = client.setTimeout(
-          // This will make the bot count and log all errors
-          () => channel.send(++count).catch(console.error),
-          // after 30 seconds
-          30000
-        )
-      // If the message wasn't sent by the bot...
-      } else if(member.id !== client.user.id){
-        // ...send a message because the person stuffed up the counting (and log all errors)
-        channel.send(`${member} messed up!`).catch(console.error)
-        // Reset the count
-        count = 0
-        // Reset any existing timeout because the bot has counted so it doesn't need to
-        // count again
-        if(timeout) client.clearTimeout(timeout)
-      }
+        // You can ignore all bot messages like this
+        if(member.user.bot) return
+        // If the message is the current count + 1...
+        if(Number(content) === count + 1){
+            // ...increase the count
+            count++
+            // Remove any existing timeout to count
+            if(timeout) client.clearTimeout(timeout)
+            // Add a new timeout
+            timeout = client.setTimeout(
+                // This will make the bot count and log all errors
+                () => channel.send(++count).catch(console.error),
+                // after 30 seconds
+                30000
+            )
+            // If the message wasn't sent by the bot...
+        } else if(member.id !== client.user.id){
+            // ...send a message because the person stuffed up the counting (and log all errors)
+            channel.send(`${member} messed up!`).catch(console.error)
+            // Reset the count
+            count = 0
+            // Reset any existing timeout because the bot has counted so it doesn't need to// count again
+            if(timeout) client.clearTimeout(timeout)
+        }
     }
-  })
+})
 
 client.on('message', message => {
    if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
