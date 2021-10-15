@@ -219,15 +219,15 @@ var servers = {};
 client.on('message', message => {
     if(!message.cleanContent.startsWith(prefix) || message.author.bot) return;
 
-    //if hosted on Heroku, music command won't work and will reply with a message
-    if(herokuHosting == true){
-        message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
-        return;
-    }
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
         case 'play':
+            //if hosted on Heroku, music command won't work and will reply with a message
+            if(herokuHosting == true){
+                message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
+                return;
+            }
             if(!message.guild) return message.channel.send('You must be in a guild.');
             if (!message.content.includes('https://www.youtube.com/watch?v=')){
                 message.channel.send('Please provide a valid youtube link!');
@@ -324,6 +324,11 @@ client.on('message', message => {
         break;
 
         /*case 'skip':
+            //if hosted on Heroku, music command won't work and will reply with a message
+            if(herokuHosting == true){
+                message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
+                return;
+            }
             var server = servers[message.guild.id];
                 //var server = process.env.server;
             if(server.dispatcher) server.dispatcher.end();
@@ -332,6 +337,11 @@ client.on('message', message => {
         break;*/
 
         case 'stop':
+            //if hosted on Heroku, music command won't work and will reply with a message
+            if(herokuHosting == true){
+                message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
+                return;
+            }
             if(!message.guild) return message.channel.send('You must be in a guild.');
             var server = servers[message.guild.id];
             //var server = process.env.server;
