@@ -8,6 +8,8 @@ module.exports = {
         var dice = Math.floor((Math.random() * dice_number) + 1);
         if(!parts[1]){
             return message.reply("Enter a number for the amount you want to roll up to!");
+        } else if(!Number.isInteger(dice_number)){
+            return message.reply("You may only enter a number for the amount you want to roll up to!");
         }
         message.reply("You rolled a " + dice + "!");
     }
