@@ -95,6 +95,36 @@ client.on("guildCreate", (guild) => {
     guild.owner.send(`Thank you for inviting me to **${guild.name}**! ` +  "Type `+help` to display a list of categorized commands, and I hope I am able to suit your needs!")
 });
 
+/*client.on("ready", async () => {
+    let guild = bot.guilds.cache.find(guild => guild.id == guildID);
+    let channel = await guild.channels.cache.find(ch => ch.id == channelID)
+
+    // You can set any limit you want, for performance I used a low number
+    channel.messages.fetch({ limit: 10 })
+        .then(async messages => {
+            messages.forEach(async message => {
+                if (message.partial) await message.fetch();
+                if (!message.guild) return;
+
+                for (let reactionObj of message.reactions.cache) {
+                    for (let reaction of reactionObj) {
+                        if (typeof reaction == "string") continue;
+                        if (reaction.emoji.id != emojiID) continue;
+                        reaction.users.fetch()
+                            .then(async users => {
+                                users.forEach(async user => {
+                                    if (user.bot) return;
+                                    console.log("Adding role")
+                                    await reaction.message.guild.members.cache.get(user.id).roles.add(roleID)
+                                })
+                            })
+                    }
+                }
+            });
+        })
+        .catch(console.error);
+});*/
+
 /*client.on("guildCreate", (guild) => {
     var found = false;
     guild.channels.forEach(function(channel, id) {
@@ -434,6 +464,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
+    if(message.author.bot) return;
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
@@ -466,6 +497,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
+    if(message.author.bot) return;
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
@@ -499,6 +531,7 @@ client.on('message', message => {
 })
 
 client.on('message', message => {
+    if(message.author.bot) return;
     let args = message.content.substring(prefix.length).split(" ");
 
     switch (args[0]){
