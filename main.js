@@ -84,7 +84,7 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
-    while(true){
+    /*while(true){
         client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
         setTimeout(function(){
             message.channel.send("nice");
@@ -96,7 +96,15 @@ client.once('ready', () => {
 
         memberCount(client);
         //welcome(client);
-    }
+    }*/
+
+    //client.user.setActivity('maintenance! | +help', {type: "WATCHING"}).catch(console.error);
+    //client.user.setStatus('dnd');
+
+    client.user.setPresence({activity: {name: 'wow, maintenance! | +help'},  status: 'dnd'});
+
+    memberCount(client);
+    //welcome(client);
 });
 
 //Message sent to the owner of the guild who added Sweet Pea to their server
@@ -156,7 +164,7 @@ const Eclipsys_Contact = '700620542419664968';
 const LeToilet_MC = '787001697980776528';
 
 client.on("guildMemberAdd", (member) => {
-    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet){
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet || member.guild.id == WHS_Anime_Club_Revamp){
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
         let embed = new MessageEmbed()
@@ -210,7 +218,7 @@ client.on("guildMemberAdd", (member) => {
 });
 
 /*client.on("guildMemberRemove", (member) => {
-    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet){
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet || member.guild.id == WHS_Anime_Club_Revamp){
         const goodbyeChannel = member.guild.channels.cache.find(channel => channel.name === "goodbye");
 
         let embed = new MessageEmbed()
@@ -746,6 +754,26 @@ client.on('message', message => {
        const commandsEmbed = new MessageEmbed()
        .setTitle('Discord Server Rules!')
        .setDescription('> 1) Aside from LeToilet MC’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n \n ⚠️ These rules are subject to change at any time.')
+       .setColor('#66ccff')
+       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
+       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
+       .setFooter('Thank you for reading! Now go and have fun!')
+       message.channel.send(commandsEmbed);
+       
+       //message.channel.send('> 1) Aside from Eclipsys Contact’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n ⚠️ These rules are subject to change at any time.');
+   } else if(command == 'whsacrules'){
+       if(!message.member.displayName == 'jc smoothie'){
+           message.delete();
+           message.reply("You are not allowed to use this command!").then(msg => {
+               msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+           }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+           return;
+       }
+
+       if(!message.guild) return message.channel.send('You must be in a guild.');
+       const commandsEmbed = new MessageEmbed()
+       .setTitle('Discord Server Rules!')
+       .setDescription('> 1) Aside from WHS Anime Club’s Community Guidelines, please adhere to Discord’s: \n Guidelines: https://discordapp.com/guidelines \n Terms of Service: https://discordapp.com/tos \n \n > 2) Discord names and avatars must be appropriate. \n No NSFW or suggestive content. \n \n > 3) Be respectful to anyone and everyone on the server. \n No one deserves such treatment, this includes staff as well. \n \n > 4) Any content that is NSFW is not allowed under any circumstances. \n If you must question on whether posting such content is allowed, don’t post it. \n (Take flirting and NSFW talks to DMS) \n \n > 5) Spamming in any form is not allowed. \n This includes text channels, voice channels and direct messages alike. \n \n > 6) Personal attacks are not tolerated \n This includes targeting someone just to provoke them. \n \n > 7) Do not attempt to bypass any blocked words \n You can’t use racist words, any type of slur and anything that is clearly not appropriate for the server. \n \n > 8) Don’t ping without legitimate reasoning behind them \n This includes pinging staff or helpers, if they are troll pings etc, its mutable. \n \n > 9) Alternate accounts are not allowed under any circumstances \n This is due to how they can be abused to avoid bans and mutes. \n \n > 10) No Discord server invite links or codes \n These links are not allowed and is an instant ban whether it is Dm or Server. \n \n > 11) Do not advertise without permission \n Do not advertise social media/content platforms. \n \n > 12) Do not role-play within the server \n Roleplaying is forbidden in the server. \n \n > 13) Raiding is not allowed \n Instant ban for raiding whether voice chat or text chat. \n \n > 14) Content relating to suicide or death \n Emoji combination, slang, speech and all texts. \n \n > 15) Anything to target specific groups/individuals is prohibited \n This includes antisemitism, Islamophobia, homophobia, racism etc. \n \n ⚠️ These rules are subject to change at any time.')
        .setColor('#66ccff')
        //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
@@ -1740,7 +1768,7 @@ client.on('message', message => {
    } else if(command == 'welcome'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        if(message.member.displayName == 'jc smoothie'){
-           if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server || message.member.guild.id == The_Toilet){
+           if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server || message.member.guild.id == The_Toilet || message.member.guild.id == WHS_Anime_Club_Revamp){
                const welcomeChannel = message.member.guild.channels.cache.find(channel => channel.name === "welcome");
                
                let embed = new MessageEmbed()
@@ -1992,6 +2020,7 @@ const Asian_Invasion = '637447111725809664';
 const jc_smoothie_support_server = '755814665111470142';
 const WHS_Anime_Club = '361609091602317312';
 const The_Toilet = '781945168491446353';
+const WHS_Anime_Club_Revamp = '930410675673661491';
 
 function Asian_Invasion_roles(){
     reactionRolesChannel = '763441746314133505';
@@ -2059,6 +2088,15 @@ function LeToilet_MC_roles(){
     minecraftBedrock = '787009083484012556';
 }
 
+function WHS_Anime_Club_Revamp_roles(){
+    reactionRolesChannel = '';
+    freshman = '';
+    sophomore = '';
+    junior = '';
+    senior = '';
+    alumni = '';
+}
+
 function Not_Identified_Server(){
     reactionRolesChannel = '';
     EN = '';
@@ -2092,6 +2130,8 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         The_Toilet_roles();
     } else if(messageReaction.message.guild.id == LeToilet_MC){
         LeToilet_MC_roles();
+    } else if(messageReaction.message.guild.id == WHS_Anime_Club_Revamp){
+        WHS_Anime_Club_Revamp_roles();
     } else{
         Not_Identified_Server();
     }
