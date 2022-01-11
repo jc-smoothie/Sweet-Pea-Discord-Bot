@@ -84,10 +84,19 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
-    client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+    while(true){
+        client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
+        setTimeout(function(){
+            message.channel.send("nice");
+        }, 4000);
+        client.user.setActivity('51 servers! | +help', {type: "WATCHING"}).catch(console.error);
+        setTimeout(function(){
+            message.channel.send("nice");
+        }, 4000);
 
-    memberCount(client);
-    //welcome(client);
+        memberCount(client);
+        //welcome(client);
+    }
 });
 
 //Message sent to the owner of the guild who added Sweet Pea to their server
