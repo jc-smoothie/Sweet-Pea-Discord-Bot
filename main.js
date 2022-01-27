@@ -61,7 +61,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.Nw6lauoeQ-RxYF99y4BmklJzLqU');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.lIVKWeiDxgFSvvINVp6YG5Cmvyc');
 //client.login(process.env.token);
 
 //Sort the Court Stuff
@@ -98,10 +98,11 @@ client.once('ready', () => {
         //welcome(client);
     }*/
 
-    //client.user.setActivity('maintenance! | +help', {type: "WATCHING"}).catch(console.error);
+    client.user.setActivity('maintenance! | +help', {type: "WATCHING"}).catch(console.error);
     //client.user.setStatus('dnd');
 
-    client.user.setPresence({activity: {name: 'wow, maintenance! | +help'},  status: 'dnd'});
+    //maintenance mode
+    //client.user.setPresence({activity: {name: 'wow, maintenance! | +help'},  status: 'dnd'});
 
     memberCount(client);
     //welcome(client);
@@ -164,7 +165,7 @@ const Eclipsys_Contact = '700620542419664968';
 const LeToilet_MC = '787001697980776528';
 
 client.on("guildMemberAdd", (member) => {
-    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server || member.guild.id == jc_smoothie_server || member.guild.id == The_Toilet || member.guild.id == WHS_Anime_Club_Revamp){
+    if(member.guild.id == Asian_Invasion || member.guild.id == Eclipsys_Contact || member.guild.id == jc_smoothie_support_server){
         const welcomeChannel = member.guild.channels.cache.find(channel => channel.name === "welcome");
 
         let embed = new MessageEmbed()
@@ -214,6 +215,39 @@ client.on("guildMemberAdd", (member) => {
         } else{
             member.roles.add(bot);
         }*/
+    } else if(member.guild.id == WHS_Anime_Club_Revamp){
+        const member_tag = '930413552378970162';
+        const bot = '930413602396069889';
+        const patronage_tag = '935654138157621268';
+        const grade = '935654526902476821';
+        const hobbies_tag = '935654681429016608';
+        const games_tag = '935653521615892610';
+        const animes_tag = '935653675525865534';
+        const mangas_tag = '935653747428827176';
+        const other_roles_tag = '935654842624520243';
+
+        //Role Sections
+        if(!member.user.bot){
+            //message.member.roles.add(member);
+            member.roles.add(member_tag);
+            member.roles.add(patronage_tag);
+            member.roles.add(grade);
+            member.roles.add(hobbies_tag);
+            member.roles.add(games_tag);
+            member.roles.add(animes_tag);
+            member.roles.add(mangas_tag);
+            member.roles.add(other_roles_tag);
+        } else{
+            member.roles.add(bot);
+            member.roles.add(member_tag);
+            member.roles.add(patronage_tag);
+            member.roles.add(grade);
+            member.roles.add(hobbies_tag);
+            member.roles.add(games_tag);
+            member.roles.add(animes_tag);
+            member.roles.add(mangas_tag);
+            member.roles.add(other_roles_tag);
+        }
     }
 });
 
@@ -2857,7 +2891,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
         userrole.roles.add(Verified).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
-                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
         });
     }
