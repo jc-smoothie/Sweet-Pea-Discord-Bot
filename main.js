@@ -61,8 +61,8 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.lIVKWeiDxgFSvvINVp6YG5Cmvyc');
-client.login(process.env.token);
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.lIVKWeiDxgFSvvINVp6YG5Cmvyc');
+//client.login(process.env.token);
 
 //Sort the Court Stuff
 var attempts = 1;
@@ -1747,7 +1747,7 @@ client.on('message', message => {
            //console.log('Missing args')
            var gayness = Math.floor(Math.random() * 101);
            const gayrate = new MessageEmbed()
-           .setTitle('QT!')
+           .setTitle('Rainbow!')
            .setDescription("You are " + gayness + "% gay!")
            .setColor('#66ccff')
            .setThumbnail('https://tenor.com/view/flag-lgbt-rainbow-happy-pride-gif-12056452')
@@ -1878,6 +1878,14 @@ client.on('message', async message => {
     const command = args.shift().toLowerCase();
     
     if(command == 'languagereactions'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Welcome!')
         .setDescription("If you don't have a language role, react to get yours! \n If you already have a language role and want to remove it, react to remove it. \n \n 🇺🇸 🇬🇧 🇨🇦 🇦🇺 -> EN \n 🇫🇷 -> FR \n 🇪🇸 -> ESP \n 🇩🇪 -> DE \n 🇻🇳 -> VN \n 🇵🇹 🇧🇷 -> PT/BR \n 🇰🇷 -> KR \n 🇯🇵 -> JP \n 🇨🇳 -> CN")
@@ -1897,6 +1905,14 @@ client.on('message', async message => {
         messageEmbed.react('🇯🇵');
         messageEmbed.react('🇨🇳');
     } else if(command == 'regionreactions'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Want to see other people from your region?')
         .setDescription("If you don't have a region role, react to get yours! \n If you already have a region role and want to remove it, react again to remove it. \n \n 🌎 -> AMERICAS \n 🌍 -> EUROPE/AFRICA \n 🌏 -> ASIA/AUSTRALIA")
@@ -1906,6 +1922,14 @@ client.on('message', async message => {
         messageEmbed.react('🌍');
         messageEmbed.react('🌏');
     } else if(command == 'grades'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         if(!message.guild) return message.channel.send('You must be in a server.');
         if(!message.member.displayName == 'jc smoothie'){
             message.delete();
@@ -1926,6 +1950,14 @@ client.on('message', async message => {
         messageEmbed.react('📙');
         messageEmbed.react('🎓');
     } else if(command == 'among'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us!')
         .setDescription("There will be an Among Us game later today. React to confirm your slot and attendance!")
@@ -1935,12 +1967,28 @@ client.on('message', async message => {
         //const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'AmongUs');
         //messageEmbed.react(reactionEmoji);
     } else if(command == 'camong'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Among Us Canceled!')
         .setDescription("The Among Us game scheduled later today has been canceled. \n This may be because not enough people have voted to participate, or has simply been decided to be canceled.")
         .setColor('#66ccff')
         message.channel.send(reactionsEmbed);
     } else if(command == 'verification'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+        
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Verification!')
         .setDescription("After reading the rules, verify yourself by clicking on the reaction below! You'll then gain access to the rest of the server!")
@@ -2123,12 +2171,14 @@ function LeToilet_MC_roles(){
 }
 
 function WHS_Anime_Club_Revamp_roles(){
-    reactionRolesChannel = '';
-    freshman = '';
-    sophomore = '';
-    junior = '';
-    senior = '';
-    alumni = '';
+    verified = '930413552378970162' //same as the member role currently
+    member = '930413552378970162';
+    reactionRolesChannel = '930425302465777754';
+    freshman = '930423763277852683';
+    sophomore = '930423805753561088';
+    junior = '930423829786935306';
+    senior = '930423854130663434';
+    alumni = '936448545945423883';
 }
 
 function Not_Identified_Server(){
@@ -2178,7 +2228,7 @@ client.on('messageReactionAdd', async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '✅') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.add('776164933649039391').then(() => {
+        userrole.roles.add(verified).then(() => {
             messageReaction.message.channel.send(`✅ <@${user.id}> You are now verified!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -2192,7 +2242,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
     if (messageReaction.message.channel.id === reactionRolesChannel && messageReaction.emoji.name === '✅') {
         const channel = messageReaction.message.guild.channels.cache.get(reactionRolesChannel);
         const userrole = messageReaction.message.guild.members.cache.get(user.id);
-        userrole.roles.remove('776164933649039391').then(() => {
+        userrole.roles.remove(verified).then(() => {
             messageReaction.message.channel.send(`❌ <@${user.id}> You are no longer verified!`).then(msg => {
                 msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
@@ -2881,7 +2931,7 @@ client.on("messageReactionRemove", async (messageReaction, user) => {
 });
 
 //Verification
-const Verified = '776164933649039391';
+//const Verified = '776164933649039391';
 
 client.on('messageReactionAdd', async (messageReaction, user) => {
     if (user.bot || !messageReaction.message.guild) return;
