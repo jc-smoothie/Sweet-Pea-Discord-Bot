@@ -1,5 +1,6 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 //const Levels = require('discord-xp');
 //const mongoose = require('mongoose');
 const memberCount = require('./member-count');
@@ -2082,7 +2083,7 @@ client.on('message', async message => {
             }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
             return;
         }
-        
+
         message.channel.send('Ta da!~');
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'osu');
         message.react(reactionEmoji);
