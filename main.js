@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 //const mongoose = require('mongoose');
 const memberCount = require('./member-count');
 
-const herokuHosting = true;
+const herokuHosting = false;
 
 /*const {
     Client,
@@ -61,7 +61,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.lIVKWeiDxgFSvvINVp6YG5Cmvyc');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.nAvGYjw6ivpDvVbl7uRkLbEQzM0');
 //client.login(process.env.token);
 
 //Sort the Court Stuff
@@ -306,7 +306,7 @@ client.on('message', message => {
         case 'play':
             //if hosted on Heroku, music command won't work and will reply with a message
             if(herokuHosting == true){
-                message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
+                message.channel.send("This feature is down! No music :(");
                 return;
             }
             if(!message.guild) return message.channel.send('You must be in a guild.');
