@@ -1,10 +1,10 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
-const Levels = require('discord-xp');
-const mongoose = require('mongoose');
+//const Levels = require('discord-xp');
+//const mongoose = require('mongoose');
 const memberCount = require('./member-count');
 
-const herokuHosting = false;
+const herokuHosting = true;
 
 /*const {
     Client,
@@ -98,7 +98,7 @@ client.once('ready', () => {
         //welcome(client);
     }*/
 
-    client.user.setActivity('maintenance! | +help', {type: "WATCHING"}).catch(console.error);
+    client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
     //client.user.setStatus('dnd');
 
     //maintenance mode
