@@ -15,16 +15,14 @@ const ytdl = require("ytdl-core");
 
 const client = new Discord.Client();
 
-const queue = new Map();
+//const queue = new Map();
 
 /*let createdTime = message.guild.createdAt
 let memberCount = message.guild.memberCount
 let onlineCount = message.guild*/
 
-/*
-const EconomyClient = require('./structures/Client');
-new EconomyClient().start(require('./config').token, './commands');
-*/
+/*const EconomyClient = require('./structures/Client');
+new EconomyClient().start(require('./config').token, './commands');*/
 
 //mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -36,7 +34,7 @@ new EconomyClient().start(require('./config').token, './commands');
 //const client = new Client();
 
 //This is another client assignor
-const {Client, MessageEmbed} = require('discord.js');
+//const {Client, MessageEmbed} = require('discord.js');
 
 const prefix = '+';
 
@@ -55,7 +53,6 @@ const { slice } = require('ffmpeg-static');
 class MyEmitter extends EventEmitter{}
 
 var emitter = new MyEmitter()
-//var emitter2 = new MyEmitter();
 
 //console.log(`emitter: ${emitter.getMaxListeners()}`);
 
@@ -159,7 +156,7 @@ client.on("guildCreate", (guild) => {
     })
 });*/
 
-//Welcome message
+// Welcome message
 const jc_smoothie_server = '782599860238942209';
 const Eclipsys_Contact = '700620542419664968';
 const LeToilet_MC = '787001697980776528';
@@ -199,7 +196,7 @@ client.on("guildMemberAdd", (member) => {
         const games_tag = '787002149636276244';
         const minecraft_server_tag = '820001327358148659';
 
-        //Role Sections
+        // Role Sections
         if(!member.user.bot){
             //message.member.roles.add(member);
             member.roles.add(games_tag);
@@ -226,7 +223,7 @@ client.on("guildMemberAdd", (member) => {
         const mangas_tag = '935653747428827176';
         const other_roles_tag = '935654842624520243';
 
-        //Role Sections
+        // Role Sections
         if(!member.user.bot){
             //message.member.roles.add(member);
             member.roles.add(member_tag);
@@ -257,7 +254,7 @@ client.on("guildMemberAdd", (member) => {
 
         let embed = new MessageEmbed()
         .setTitle(`Goodbye, ${member}`)
-        .setDescription("Come back soon, or not.")
+        .setDescription("Come back soon!")
         .setColor('#66ccff')
         .setTimestamp()
     
@@ -306,7 +303,7 @@ client.on('message', message => {
         case 'play':
             //if hosted on Heroku, music command won't work and will reply with a message
             if(herokuHosting == true){
-                message.channel.send("This feature is down! No music :(");
+                message.channel.send("Seems like this doesn't work. No music :(");
                 return;
             }
             if(!message.guild) return message.channel.send('You must be in a guild.');
@@ -334,7 +331,6 @@ client.on('message', message => {
             function play(connection, message){
                 var server = servers[message.guild.id];
                     //var server = process.env.server;
-
                 
                 if(!server.queue[1]){
                     server.dispatcher = connection.play(ytdl(server.queue[0], {filter: "audioonly"}))}
@@ -420,7 +416,7 @@ client.on('message', message => {
         case 'stop':
             //if hosted on Heroku, music command won't work and will reply with a message
             if(herokuHosting == true){
-                message.channel.send("Due to the way the way I'm being hosted, I'm unfortunately not able to play music at the moment.");
+                message.channel.send("Seems like this doesn't work. Not sure why :(");
                 return;
             }
             if(!message.guild) return message.channel.send('You must be in a guild.');
@@ -442,9 +438,8 @@ client.on('message', message => {
     }
 });
 
-/*
-//Pause
-server.dispatcher.pause()
+// Pause
+/*server.dispatcher.pause()
 //Resume
 server.dispatcher.play()
 server.dispatcher.resume()
@@ -458,11 +453,9 @@ server.queue.forEach(function(entry) { // For each queue item
      queueOutput = queueOutput + count + ". " + entry + "\n";
      count++;
 });
-message.channel.send(queueOutput)
-*/
+message.channel.send(queueOutput)*/
 
 client.on('message', message => {
-    //if(message.author.id === client.user.id) return;
     if(message.author.bot) return;
     const reply = message.content;
     const replyFormatted = reply.toLowerCase();
@@ -473,14 +466,10 @@ client.on('message', message => {
         message.channel.startTyping();
         setTimeout(() => {  message.channel.send("nice"); }, 1000);
         message.channel.stopTyping();
-    }/* else if(replyFormatted == 'oof'){
-        message.channel.startTyping();
-        setTimeout(() => {  message.channel.send("rip"); }, 1000);
-        message.channel.stopTyping();
-    }*/ else if(replyFormatted == ';-;'){
+    } else if(replyFormatted == ';-;'){
         message.react('😢');
     }/* else if(replyFormatted == 'wat'){
-        message.react('❓');
+        message.react('❔');
     }*/ else if(replyFormatted == 'morning'){
         /*message.channel.startTyping();
         setTimeout(() => {  message.channel.send("gm!"); }, 1000);
@@ -514,7 +503,8 @@ client.on('message', message => {
     }*/
 });
 
-client.on('message', message => {
+//Moderation
+/*client.on('message', message => {
     if(message.author.bot) return;
     let args = message.content.substring(prefix.length).split(" ");
 
@@ -522,8 +512,8 @@ client.on('message', message => {
         case 'kick':
             if(!message.guild) return message.channel.send('You must be in a guild.');
             if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+                msg.delete({ timeout: 5000});
+            }).catch();
 
             const user = message.mentions.users.first();
 
@@ -555,8 +545,8 @@ client.on('message', message => {
         case 'ban':
             if(!message.guild) return message.channel.send('You must be in a guild.');
             if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+                msg.delete({ timeout: 5000});
+            }).catch();
 
             const user = message.mentions.users.first();
             const banReason = message.content.slice(args[0].length + args[1].length);
@@ -589,8 +579,8 @@ client.on('message', message => {
         case 'unban':
             if(!message.guild) return message.channel.send('You must be in a guild.');
             if(!message.member.permissions.has("ADMINISTRATOR") || !message.member.permissions.has("BAN_MEMBERS")) return message.reply("Lack of permissions!").then(msg => {
-                msg.delete({ timeout: 5000 /*time unitl delete in milliseconds*/});
-            }).catch(/*Your Error handling if the Message isn't returned, sent, etc.*/);
+                msg.delete({ timeout: 5000});
+            }).catch();
 
             const user = message.mentions.users.first();
 
@@ -612,18 +602,16 @@ client.on('message', message => {
             }
         break;
     }
-})
+})*/
 
-// Stores the current count.
+// Stores the current count
 let count = 0
-// Stores the timeout used to make the bot count if nobody else counts for a set period of
-// time.
+// Stores the timeout used to make the bot count if nobody else counts for a set period of time
 let timeout
 
 client.on('message', ({channel, content, member}) => {
     // Only do this for the counting channel of course
-    // If you want to simply make this work for all channels called 'counting', you
-    // could use this line:
+    // If you want to simply make this work for all channels called 'counting', you could use this line:
     if(client.channels.cache.filter(c => c.name === 'counting').keyArray().includes(channel.id)){
     //if (channel.id === 'counting channel id') {
         // You can ignore all bot messages like this
@@ -695,7 +683,7 @@ client.on('message', message => {
    } else if(command == 'help'){
        const helpEmbed = new MessageEmbed()
        .setTitle('Help!')
-       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +colors - Display the color roles you can choose from for the +color command! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands! \n +misc - Display a list of miscellaneous commands!')
+       .setDescription('**Note** \n These are the current commands at the moment. \n There will be more commands and features to come, as my developer learns how and implements them. \n \n +support - Receive a link to the support server via dm. \n +invite - Receive an invite link with instructions via dm. \n +updates - Display a message of recent updates and additions. \n \n +fun - Display a list of fun commands! \n +games - Display a list of game commands! \n +tools - Display a list of tool commands! \n +colors - Display the color roles you can choose from for the +color command! \n +music - [Note: Currently unavailable due to bot hosting.] Display a list of music commands! \n +moderation - Display a list of moderation commands! \n +animals - Display a list of animal commands!')
        .setColor('#66ccff')
        //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
        .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
@@ -755,15 +743,6 @@ client.on('message', message => {
        .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
        .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
        message.channel.send(animalsEmbed);
-   } else if(command == 'misc'){
-       const miscEmbed = new MessageEmbed()
-       .setTitle('Miscellaneous!')
-       .setDescription('+token')
-       .setColor('#66ccff')
-       //.setThumbnail('https://i.pinimg.com/originals/59/4c/c3/594cc380359a81888a5f2801fa933073.webp')
-       .setThumbnail('https://cdn.discordapp.com/attachments/782600268957089803/889641089282244628/image0.jpg')
-       .setFooter('Your wish is my command!                                                                                     Created by jc smoothie')
-       message.channel.send(miscEmbed);
    } else if(command == 'colors'){
        const colorsEmbed = new MessageEmbed()
        .setTitle('Colors!')
@@ -899,7 +878,7 @@ client.on('message', message => {
    } else if(command == 'color' || command == 'colour'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        client.commands.get('color').execute(message, args);
-   } else if(command == "addcolors"){
+   } else if(command == "addcolors" || command == "addcolours"){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Lack of permissions!");
 
@@ -926,7 +905,7 @@ client.on('message', message => {
 
        //Create Black Role
        if(black){
-           message.channel.send("Tind the 「Black」 color role already exists.");
+           message.channel.send("The 「Black」 color role already exists.");
        } else{
            message.guild.roles.create({
                data: {
@@ -1165,7 +1144,7 @@ client.on('message', message => {
        }
        
        message.channel.send("Created 20 new color roles! Type `+colors` to see what colors were added. To remove all 20 of these colors, type `+delcolors`.");
-   } else if(command == 'delcolors'){
+   } else if(command == 'delcolors' || command == 'delcolors'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        if(!message.member.permissions.has("MANAGE_ROLES")) return message.reply("Lack of permissions!")
        
@@ -1620,11 +1599,11 @@ client.on('message', message => {
            msg.delete({ timeout: 4000});
        }); }, 2000);
        message.channel.stopTyping();*/
-   } else if(command == 'hello'){
+   }/* else if(command == 'hello'){
        message.channel.startTyping();
        setTimeout(() => {  message.channel.send("hii"); }, 2000);
        message.channel.stopTyping();
-   } else if(command == 'cuterate'){ //Rates
+   }*/ else if(command == 'cuterate'){ //Rates
        if(!args[0]){
            //console.log('Missing args')
            var cuteness = Math.floor(Math.random() * 101);
@@ -1650,12 +1629,10 @@ client.on('message', message => {
            .setThumbnail('https://media1.tenor.com/images/097f46e1db35653902b10b0a322c908f/tenor.gif?itemid=12003933')
            message.channel.send(cuterate);
 
-           /*
-           if(personTagged.displayName == "Sweet Pea"){
+           /*if(personTagged.displayName == "Sweet Pea"){
                message.reply("❤️ Aww, thanks! I feel better now.");
                resetAttempts();
-           }
-           */
+           }*/
        }
    } else if(command == 'weebrate'){
        if(!args[0]){
@@ -1683,12 +1660,10 @@ client.on('message', message => {
            .setThumbnail('https://pbs.twimg.com/profile_images/777681909979680768/-7qNVsGS.jpg')
            message.channel.send(weebrate);
            
-           /*
-           if(personTagged.displayName == "Sweet Pea"){
+           /*if(personTagged.displayName == "Sweet Pea"){
                message.reply("❤️ Aww, thanks! I feel better now.");
                resetAttempts();
-           }
-           */
+           }*/
        }
    } else if(command == 'smartrate'){
        if(!args[0]){
@@ -1767,13 +1742,6 @@ client.on('message', message => {
            .setColor('#66ccff')
            .setThumbnail('https://tenor.com/view/flag-lgbt-rainbow-happy-pride-gif-12056452')
            message.channel.send(gayrate);
-
-           /*
-           if(personTagged.displayName == "Sweet Pea"){
-               message.reply("❤️ Aww, thanks! I feel better now.");
-               resetAttempts();
-           }
-           */
        }
    } else if(command == 'quiz'){
        const quiz = require('./quiz.json');
@@ -1791,7 +1759,7 @@ client.on('message', message => {
                 message.channel.send('Looks like nobody got the answer this time.');
             });
         });
-   } else if(command == 'mute'){
+   } /*else if(command == 'mute'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        message.channel.send("This command is currently being looked at and is in the process of repair.")
        //client.commands.get('mute').execute(message. args);
@@ -1799,7 +1767,7 @@ client.on('message', message => {
        if(!message.guild) return message.channel.send('You must be in a guild.');
        message.channel.send("This command is currently being looked at and is in the process of repair.")
        //client.commands.get('unmute').execute(message. args);
-   } else if(command == 'welcome'){
+   }*/ else if(command == 'welcome'){
        if(!message.guild) return message.channel.send('You must be in a guild.');
        if(message.member.displayName == 'jc smoothie'){
            if(message.member.guild.id == Asian_Invasion || message.member.guild.id == Eclipsys_Contact || message.member.guild.id == jc_smoothie_support_server || message.member.guild.id == jc_smoothie_server || message.member.guild.id == The_Toilet || message.member.guild.id == WHS_Anime_Club_Revamp){
@@ -2016,6 +1984,14 @@ client.on('message', async message => {
         messageEmbed.react('✅');
         messageEmbed.react('❌');
     } else if(command == 'anime'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         const msg = message.content.slice(6);
         if(msg == '') return;
         let reactionsEmbed = new MessageEmbed()
@@ -2027,6 +2003,14 @@ client.on('message', async message => {
         messageEmbed.react('✅');
         messageEmbed.react('❌');
     } else if(command == 'toiletroles'){
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+
         let reactionsEmbed = new MessageEmbed()
         .setTitle('Get your server roles!')
         .setDescription("Welcome to the server! \n React with the corresponding reaction to get a server role. The server roles are listed below: \n \n **Games** \n <:minecraft:781962289040850954> -> Minecraft \n <:LolIcon:781967459401203752> -> League \n <:roblox:781976618868408351> -> Roblox \n <:fleethefacility:781973423722201178> -> Flee the Facility \n <:entrypoint:781973273771900928> -> Entry Point \n <:arsenal:781973252448059402> -> Arsenal \n \n **Misc** \n <:sovietlel:781973189097160744> -> Comrade \n <:uwuweebs:781976106013949993> -> Weeb \n ")
@@ -2091,6 +2075,14 @@ client.on('message', async message => {
     }
 
     if (command == 'osureact') {
+        if(!message.member.displayName == 'jc smoothie'){
+            message.delete();
+            message.reply("You are not allowed to use this command!").then(msg => {
+                msg.delete({ timeout: 5000 /*time until delete in milliseconds*/});
+            }).catch(error/*Your Error handling if the Message isn't returned, sent, etc.*/);
+            return;
+        }
+        
         message.channel.send('Ta da!~');
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'osu');
         message.react(reactionEmoji);
