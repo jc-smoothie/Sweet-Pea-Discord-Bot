@@ -59,7 +59,7 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.XwEoeQ.nAvGYjw6ivpDvVbl7uRkLbEQzM0');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.GUBM_O.fSYVw-vnT6nT4irXzX4Rg8eS9KA7D3BK4pQrz8');
 //client.login(process.env.token);
 
 //Sort the Court Stuff
