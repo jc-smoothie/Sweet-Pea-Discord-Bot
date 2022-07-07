@@ -1,9 +1,11 @@
 const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js');
+
 //const Levels = require('discord-xp');
 //const mongoose = require('mongoose');
-const memberCount = require('./member-count');
+
+//const memberCount = require('./member-count');
 
 const herokuHosting = false;
 
@@ -15,31 +17,6 @@ const herokuHosting = false;
 const ytdl = require("ytdl-core");
 
 const client = new Discord.Client();
-
-//const queue = new Map();
-
-/*let createdTime = message.guild.createdAt
-let memberCount = message.guild.memberCount
-let onlineCount = message.guild*/
-
-/*const EconomyClient = require('./structures/Client');
-new EconomyClient().start(require('./config').token, './commands');*/
-
-//mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
-
-//Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
-
-//This is the other client assignor
-//const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
-
-//const client = new Client();
-
-//This is another client assignor
-//const {Client, MessageEmbed} = require('discord.js');
-
-const prefix = '+';
-
-//mongodb+srv://jcsmoothie:Z3TWW946XLWLVVG5F@sweetpea.wwdao.mongodb.net/Data?retryWrites=true&w=majority
 
 const fs = require('fs');
 
@@ -59,10 +36,33 @@ var emitter = new MyEmitter()
 
 client.commands = new Discord.Collection();
 
-//client.login('NzI5MTQyMDczMTI2NjgyNjQ0.GUBM_O.fSYVw-vnT6nT4irXzX4Rg8eS9KA7D3BK4pQrz8');
-client.login(process.env.token);
+//const queue = new Map();
 
-//Sort the Court Stuff
+/*let createdTime = message.guild.createdAt
+let memberCount = message.guild.memberCount
+let onlineCount = message.guild*/
+
+/*const EconomyClient = require('./structures/Client');
+new EconomyClient().start(require('./config').token, './commands');*/
+
+//mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
+
+//Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
+
+// A different client assignor
+//const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
+
+// Another different client assignor
+//const {Client, MessageEmbed} = require('discord.js');
+
+//mongodb+srv://jcsmoothie:Z3TWW946XLWLVVG5F@sweetpea.wwdao.mongodb.net/Data?retryWrites=true&w=majority
+
+const prefix = '+';
+
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.GUBM_O.fSYVw-vnT6nT4irXzX4Rg8eS9KA7D3BK4pQrz8');
+//client.login(process.env.token);
+
+// Sort the Court Stuff
 var attempts = 1;
 
 function increateAttempts(){
@@ -82,31 +82,18 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('Sweet Pea is online!');
-    /*while(true){
-        client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
-        setTimeout(function(){
-            message.channel.send("nice");
-        }, 4000);
-        client.user.setActivity('51 servers! | +help', {type: "WATCHING"}).catch(console.error);
-        setTimeout(function(){
-            message.channel.send("nice");
-        }, 4000);
-
-        memberCount(client);
-        //welcome(client);
-    }*/
 
     client.user.setActivity('anime! | +help', {type: "WATCHING"}).catch(console.error);
     //client.user.setStatus('dnd');
 
-    //maintenance mode
+    // Maintenance mode
     //client.user.setPresence({activity: {name: 'wow, maintenance! | +help'},  status: 'dnd'});
 
-    memberCount(client);
+    //memberCount(client);
     //welcome(client);
 });
 
-//Message sent to the owner of the guild who added Sweet Pea to their server
+// Sends a message to the user that added Sweet Pea to their server
 client.on("guildCreate", (guild) => {
     guild.owner.send(`Thank you for inviting me to **${guild.name}**! ` +  "Type `+help` to display a list of categorized commands, and I hope I am able to suit your needs!")
 });
@@ -263,7 +250,7 @@ client.on("guildMemberAdd", (member) => {
     }
 });*/
 
-//Xp System
+// Xp System
 /*client.on("message", async message => {
     if(!message.guild) return;
     if(message.author.bot) return;
