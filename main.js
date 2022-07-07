@@ -59,7 +59,7 @@ new EconomyClient().start(require('./config').token, './commands');*/
 
 const prefix = '+';
 
-client.login('NzI5MTQyMDczMTI2NjgyNjQ0.GUBM_O.fSYVw-vnT6nT4irXzX4Rg8eS9KA7D3BK4pQrz8');
+client.login('NzI5MTQyMDczMTI2NjgyNjQ0.Gj6woK.EkXSknUqVLYBc6fwUS5xbRNvQ7U2_CX85wrfqU');
 //client.login(process.env.token);
 
 // Sort the Court Stuff
