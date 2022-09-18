@@ -2,17 +2,7 @@ const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js');
 
-//const Levels = require('discord-xp');
-//const mongoose = require('mongoose');
-
-//const memberCount = require('./member-count');
-
 const herokuHosting = false;
-
-/*const {
-    Client,
-    Attachment
-} = require('discord.js');*/
 
 const ytdl = require("ytdl-core");
 
@@ -30,32 +20,15 @@ const { execute } = require('./commands/rank');
 const { slice } = require('ffmpeg-static');
 class MyEmitter extends EventEmitter{}
 
-var emitter = new MyEmitter()
-
-//console.log(`emitter: ${emitter.getMaxListeners()}`);
-
 client.commands = new Discord.Collection();
 
 //const queue = new Map();
-
-/*let createdTime = message.guild.createdAt
-let memberCount = message.guild.memberCount
-let onlineCount = message.guild*/
-
-/*const EconomyClient = require('./structures/Client');
-new EconomyClient().start(require('./config').token, './commands');*/
-
-//mongoose.connect('mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true});
-
-//Levels.setURL("mongodb+srv://jcsmoothie:TheW1224RD@sweetpea.wwdao.mongodb.net/Data")
 
 // A different client assignor
 //const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 // Another different client assignor
 //const {Client, MessageEmbed} = require('discord.js');
-
-//mongodb+srv://jcsmoothie:Z3TWW946XLWLVVG5F@sweetpea.wwdao.mongodb.net/Data?retryWrites=true&w=majority
 
 const prefix = '+';
 
