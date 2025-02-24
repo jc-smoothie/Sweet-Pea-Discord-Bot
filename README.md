@@ -1,0 +1,1 @@
+The development of Sweet Pea aimed to improve user experience in Discord community servers. However, due to limited resources, the project was discontinued. The bot has remained offline since November 2022.
