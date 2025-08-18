@@ -1,1 +1,1 @@
-The development of Sweet Pea aimed to improve user experience in Discord community servers. However, due to limited resources, the project was discontinued. Service for the bot has ended since November 2022.
+The development of Sweet Pea aimed to improve user experience in Discord community servers. However, due to limited resources, the project was discontinued. All service and support were terminated in November 2022.
